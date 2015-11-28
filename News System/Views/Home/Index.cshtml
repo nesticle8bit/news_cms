@@ -1,0 +1,95 @@
+﻿@model News_System.Models.HomeViewModel
+
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h4 class="section-title">Highlight articles<span></span></h4>
+
+<div class="top-articles-list">
+    @foreach (var item in Model.Posts)
+    {
+        if (item.Highlight == true)
+        {
+            <article class="vertical">
+                <a href="http://icanbecreative.com/article/animate-element-along-svg-path" class="article-thumbnail">
+                    <img src="~/Files/@Html.DisplayFor(modelItem => item.Image)" />
+                </a>
+                <div class="article-info">
+                    <div class="article-meta">
+                        <ul>
+                            <li><a href="http://icanbecreative.com/article/animate-element-along-svg-path">@Html.DisplayFor(modelItem => item.Time)</a></li>
+                            <li class="divider">/</li>
+                            <li>
+                                <a href="http://icanbecreative.com/category/web-development">
+                                    @Html.DisplayFor(modelItem => item.Category.Name)
+                                </a>
+                            </li>
+                            <li class="divider">/</li>
+                            <li>
+                                <a href="http://icanbecreative.com/article/animate-element-along-svg-path#comments">
+                                    @Html.DisplayFor(modelItem => item.Comment.Count) @(item.Comment.Count == 0 || item.Comment.Count > 1 ? "Comentarios" : "Comentario")
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2 class="article-title">
+                        <a href="http://icanbecreative.com/article/animate-element-along-svg-path" title="@Html.DisplayFor(modelItem => item.Title)">
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </a>
+                    </h2>
+                </div>
+                <div class="clear"></div>
+            </article>
+        }
+    }
+    <div class="clear"></div>
+</div>
+
+<h4 class="section-title">Latest articles<span></span></h4>
+
+@foreach (var item in Model.Posts)
+{
+    if (item.Highlight == false)
+    {
+        <article class="horizontal">
+            <a href="http://icanbecreative.com/article/pre-built-websites-creating-enthusiasm" class="article-thumbnail">
+                <img src="~/Files/@Html.DisplayFor(modelItem => item.Image)" />
+            </a>
+            <div class="article-info">
+                <div class="article-meta">
+                    <ul>
+                        <li>
+                            <a href="http://icanbecreative.com/article/pre-built-websites-creating-enthusiasm" title="@Html.DisplayFor(modelItem => item.Time)">
+                                @Html.DisplayFor(modelItem => item.Time)
+                            </a>
+                        </li>
+                        <li class="divider">/</li>
+                        <li>
+                            <a href="http://icanbecreative.com/category/themes">
+                                @Html.DisplayFor(modelItem => item.Category.Name)
+                            </a>
+                        </li>
+                        <li class="divider">/</li>
+                        <li>
+                            <a href="http://icanbecreative.com/article/pre-built-websites-creating-enthusiasm#comments">
+                                @Html.DisplayFor(modelItem => item.Comment.Count) @(item.Comment.Count == 0 || item.Comment.Count > 1 ? "Comentarios" : "Comentario")
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <h2 class="article-title">
+                    <a href="http://icanbecreative.com/article/pre-built-websites-creating-enthusiasm" title="Why Pre-Built Websites are Creating Enthusiasm">
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </a>
+                </h2>
+
+                <p>
+                    @Html.DisplayFor(modelItem => item.Description).ToString().Substring(0, 25)...
+                </p>
+            </div>
+            <div class="clear"></div>
+        </article>
+    }
+}

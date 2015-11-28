@@ -1,0 +1,38 @@
+﻿@model News_System.Models.HomeViewModel
+@{
+    Layout = null;
+}
+
+<div id="side-holder">
+    <div class="logo-holder gradient"><a href="#" class="icon-logo"></a></div>
+    <ul>
+        <li>
+            <form method="get" action="/search/" class="search-form">
+                <input type="text" name="q" placeholder="search text" class="search-input">
+            </form>
+        </li>
+        <li>
+            <a href="#">
+                <span class="text">Categories</span>
+            </a>
+            <ul>
+                @if (Model != null)
+                {
+                    foreach (var item in Model.Categories)
+                    {
+                        <li>
+                            <a href="http://icanbecreative.com/category/articles" title="@Html.DisplayFor(modelItem => item.Name)">
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </a>
+                        </li>
+                    }
+                }
+            </ul>
+        </li>
+        <!--<li>
+            <a href="http://icanbecreative.com/shop">
+                <span class="text">Shop</span>
+            </a>
+        </li>-->
+    </ul>
+</div>
