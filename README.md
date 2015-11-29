@@ -17,7 +17,7 @@ Content Management System for News building in MVC Asp.net
 - http://icanbecreative.com
 
 --
-Im creating this just for the learning about this backend language nothing commercial.
+> Im creating this just for the learning about this backend language nothing commercial feel free to contact to me  **juliopoveda@protonmail.com**
 
 ## TODO List 🏁
 
