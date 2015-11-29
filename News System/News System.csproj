@@ -224,6 +224,10 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Resources\Images\10.jpg" />
     <Content Include="Content\Resources\Images\bg-facebook.jpg" />
+    <Content Include="Content\Resources\Images\bg-google.jpg" />
+    <Content Include="Content\Resources\Images\bg-instagram.jpg" />
+    <Content Include="Content\Resources\Images\bg-tumblr.jpg" />
+    <Content Include="Content\Resources\Images\bg-twitter.jpg" />
     <Content Include="Content\Resources\Images\social-coins.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />

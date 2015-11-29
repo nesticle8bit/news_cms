@@ -6,7 +6,60 @@
 }
 
 .bootstrap-tagsinput {
-    width: 100%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  display: inline-block;
+  padding: 4px 6px;
+  color: #555;
+  vertical-align: middle;
+  border-radius: 4px;
+  max-width: 100%;
+  line-height: 22px;
+  cursor: text;
+  width: 100%;
+}
+.bootstrap-tagsinput input {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0 6px;
+  margin: 0;
+  width: auto;
+  max-width: inherit;
+}
+.bootstrap-tagsinput.form-control input::-moz-placeholder {
+  color: #777;
+  opacity: 1;
+}
+.bootstrap-tagsinput.form-control input:-ms-input-placeholder {
+  color: #777;
+}
+.bootstrap-tagsinput.form-control input::-webkit-input-placeholder {
+  color: #777;
+}
+.bootstrap-tagsinput input:focus {
+  border: none;
+  box-shadow: none;
+}
+.bootstrap-tagsinput .tag {
+  margin-right: 2px;
+  color: white;
+}
+.bootstrap-tagsinput .tag [data-role="remove"] {
+  margin-left: 8px;
+  cursor: pointer;
+}
+.bootstrap-tagsinput .tag [data-role="remove"]:after {
+  content: "x";
+  padding: 0px 2px;
+}
+.bootstrap-tagsinput .tag [data-role="remove"]:hover {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.bootstrap-tagsinput .tag [data-role="remove"]:hover:active {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -38,7 +91,7 @@ input:-ms-input-placeholder { line-height: 1.5em; } /* Internet Explorer 10+ */
 
 .border-radius-3 { -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }
 
-.label { background: #ffffff; margin: 0px 0 0 0; font-size: 10px; line-height: 13px; color: white; padding: 2px 4px; display: inline-block; text-align: center; font-family: 'Open Sans'; }
+.label { /*background: #ffffff;*/ margin: 0px 0 0 0; font-size: 10px; line-height: 13px; color: white; padding: 2px 4px; display: inline-block; text-align: center; font-family: 'Open Sans'; }
 .label.blue { background: #3b67aa; }
 .label.black { background: #50514a; }
 
@@ -500,22 +553,22 @@ transition: all 0.1s ease-in-out;}
 .sidebar-social-holder.facebook .asset-holder .title {font-size:18px; color:#FFF; height:45px; padding-top:25px; text-transform:uppercase; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box;}
 
 .sidebar-social-holder.twitter .coin {background-position:0 -452px; z-index:1; position:absolute; bottom:-50px; left:20px;}
-.sidebar-social-holder.twitter .asset-holder {background:url(../images/social-wiget/bg-twitter.jpg) no-repeat top left #FFF; height:80px;}
+.sidebar-social-holder.twitter .asset-holder {background:url(Resources/Images/bg-twitter.jpg) no-repeat top left #FFF; height:80px;}
 .sidebar-social-holder.twitter .asset-holder .super-title {font-size:12px; color:#FFF;  padding-top:25px; padding-left:150px; text-transform:uppercase; text-align:left;}
 .sidebar-social-holder.twitter .asset-holder .title {font-size:24px; line-height:24px; color:#FFF; padding-left:150px; text-align:left;}
 
 .sidebar-social-holder.instagram .coin {background-position:0 -226px; z-index:1; position:absolute; bottom:-50px; left:20px;}
-.sidebar-social-holder.instagram .asset-holder {background:url(../images/social-wiget/bg-instagram.jpg) no-repeat top left #FFF; height:80px;}
+.sidebar-social-holder.instagram .asset-holder {background:url(Resources/Images/bg-instagram.jpg) no-repeat top left #FFF; height:80px;}
 .sidebar-social-holder.instagram .asset-holder .super-title {font-size:12px; color:#FFF;  padding-top:25px; padding-left:150px; text-transform:uppercase; text-align:left;}
 .sidebar-social-holder.instagram .asset-holder .title {font-size:24px; line-height:24px; color:#FFF; padding-left:150px; text-align:left;}
 
 .sidebar-social-holder.tumblr .coin {background-position:0 -339px; z-index:1; position:absolute; bottom:-50px; left:20px;}
-.sidebar-social-holder.tumblr .asset-holder {background:url(../images/social-wiget/bg-tumblr.jpg) no-repeat top left #FFF; height:80px;}
+.sidebar-social-holder.tumblr .asset-holder {background:url(Resources/Images/bg-tumblr.jpg) no-repeat top left #FFF; height:80px;}
 .sidebar-social-holder.tumblr .asset-holder .super-title {font-size:12px; color:#FFF;  padding-top:25px; padding-left:150px; text-transform:uppercase; text-align:left;}
 .sidebar-social-holder.tumblr .asset-holder .title {font-size:24px; line-height:24px; color:#FFF; padding-left:150px; text-align:left;}
 
 .sidebar-social-holder.google-plus .coin {background-position:0 -113px; z-index:1; position:absolute; bottom:-50px; left:20px;}
-.sidebar-social-holder.google-plus .asset-holder {background:url(../images/social-wiget/bg-google.jpg) no-repeat top left #FFF; height:80px;}
+.sidebar-social-holder.google-plus .asset-holder {background:url(Resources/Images/bg-google.jpg) no-repeat top left #FFF; height:80px;}
 .sidebar-social-holder.google-plus .asset-holder .super-title {font-size:12px; color:#FFF;  padding-top:25px; padding-left:150px; text-transform:uppercase; text-align:left;}
 .sidebar-social-holder.google-plus .asset-holder .title {font-size:24px; line-height:24px; color:#FFF; padding-left:150px; text-align:left;}
 
