@@ -435,7 +435,7 @@ div.icbc-ui-assets-more h4 {line-height: 20px; font-size: 1.5em; margin:0px; pad
 /*-------------------------
 		newsletter
 --------------------------*/
-.sidebar-subscribe-holder {margin-bottom: 30px; padding-bottom:30px; background:url(../images/10.jpg) no-repeat; /*background-size: cover;*/ background-position: 50% 50%; font-family: 'Open Sans';}
+.sidebar-subscribe-holder {margin-bottom: 30px; padding-bottom:30px; background:url(Resources/Images/10.jpg) no-repeat; /*background-size: cover;*/ background-position: 50% 50%; font-family: 'Open Sans';}
 .sidebar-subscribe-holder span.title {display:block; text-align:center; font-size:30px; padding:10px 0px 20px 0px; color:#FFF; font-weight:300;}
 .sidebar-subscribe-holder p  {font-size:14px; padding:0 20px; color:#FFF;}
 .sidebar-subscribe-holder .form-wrapper { padding:20px 20px 10px 20px; position:relative;}
@@ -450,7 +450,7 @@ transition: all 0.1s ease-in-out;}
 /*-------------------------
 		fullwidth module
 --------------------------*/
-.fullwidth-module {border-top:10px solid #FFF; padding:50px 0 80px 0px;  background:url(../images/10.jpg) no-repeat; background-size: cover; background-position: 50% 50%;}
+.fullwidth-module {border-top:10px solid #FFF; padding:50px 0 80px 0px;  background:url(Resources/Images/10.jpg) no-repeat; background-size: cover; background-position: 50% 50%;}
 .fullwidth-module h2 {display:block; text-align:center; font-size:36px; padding:0px 0px 10px 0px; color:#FFF; font-weight:300;}
 .fullwidth-module p  {font-size:14px; padding:0 20px; color:#FFF; text-align:center;}
 .fullwidth-module .form-wrapper {margin-top:20px; padding:20px 20px 10px 20px; position:relative;}
