@@ -26,10 +26,6 @@ Content Management System for News building in MVC Asp.net
 ### Home
 - Implementar los buscadores del Navbar y del Sidebar.
 
-## Log
-
-1. Implementación de la lista de Categorías en Sidebar y Navbar.
-
 
 --
 > Im creating this just for the learning about this backend language (C# and SQL Server) nothing commercial feel free to contact to me  **juliopoveda@protonmail.com**
