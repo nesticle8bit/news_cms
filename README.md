@@ -26,6 +26,7 @@ Im creating this just for the learning about this backend language nothing comme
 - Poder añadir Google Adsense y Analytics.
 - Nuevo Layout para Admin.
 - Organizar los links permanentes de los Posts.
+- Parametrizar las redes sociales tanto en el sidebar como navbar.
 
 ### Home
 - Implementar los buscadores del Navbar y del Sidebar.
