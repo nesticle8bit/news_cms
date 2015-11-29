@@ -48,24 +48,27 @@ namespace News_System.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Image,Time,Description,Category,Tags")] Post post, HttpPostedFileBase file, FormCollection f)
+        public ActionResult Create([Bind(Include = "Id,Title,Image,Time,Description,Tags,Id_Category")] Post post, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
                 if (Directory.Exists(Server.MapPath("~/Files/")) == false) Directory.CreateDirectory(Server.MapPath("~/Files/"));
 
-                string fileNameOP = string.Empty;
-                if (file.FileName.LastIndexOf("\\") > 0)
-                    fileNameOP = file.FileName.Substring(file.FileName.LastIndexOf("\\") + 1);
-                else
-                    fileNameOP = file.FileName;
+                //Guardar la Imagen
+                if (file != null)
+                {
+                    string fileNameOP = string.Empty;
+                    if (file.FileName.LastIndexOf("\\") > 0)
+                        fileNameOP = file.FileName.Substring(file.FileName.LastIndexOf("\\") + 1);
+                    else
+                        fileNameOP = file.FileName;
 
-                string filename = Path.GetFileName(DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + "_" + fileNameOP);
-                file.SaveAs(Server.MapPath("~/Files/") + filename);
-
+                    string filename = Path.GetFileName(DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + "_" + fileNameOP);
+                    file.SaveAs(Server.MapPath("~/Files/") + filename);
+                    post.Image = filename;
+                }
+                
                 post.Time = DateTime.Now;
-                post.Image = filename;
-
 
                 db.Post.Add(post);
                 db.SaveChanges();
@@ -133,7 +136,7 @@ namespace News_System.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Image,Time,Description")] Post post)
+        public ActionResult Edit([Bind(Include = "Id,Title,Image,Time,Description,Id_Category")] Post post)
         {
             if (ModelState.IsValid)
             {
@@ -141,6 +144,8 @@ namespace News_System.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            ViewBag.Category = new SelectList(db.Category, "Id", "Name");
             return View(post);
         }
 
