@@ -18,3 +18,18 @@ Content Management System for News building in MVC Asp.net
 
 --
 Im creating this just for the learning about this backend language nothing commercial.
+
+## TODO List
+
+### Panel de administración
+- Organizar el sistema para parametrizar la aplicación.
+- Poder añadir Google Adsense y Analytics.
+- Nuevo Layout para Admin.
+- Organizar los links permanentes de los Posts.
+
+### Home
+- Implementar los buscadores del Navbar y del Sidebar.
+
+## Log
+
+1. Implementación de la lista de Categorías en Sidebar y Navbar.
