@@ -13,9 +13,6 @@ Content Management System for News building in MVC Asp.net
 - Psd Safari Yosemite Browser Mockup - https://dribbble.com/shots/1586310-Psd-Safari-Yosemite-Browser-Mockup
 - Fonts used (Aileron) - http://www.fontsc.com/font/aileron
 
-## ♥ Full Inspiration
-- http://icanbecreative.com
-
 ## 🏁 TODO List
 
 ### Panel de administración
