@@ -19,7 +19,7 @@ Content Management System for News building in MVC Asp.net
 --
 Im creating this just for the learning about this backend language nothing commercial.
 
-## TODO List
+## TODO List 🏁
 
 ### Panel de administración
 - Organizar el sistema para parametrizar la aplicación.
