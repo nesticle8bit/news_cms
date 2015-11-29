@@ -42,11 +42,14 @@
                             <div class="dropdown-wrapper">
                                 <div class="triangle"></div>
                                 <ul class="categories">
-                                    <li><a href="http://icanbecreative.com/category/articles">Articles</a></li>
-                                    <li><a href="http://icanbecreative.com/category/design-freebies">Design Freebies</a></li>
-                                    <li><a href="http://icanbecreative.com/category/design-tutorials">Design Tutorials</a></li>
-                                    <li><a href="http://icanbecreative.com/category/showcases">Showcases</a></li>
-                                    <li><a href="http://icanbecreative.com/category/web-development">Web Development</a></li>
+                                    @for (int i = 0; i < ViewBag.Categorias.Count; i++)
+                                    {
+                                        <li>
+                                            <a href="#">
+                                                @ViewBag.Categorias[i].Name
+                                            </a>
+                                        </li>
+                                    }
                                 </ul>
                             </div>
                             <a href="#">
@@ -128,7 +131,7 @@
                 <div class="search-holder">
                     <form method="get" action="/search/">
                         <input type="text" name="q" placeholder="search text" class="search-input">
-                        <span class="icon icon-remove close" onclick="searchToggle($('.search-button')); return false;"></span>
+                        <span class="fa fa-times close" onclick="searchToggle($('.search-button')); return false;"></span>
                     </form>
                 </div>
             </header>

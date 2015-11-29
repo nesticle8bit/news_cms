@@ -1,4 +1,5 @@
-﻿using System;
+﻿using News_System.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,9 @@ namespace News_System
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            //Visualizar Todas las categorias
+            GlobalFilters.Filters.Add(new CommonConfig(), 0);
         }
     }
 }

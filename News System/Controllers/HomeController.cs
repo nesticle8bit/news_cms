@@ -13,16 +13,16 @@ namespace News_System.Controllers
         {
             homeViewModel.Posts = db.Post.ToList().OrderByDescending(o => o.Time);
             //Categorias del Sidebar, no hay necesidad de crear un ActionResult para ese View
-            homeViewModel.Categories = db.Category.ToList().OrderBy(o => o.Name);
+            //homeViewModel.Categories = db.Category.ToList().OrderBy(o => o.Name);
 
             return View(homeViewModel);
         }
 
-        public ActionResult Sidebar()
-        {
-            homeViewModel.Categories = db.Category.ToList().OrderByDescending(o => o.Name);
-            return View(homeViewModel);
-        }
+        //public ActionResult Sidebar()
+        //{
+        //    homeViewModel.Categories = db.Category.ToList().OrderByDescending(o => o.Name);
+        //    return View(homeViewModel);
+        //}
 
         public ActionResult About()
         {
