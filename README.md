@@ -21,13 +21,10 @@ Content Management System for News building in MVC Asp.net
 - Nuevo Layout para Admin.
 - Organizar los links permanentes de los Posts.
 - Parametrizar las redes sociales tanto en el sidebar como navbar.
+- Implementar WYSIWYG en la creación de Post
 
 ### Home
 - Implementar los buscadores del Navbar y del Sidebar.
-
-## Log
-
-1. Implementación de la lista de Categorías en Sidebar y Navbar.
 
 
 --
