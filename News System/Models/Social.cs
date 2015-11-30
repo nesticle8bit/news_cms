@@ -18,6 +18,7 @@ namespace News_System.Models
         public string Name { get; set; }
         public string Link { get; set; }
         public Nullable<int> Id_Icon { get; set; }
+        public Nullable<bool> Status { get; set; }
     
         public virtual Icon Icon { get; set; }
     }

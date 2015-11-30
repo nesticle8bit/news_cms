@@ -4,7 +4,7 @@
     $.get("/Post/GetTags", function (response) {
         $.each(response.data, function (i, v) {
             token.push({ value: v });
-            console.log(v);
+            //console.log(v);
         });
         engine = new Bloodhound({
             local: token,
@@ -16,7 +16,7 @@
         });
         engine.initialize();
 
-        console.log(token);
+        //console.log(token);
 
         $('#tags').on('tokenfield:createtoken', function (e) {
             var data = e.attrs.value.split('|')
@@ -38,4 +38,6 @@
             typeahead: [null, { source: engine.ttAdapter() }]
         });
     });
+
+    $("#editor").wysibb();
 });

@@ -164,6 +164,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IconsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\TagsController.cs" />
@@ -229,6 +230,7 @@
     <Content Include="Content\Resources\Images\bg-tumblr.jpg" />
     <Content Include="Content\Resources\Images\bg-twitter.jpg" />
     <Content Include="Content\Resources\Images\social-coins.png" />
+    <Content Include="Content\wbbtheme.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -262,6 +264,9 @@
       <DependentUpon>EntityDataModel.edmx</DependentUpon>
       <LastGenOutput>EntityDataModel.cs</LastGenOutput>
     </Content>
+    <Content Include="fonts\wysibbiconfont-wb.eot" />
+    <Content Include="fonts\wysibbiconfont-wb.ttf" />
+    <Content Include="fonts\wysibbiconfont-wb.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\global_script.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -271,6 +276,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery.wysibb.js" />
+    <Content Include="Scripts\jquery.wysibb.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\Post\post.js" />
     <Content Include="Scripts\respond.js" />
@@ -328,6 +335,11 @@
     <Content Include="Views\Tags\Index.cshtml" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
     <Content Include="Views\Home\Sidebar.cshtml" />
+    <Content Include="Views\Icons\Create.cshtml" />
+    <Content Include="Views\Icons\Delete.cshtml" />
+    <Content Include="Views\Icons\Details.cshtml" />
+    <Content Include="Views\Icons\Edit.cshtml" />
+    <Content Include="Views\Icons\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
