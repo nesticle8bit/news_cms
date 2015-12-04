@@ -223,6 +223,11 @@ namespace News_System.Controllers
             return id;
         }
 
-        //Crear registro
+        //
+        public ActionResult ViewPost(int? id)
+        {
+            Post post = db.Post.Find(id);
+            return View(post);
+        }
     }
 }

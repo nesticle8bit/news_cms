@@ -15,7 +15,7 @@
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,200,100,500,600,700,800,900' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Cabin:400,500,600,700,400italic,500italic,600italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,500italic,500,400italic,300,100italic,100,300italic' rel='stylesheet' type='text/css'>
-    
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
@@ -60,12 +60,12 @@
                             </a>
                         </li>
                         <!-- <li class="border"></li>
-                <li>
-                    <a href="http://icanbecreative.com/shop">
-                        <span class="icon-shop"></span>
-                        <span class="text">Shop</span>
-                    </a>
-                </li>-->
+                        <li>
+                            <a href="http://icanbecreative.com/shop">
+                                <span class="icon-shop"></span>
+                                <span class="text">Shop</span>
+                            </a>
+                        </li>-->
                         <li class="border"></li>
                         <li>
                             <a href="@Url.Action("About", "Home")">
@@ -138,37 +138,28 @@
                 </div>
             </header>
 
-            <div class="content-container">
-                <div class="inner">
-                    <div class="content-wrap">
-                        <div class="inner">
-                            @RenderBody()
-                        </div>
-                    </div>
-                    @RenderPage("_Sidebar.cshtml")
-                </div>
-            </div>
+            @RenderBody()
         </div>
     </div>
-    
-    
+
+
 
     @*<div id="fb-root"></div>
-    <script type="text/javascript">
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5&appId=107545726022674";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
+        <script type="text/javascript">
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5&appId=107545726022674";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
 
-    <script src="https://apis.google.com/js/platform.js" async defer>
-        { lang: 'es' }
-    </script>
+        <script src="https://apis.google.com/js/platform.js" async defer>
+            { lang: 'es' }
+        </script>
 
-    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>*@
+        <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>*@
 
     <script src="~/Scripts/jquery.wysibb.js"></script>
     <script src="~/Scripts/xbbcode.js"></script>

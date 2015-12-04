@@ -39,5 +39,8 @@
         });
     });
 
+    //var wysibbOptions = {
+    //    buttons: "bold,italic,underline,strike,|superscript,subscript|,img,youtube,link,|,code,quote"
+    //}
     $("#editor").wysibb();
 });

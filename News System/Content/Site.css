@@ -303,23 +303,6 @@ article.article-content img {height:auto; max-width:100%;}
 article.article-content pre {font-size: 12px; line-height: 16px; margin:0px 0px 15px 0px;}
 article.article-content pre code {display:inline-block; width:100%;}
 
-
-
-/*-------------------------
-	Old wordpress styles
---------------------------*/
-article.article-content img.size-thumbnail {}
-article.article-content img.size-full {}
-article.article-content img.size-large {}
-article.article-content img.alignnone {}
-article.article-content img.size-medium {}
-article.article-content img.aligncenter {margin: 0 auto; display:block;}
-article.article-content img.alignright {float:right; width:auto; margin-left:20px; margin-bottom:20px;}
-article.article-content img.alignleft {float:left; width:auto; margin-right:20px; margin-bottom:20px;}
-
-
-
-
 .article-stats { margin: 0px 0 20px 0px; padding: 0px; color: #4c4c4c; list-style: none; display: table; font-size: 12px; line-height: 16px; font-family: 'Open Sans'; }
 .article-stats li { border-bottom: 1px solid #dedede; padding: 10px 30px 10px 20px; }
 .article-stats li b { font-weight: 700; }
@@ -852,4 +835,101 @@ transition: all 0.1s ease-in-out;}
 	.ad-article-responsive {padding:15px; margin:-15px -15px 15px -15px;}
 
 	.content-container .section-title {font-size:18px;}
+}
+
+.xbbcode-b {
+    font-weight:bold;
+}
+
+.xbbcode-blockquote {
+
+}
+
+.xbbcode-center {
+    margin-left:auto;
+	margin-right:auto;
+	display: block;
+	text-align: center;
+}
+
+.xbbcode-code {
+    white-space: pre-wrap;
+    font-family: monospace;
+}
+
+.xbbcode-i {
+    font-style: italic; 
+}
+
+.xbbcode-justify {
+	display: block;
+	text-align: justify;
+}
+
+.xbbcode-left {
+	display: block;
+	text-align: left;
+}
+
+.xbbcode-right {
+	display: block;
+	text-align: right;
+}
+
+.xbbcode-s {
+    text-decoration: line-through;
+}
+
+.xbbcode-size-4 {font-size:4px;}
+.xbbcode-size-5 {font-size:5px;}
+.xbbcode-size-6 {font-size:6px;}
+.xbbcode-size-7 {font-size:7px;}
+.xbbcode-size-8 {font-size:8px;}
+.xbbcode-size-9 {font-size:9px;}
+.xbbcode-size-10 {font-size:10px;}
+.xbbcode-size-11 {font-size:11px;}
+.xbbcode-size-12 {font-size:12px;}
+.xbbcode-size-13 {font-size:13px;}
+.xbbcode-size-14 {font-size:14px;}
+.xbbcode-size-15 {font-size:15px;}
+.xbbcode-size-16 {font-size:16px;}
+.xbbcode-size-17 {font-size:17px;}
+.xbbcode-size-18{font-size:18px;}
+.xbbcode-size-19 {font-size:19px;}
+.xbbcode-size-20 {font-size:20px;}
+.xbbcode-size-21 {font-size:21px;}
+.xbbcode-size-22 {font-size:22px;}
+.xbbcode-size-23 {font-size:23px;}
+.xbbcode-size-24 {font-size:24px;}
+.xbbcode-size-25 {font-size:25px;}
+.xbbcode-size-26 {font-size:26px;}
+.xbbcode-size-27 {font-size:27px;}
+.xbbcode-size-28 {font-size:28px;}
+.xbbcode-size-29 {font-size:29px;}
+.xbbcode-size-30 {font-size:30px;}
+.xbbcode-size-31 {font-size:31px;}
+.xbbcode-size-32 {font-size:32px;}
+.xbbcode-size-33 {font-size:33px;}
+.xbbcode-size-34 {font-size:34px;}
+.xbbcode-size-35 {font-size:35px;}
+.xbbcode-size-36 {font-size:36px;}
+.xbbcode-size-37 {font-size:37px;}
+.xbbcode-size-38 {font-size:38px;}
+.xbbcode-size-39 {font-size:39px;}
+.xbbcode-size-40 {font-size:40px;}
+
+.xbbcode-u {
+    text-decoration: underline;
+}
+
+.xbbcode-table {
+    border-collapse:collapse;
+}
+
+.xbbcode-tr {
+
+}
+
+.xbbcode-table , .xbbcode-th, .xbbcode-td {
+    border: 1px solid #666;
 }

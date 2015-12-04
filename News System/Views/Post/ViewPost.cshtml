@@ -1,0 +1,68 @@
+﻿@model News_System.Models.Post
+@{
+    Layout = "~/Views/Shared/_LayoutPost.cshtml";
+    ViewBag.Title = "Ver Post";
+}
+
+<div class="article-info-wrapper" style="background-image:url(http://icanbecreative.com/resources/files/articles/animate-element-along-svg-path/featured/animate-element-along-svg-path_featured_900.jpg);">
+    <div class="inner">
+        <h2>
+            <a href="#">
+                @Html.DisplayFor(model => model.Title)
+            </a>
+        </h2>
+
+        <div class="article-meta">
+            <ul>
+                <li>
+                    <a href="#">@Html.DisplayFor(model => model.Time)</a>
+                </li>
+                <li class="divider">|</li>
+                <li>
+                    <a href="#">@Html.DisplayFor(model => model.Category.Name)</a>
+                </li>
+                <li class="divider">|</li>
+                <li>
+                    <a href="#">
+                        @Html.DisplayFor(model => model.Comment.Count) @(Model.Comment.Count == 0 || Model.Comment.Count > 1 ? "Comments" : "Comment")
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="content-container">
+    <div class="inner">
+        <div class="content-wrap">
+            <div class="inner">
+                <article class="article-content">
+                    <div class="ad-article-responsive">
+                        <img src="https://storage.googleapis.com/support-kms-prod/SNP_59D432450939ECC60A21BEDBEE985B1817B1_3094744_en_v2" />
+                    </div>
+                    
+                    <p id="description">
+                        @Html.DisplayFor(model => model.Description, new { @id = "description" })
+                    </p>
+                </article>
+            </div>
+        </div>
+
+        @RenderPage("../Shared/_Sidebar.cshtml")
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var description = $("#description").html();
+
+        var result = XBBCODE.process({
+            text: description,
+            removeMisalignedTags: false,
+            addInLineBreaks: false
+        });
+
+        $("p#description").html(result.html)
+        console.log(result.html);// the HTML form of your BBCode
+    });
+</script>

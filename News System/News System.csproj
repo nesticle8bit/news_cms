@@ -171,6 +171,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\BBCodeHelper.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
@@ -283,6 +284,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\typeahead-0.11.1.js" />
+    <Content Include="Scripts\xbbcode.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -340,6 +342,8 @@
     <Content Include="Views\Icons\Details.cshtml" />
     <Content Include="Views\Icons\Edit.cshtml" />
     <Content Include="Views\Icons\Index.cshtml" />
+    <Content Include="Views\Post\ViewPost.cshtml" />
+    <Content Include="Views\Shared\_LayoutPost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
