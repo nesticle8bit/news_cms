@@ -1,13 +1,13 @@
 ﻿@model News_System.Models.Post
 @{
     Layout = "~/Views/Shared/_LayoutPost.cshtml";
-    ViewBag.Title = "Ver Post";
+    ViewBag.Title = @Html.DisplayFor(model => model.Title) + " | " + "Slogan";
 }
 
 <div class="article-info-wrapper" style="background-image:url(http://icanbecreative.com/resources/files/articles/animate-element-along-svg-path/featured/animate-element-along-svg-path_featured_900.jpg);">
     <div class="inner">
         <h2>
-            <a href="#">
+            <a href="@Url.Action("ViewPost", "Post", new { id = Model.Id })">
                 @Html.DisplayFor(model => model.Title)
             </a>
         </h2>
@@ -15,11 +15,15 @@
         <div class="article-meta">
             <ul>
                 <li>
-                    <a href="#">@Html.DisplayFor(model => model.Time)</a>
+                    <a href="@Url.Action("ViewPost", "Post", new { id = Model.Id })">
+                        @Html.DisplayFor(model => model.Time)
+                    </a>
                 </li>
                 <li class="divider">|</li>
                 <li>
-                    <a href="#">@Html.DisplayFor(model => model.Category.Name)</a>
+                    <a href="@Url.Action("Search", "Category", new { id = Model.Category.Id })">
+                        @Html.DisplayFor(model => model.Category.Name)
+                    </a>
                 </li>
                 <li class="divider">|</li>
                 <li>
@@ -44,7 +48,182 @@
                     <p id="description">
                         @Html.DisplayFor(model => model.Description, new { @id = "description" })
                     </p>
+
+                    <div class="icbc-ui-assets-less two-buttons">
+                        <div class="button-wrap">
+                            <a href="http://demo.icanbecreative.com/animate-along-svg-path/" class="icbc-ui-button small icbc-ui-background-dark-yellow">DEMO</a>
+                        </div>
+                        <div class="button-wrap">
+                            <a href="http://demo.icanbecreative.com/animate-along-svg-path/svg-demo-icanbecreative.zip" class="icbc-ui-button small icbc-ui-background-dark-blue">DOWNLOAD</a>
+                        </div>
+                    </div>
                 </article>
+
+                <div class="social-share-container">
+                    <div class="social-sharing" data-permalink="http://labs.carsonshold.com/social-sharing-buttons">
+                        <!-- https://developers.facebook.com/docs/plugins/share-button/ -->
+                        <a target="_blank" href="http://www.facebook.com/sharer.php?u=@Request.Url.AbsoluteUri" class="share-facebook">
+                            <span class="icon icon-facebook" aria-hidden="true"></span>
+                            <span class="share-title">Share</span>
+                            <span class="share-count">0</span>
+                        </a>
+                        <!-- https://dev.twitter.com/docs/intents -->
+                        <a target="_blank" href="http://twitter.com/share?url=http://labs.carsonshold.com/social-sharing-buttons&amp;text=jQuery%20social%20media%20buttons%20with%20share%20counts%20on%20GitHub&amp;" class="share-twitter">
+                            <span class="icon icon-twitter" aria-hidden="true"></span>
+                            <span class="share-title">Tweet</span>
+                            <span class="share-count">0</span>
+                        </a>
+                        <!--
+                          https://developers.pinterest.com/pin_it/
+                          Pinterest get data from the same Open Graph meta tags Facebook uses
+                        -->
+                        <a target="_blank" href="http://pinterest.com/pin/create/button/?url=http://labs.carsonshold.com/social-sharing-buttons&amp;media=http://photos-c.ak.instagram.com/hphotos-ak-xfp1/10369404_682591538475746_1724734234_n.jpg&amp;description=Tina%20the%20dachsund" class="share-pinterest">
+                            <span class="icon icon-pinterest" aria-hidden="true"></span>
+                            <span class="share-title">Pin it</span>
+                            <span class="share-count">0</span>
+                        </a>
+                        <!-- https://developers.google.com/+/web/share/ -->
+                        <a target="_blank" href="http://plus.google.com/share?url=http://labs.carsonshold.com/social-sharing-buttons" class="share-google">
+                            <!-- Cannot get Google+ share count with JS yet -->
+                            <span class="icon icon-google" aria-hidden="true"></span>
+                            <span class="share-count">+1</span>
+                        </a>
+                        <!-- https://www.reddit.com/buttons -->
+                        <a target="_blank" href="http://www.reddit.com/submit?url=http://labs.carsonshold.com/social-sharing-buttons&title=jQuery%20social%20media%20buttons%20with%20share%20counts%20on%20GitHub" class="share-reddit">
+                            <span class="icon icon-reddit" aria-hidden="true"></span>
+                            <span class="share-title">Reddit</span>
+                        </a>
+                        <!-- https://developer.linkedin.com/plugins/share -->
+                        <a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=http://labs.carsonshold.com/social-sharing-buttons&title=jQuery%20social%20media%20buttons%20with%20share%20counts%20on%20GitHub" class="share-linkedin">
+                            <span class="icon icon-linkedin" aria-hidden="true"></span>
+                            <span class="share-title">Share</span>
+                            <span class="share-count">0</span>
+                        </a>
+                        <!-- http://blogs.skype.com/2015/11/04/introducing-share-button-effortless-sharing-that-sparks-richer-conversations/ -->
+                        <a target="_blank" href="https://web.skype.com/share?url=http://labs.carsonshold.com/social-sharing-buttons&lang=en-us" class="share-skype">
+                            <span class="icon icon-skype" aria-hidden="true"></span>
+                            <span class="share-title">Share</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tags-holder">
+                    <ul>
+                        <li>Tags:</li>
+
+                        @if (ViewBag.Tags != null)
+                        {
+                            for (int i = 0; i < ViewBag.Tags.Count; i++)
+                            {
+                                <li>
+                                    <a href="#">
+                                        @ViewBag.Tags[i].Tags.Name
+                                    </a>
+                                </li><span>,</span>
+                            }
+                        }
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="related-articles">
+                    <h4 class="section-title">Related articles<span></span></h4>
+                    <ul>
+                        <li>
+                            <a href="http://icanbecreative.com/article/css3-animated-search-box" title="Create CSS3 Animated Search Box">
+                                <img src="http://icanbecreative.com/resources/files/articles/css3-animated-search-box/featured/css3-animated-search-box_featured_900.jpg" alt="Create CSS3 Animated Search Box">
+                                <span class="info semi-gradient">
+                                    <h3>Create CSS3 Animated Search Box</h3>
+                                    <span class="date">October 04, 2015</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://icanbecreative.com/article/future-of-web-design" title="Curious About The Future Of Web Design? - Infographic">
+                                <img src="http://icanbecreative.com/resources/files/articles/future-of-web-design/featured/future-of-web-design_featured_900.jpg" alt="Curious About The Future Of Web Design? - Infographic">
+                                <span class="info semi-gradient">
+                                    <h3>Curious About The Future Of Web Design? - Infographic</h3>
+                                    <span class="date">January 21, 2014</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://icanbecreative.com/article/facebook-redesign" title="15 Facebook Redesign Layouts That You Will Like">
+                                <img src="http://icanbecreative.com/resources/files/articles/facebook-redesign/featured/facebook-redesign_featured_900.jpg" alt="15 Facebook Redesign Layouts That You Will Like">
+                                <span class="info semi-gradient">
+                                    <h3>15 Facebook Redesign Layouts That You Will Like</h3>
+                                    <span class="date">September 04, 2013</span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <h4 class="section-title">About the author<span></span></h4>
+                <div class="author-bio">
+                    <div class="author-header" style="background-image: url(http://icanbecreative.com/resources/images/10.jpg);">
+                        <!--<span class="about">About the author</span>-->
+                        <a href="http://icanbecreative.com/" class="author-image"><img src="http://icanbecreative.com/resources/files/profiles/1/1.jpg"></a>
+                    </div>
+                    <div class="data-container">
+                        <a href="http://icanbecreative.com/" class="title">Julio Poveda</a>
+                        <p class="message">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis vehicula arcu. Mauris bibendum nibh a arcu consequat, a mollis lectus tempor.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="article-short-navigator">
+                    <a href="http://icanbecreative.com/article/free-psd-flyer-templates-autumn-party" class="next " style="background-image:url(http://icanbecreative.com/resources/files/articles/free-psd-flyer-templates-autumn-party/featured/free-psd-flyer-templates-autumn-party_featured_500.jpg);">
+                        <span class="read-more">next article</span>
+                        <span class="title">Free PSD Flyer Templates For Autumn Сelebration Party</span>
+                    </a>
+                    <a href="http://icanbecreative.com/article/pre-built-websites-creating-enthusiasm" class="previous " style="background-image:url(http://icanbecreative.com/resources/files/articles/pre-built-websites-creating-enthusiasm/featured/pre-built-websites-creating-enthusiasm_featured_500.jpg);">
+                        <span class="read-more">previous article</span>
+                        <span class="title">Why Pre-Built Websites are Creating Enthusiasm</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+                <h4 class="section-title">Post a comment<span></span></h4>
+                <div class="post-comment" data-logged="false">
+                    <div class="avatar">
+                        <img src="http://icanbecreative.com/resources/files/profiles/placeholder-200x200.jpg">
+                    </div>
+                    <div class="comment-wrapper">
+                        <textarea name="content" placeholder="Leave a message..." rows="3" onfocus="expandCommentArea(this)" style="overflow: hidden; word-wrap: break-word; resize: none; height: 60px;"></textarea>
+                    </div>
+                    <div class="aditional-info-wrapper">
+                        <input type="text" name="author" placeholder="name" value="">
+                        <input type="text" name="email" placeholder="email address (hidden)" value="">
+                        <input type="text" name="url" placeholder="website(optional)" value="">
+                    </div>
+                    <input type="submit" class="submit-comment border-radius-2" value="POST COMMENT" onclick="post_comment(this, true);">
+                    <div class="clear"></div>
+                </div>
+
+                <h4 class="section-title">Comments<span></span></h4>
+                <ul class="comments">
+                    <li class="item-is-parent " data-id="4142">
+                        <div class="comment-item ">
+                            <div class="avatar"><img src="http://icanbecreative.com/resources/files/profiles/placeholder-200x200.jpg"></div>
+                            <div class="data-container">
+                                <div class="name">
+                                    Cristina
+                                </div>
+                                <div class="date">2015-11-03 07:50:17</div>
+                                <div class="clear"></div>
+                                <div class="message">Very well explained.</div>
+                                <div class="info-container">
+                                    <a href="#" class="reply-anchor" onclick="toggle_reply(this, event)">REPLY</a>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </li>
+
+                    <li class="item-is-parent" data-id="4167"><div class="comment-item pending"><div class="avatar"><img src="http://icanbecreative.com/resources/files/profiles/placeholder-200x200.jpg"></div><div class="data-container"><div class="name floatleft">nesticle8bit</div><div class="date floatright">2015-12-04 21:43:49</div><div class="clear"></div><div class="message">Nice article guys!, thank you so much for sharing this</div><div class="pending-message">Your comment is awaiting moderation. Please be patient, comment moderation might take a bit longer than usual. Thank you!</div></div><div class="clear"></div></div></li>
+                </ul>
             </div>
         </div>
 
@@ -52,17 +231,21 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        var description = $("#description").html();
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Post/post.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var description = $("#description").html();
 
-        var result = XBBCODE.process({
-            text: description,
-            removeMisalignedTags: false,
-            addInLineBreaks: false
+            var result = XBBCODE.process({
+                text: description,
+                removeMisalignedTags: false,
+                addInLineBreaks: false
+            });
+
+            $("p#description").html(result.html)
+            console.log(result.html);// the HTML form of your BBCode
         });
-
-        $("p#description").html(result.html)
-        console.log(result.html);// the HTML form of your BBCode
-    });
-</script>
+    </script>
+}

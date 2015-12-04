@@ -231,10 +231,12 @@
     <Content Include="Content\Resources\Images\bg-tumblr.jpg" />
     <Content Include="Content\Resources\Images\bg-twitter.jpg" />
     <Content Include="Content\Resources\Images\social-coins.png" />
+    <Content Include="Content\social-buttons.css" />
     <Content Include="Content\wbbtheme.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\icons.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap-filestyle.js" />
@@ -268,11 +270,15 @@
     <Content Include="fonts\wysibbiconfont-wb.eot" />
     <Content Include="fonts\wysibbiconfont-wb.ttf" />
     <Content Include="fonts\wysibbiconfont-wb.woff" />
+    <Content Include="fonts\icons.eot" />
+    <Content Include="fonts\icons.ttf" />
+    <Content Include="fonts\icons.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\global_script.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-1.11.3.js" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />
+    <Content Include="Scripts\jquery.autosize.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -283,6 +289,7 @@
     <Content Include="Scripts\Post\post.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\social-buttons.js" />
     <Content Include="Scripts\typeahead-0.11.1.js" />
     <Content Include="Scripts\xbbcode.js" />
     <Content Include="Scripts\_references.js" />

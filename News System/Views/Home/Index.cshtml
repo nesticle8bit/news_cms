@@ -1,6 +1,5 @@
 ﻿@model News_System.Models.HomeViewModel
 
-
 @{
     ViewBag.Title = "Home Page";
 }
@@ -13,7 +12,7 @@
         if (item.Highlight == true)
         {
             <article class="vertical">
-                <a href="#" class="article-thumbnail">
+                <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" class="article-thumbnail">
                     <img src="~/Files/@Html.DisplayFor(modelItem => item.Image)" />
                 </a>
                 <div class="article-info">
@@ -22,7 +21,7 @@
                             <li><a href="#">@Html.DisplayFor(modelItem => item.Time)</a></li>
                             <li class="divider">/</li>
                             <li>
-                                <a href="#">
+                                <a href="@Url.Action("Search", "Category", new { id = item.Category.Id })">
                                     @Html.DisplayFor(modelItem => item.Category.Name)
                                 </a>
                             </li>
@@ -35,7 +34,7 @@
                         </ul>
                     </div>
                     <h2 class="article-title">
-                        <a href="#" title="@Html.DisplayFor(modelItem => item.Title)">
+                        <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" title="@Html.DisplayFor(modelItem => item.Title)">
                             @Html.DisplayFor(modelItem => item.Title)
                         </a>
                     </h2>
@@ -54,20 +53,20 @@
     if (item.Highlight == false)
     {
         <article class="horizontal">
-            <a href="#" class="article-thumbnail">
+            <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" class="article-thumbnail">
                 <img src="~/Files/@Html.DisplayFor(modelItem => item.Image)" />
             </a>
             <div class="article-info">
                 <div class="article-meta">
                     <ul>
                         <li>
-                            <a href="#" title="@Html.DisplayFor(modelItem => item.Time)">
+                            <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" title="@Html.DisplayFor(modelItem => item.Time)">
                                 @Html.DisplayFor(modelItem => item.Time)
                             </a>
                         </li>
                         <li class="divider">/</li>
                         <li>
-                            <a href="#">
+                            <a href="@Url.Action("Search", "Category", new { id = item.Category.Id })">
                                 @Html.DisplayFor(modelItem => item.Category.Name)
                             </a>
                         </li>
@@ -80,7 +79,7 @@
                     </ul>
                 </div>
                 <h2 class="article-title">
-                    <a href="#" title="Why Pre-Built Websites are Creating Enthusiasm">
+                    <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" title="@Html.DisplayFor(modelItem => item.Title)">
                         @Html.DisplayFor(modelItem => item.Title)
                     </a>
                 </h2>

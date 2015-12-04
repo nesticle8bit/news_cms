@@ -227,6 +227,10 @@ namespace News_System.Controllers
         public ActionResult ViewPost(int? id)
         {
             Post post = db.Post.Find(id);
+
+            if (post != null)
+                ViewBag.Tags = db.Post_Tags.Where(t => t.Id_Post == id).ToList();
+
             return View(post);
         }
     }
