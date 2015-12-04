@@ -8,6 +8,7 @@ Content Management System for News building in MVC Asp.net
 - Font awesome 4.5.0 - http://fontawesome.io
 - Bootstrap Tags Input v0.7.1 - https://github.com/bootstrap-tagsinput/bootstrap-tagsinput
 - Typeahead 0.11.1 - https://twitter.github.io/typeahead.js/
+- jQuery Social Sharing Buttons - http://labs.carsonshold.com/social-sharing-buttons/
 
 ## 🍪 Cover Image
 - Psd Safari Yosemite Browser Mockup - https://dribbble.com/shots/1586310-Psd-Safari-Yosemite-Browser-Mockup
