@@ -179,6 +179,9 @@
     <Compile Include="Models\Comment.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Configuration.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\EntityDataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -351,6 +354,7 @@
     <Content Include="Views\Icons\Index.cshtml" />
     <Content Include="Views\Post\ViewPost.cshtml" />
     <Content Include="Views\Shared\_LayoutPost.cshtml" />
+    <Content Include="Views\Post\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

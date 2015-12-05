@@ -8,9 +8,10 @@
     <div class="logo-holder gradient"><a href="#" class="icon-logo"></a></div>
     <ul>
         <li>
-            <form method="get" action="/search/" class="search-form">
-                <input type="text" name="q" placeholder="search text" class="search-input">
-            </form>
+            @using (Html.BeginForm("Search", "Post", FormMethod.Get, new { @class = "search-form" }))
+            {
+                <input type="text" value="" name="q" placeholder="search text" class="search-input">
+            }
         </li>
         <li>
             <a href="#">

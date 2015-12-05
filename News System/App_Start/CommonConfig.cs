@@ -14,6 +14,10 @@ namespace News_System.App_Start
         public override void OnResultExecuting(ResultExecutingContext filterContext)
         {
             filterContext.Controller.ViewBag.Categorias = db.Category.OrderBy(o => o.Name).ToList();
+            filterContext.Controller.ViewBag.FeaturedArticles = db.Post.Where(p => p.Comment.Count > 0)
+                                                                       .ToList();
+
+            //.Where(m => (m.Time.Month == DateTime.Now.Month) && (m.Time.Year == DateTime.Now.Year))
         }
     }
 }

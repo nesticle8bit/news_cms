@@ -33,5 +33,6 @@ namespace News_System.Models
         public virtual DbSet<Social> Social { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tags> Tags { get; set; }
+        public virtual DbSet<Configuration> Configuration { get; set; }
     }
 }

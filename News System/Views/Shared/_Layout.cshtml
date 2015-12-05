@@ -131,10 +131,11 @@
                     <div class="clear"></div>
                 </div>
                 <div class="search-holder">
-                    <form method="get" action="/search/">
-                        <input type="text" name="q" placeholder="search text" class="search-input">
+                    @using (Html.BeginForm("Search", "Post", FormMethod.Get, new { @class = "search-form" }))
+                    {
+                        <input type="text" value="" name="q" placeholder="search text" class="search-input">
                         <span class="fa fa-times close" onclick="searchToggle($('.search-button')); return false;"></span>
-                    </form>
+                    }
                 </div>
             </header>
 

@@ -48,7 +48,7 @@ namespace News_System.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Image,Time,Description,Tags,Id_Category")] Post post, HttpPostedFileBase file)
+        public ActionResult Create([Bind(Include = "Id,Title,Image,Time,Description,Tags,Id_Category,DisabledComments")] Post post, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +67,8 @@ namespace News_System.Controllers
                     file.SaveAs(Server.MapPath("~/Files/") + filename);
                     post.Image = filename;
                 }
-                
+
+                post.DisabledComments = false;
                 post.Time = DateTime.Now;
 
                 db.Post.Add(post);
@@ -136,7 +137,7 @@ namespace News_System.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Image,Time,Description,Id_Category")] Post post)
+        public ActionResult Edit([Bind(Include = "Id,Title,Image,Time,Description,Id_Category,DisabledComments")] Post post)
         {
             if (ModelState.IsValid)
             {
@@ -228,7 +229,11 @@ namespace News_System.Controllers
         {
             Post post = db.Post.Find(id);
 
-            if (post != null)
+            if (post == null)
+            {
+                return this.HttpNotFound();
+            }
+            else
             {
                 ViewBag.Tags = db.Post_Tags
                     .Where(t => t.Id_Post == id).ToList();
@@ -241,6 +246,14 @@ namespace News_System.Controllers
             }
 
             return View(post);
+        }
+
+        public ActionResult Search(string q)
+        {
+            if (q != null)
+                ViewBag.SearchParam = q;
+
+            return View(db.Post.Where(p => p.Title.Contains(q)).OrderByDescending(o => o.Time).ToList());
         }
     }
 }

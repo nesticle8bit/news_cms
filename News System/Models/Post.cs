@@ -27,11 +27,13 @@ namespace News_System.Models
         public string Image { get; set; }
         [DisplayFormat(DataFormatString = "{0:MMMM dd, yyyy}")]
         public System.DateTime Time { get; set; }
+        //Este es el contenedor de los Tags del View Create
+        public string Tags { get; set; }
         public string Description { get; set; }
         public bool Highlight { get; set; }
         public Nullable<int> Id_Category { get; set; }
-        //Este es el contenedor de los Tags del View Create
-        public string Tags { get; set; }
+        public bool DisabledComments { get; set; }
+    
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comment { get; set; }

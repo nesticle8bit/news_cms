@@ -2,15 +2,7 @@
     <div class="sidebar-ad-holder">
         <img class="text-center center-block" src="https://lh3.ggpht.com/SwKJItV_dUKyXgtyB7ycADMWTVGscOmyr5zWyw8GgLfd6O1K8AyOCH8y_3xQBoChJ4JFCOSKew=w300" />
     </div>
-
-    @*<div class="sidebar-text-holder">
-        <ul>
-            <li class="white">
-                <img src="https://lh3.ggpht.com/SwKJItV_dUKyXgtyB7ycADMWTVGscOmyr5zWyw8GgLfd6O1K8AyOCH8y_3xQBoChJ4JFCOSKew=w300" />
-            </li>
-        </ul>
-    </div>*@
-
+    
     <div class="sidebar-social-holder facebook">
         <div class="asset-holder">
             <div class="title">Like us on facebook</div>
@@ -37,24 +29,6 @@
             <div class="clear"></div>
         </div>
     </div>
-
-    @*<div class="sidebar-item-holder inspiration">
-        <a href="http://icanbecreative.com/category/daily-inspiration">
-            <img src="http://icanbecreative.com/resources/images/inspiration-promo.jpg">
-        </a>
-    </div>*@
-
-    @*<div class="sidebar-item-holder creativemag">
-        <a href="http://icanbecreative.com/creativemag-free-wordpress-theme.html">
-            <img src="http://icanbecreative.com/resources/images/creative-mag.png">
-        </a>
-    </div>*@
-    
-    @*<div class="sidebar-item-holder flyer-promo">
-        <a href="http://icanbecreative.com/article/free-psd-flyer-templates">
-            <img src="http://icanbecreative.com/resources/images/flyer-promo.jpg">
-        </a>
-    </div>*@
 
     <div class="sidebar-social-carousel">
         <div class="instagram sidebar-social-holder carousel-item" style="display: none;">
@@ -125,33 +99,21 @@
             </div>
 
             <ul>
-                <li>
-                    <a href="http://icanbecreative.com/article/animate-element-along-svg-path" title="How To Animate Element Along SVG Path">
-                        <span class="article-image-holder"><img src="http://icanbecreative.com/resources/files/articles/animate-element-along-svg-path/featured/animate-element-along-svg-path_promoted_200.jpg" alt="How To Animate Element Along SVG Path"></span>
-                        <span class="article-info-holder">
-                            <h3>How To Animate Element Along SVG Path</h3>
-                            <span class="date">November 02, 2015</span>
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://icanbecreative.com/article/css3-animated-search-box" title="Create CSS3 Animated Search Box">
-                        <span class="article-image-holder"><img src="http://icanbecreative.com/resources/files/articles/css3-animated-search-box/featured/css3-animated-search-box_promoted_200.jpg" alt="Create CSS3 Animated Search Box"></span>
-                        <span class="article-info-holder">
-                            <h3>Create CSS3 Animated Search Box</h3>
-                            <span class="date">October 04, 2015</span>
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://icanbecreative.com/article/free-psd-flyer-templates-autumn-party" title="Free PSD Flyer Templates For Autumn Сelebration Party">
-                        <span class="article-image-holder"><img src="http://icanbecreative.com/resources/files/articles/free-psd-flyer-templates-autumn-party/featured/free-psd-flyer-templates-autumn-party_promoted_200.jpg" alt="Free PSD Flyer Templates For Autumn Сelebration Party"></span>
-                        <span class="article-info-holder">
-                            <h3>Free PSD Flyer Templates For Autumn Сelebration Party</h3>
-                            <span class="date">October 29, 2015</span>
-                        </span>
-                    </a>
-                </li>
+                @for (int i = 0; i < ViewBag.FeaturedArticles.Count; i++)
+                {
+                    <li>
+                        <a href="#" title="@ViewBag.FeaturedArticles[i].Title">
+                            <span class="article-image-holder">
+                                <img src="~/Files/@ViewBag.FeaturedArticles[i].Image" alt="@ViewBag.FeaturedArticles[i].Title" />
+                            </span>
+
+                            <span class="article-info-holder">
+                                <h3>@ViewBag.FeaturedArticles[i].Title</h3>
+                                <span class="date">@ViewBag.FeaturedArticles[i].Time</span>
+                            </span>
+                        </a>
+                    </li>
+                }
             </ul>
         </div>
     </div>

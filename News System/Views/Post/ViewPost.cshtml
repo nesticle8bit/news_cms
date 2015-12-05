@@ -54,15 +54,6 @@
                     <p id="description">
                         @Html.DisplayFor(model => model.Description, new { @id = "description" })
                     </p>
-
-                    <div class="icbc-ui-assets-less two-buttons">
-                        <div class="button-wrap">
-                            <a href="http://demo.icanbecreative.com/animate-along-svg-path/" class="icbc-ui-button small icbc-ui-background-dark-yellow">DEMO</a>
-                        </div>
-                        <div class="button-wrap">
-                            <a href="http://demo.icanbecreative.com/animate-along-svg-path/svg-demo-icanbecreative.zip" class="icbc-ui-button small icbc-ui-background-dark-blue">DOWNLOAD</a>
-                        </div>
-                    </div>
                 </article>
 
                 <div class="social-share-container">
@@ -74,7 +65,7 @@
                             <span class="share-count">0</span>
                         </a>
                         <!-- https://dev.twitter.com/docs/intents -->
-                        <a target="_blank" href="http://twitter.com/share?url=http://labs.carsonshold.com/social-sharing-buttons&amp;text=jQuery%20social%20media%20buttons%20with%20share%20counts%20on%20GitHub&amp;" class="share-twitter">
+                        <a target="_blank" href="http://twitter.com/share?url=@Request.Url.AbsoluteUri&amp;text=@Html.DisplayFor(model => model.Title)" class="share-twitter">
                             <span class="icon icon-twitter" aria-hidden="true"></span>
                             <span class="share-title">Tweet</span>
                             <span class="share-count">0</span>
@@ -169,7 +160,7 @@
                 <div class="author-bio">
                     <div class="author-header" style="background-image: url(../../Content/Resources/Images/10.jpg);">
                         <!--<span class="about">About the author</span>-->
-                        <a href="http://icanbecreative.com/" class="author-image">
+                        <a href="#" class="author-image">
                             <img src="https://pbs.twimg.com/profile_images/671005168356331520/YCp_08J8_400x400.jpg">
                         </a>
                     </div>
@@ -207,7 +198,7 @@
                 <h4 class="section-title">Post a comment<span></span></h4>
                 <div class="post-comment" data-logged="false">
                     <div class="avatar">
-                        <img src="http://icanbecreative.com/resources/files/profiles/placeholder-200x200.jpg">
+                        <img src="https://pbs.twimg.com/profile_images/671005168356331520/YCp_08J8_400x400.jpg">
                     </div>
                     <div class="comment-wrapper">
                         <textarea name="content" placeholder="Leave a message..." rows="3" onfocus="expandCommentArea(this)" style="overflow: hidden; word-wrap: break-word; resize: none; height: 60px;"></textarea>
@@ -225,14 +216,14 @@
                 <ul class="comments">
                     <li class="item-is-parent " data-id="4142">
                         <div class="comment-item ">
-                            <div class="avatar"><img src="http://icanbecreative.com/resources/files/profiles/placeholder-200x200.jpg"></div>
+                            <div class="avatar"><img src="https://pbs.twimg.com/profile_images/671005168356331520/YCp_08J8_400x400.jpg"></div>
                             <div class="data-container">
                                 <div class="name">
-                                    Cristina
+                                    Julio Poveda
                                 </div>
                                 <div class="date">2015-11-03 07:50:17</div>
                                 <div class="clear"></div>
-                                <div class="message">Very well explained.</div>
+                                <div class="message">Mensaje</div>
                                 <div class="info-container">
                                     <a href="#" class="reply-anchor" onclick="toggle_reply(this, event)">REPLY</a>
                                 </div>
@@ -241,7 +232,7 @@
                         </div>
                     </li>
 
-                    <li class="item-is-parent" data-id="4167"><div class="comment-item pending"><div class="avatar"><img src="http://icanbecreative.com/resources/files/profiles/placeholder-200x200.jpg"></div><div class="data-container"><div class="name floatleft">nesticle8bit</div><div class="date floatright">2015-12-04 21:43:49</div><div class="clear"></div><div class="message">Nice article guys!, thank you so much for sharing this</div><div class="pending-message">Your comment is awaiting moderation. Please be patient, comment moderation might take a bit longer than usual. Thank you!</div></div><div class="clear"></div></div></li>
+                    @*<li class="item-is-parent" data-id="4167"><div class="comment-item pending"><div class="avatar"><img src="http://icanbecreative.com/resources/files/profiles/placeholder-200x200.jpg"></div><div class="data-container"><div class="name floatleft">nesticle8bit</div><div class="date floatright">2015-12-04 21:43:49</div><div class="clear"></div><div class="message">Nice article guys!, thank you so much for sharing this</div><div class="pending-message">Your comment is awaiting moderation. Please be patient, comment moderation might take a bit longer than usual. Thank you!</div></div><div class="clear"></div></div></li>*@
                 </ul>
             </div>
         </div>
