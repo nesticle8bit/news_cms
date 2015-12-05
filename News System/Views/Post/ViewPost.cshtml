@@ -1,10 +1,16 @@
 ﻿@model News_System.Models.Post
 @{
     Layout = "~/Views/Shared/_LayoutPost.cshtml";
-    ViewBag.Title = @Html.DisplayFor(model => model.Title) + " | " + "Slogan";
+    if(Model != null) {
+        ViewBag.Title = @Html.DisplayFor(model => model.Title) + " | " + "Slogan";
+    }
+    else
+    {
+        ViewBag.Title = "Seleccione un Articulo | Slogan";
+    }
 }
 
-<div class="article-info-wrapper" style="background-image:url(http://icanbecreative.com/resources/files/articles/animate-element-along-svg-path/featured/animate-element-along-svg-path_featured_900.jpg);">
+<div class="article-info-wrapper" style="background-image:url(@(Model != null ? "/Files/" + Model.Image : ""));">
     <div class="inner">
         <h2>
             <a href="@Url.Action("ViewPost", "Post", new { id = Model.Id })">
@@ -161,9 +167,11 @@
 
                 <h4 class="section-title">About the author<span></span></h4>
                 <div class="author-bio">
-                    <div class="author-header" style="background-image: url(http://icanbecreative.com/resources/images/10.jpg);">
+                    <div class="author-header" style="background-image: url(../../Content/Resources/Images/10.jpg);">
                         <!--<span class="about">About the author</span>-->
-                        <a href="http://icanbecreative.com/" class="author-image"><img src="http://icanbecreative.com/resources/files/profiles/1/1.jpg"></a>
+                        <a href="http://icanbecreative.com/" class="author-image">
+                            <img src="https://pbs.twimg.com/profile_images/671005168356331520/YCp_08J8_400x400.jpg">
+                        </a>
                     </div>
                     <div class="data-container">
                         <a href="http://icanbecreative.com/" class="title">Julio Poveda</a>
@@ -174,19 +182,25 @@
                 </div>
 
                 <div class="article-short-navigator">
-                    <a href="@Url.Action("ViewPost", "Post", new { id = ViewBag.Next.Id })" class="previous " style="background-image:url('/Files/@ViewBag.Next.Image');">
-                        <span class="read-more">next article</span>
-                        <span class="title">
-                            @ViewBag.Next.Title
-                        </span>
-                    </a>
+                    @if (ViewBag.Next != null)
+                    {
+                        <a href="@Url.Action("ViewPost", "Post", new { id = ViewBag.Next.Id })" class="previous " style="background-image:url('/Files/@ViewBag.Next.Image');">
+                            <span class="read-more">next article</span>
+                            <span class="title">
+                                @ViewBag.Next.Title
+                            </span>
+                        </a>
+                    }
                     
-                    <a href="@Url.Action("ViewPost", "Post", new { id = ViewBag.Prev.Id })" class="previous " style="background-image:url('/Files/@ViewBag.Prev.Image');">
-                        <span class="read-more">previous article</span>
-                        <span class="title">
-                            @ViewBag.Prev.Title
-                        </span>
-                    </a>
+                    @if (ViewBag.Prev != null)
+                    {
+                        <a href="@Url.Action("ViewPost", "Post", new { id = ViewBag.Prev.Id })" class="previous " style="background-image:url('/Files/@ViewBag.Prev.Image');">
+                            <span class="read-more">previous article</span>
+                            <span class="title">
+                                @ViewBag.Prev.Title
+                            </span>
+                        </a>
+                    }
                     <div class="clear"></div>
                 </div>
 
