@@ -229,7 +229,12 @@ namespace News_System.Controllers
             Post post = db.Post.Find(id);
 
             if (post != null)
+            {
                 ViewBag.Tags = db.Post_Tags.Where(t => t.Id_Post == id).ToList();
+
+                ViewBag.Prev = db.Post.Where(p => p.Id < id).OrderByDescending(o => o.Id).FirstOrDefault();
+                ViewBag.Next = db.Post.Where(p => p.Id > id).OrderBy(o => o.Id).FirstOrDefault();
+            }
 
             return View(post);
         }

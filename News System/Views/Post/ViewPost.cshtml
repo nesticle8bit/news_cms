@@ -174,13 +174,18 @@
                 </div>
 
                 <div class="article-short-navigator">
-                    <a href="http://icanbecreative.com/article/free-psd-flyer-templates-autumn-party" class="next " style="background-image:url(http://icanbecreative.com/resources/files/articles/free-psd-flyer-templates-autumn-party/featured/free-psd-flyer-templates-autumn-party_featured_500.jpg);">
+                    <a href="@Url.Action("ViewPost", "Post", new { id = ViewBag.Next.Id })" class="previous " style="background-image:url('/Files/@ViewBag.Next.Image');">
                         <span class="read-more">next article</span>
-                        <span class="title">Free PSD Flyer Templates For Autumn Сelebration Party</span>
+                        <span class="title">
+                            @ViewBag.Next.Title
+                        </span>
                     </a>
-                    <a href="http://icanbecreative.com/article/pre-built-websites-creating-enthusiasm" class="previous " style="background-image:url(http://icanbecreative.com/resources/files/articles/pre-built-websites-creating-enthusiasm/featured/pre-built-websites-creating-enthusiasm_featured_500.jpg);">
+                    
+                    <a href="@Url.Action("ViewPost", "Post", new { id = ViewBag.Prev.Id })" class="previous " style="background-image:url('/Files/@ViewBag.Prev.Image');">
                         <span class="read-more">previous article</span>
-                        <span class="title">Why Pre-Built Websites are Creating Enthusiasm</span>
+                        <span class="title">
+                            @ViewBag.Prev.Title
+                        </span>
                     </a>
                     <div class="clear"></div>
                 </div>
