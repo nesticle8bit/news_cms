@@ -20,5 +20,6 @@ namespace News_System.Models
         public string Url { get; set; }
         public string Ads_300 { get; set; }
         public string Ads_970 { get; set; }
+        public string Ads_728 { get; set; }
     }
 }

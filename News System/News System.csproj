@@ -163,10 +163,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ConfigurationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IconsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="Controllers\SocialController.cs" />
     <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -355,6 +357,17 @@
     <Content Include="Views\Post\ViewPost.cshtml" />
     <Content Include="Views\Shared\_LayoutPost.cshtml" />
     <Content Include="Views\Post\Search.cshtml" />
+    <Content Include="Views\Post\Category.cshtml" />
+    <Content Include="Views\Social\Create.cshtml" />
+    <Content Include="Views\Social\Delete.cshtml" />
+    <Content Include="Views\Social\Details.cshtml" />
+    <Content Include="Views\Social\Edit.cshtml" />
+    <Content Include="Views\Social\Index.cshtml" />
+    <Content Include="Views\Configuration\Create.cshtml" />
+    <Content Include="Views\Configuration\Delete.cshtml" />
+    <Content Include="Views\Configuration\Details.cshtml" />
+    <Content Include="Views\Configuration\Edit.cshtml" />
+    <Content Include="Views\Configuration\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

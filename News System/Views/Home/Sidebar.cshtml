@@ -21,17 +21,12 @@
                 @for (int i = 0; i < ViewBag.Categorias.Count; i++)
                 {
                     <li>
-                        <a href="#">
+                        <a href="@Url.Action("Category", "Post", new { id = @ViewBag.Categorias[i].Id })">
                             @ViewBag.Categorias[i].Name
                         </a>
                     </li>
                 }
             </ul>
         </li>
-        <!--<li>
-            <a href="http://icanbecreative.com/shop">
-                <span class="text">Shop</span>
-            </a>
-        </li>-->
     </ul>
 </div>

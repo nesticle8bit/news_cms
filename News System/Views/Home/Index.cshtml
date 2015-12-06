@@ -18,16 +18,16 @@
                 <div class="article-info">
                     <div class="article-meta">
                         <ul>
-                            <li><a href="#">@Html.DisplayFor(modelItem => item.Time)</a></li>
+                            <li><a href="@Url.Action("ViewPost", "Post", new { id = item.Id })">@Html.DisplayFor(modelItem => item.Time)</a></li>
                             <li class="divider">/</li>
                             <li>
-                                <a href="@Url.Action("Search", "Category", new { id = item.Category.Id })">
+                                <a href="@Url.Action("Category", "Post", new { id = item.Category.Id })">
                                     @Html.DisplayFor(modelItem => item.Category.Name)
                                 </a>
                             </li>
                             <li class="divider">/</li>
                             <li>
-                                <a href="#">
+                                <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })#comments">
                                     @Html.DisplayFor(modelItem => item.Comment.Count) @(item.Comment.Count == 0 || item.Comment.Count > 1 ? "Comments" : "Comment")
                                 </a>
                             </li>
@@ -44,6 +44,12 @@
         }
     }
     <div class="clear"></div>
+</div>
+
+<div class="ad-page-responsive">
+    <center>
+        <img src="https://lh6.ggpht.com/41LFWBytPnxKsfZf6mivs6ba7qdOBtfk9-7MzWSMqwC3IFOvaXd8rejFiyeXKfBOK16mMEopeA=w728" />
+    </center>
 </div>
 
 <h4 class="section-title">Latest articles<span></span></h4>
@@ -66,13 +72,13 @@
                         </li>
                         <li class="divider">/</li>
                         <li>
-                            <a href="@Url.Action("Search", "Category", new { id = item.Category.Id })">
+                            <a href="@Url.Action("Category", "Post", new { id = item.Category.Id })">
                                 @Html.DisplayFor(modelItem => item.Category.Name)
                             </a>
                         </li>
                         <li class="divider">/</li>
                         <li>
-                            <a href="#">
+                            <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })#comments">
                                 @Html.DisplayFor(modelItem => item.Comment.Count) @(item.Comment.Count == 0 || item.Comment.Count > 1 ? "Comments" : "Comment")
                             </a>
                         </li>

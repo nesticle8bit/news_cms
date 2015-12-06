@@ -1,0 +1,67 @@
+﻿@model News_System.Models.Configuration
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Configuration</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.WebsiteTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebsiteTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Slogan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Slogan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ads_300)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ads_300)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ads_970)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ads_970)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ads_728)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ads_728)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

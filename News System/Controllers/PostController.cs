@@ -248,6 +248,12 @@ namespace News_System.Controllers
             return View(post);
         }
 
+        //Filter all the posts by this Category
+        public ActionResult Category(int? id)
+        {
+            return View(db.Post.Where(p => p.Category.Id == id).ToList());
+        }
+
         public ActionResult Search(string q)
         {
             if (q != null)

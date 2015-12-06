@@ -47,7 +47,7 @@
                                     @for (int i = 0; i < ViewBag.Categorias.Count; i++)
                                     {
                                         <li>
-                                            <a href="#">
+                                            <a href="@Url.Action("Category", "Post", new { id = @ViewBag.Categorias[i].Id })">
                                                 @ViewBag.Categorias[i].Name
                                             </a>
                                         </li>
@@ -59,13 +59,6 @@
                                 <span class="text">Categories</span>
                             </a>
                         </li>
-                        <!-- <li class="border"></li>
-                <li>
-                    <a href="http://icanbecreative.com/shop">
-                        <span class="icon-shop"></span>
-                        <span class="text">Shop</span>
-                    </a>
-                </li>-->
                         <li class="border"></li>
                         <li>
                             <a href="@Url.Action("About", "Home")">
@@ -79,36 +72,19 @@
                             <div class="dropdown-wrapper">
                                 <div class="triangle"></div>
                                 <ul class="categories">
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <span class="icon-facebook-social"></span>
-                                            <span class="text">Facebook</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <span class="icon-twitter-social"></span>
-                                            <span class="text">Twitter</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <span class="icon-google-plus-social"></span>
-                                            <span class="text">Google +</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <span class="icon-youtube-social"></span>
-                                            <span class="text">Youtube</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <span class="icon-rss-social"></span>
-                                            <span class="text">RSS</span>
-                                        </a>
-                                    </li>
+                                    @if (ViewBag.SocialNetwork != null)
+                                    {
+                                        for (int i = 0; i < ViewBag.SocialNetwork.Count; i++) {
+                                            <li>
+                                                <a href="@ViewBag.SocialNetwork[i].Link" target="_blank">
+                                                    <i class="@ViewBag.SocialNetwork[i].Icon.IconName"></i>
+                                                    <span class="text">
+                                                        @ViewBag.SocialNetwork[i].Name
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        }
+                                    }
                                     <li class="desc">
                                         @*<span>400145 Subscribers &amp; Followers</span>*@
                                     </li>

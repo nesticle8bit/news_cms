@@ -31,6 +31,7 @@
           <Property Name="Slogan" Type="varchar" MaxLength="150" />
           <Property Name="Url" Type="varchar(max)" />
           <Property Name="Ads_300" Type="varchar(max)" />
+          <Property Name="Ads_728" Type="varchar(max)" />
           <Property Name="Ads_970" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Icon">
@@ -69,7 +70,7 @@
           <Property Name="Name" Type="varchar" MaxLength="50" />
           <Property Name="Link" Type="varchar(max)" />
           <Property Name="Id_Icon" Type="int" />
-          <Property Name="Status" Type="bit" />
+          <Property Name="Status" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -245,7 +246,7 @@
           <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Id_Icon" Type="Int32" />
           <NavigationProperty Name="Icon" Relationship="Self.FK_Social_Icon" FromRole="Social" ToRole="Icon" />
-          <Property Name="Status" Type="Boolean" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -366,6 +367,7 @@
           <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Ads_300" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Ads_970" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ads_728" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -456,6 +458,7 @@
           <EntitySetMapping Name="Configuration">
             <EntityTypeMapping TypeName="newsSystem_dbModel.Configuration">
               <MappingFragment StoreEntitySet="Configuration">
+                <ScalarProperty Name="Ads_728" ColumnName="Ads_728" />
                 <ScalarProperty Name="Ads_970" ColumnName="Ads_970" />
                 <ScalarProperty Name="Ads_300" ColumnName="Ads_300" />
                 <ScalarProperty Name="Url" ColumnName="Url" />

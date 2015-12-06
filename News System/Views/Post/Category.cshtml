@@ -1,0 +1,49 @@
+﻿@model IEnumerable<News_System.Models.Post>
+@{
+    ViewBag.Title = "Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="ad-page-responsive">
+    <center>
+        <img src="https://lh6.ggpht.com/41LFWBytPnxKsfZf6mivs6ba7qdOBtfk9-7MzWSMqwC3IFOvaXd8rejFiyeXKfBOK16mMEopeA=w728" />
+    </center>
+</div>
+
+<h4 class="section-title">Articles by category<span></span></h4>
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <article class="horizontal">
+            <a href="#" class="article-thumbnail">
+                <img src="~/Files/@Html.DisplayFor(modelItem => item.Image)">
+            </a>
+            <div class="article-info">
+                <div class="article-meta">
+                    <ul>
+                        <li><a href="@Url.Action("ViewPost", "Post", new { id = item.Id })">@Html.DisplayFor(modelItem => item.Time)</a></li>
+                        <li class="divider">/</li>
+                        <li><a href="@Url.Action("Category", "Post", new { id = item.Category.Id })">@Html.DisplayFor(modelItem => item.Category.Name)</a></li>
+                        <li class="divider">/</li>
+                        <li>
+                            <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })#comments">
+                                @Html.DisplayFor(modelItem => item.Comment.Count) @(item.Comment.Count == 0 || item.Comment.Count > 1 ? "Comments" : "Comment")
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <h2 class="article-title">
+                    <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" title="@Html.DisplayFor(modelItem => item.Title)">@Html.DisplayFor(modelItem => item.Title)</a>
+                </h2>
+
+                <p>
+                    @Html.DisplayFor(modelItem => item.Description).ToString().Substring(0, 50)...
+                </p>
+            </div>
+            <div class="clear"></div>
+        </article>
+    }
+}

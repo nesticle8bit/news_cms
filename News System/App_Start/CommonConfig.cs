@@ -17,7 +17,15 @@ namespace News_System.App_Start
             filterContext.Controller.ViewBag.FeaturedArticles = db.Post.Where(p => p.Comment.Count > 0)
                                                                        .ToList();
 
-            //.Where(m => (m.Time.Month == DateTime.Now.Month) && (m.Time.Year == DateTime.Now.Year))
+            //List of Social Networks
+            filterContext.Controller.ViewBag.SocialNetwork = db.Social
+                                                               .Where(w => w.Status == true)
+                                                               .OrderBy(o => o.Name).ToList();
+
+            //Configuration : Ads
+            filterContext.Controller.ViewBag.Ads_300 = db.Configuration.SingleOrDefault().Ads_300;
+            filterContext.Controller.ViewBag.Ads_728 = db.Configuration.SingleOrDefault().Ads_728;
+            filterContext.Controller.ViewBag.Ads_970 = db.Configuration.SingleOrDefault().Ads_970;
         }
     }
 }
