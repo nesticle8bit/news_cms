@@ -1,4 +1,4 @@
-# News CMS V0.1
+# Content Management System for News
 Content Management System for News building in MVC Asp.net
 
 ![new-safari-browser-psd](https://cloud.githubusercontent.com/assets/1715022/11454785/19f0ee9e-9609-11e5-8d33-75201a658278.png)
@@ -23,6 +23,7 @@ Content Management System for News building in MVC Asp.net
 - [ ] Organizar los links permanentes de los Posts.
 - [ ] Parametrizar las redes sociales tanto en el sidebar como navbar.
 - [X] Implementar WYSIWYG en la creación de Post
+- [ ] Custom Errors
 
 ### Home
 - Implementar los buscadores del Navbar y del Sidebar.
