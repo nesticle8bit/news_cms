@@ -25,9 +25,7 @@ Content Management System for News building in MVC Asp.net
 - [ ] Parametrizar las redes sociales tanto en el sidebar como navbar.
 - [X] Implementar WYSIWYG en la creación de Post
 - [ ] Custom Errors
-
-### Home
-- Implementar los buscadores del Navbar y del Sidebar.
+- [X] Implementar los buscadores del Navbar y del Sidebar.
 
 
 --
