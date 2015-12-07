@@ -1,18 +1,16 @@
 ﻿@model News_System.Models.Post
 
 @{
-    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutNoSidebar.cshtml";
+    ViewBag.Title = "Create a Post";
 }
-
-<h2>Create</h2>
-
 
 @using (Html.BeginForm("Create", "Post", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Post</h4>
+        <h4>@ViewBag.Title for @ViewBag.SiteName</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -51,7 +49,8 @@
             <label class="control-label col-md-2">Tags</label>
 
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Tags, new { @class = "form-control", @data_role = "tagsinput", @id="tags" })
+                @Html.TextBoxFor(model => model.Tags, new { @id = "input-tags" })
+                @*@Html.TextBoxFor(model => model.Tags, new { @class = "form-control", @data_role = "tagsinput", @id="tags" })*@
             </div>
         </div>
 
@@ -78,7 +77,7 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    <script src="~/Scripts/Post/post.js"></script>
-}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script src="~/Scripts/Post/post.js"></script>
+    }

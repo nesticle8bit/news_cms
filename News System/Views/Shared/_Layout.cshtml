@@ -6,7 +6,12 @@
     <title>@ViewBag.SiteName - @ViewBag.Slogan</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <link href="~/Content/bootstrap-tagsinput.css" rel="stylesheet" />
+    @*<link href="~/Content/bootstrap-tagsinput.css" rel="stylesheet" />*@
+
+    <link href="~/Content/selectize.default.css" rel="stylesheet" />
+    <link href="~/Content/sweetalert.css" rel="stylesheet" />
+    <script src="~/Scripts/sweetalert-dev.js"></script>
+
     <link href="~/Content/wbbtheme.css" rel="stylesheet" />
 
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600' rel='stylesheet' type='text/css'>
@@ -147,6 +152,7 @@
 
     <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
 
+    <script src="~/Scripts/selectize.js"></script>
     <script src="~/Scripts/jquery.wysibb.js"></script>
     <script src="~/Scripts/xbbcode.js"></script>
 </body>

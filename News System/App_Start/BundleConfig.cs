@@ -23,14 +23,11 @@ namespace News_System
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js",
                       "~/Scripts/global_script.js",
-                      "~/Scripts/bootstrap-filestyle.js",
-                      "~/Scripts/typeahead-0.11.1.js",
-                      "~/Scripts/bootstrap-tagsinput.js"));
+                      "~/Scripts/bootstrap-filestyle.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/font-awesome.css",
-                      "~/Content/bootstrap-tagsinput.css",
                       "~/Content/site.css"));
         }
     }
