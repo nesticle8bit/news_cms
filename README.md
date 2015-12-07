@@ -1,4 +1,4 @@
-# News CMS
+# Content Management System for News
 Content Management System for News building in MVC Asp.net
 
 ![new-safari-browser-psd](https://cloud.githubusercontent.com/assets/1715022/11454785/19f0ee9e-9609-11e5-8d33-75201a658278.png)
