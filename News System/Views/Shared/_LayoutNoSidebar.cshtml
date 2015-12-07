@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.SiteName - @ViewBag.Slogan</title>
+    <title>@ViewBag.Title | @ViewBag.SiteName</title>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/bootstrap-tagsinput.css" rel="stylesheet" />
@@ -15,7 +16,9 @@
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,200,100,500,600,700,800,900' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Cabin:400,500,600,700,400italic,500italic,600italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,500italic,500,400italic,300,100italic,100,300italic' rel='stylesheet' type='text/css'>
-    
+
+    <link href="~/Content/social-buttons.css" rel="stylesheet" />
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
@@ -74,7 +77,8 @@
                                 <ul class="categories">
                                     @if (ViewBag.SocialNetwork != null)
                                     {
-                                        for (int i = 0; i < ViewBag.SocialNetwork.Count; i++) {
+                                        for (int i = 0; i < ViewBag.SocialNetwork.Count; i++)
+                                        {
                                             <li>
                                                 <a href="@ViewBag.SocialNetwork[i].Link" target="_blank">
                                                     <i class="@ViewBag.SocialNetwork[i].Icon.IconName"></i>
@@ -85,6 +89,7 @@
                                             </li>
                                         }
                                     }
+
                                     <li class="desc">
                                         @*<span>400145 Subscribers &amp; Followers</span>*@
                                     </li>
@@ -107,47 +112,19 @@
                     <div class="clear"></div>
                 </div>
                 <div class="search-holder">
-                    @using (Html.BeginForm("Search", "Post", FormMethod.Get, new { @class = "search-form" }))
-                    {
-                        <input type="text" value="" name="q" placeholder="search text" class="search-input">
+                    <form method="get" action="/search/">
+                        <input type="text" name="q" placeholder="search text" class="search-input">
                         <span class="fa fa-times close" onclick="searchToggle($('.search-button')); return false;"></span>
-                    }
+                    </form>
                 </div>
             </header>
 
             <div class="content-container">
                 <div class="inner">
-                    <div class="content-wrap">
-                        <div class="inner">
-                            @RenderBody()
-                        </div>
-                    </div>
-                    @RenderPage("_Sidebar.cshtml")
+                    @RenderBody()
                 </div>
             </div>
         </div>
     </div>
-    
-    
-
-    <div id="fb-root"></div>
-    <script type="text/javascript">
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5&appId=107545726022674";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
-
-    <script src="https://apis.google.com/js/platform.js" async defer>
-        { lang: 'es' }
-    </script>
-
-    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
-
-    <script src="~/Scripts/jquery.wysibb.js"></script>
-    <script src="~/Scripts/xbbcode.js"></script>
 </body>
 </html>

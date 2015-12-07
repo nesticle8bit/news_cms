@@ -1,13 +1,6 @@
 ﻿@model News_System.Models.Post
 @{
     Layout = "~/Views/Shared/_LayoutPost.cshtml";
-    if(Model != null) {
-        ViewBag.Title = @Html.DisplayFor(model => model.Title) + " | " + "Slogan";
-    }
-    else
-    {
-        ViewBag.Title = "Seleccione un Articulo | Slogan";
-    }
 }
 
 <div class="article-info-wrapper" style="background-image:url(@(Model != null ? "/Files/" + Model.Image : ""));">
@@ -33,7 +26,7 @@
                 </li>
                 <li class="divider">|</li>
                 <li>
-                    <a href="#">
+                    <a href="@Url.Action("ViewPost", "Post", new { id = Model.Id })#comments">
                         @Html.DisplayFor(model => model.Comment.Count) @(Model.Comment.Count == 0 || Model.Comment.Count > 1 ? "Comments" : "Comment")
                     </a>
                 </li>
@@ -47,9 +40,12 @@
         <div class="content-wrap">
             <div class="inner">
                 <article class="article-content">
-                    <div class="ad-article-responsive">
-                        <img src="https://storage.googleapis.com/support-kms-prod/SNP_59D432450939ECC60A21BEDBEE985B1817B1_3094744_en_v2" />
-                    </div>
+                    @if (ViewBag.Ads_970 != null)
+                    {
+                        <div class="ad-article-responsive">
+                            @Html.Raw(ViewBag.Ads_970)
+                        </div>
+                    }
                     
                     <p id="description">
                         @Html.DisplayFor(model => model.Description, new { @id = "description" })

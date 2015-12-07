@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -13,6 +14,11 @@ namespace News_System.App_Start
 
         public override void OnResultExecuting(ResultExecutingContext filterContext)
         {
+            //Configuration : Site name - Slogan - Url
+            filterContext.Controller.ViewBag.SiteName = db.Configuration.SingleOrDefault().WebsiteTitle;
+            filterContext.Controller.ViewBag.Slogan = db.Configuration.SingleOrDefault().Slogan;
+            //filterContext.Controller.ViewBag.WebsiteLink = db.Configuration.SingleOrDefault().Url;
+
             filterContext.Controller.ViewBag.Categorias = db.Category.OrderBy(o => o.Name).ToList();
             filterContext.Controller.ViewBag.FeaturedArticles = db.Post.Where(p => p.Comment.Count > 0)
                                                                        .ToList();
@@ -24,8 +30,10 @@ namespace News_System.App_Start
 
             //Configuration : Ads
             filterContext.Controller.ViewBag.Ads_300 = db.Configuration.SingleOrDefault().Ads_300;
+
             filterContext.Controller.ViewBag.Ads_728 = db.Configuration.SingleOrDefault().Ads_728;
             filterContext.Controller.ViewBag.Ads_970 = db.Configuration.SingleOrDefault().Ads_970;
+
         }
     }
 }

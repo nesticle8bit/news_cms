@@ -1,7 +1,10 @@
 ﻿<div class="sidebar">
-    <div class="sidebar-ad-holder">
-        @ViewBag.Ads_300
-    </div>
+    @if (ViewBag.Ads_300 != null)
+    {
+        <div class="sidebar-ad-holder">
+            @Html.Raw(ViewBag.Ads_300)
+        </div>
+    }
     
     <div class="sidebar-social-holder facebook">
         <div class="asset-holder">
@@ -82,10 +85,13 @@
 
 
     <div data-sidebar-sticky="" class="" style="">
-        <div class="sidebar-ad-holder">
-            @ViewBag.Ads_300
-        </div>
-
+        @if (ViewBag.Ads_300 != null)
+        {
+            <div class="sidebar-ad-holder">
+                @Html.Raw(ViewBag.Ads_300)
+            </div>
+        }
+        
         <div class="sidebar-promoted-holder">
             <div class="item-title">Featured articles</div>
             <div class="first">

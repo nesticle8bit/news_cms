@@ -4,11 +4,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="ad-page-responsive">
-    <center>
-        <img src="https://lh6.ggpht.com/41LFWBytPnxKsfZf6mivs6ba7qdOBtfk9-7MzWSMqwC3IFOvaXd8rejFiyeXKfBOK16mMEopeA=w728" />
-    </center>
-</div>
+@if (ViewBag.Ads_728 != null)
+{
+    <div class="ad-page-responsive">
+        <center>
+            @Html.Raw(ViewBag.Ads_728)
+        </center>
+    </div>
+}
 
 <h4 class="section-title">Articles by category<span></span></h4>
 

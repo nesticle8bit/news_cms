@@ -235,6 +235,8 @@ namespace News_System.Controllers
             }
             else
             {
+                ViewBag.Title = post.Title;
+
                 ViewBag.Tags = db.Post_Tags
                     .Where(t => t.Id_Post == id).ToList();
 

@@ -1,4 +1,5 @@
 ﻿@{
+    Layout = "~/Views/Shared/_LayoutNoSidebar.cshtml";
     ViewBag.Title = "About us";
 }
 
@@ -23,12 +24,13 @@
     </div>
     <div class="clear"></div>
     <div class="box fullwidth">
-        <h2>A few more things about icanbecreative</h2>
+        <h2>A few more things about @ViewBag.SiteName</h2>
         <p>Our project is a fast growing design and coding website based on useful Photoshop and Illustrator tutorials. We also have tricks, graphic design articles and inspiring stuff, and free resources such as PSD files, textures, fonts, brushes, you name it!</p>
         <p>We focus on web developers, designers, graphic artists, software developers, bloggers, SEO experts, internet marketers, photographers and many more, where innovation meets the imagination.</p>
         <p>We're digital people!</p>
-        <p>Facebook: <a href="http://facebook.com/icanbecreative" target="_blank">icanbecreative</a></p>
-        <p>Twitter: <a href="https://twitter.com/icanbecreative" target="_blank">icanbecreative</a></p>
+        <br />
+        <p>Facebook: <a href="#" target="_blank">@ViewBag.SiteName</a></p>
+        <p>Twitter: <a href="#" target="_blank">@ViewBag.SiteName</a></p>
     </div>
     <div class="clear"></div>
 </div>
