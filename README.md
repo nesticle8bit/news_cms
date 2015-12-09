@@ -22,7 +22,7 @@ Content Management System for News building in MVC Asp.net
 - [ ] Poder añadir Google Adsense y Analytics.
 - [ ] Nuevo Layout para Admin.
 - [ ] Organizar los links permanentes de los Posts.
-- [ ] Parametrizar las redes sociales tanto en el sidebar como navbar.
+- [X] Parametrizar las redes sociales tanto en el sidebar como navbar.
 - [X] Implementar WYSIWYG en la creación de Post
 - [ ] Custom Errors
 - [X] Implementar los buscadores del Navbar y del Sidebar.
