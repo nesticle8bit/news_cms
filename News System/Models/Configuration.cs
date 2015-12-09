@@ -25,5 +25,6 @@ namespace News_System.Models
         public string Ads_970 { get; set; }
         [AllowHtml]
         public string Ads_728 { get; set; }
+        public string Email { get; set; }
     }
 }

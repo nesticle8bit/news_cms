@@ -17,7 +17,7 @@ namespace News_System.App_Start
             //Configuration : Site name - Slogan - Url
             filterContext.Controller.ViewBag.SiteName = db.Configuration.SingleOrDefault().WebsiteTitle;
             filterContext.Controller.ViewBag.Slogan = db.Configuration.SingleOrDefault().Slogan;
-            //filterContext.Controller.ViewBag.WebsiteLink = db.Configuration.SingleOrDefault().Url;
+            filterContext.Controller.ViewBag.WebsiteLink = db.Configuration.SingleOrDefault().Url;
 
             filterContext.Controller.ViewBag.Categorias = db.Category.OrderBy(o => o.Name).ToList();
             filterContext.Controller.ViewBag.FeaturedArticles = db.Post.Where(p => p.Comment.Count > 0)

@@ -33,6 +33,7 @@
           <Property Name="Ads_300" Type="varchar(max)" />
           <Property Name="Ads_728" Type="varchar(max)" />
           <Property Name="Ads_970" Type="varchar(max)" />
+          <Property Name="Email" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Icon">
           <Key>
@@ -368,6 +369,7 @@
           <Property Name="Ads_300" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Ads_970" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Ads_728" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -458,6 +460,7 @@
           <EntitySetMapping Name="Configuration">
             <EntityTypeMapping TypeName="newsSystem_dbModel.Configuration">
               <MappingFragment StoreEntitySet="Configuration">
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Ads_728" ColumnName="Ads_728" />
                 <ScalarProperty Name="Ads_970" ColumnName="Ads_970" />
                 <ScalarProperty Name="Ads_300" ColumnName="Ads_300" />

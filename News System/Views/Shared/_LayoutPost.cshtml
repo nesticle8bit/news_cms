@@ -7,8 +7,10 @@
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    
     <link href="~/Content/bootstrap-tagsinput.css" rel="stylesheet" />
     <link href="~/Content/wbbtheme.css" rel="stylesheet" />
+    <link href="~/Content/selection-sharer.min.css" rel="stylesheet" />
 
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
@@ -123,7 +125,7 @@
         </div>
     </div>
 
-
+    @RenderPage("_Footer.cshtml")
 
     <div id="fb-root"></div>
         <script type="text/javascript">
@@ -146,5 +148,9 @@
     <script src="~/Scripts/xbbcode.js"></script>
     <script src="~/Scripts/social-buttons.js"></script>
     <script src="~/Scripts/jquery.autosize.min.js"></script>
+    <script src="~/Scripts/selection-sharer.min.js"></script>
+    <script>
+        $('p').selectionSharer();
+    </script>
 </body>
 </html>

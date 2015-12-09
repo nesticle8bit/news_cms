@@ -260,6 +260,8 @@ namespace News_System.Controllers
         {
             if (q != null)
                 ViewBag.SearchParam = q;
+            else
+                ViewBag.SearchParam = "";
 
             return View(db.Post.Where(p => p.Title.Contains(q)).OrderByDescending(o => o.Time).ToList());
         }

@@ -167,6 +167,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IconsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PagesController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\SocialController.cs" />
     <Compile Include="Controllers\TagsController.cs" />
@@ -224,6 +225,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Admin.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
@@ -235,6 +237,7 @@
     <Content Include="Content\Resources\Images\bg-tumblr.jpg" />
     <Content Include="Content\Resources\Images\bg-twitter.jpg" />
     <Content Include="Content\Resources\Images\social-coins.png" />
+    <Content Include="Content\selection-sharer.min.css" />
     <Content Include="Content\selectize.css" />
     <Content Include="Content\selectize.default.css" />
     <Content Include="Content\social-buttons.css" />
@@ -295,6 +298,8 @@
     <Content Include="Scripts\Post\post.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\selection-sharer.js" />
+    <Content Include="Scripts\selection-sharer.min.js" />
     <Content Include="Scripts\selectize.js" />
     <Content Include="Scripts\selectize.min.js" />
     <Content Include="Scripts\social-buttons.js" />
@@ -373,6 +378,13 @@
     <Content Include="Views\Configuration\Edit.cshtml" />
     <Content Include="Views\Configuration\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutNoSidebar.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Pages\Advertise.cshtml" />
+    <Content Include="Views\Pages\WriteForUs.cshtml" />
+    <Content Include="Views\Pages\Privacy.cshtml" />
+    <Content Include="Views\Pages\Terms.cshtml" />
+    <Content Include="Views\Pages\Subscribe.cshtml" />
+    <Content Include="Views\Pages\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
