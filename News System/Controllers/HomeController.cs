@@ -23,19 +23,5 @@ namespace News_System.Controllers
         //    homeViewModel.Categories = db.Category.ToList().OrderByDescending(o => o.Name);
         //    return View(homeViewModel);
         //}
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

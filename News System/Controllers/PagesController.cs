@@ -11,7 +11,6 @@ namespace News_System.Controllers
     {
         private newsSystem_dbEntities db = new newsSystem_dbEntities();
 
-        // GET: Pages
         public ActionResult Index()
         {
             return View();
@@ -23,6 +22,11 @@ namespace News_System.Controllers
             ViewBag.SubTitle = "Align your brand with captivating content!";
             //ViewBag.Email = mail;
 
+            return View();
+        }
+
+        public ActionResult About()
+        {
             return View();
         }
 
@@ -61,6 +65,12 @@ namespace News_System.Controllers
         {
             ViewBag.Email = db.Configuration.SingleOrDefault().Email;;
             
+            return View();
+        }
+
+        public ActionResult Chat()
+        {
+            ViewBag.SubTitle = "Just enjoy talking to us :)";
             return View();
         }
     }
