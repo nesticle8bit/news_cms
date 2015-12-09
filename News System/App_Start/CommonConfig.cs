@@ -19,8 +19,14 @@ namespace News_System.App_Start
             filterContext.Controller.ViewBag.Slogan = db.Configuration.SingleOrDefault().Slogan;
             filterContext.Controller.ViewBag.WebsiteLink = db.Configuration.SingleOrDefault().Url;
 
+            //Sidebar
             filterContext.Controller.ViewBag.Categorias = db.Category.OrderBy(o => o.Name).ToList();
+
+            Random rand = new Random();
+            int toSkip = rand.Next(0, db.Post.Count());
+            filterContext.Controller.ViewBag.RandomArticle = db.Post.Take(1).OrderBy(o => o.Id).Skip(toSkip).First();
             filterContext.Controller.ViewBag.FeaturedArticles = db.Post.Where(p => p.Comment.Count > 0)
+                                                                       .Take(4)
                                                                        .ToList();
 
             //List of Social Networks

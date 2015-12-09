@@ -95,11 +95,11 @@
         <div class="sidebar-promoted-holder">
             <div class="item-title">Featured articles</div>
             <div class="first">
-                <a href="http://icanbecreative.com/article/animate-element-along-svg-path" title="How To Animate Element Along SVG Path">
-                    <img src="http://icanbecreative.com/resources/files/articles/animate-element-along-svg-path/featured/animate-element-along-svg-path_featured_500.jpg" alt="How To Animate Element Along SVG Path">
+                <a href="@Url.Action("ViewPost", "Post", new { id = @ViewBag.RandomArticle.Id })" title="@ViewBag.RandomArticle.Title">
+                    <img src="~/Files/@ViewBag.RandomArticle.Image" alt="@ViewBag.RandomArticle.Title">
                     <div class="info semi-gradient">
-                        <h3>How To Animate Element Along SVG Path</h3>
-                        <span class="date">November 02, 2015</span>
+                        <h3>@ViewBag.RandomArticle.Title</h3>
+                        <span class="date">@ViewBag.RandomArticle.Time</span>
                     </div>
                 </a>
             </div>
@@ -108,7 +108,7 @@
                 @for (int i = 0; i < ViewBag.FeaturedArticles.Count; i++)
                 {
                     <li>
-                        <a href="#" title="@ViewBag.FeaturedArticles[i].Title">
+                        <a href="@Url.Action("ViewPost", "Post", new { id = @ViewBag.FeaturedArticles[i].Id })" title="@ViewBag.FeaturedArticles[i].Title">
                             <span class="article-image-holder">
                                 <img src="~/Files/@ViewBag.FeaturedArticles[i].Image" alt="@ViewBag.FeaturedArticles[i].Title" />
                             </span>
