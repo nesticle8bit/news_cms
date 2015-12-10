@@ -10,6 +10,7 @@ Content Management System for News building in MVC Asp.net
 - jQuery Social Sharing Buttons - http://labs.carsonshold.com/social-sharing-buttons/
 - Selectize v0.12.1 - https://brianreavis.github.io/selectize.js/
 - SweetAlert (2014 - 2015) - https://t4t5.github.io/sweetalert/
+- Animate.css 3.4.0 - https://daneden.github.io/animate.css/
 
 ## 🍪 Cover Image
 - Psd Safari Yosemite Browser Mockup - https://dribbble.com/shots/1586310-Psd-Safari-Yosemite-Browser-Mockup
