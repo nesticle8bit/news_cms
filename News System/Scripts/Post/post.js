@@ -6,21 +6,24 @@
             var data = result.data;
             var items = data.map(function (x) { return { item: x }; });
 
-            console.log(items);
-
             $('#input-tags').selectize({
-                delimiter: ',',
-                persist: false,
-
+                //Json Object
                 options: items,
 
+                //Mapping
                 labelField: "item",
                 valueField: "item",
                 sortField: 'item',
                 searchField: 'item',
 
-                maxItems: 5,
+                //Options
+                persist: false,
+                hideSelected: true,
+                maxItems: 6,
+
+                //Plugins
                 plugins: ['remove_button'],
+
                 create: function (input) {
                     return {
                         value: input,

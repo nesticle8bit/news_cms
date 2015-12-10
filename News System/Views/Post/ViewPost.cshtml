@@ -119,38 +119,24 @@
                     <div class="clear"></div>
                 </div>
 
+                @if (ViewBag.RelatedArticles != null) {
                 <div class="related-articles">
                     <h4 class="section-title">Related articles<span></span></h4>
                     <ul>
-                        <li>
-                            <a href="http://icanbecreative.com/article/css3-animated-search-box" title="Create CSS3 Animated Search Box">
-                                <img src="http://icanbecreative.com/resources/files/articles/css3-animated-search-box/featured/css3-animated-search-box_featured_900.jpg" alt="Create CSS3 Animated Search Box">
-                                <span class="info semi-gradient">
-                                    <h3>Create CSS3 Animated Search Box</h3>
-                                    <span class="date">October 04, 2015</span>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://icanbecreative.com/article/future-of-web-design" title="Curious About The Future Of Web Design? - Infographic">
-                                <img src="http://icanbecreative.com/resources/files/articles/future-of-web-design/featured/future-of-web-design_featured_900.jpg" alt="Curious About The Future Of Web Design? - Infographic">
-                                <span class="info semi-gradient">
-                                    <h3>Curious About The Future Of Web Design? - Infographic</h3>
-                                    <span class="date">January 21, 2014</span>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://icanbecreative.com/article/facebook-redesign" title="15 Facebook Redesign Layouts That You Will Like">
-                                <img src="http://icanbecreative.com/resources/files/articles/facebook-redesign/featured/facebook-redesign_featured_900.jpg" alt="15 Facebook Redesign Layouts That You Will Like">
-                                <span class="info semi-gradient">
-                                    <h3>15 Facebook Redesign Layouts That You Will Like</h3>
-                                    <span class="date">September 04, 2013</span>
-                                </span>
-                            </a>
-                        </li>
+                        @for (int i = 0; i < ViewBag.RelatedArticles.Count; i++) {
+                            <li>
+                                <a href="@Url.Action("ViewPost", "Post", new { id = ViewBag.RelatedArticles[i].Id })" title="@ViewBag.RelatedArticles[i].Title">
+                                    <img src="~/Files/@ViewBag.RelatedArticles[i].Image" alt="@ViewBag.RelatedArticles[i].Title">
+                                    <span class="info semi-gradient">
+                                        <h3>@ViewBag.RelatedArticles[i].Title</h3>
+                                        <span class="date">@ViewBag.RelatedArticles[i].Time</span>
+                                    </span>
+                                </a>
+                            </li>
+                        }
                     </ul>
                 </div>
+                }
 
                 <h4 class="section-title">About the author<span></span></h4>
                 <div class="author-bio">
@@ -190,7 +176,9 @@
                     }
                     <div class="clear"></div>
                 </div>
+                
                 <a name="comments"></a>
+                
                 <h4 class="section-title">Post a comment<span></span></h4>
                 <div class="post-comment">
                     <div class="avatar">
@@ -250,8 +238,11 @@
                 addInLineBreaks: false
             });
 
-            $("p#description").html(result.html)
-            console.log(result.html);// the HTML form of your BBCode
+            $("p#description").html(result.html);
+
+            console.error("Errors", result.error);
+            console.dir(result.errorQueue);
+            console.log(result.html);
         });
     </script>
 }

@@ -166,7 +166,7 @@
 		iconName : function(value) {
 			if (value !== undefined) {
 				this.$elementFilestyle.find('.icon-span-filestyle').attr({
-					'class' : 'icon-span-filestyle ' + this.options.iconName
+					'class' : this.options.iconName
 				});
 			} else {
 				return this.options.iconName;
@@ -175,7 +175,7 @@
 
 		htmlIcon : function() {
 			if (this.options.icon) {
-				return '<span class="icon-span-filestyle ' + this.options.iconName + '"></span> ';
+				return '<span class="' + this.options.iconName + '"></span> ';
 			} else {
 				return '';
 			}

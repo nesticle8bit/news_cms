@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -8,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using News_System.Models;
 using System.IO;
+using System.Collections.Generic;
 
 namespace News_System.Controllers
 {
@@ -236,6 +235,8 @@ namespace News_System.Controllers
             else
             {
                 ViewBag.Title = post.Title;
+                
+                RelatedArticles(post.Id);
 
                 ViewBag.Tags = db.Post_Tags
                     .Where(t => t.Id_Post == id).ToList();
@@ -264,6 +265,32 @@ namespace News_System.Controllers
                 ViewBag.SearchParam = "";
 
             return View(db.Post.Where(p => p.Title.Contains(q)).OrderByDescending(o => o.Time).ToList());
+        }
+
+        public void RelatedArticles(int id_post)
+        {
+            List<Post_Tags> Tags = db.Post_Tags.Where(p => p.Id_Post == id_post).ToList();
+
+            List<Post> Posts = new List<Post>();
+
+            for (int i = 0; i < Tags.Count; i++)
+            {
+                int id_tag = Tags[i].Tags.Id;
+
+                var item = db.Post
+                        .Where(p => p.Post_Tags
+                            .Any(a => a.Tags.Id == id_tag))
+                                .FirstOrDefault();
+
+                //Agrega el Item a la lista si encontro un registro en la Db
+                if(item != null) Posts.Add(item);
+
+                //Revisar si Posts no excede los 3 registros
+                if (Posts.Count == 3) break;
+            }
+
+            if (Posts.Count > 0)
+                ViewBag.RelatedArticles = Posts.Distinct().ToList();
         }
     }
 }

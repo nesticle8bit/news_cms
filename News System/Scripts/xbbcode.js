@@ -500,6 +500,15 @@ var XBBCODE = (function() {
                 return '</a>';
             }
         },
+        "video": {
+            openTag: function (params, content) {
+                var source = 'https://www.youtube.com/embed/' + content;
+                return '<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item xbbcode-video" src="' + source + '" frameborder="0" allowfullscreen>';
+            },
+            closeTag: function (params, content) {
+                return '</iframe></div>';
+            }
+        },
         /*
             The [*] tag is special since the user does not define a closing [/*] tag when writing their bbcode.
             Instead this module parses the code and adds the closing [/*] tag in for them. None of the tags you

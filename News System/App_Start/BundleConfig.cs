@@ -23,11 +23,22 @@ namespace News_System
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js",
                       "~/Scripts/global_script.js",
-                      "~/Scripts/bootstrap-filestyle.js"));
+                      "~/Scripts/bootstrap-filestyle.js",
+                      "~/Scripts/jquery.wysibb.js",
+                      "~/Scripts/xbbcode.js",
+                      "~/Scripts/social-buttons.js",
+                      "~/Scripts/jquery.autosize.min.js",
+                      "~/Scripts/selection-sharer.min.js",
+                      "~/Scripts/selectize.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/font-awesome.css",
+                      "~/Content/wbbtheme.css",
+                      "~/Content/selectize.default.css",
+                      "~/Content/selection-sharer.min.css",
+                      "~/Content/social-buttons.css",
+                      "~/Content/animate.css",
                       "~/Content/site.css"));
         }
     }

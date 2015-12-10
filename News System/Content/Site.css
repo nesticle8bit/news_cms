@@ -847,6 +847,10 @@ transition: all 0.1s ease-in-out;}
 
 }
 
+.xbbcode-video {
+    margin: 10px 0 20px 0;
+}
+
 .xbbcode-table , .xbbcode-th, .xbbcode-td {
     border: 1px solid #666;
 }
