@@ -21,20 +21,20 @@
                             <li><a href="@Url.Action("ViewPost", "Post", new { id = item.Id })">@Html.DisplayFor(modelItem => item.Time)</a></li>
                             <li class="divider">/</li>
                             <li>
-                                <a href="@Url.Action("Category", "Post", new { id = item.Category.Id })">
+                                <a href="@Url.Action("Category", "Post", new { id = item.Category.Id })" title="Category" data-tooltip="true" data-placement="top">
                                     @Html.DisplayFor(modelItem => item.Category.Name)
                                 </a>
                             </li>
                             <li class="divider">/</li>
                             <li>
-                                <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })#comments">
+                                <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })#comments" title="Comments" data-tooltip="true" data-placement="top">
                                     @Html.DisplayFor(modelItem => item.Comment.Count) @(item.Comment.Count == 0 || item.Comment.Count > 1 ? "Comments" : "Comment")
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <h2 class="article-title">
-                        <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" title="@Html.DisplayFor(modelItem => item.Title)">
+                        <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" title="@Html.DisplayFor(modelItem => item.Title)" data-tooltip="true" data-placement="top">
                             @Html.DisplayFor(modelItem => item.Title)
                         </a>
                     </h2>
@@ -72,20 +72,20 @@
                         </li>
                         <li class="divider">/</li>
                         <li>
-                            <a href="@Url.Action("Category", "Post", new { id = item.Category.Id })">
+                            <a href="@Url.Action("Category", "Post", new { id = item.Category.Id })" title="Category" data-tooltip="true" data-placement="top">
                                 @Html.DisplayFor(modelItem => item.Category.Name)
                             </a>
                         </li>
                         <li class="divider">/</li>
                         <li>
-                            <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })#comments">
+                            <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })#comments" title="Comments" data-tooltip="true" data-placement="top">
                                 @Html.DisplayFor(modelItem => item.Comment.Count) @(item.Comment.Count == 0 || item.Comment.Count > 1 ? "Comments" : "Comment")
                             </a>
                         </li>
                     </ul>
                 </div>
                 <h2 class="article-title">
-                    <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" title="@Html.DisplayFor(modelItem => item.Title)">
+                    <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" title="@Html.DisplayFor(modelItem => item.Title)" data-tooltip="true" data-placement="top">
                         @Html.DisplayFor(modelItem => item.Title)
                     </a>
                 </h2>

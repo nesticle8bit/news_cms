@@ -37,7 +37,10 @@
         }
     });
 
-    $("#editor").wysibb();
+    var wbbOpt = {
+        buttons: "bold,italic,underline,strike,sup,sub,|,img,video,link,|,bullist,numlist,|,fontcolor,fontsize,|,justifyleft,justifycenter,justifyright,|,quote,code,table,removeFormat",
+    }
+    $("#editor").wysibb(wbbOpt);
 
     function expandCommentArea(obj) {
 	    var parent = $(obj).closest('.post-comment');

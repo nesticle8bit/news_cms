@@ -239,8 +239,8 @@ wbbdebug=true;
 				},
 				code : {
 					title: CURLANG.code,
-					buttonText: '[code]',
-					/* buttonHTML: '<span class="fonticon">\uE00d</span>', */
+					//buttonText: '[code]',
+					buttonHTML: '<i class="fa fa-code"></i>',
 					hotkey: 'ctrl+shift+4',
 					onlyClearText: true,
 					transform : {

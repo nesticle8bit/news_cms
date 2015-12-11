@@ -254,7 +254,7 @@ namespace News_System.Controllers
         //Filter all the posts by this Category
         public ActionResult Category(int? id)
         {
-            return View(db.Post.Where(p => p.Category.Id == id).ToList());
+            return View(db.Post.Where(p => p.Category.Id == id).OrderByDescending(o=>o.Time).ToList());
         }
 
         public ActionResult Search(string q)

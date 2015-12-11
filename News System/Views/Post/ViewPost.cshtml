@@ -20,7 +20,7 @@
                 </li>
                 <li class="divider">|</li>
                 <li>
-                    <a href="@Url.Action("Search", "Category", new { id = Model.Category.Id })">
+                    <a href="@Url.Action("Category", "Post", new { id = Model.Category.Id })">
                         @Html.DisplayFor(model => model.Category.Name)
                     </a>
                 </li>
@@ -125,7 +125,7 @@
                     <ul>
                         @for (int i = 0; i < ViewBag.RelatedArticles.Count; i++) {
                             <li>
-                                <a href="@Url.Action("ViewPost", "Post", new { id = ViewBag.RelatedArticles[i].Id })" title="@ViewBag.RelatedArticles[i].Title">
+                                <a href="@Url.Action("ViewPost", "Post", new { id = ViewBag.RelatedArticles[i].Id })" title="@ViewBag.RelatedArticles[i].Title" data-tooltip="true" data-placement="top">
                                     <img src="~/Files/@ViewBag.RelatedArticles[i].Image" alt="@ViewBag.RelatedArticles[i].Title">
                                     <span class="info semi-gradient">
                                         <h3>@ViewBag.RelatedArticles[i].Title</h3>

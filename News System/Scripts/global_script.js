@@ -1,5 +1,9 @@
 ﻿$(document).ready(function () {
     $(":file").filestyle({ buttonName: "btn-primary" });
+
+    //Activar los Tooltip
+    $('[data-tooltip="true"]').tooltip();
+    $('[data-tooltip="true"]').tooltip();
 });
 
 $(function () {

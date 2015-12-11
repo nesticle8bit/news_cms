@@ -20,7 +20,7 @@
     foreach (var item in Model)
     {
         <article class="horizontal">
-            <a href="#" class="article-thumbnail">
+            <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" class="article-thumbnail">
                 <img src="~/Files/@Html.DisplayFor(modelItem => item.Image)">
             </a>
             <div class="article-info">

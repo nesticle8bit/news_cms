@@ -36,7 +36,6 @@ namespace News_System.App_Start
 
             //Configuration : Ads
             filterContext.Controller.ViewBag.Ads_300 = db.Configuration.SingleOrDefault().Ads_300;
-
             filterContext.Controller.ViewBag.Ads_728 = db.Configuration.SingleOrDefault().Ads_728;
             filterContext.Controller.ViewBag.Ads_970 = db.Configuration.SingleOrDefault().Ads_970;
 
