@@ -1,51 +1,101 @@
 ﻿@model IEnumerable<News_System.Models.Post>
 
 @{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="col-md-12">
+    <a href="@Url.Action("Create", "Post")" class="btn btn-success">
+        <i class="fa fa-plus"></i> Create a Post
+    </a>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table table-responsive table-bordered">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Image)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Time)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
+    <div class="clearfix"></div>
+    <br />
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            <img width="150" src="~/Files/@Html.DisplayFor(modelItem => item.Image)" />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Time)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+    <div class="card">
+        <div class="header">
+            <h4 class="title">Posts</h4>
+            <p class="category">List of Posts</p>
+        </div>
+
+        <div class="content table-responsive table-full-width">
+            <table class="table table-hover table-striped table-responsive">
+                <thead>
+                    <tr>
+                        <th>
+                            Hidded
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Image)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Title)
+                        </th>
+                        <th>
+                            Category
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Time)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <label class="checkbox">
+                                    @Html.CheckBoxFor(modelItem => item.Deleted, htmlAttributes: new { @data_toggle = "checkbox" })
+                                </label>
+                            </td>
+                            <td>
+                                <img width="150" src="~/Files/@Html.DisplayFor(modelItem => item.Image)" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Category", "Post", new { id = item.Category.Id })">
+                                    <i class="fa fa-external-link"></i> @Html.DisplayFor(modelItem => item.Category.Name)
+                                </a>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Time)
+                            </td>
+                            <td>
+                                <span class="text-large">
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </span>
+                            </td>
+                            <td>
+                                <a id="edit" href="@Url.Action("Edit", "Post", new { id = item.Id })" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Edit Post" data-id="@item.Id">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                
+                                <a id="view" href="@Url.Action("ViewPost", "Post", new { id = item.Id })" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="View Details of this Post" data-id="@item.Id">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+
+                                <a id="remove" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Edit Post" data-id="@item.Id">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Post/post.js"></script>
 }
-
-</table>

@@ -53,47 +53,43 @@
                 </article>
 
                 <div class="social-share-container">
-                    <div class="social-sharing" data-permalink="http://labs.carsonshold.com/social-sharing-buttons">
-                        <!-- https://developers.facebook.com/docs/plugins/share-button/ -->
+                    <div class="social-sharing" data-permalink="@Request.Url.AbsoluteUri">
                         <a target="_blank" href="http://www.facebook.com/sharer.php?u=@Request.Url.AbsoluteUri" class="share-facebook">
                             <span class="icon icon-facebook" aria-hidden="true"></span>
                             <span class="share-title">Share</span>
                             <span class="share-count">0</span>
                         </a>
-                        <!-- https://dev.twitter.com/docs/intents -->
+                        
                         <a target="_blank" href="http://twitter.com/share?url=@Request.Url.AbsoluteUri&amp;text=@Html.DisplayFor(model => model.Title)" class="share-twitter">
                             <span class="icon icon-twitter" aria-hidden="true"></span>
                             <span class="share-title">Tweet</span>
                             <span class="share-count">0</span>
                         </a>
-                        <!--
-                          https://developers.pinterest.com/pin_it/
-                          Pinterest get data from the same Open Graph meta tags Facebook uses
-                        -->
-                        <a target="_blank" href="http://pinterest.com/pin/create/button/?url=http://labs.carsonshold.com/social-sharing-buttons&amp;media=http://photos-c.ak.instagram.com/hphotos-ak-xfp1/10369404_682591538475746_1724734234_n.jpg&amp;description=Tina%20the%20dachsund" class="share-pinterest">
+                        
+                        <a target="_blank" href="http://pinterest.com/pin/create/button/?url=@Request.Url.AbsoluteUri&amp;media=@(Model != null ? "/Files/" + Model.Image : "")&amp;description=@Model.Title" class="share-pinterest">
                             <span class="icon icon-pinterest" aria-hidden="true"></span>
                             <span class="share-title">Pin it</span>
                             <span class="share-count">0</span>
                         </a>
-                        <!-- https://developers.google.com/+/web/share/ -->
-                        <a target="_blank" href="http://plus.google.com/share?url=http://labs.carsonshold.com/social-sharing-buttons" class="share-google">
+                        
+                        <a target="_blank" href="http://plus.google.com/share?url=@Request.Url.AbsoluteUri" class="share-google">
                             <!-- Cannot get Google+ share count with JS yet -->
                             <span class="icon icon-google" aria-hidden="true"></span>
                             <span class="share-count">+1</span>
                         </a>
-                        <!-- https://www.reddit.com/buttons -->
-                        <a target="_blank" href="http://www.reddit.com/submit?url=http://labs.carsonshold.com/social-sharing-buttons&title=jQuery%20social%20media%20buttons%20with%20share%20counts%20on%20GitHub" class="share-reddit">
+                        
+                        <a target="_blank" href="http://www.reddit.com/submit?url=@Request.Url.AbsoluteUri&title=@Model.Title" class="share-reddit">
                             <span class="icon icon-reddit" aria-hidden="true"></span>
                             <span class="share-title">Reddit</span>
                         </a>
-                        <!-- https://developer.linkedin.com/plugins/share -->
-                        <a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=http://labs.carsonshold.com/social-sharing-buttons&title=jQuery%20social%20media%20buttons%20with%20share%20counts%20on%20GitHub" class="share-linkedin">
+                        
+                        <a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=@Request.Url.AbsoluteUri&title=@Model.Title" class="share-linkedin">
                             <span class="icon icon-linkedin" aria-hidden="true"></span>
                             <span class="share-title">Share</span>
                             <span class="share-count">0</span>
                         </a>
-                        <!-- http://blogs.skype.com/2015/11/04/introducing-share-button-effortless-sharing-that-sparks-richer-conversations/ -->
-                        <a target="_blank" href="https://web.skype.com/share?url=http://labs.carsonshold.com/social-sharing-buttons&lang=en-us" class="share-skype">
+                        
+                        <a target="_blank" href="https://web.skype.com/share?url=@Request.Url.AbsoluteUri&lang=en-us" class="share-skype">
                             <span class="icon icon-skype" aria-hidden="true"></span>
                             <span class="share-title">Share</span>
                         </a>
@@ -102,7 +98,7 @@
 
                 <div class="tags-holder">
                     <ul>
-                        <li>Tags:</li>
+                        <li class="title">Tags:</li>
 
                         @if (ViewBag.Tags != null)
                         {
@@ -112,7 +108,7 @@
                                     <a href="#">
                                         @ViewBag.Tags[i].Tags.Name
                                     </a>
-                                </li><span>,</span>
+                                </li>
                             }
                         }
                     </ul>

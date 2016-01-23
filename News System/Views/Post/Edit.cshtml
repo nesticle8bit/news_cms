@@ -1,18 +1,16 @@
 ﻿@model News_System.Models.Post
 
 @{
-    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutNoSidebar.cshtml";
+    ViewBag.Title = "Editing " + ViewBag.PostTitle;
 }
 
-<h2>Edit</h2>
-
-
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Post", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Post</h4>
+        <h4>@ViewBag.Title for @ViewBag.SiteName</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
@@ -51,7 +49,9 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-save"></i> Save
+                </button>
             </div>
         </div>
     </div>

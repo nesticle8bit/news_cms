@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using News_System.Models;
+using Newtonsoft.Json;
 
 namespace News_System.Controllers
 {
@@ -33,6 +34,18 @@ namespace News_System.Controllers
                 return HttpNotFound();
             }
             return View(category);
+        }
+
+        public JsonResult DetailsCategory(int? id)
+        {
+            var category = (from c in db.Category
+                           where c.Id == id
+                           select new { 
+                               Id = c.Id,
+                               Name = c.Name
+                           }).SingleOrDefault();
+
+            return Json(new { data = category }, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Category/Create
@@ -112,6 +125,17 @@ namespace News_System.Controllers
             Category category = db.Category.Find(id);
             db.Category.Remove(category);
             db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        //For the Ajax Call
+        [HttpPost]
+        public ActionResult DeleteCategory(int? id)
+        {
+            Category category = db.Category.Find(id);
+            db.Category.Remove(category);
+            db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

@@ -27,12 +27,12 @@ namespace News_System.Models
     
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Comment> Comment { get; set; }
+        public virtual DbSet<Configuration> Configuration { get; set; }
         public virtual DbSet<Icon> Icon { get; set; }
         public virtual DbSet<Post> Post { get; set; }
         public virtual DbSet<Post_Tags> Post_Tags { get; set; }
         public virtual DbSet<Social> Social { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tags> Tags { get; set; }
-        public virtual DbSet<Configuration> Configuration { get; set; }
     }
 }

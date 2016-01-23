@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="newsSystem_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="newsSystem_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="Id" />
@@ -54,6 +54,7 @@
           <Property Name="Highlight" Type="bit" Nullable="false" />
           <Property Name="Id_Category" Type="int" />
           <Property Name="DisabledComments" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Post_Tags">
           <Key>
@@ -181,7 +182,8 @@
             <End Role="Social" EntitySet="Social" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="newsSystem_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -204,6 +206,19 @@
           <Property Name="Id_Post" Type="Int32" />
           <NavigationProperty Name="Post" Relationship="Self.FK_Comment_Post" FromRole="Comment" ToRole="Post" />
         </EntityType>
+        <EntityType Name="Configuration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WebsiteTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Slogan" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ads_300" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ads_728" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ads_970" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="Icon">
           <Key>
             <PropertyRef Name="Id" />
@@ -223,10 +238,11 @@
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Highlight" Type="Boolean" Nullable="false" />
           <Property Name="Id_Category" Type="Int32" />
+          <Property Name="DisabledComments" Type="Boolean" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Post_Category" FromRole="Post" ToRole="Category" />
           <NavigationProperty Name="Comment" Relationship="Self.FK_Comment_Post" FromRole="Post" ToRole="Comment" />
           <NavigationProperty Name="Post_Tags" Relationship="Self.FK_Post_Tags_Post" FromRole="Post" ToRole="Post_Tags" />
-          <Property Name="DisabledComments" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Post_Tags">
           <Key>
@@ -246,8 +262,8 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Id_Icon" Type="Int32" />
-          <NavigationProperty Name="Icon" Relationship="Self.FK_Social_Icon" FromRole="Social" ToRole="Icon" />
           <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Icon" Relationship="Self.FK_Social_Icon" FromRole="Social" ToRole="Icon" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -330,6 +346,7 @@
         <EntityContainer Name="newsSystem_dbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Category" EntityType="Self.Category" />
           <EntitySet Name="Comment" EntityType="Self.Comment" />
+          <EntitySet Name="Configuration" EntityType="Self.Configuration" />
           <EntitySet Name="Icon" EntityType="Self.Icon" />
           <EntitySet Name="Post" EntityType="Self.Post" />
           <EntitySet Name="Post_Tags" EntityType="Self.Post_Tags" />
@@ -356,21 +373,7 @@
             <End Role="Tags" EntitySet="Tags" />
             <End Role="Post_Tags" EntitySet="Post_Tags" />
           </AssociationSet>
-          <EntitySet Name="Configuration" EntityType="newsSystem_dbModel.Configuration" />
         </EntityContainer>
-        <EntityType Name="Configuration">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="WebsiteTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Slogan" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Ads_300" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Ads_970" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Ads_728" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -396,6 +399,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Configuration">
+            <EntityTypeMapping TypeName="newsSystem_dbModel.Configuration">
+              <MappingFragment StoreEntitySet="Configuration">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="WebsiteTitle" ColumnName="WebsiteTitle" />
+                <ScalarProperty Name="Slogan" ColumnName="Slogan" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Ads_300" ColumnName="Ads_300" />
+                <ScalarProperty Name="Ads_728" ColumnName="Ads_728" />
+                <ScalarProperty Name="Ads_970" ColumnName="Ads_970" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Icon">
             <EntityTypeMapping TypeName="newsSystem_dbModel.Icon">
               <MappingFragment StoreEntitySet="Icon">
@@ -407,7 +424,6 @@
           <EntitySetMapping Name="Post">
             <EntityTypeMapping TypeName="newsSystem_dbModel.Post">
               <MappingFragment StoreEntitySet="Post">
-                <ScalarProperty Name="DisabledComments" ColumnName="DisabledComments" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
@@ -415,6 +431,8 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Highlight" ColumnName="Highlight" />
                 <ScalarProperty Name="Id_Category" ColumnName="Id_Category" />
+                <ScalarProperty Name="DisabledComments" ColumnName="DisabledComments" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -430,11 +448,11 @@
           <EntitySetMapping Name="Social">
             <EntityTypeMapping TypeName="newsSystem_dbModel.Social">
               <MappingFragment StoreEntitySet="Social">
-                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Link" ColumnName="Link" />
                 <ScalarProperty Name="Id_Icon" ColumnName="Id_Icon" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -454,20 +472,6 @@
               <MappingFragment StoreEntitySet="Tags">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Configuration">
-            <EntityTypeMapping TypeName="newsSystem_dbModel.Configuration">
-              <MappingFragment StoreEntitySet="Configuration">
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Ads_728" ColumnName="Ads_728" />
-                <ScalarProperty Name="Ads_970" ColumnName="Ads_970" />
-                <ScalarProperty Name="Ads_300" ColumnName="Ads_300" />
-                <ScalarProperty Name="Url" ColumnName="Url" />
-                <ScalarProperty Name="Slogan" ColumnName="Slogan" />
-                <ScalarProperty Name="WebsiteTitle" ColumnName="WebsiteTitle" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

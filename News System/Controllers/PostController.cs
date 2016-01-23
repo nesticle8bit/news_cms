@@ -17,7 +17,7 @@ namespace News_System.Controllers
         // GET: Post
         public ActionResult Index()
         {
-            return View(db.Post.ToList());
+            return View(db.Post.OrderByDescending(o => o.Time).ToList());
         }
 
         // GET: Post/Details/5
@@ -120,14 +120,14 @@ namespace News_System.Controllers
         public ActionResult Edit(int? id)
         {
             if (id == null)
-            {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+
             Post post = db.Post.Find(id);
             if (post == null)
-            {
                 return HttpNotFound();
-            }
+            else
+                ViewBag.PostTitle = post.Title;
+
             return View(post);
         }
 
@@ -291,6 +291,17 @@ namespace News_System.Controllers
 
             if (Posts.Count > 0)
                 ViewBag.RelatedArticles = Posts.Distinct().ToList();
+        }
+
+        //For the Ajax Call
+        [HttpPost]
+        public ActionResult DeletePost(int? id)
+        {
+            Post post = db.Post.Find(id);
+            post.Deleted = true;
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }

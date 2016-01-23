@@ -41,7 +41,7 @@
         buttons: "bold,italic,underline,strike,sup,sub,|,img,video,link,|,bullist,numlist,|,fontcolor,fontsize,|,justifyleft,justifycenter,justifyright,|,quote,code,table,removeFormat",
     }
     $("#editor").wysibb(wbbOpt);
-
+    
     function expandCommentArea(obj) {
 	    var parent = $(obj).closest('.post-comment');
 	    if (!parent.hasClass('active')) {
@@ -209,4 +209,34 @@
             console.log(data);
         });
     }
+
+    $('a#remove').click(function () {
+        var idCategory = $(this).data("id");
+        console.log(idCategory);
+
+        if (idCategory != undefined) {
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this post!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Delete",
+                cancelButtonText: "Cancel",
+                closeOnConfirm: false,
+            }, function (isConfirm) {
+                if (isConfirm) {
+                    $.ajax({
+                        url: '/Post/DeletePost',
+                        type: 'POST',
+                        data: { id: idCategory }
+                    }).success(function (e) {
+                        swal("Deleted!", "The Post has been deleted", "success");
+                    }).error(function (e) {
+                        console.log('Error: ' + e.statusText);
+                    });
+                }
+            });
+        }
+    });
 });
