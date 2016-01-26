@@ -31,7 +31,8 @@
     $('#formCategory').submit(function (e) {
         var idCategory = $('#idCategory').data("id");
         var nameCategory = $('#nameCategory').val();
-        
+        var token = $('input[name="__RequestVerificationToken"]').val();
+
         var category = {
             Id: parseInt(idCategory),
             Name: nameCategory,
@@ -42,9 +43,13 @@
         $.ajax({
             url: '/Category/Edit',
             type: 'POST',
-            data: category,
+            data: {
+                __RequestVerificationToken: token,
+                category: category
+            }
         }).success(function (e) {
-            console.log("Se guardo el registro " + e.data);
+            console.log("Se guardo el registro");
+            Saved('modalDetails');
         }).error(function (e) {
             console.log("Error " + e.statusText);
         });
@@ -81,4 +86,15 @@
             });
         }
     });
+
+    function Saved(modalName) {
+        $('#' + modalName).modal('hide');
+
+        swal({
+            title: 'Saved',
+            text: 'The data has been saved correctly',
+            type: 'success',
+            timer: 1800,
+        });
+    }
 }); //End

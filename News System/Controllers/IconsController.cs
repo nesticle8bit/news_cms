@@ -123,5 +123,18 @@ namespace News_System.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public JsonResult DetailsIcon(int? id)
+        {
+            var category = (from c in db.Icon
+                            where c.Id == id
+                            select new
+                            {
+                                Id = c.Id,
+                                Name = c.IconName
+                            }).SingleOrDefault();
+
+            return Json(new { data = category }, JsonRequestBehavior.AllowGet);
+        }
     }
 }

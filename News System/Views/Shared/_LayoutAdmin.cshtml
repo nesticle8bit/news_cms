@@ -20,13 +20,15 @@
         <link href="~/Content/sweetalert.css" rel="stylesheet" />
         <script src="~/Scripts/sweetalert-dev.js"></script>
 
+        <script src="~/Scripts/global_script.js"></script>
+
         <link href="~/Content/font-awesome.css" rel="stylesheet" />
         <link href="~/Content/bootstrap.css" rel="stylesheet" />
         <link href="~/Content/animate.css" rel="stylesheet" />
         <link href="~/Content/light-bootstrap-dashboard.css" rel="stylesheet" />
         <link href="~/Content/pe-icon-7-stroke.css" rel="stylesheet" />
         <link href="~/Content/Admin.css" rel="stylesheet" />
-
+        
         <script src="~/Scripts/bootstrap-select.js"></script>
         <script src="~/Scripts/bootstrap-notify.js"></script>
         <script src="~/Scripts/bootstrap-checkbox-radio-switch.js"></script>
@@ -57,28 +59,28 @@
                     </div>
 
                     <ul class="nav">
-                        <li class="active">
-                            <a href="dashboard.html">
+                        <li class="_dashboard">
+                            <a href="#">
                                 <i class="pe-7s-graph"></i>
                                 <p>Dashboard</p>
                             </a>
                         </li>
 
-                        <li>
+                        <li class="_icons">
                             <a href="@Url.Action("Index", "Icons")">
                                 <i class="pe-7s-paint"></i>
                                 <p>Icons</p>
                             </a>
                         </li>
 
-                        <li>
+                        <li class="_categories">
                             <a href="@Url.Action("Index", "Category")">
                                 <i class="pe-7s-way"></i>
                                 <p>Categories</p>
                             </a>
                         </li>
 
-                        <li>
+                        <li class="_post">
                             <a href="@Url.Action("Index", "Post")">
                                 <i class="pe-7s-news-paper"></i>
                                 <p>Post</p>
@@ -203,9 +205,22 @@
             </div>
         </div>
 
-        <script type="text/javascript">
-            $('[data-tooltip="true"]').tooltip();
-            $('[data-tooltip="true"]').tooltip();
-        </script>
+        @*<script type="text/javascript">
+            $(window).bind("load", function () {
+                alert(window.location.pathname.toString());
+
+                switch (window.location.pathname.toString()) {
+                    case '/Icons':
+                        $('_icons').addClass('active');
+                        break;
+                    case '/Category':
+                        $('_categories').addClass('active');
+                        break;
+                    case '/Category':
+                        $('_categories').addClass('active');
+                        break;
+                }
+            });
+        </script>*@
     </body>
 </html>

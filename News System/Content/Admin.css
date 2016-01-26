@@ -67,3 +67,7 @@
     overflow:hidden !important;
     text-overflow: ellipsis;
 }
+
+.image-table {
+    cursor: zoom-in;
+}

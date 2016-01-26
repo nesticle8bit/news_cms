@@ -11,7 +11,11 @@ namespace News_System.Controllers
 
         public ActionResult Index()
         {
-            homeViewModel.Posts = db.Post.ToList().OrderByDescending(o => o.Time);
+            homeViewModel.Posts = db.Post
+                                    .Where(p => p.Deleted == false)
+                                    .ToList()
+                                    .OrderByDescending(o => o.Time);
+
             //Categorias del Sidebar, no hay necesidad de crear un ActionResult para ese View
             //homeViewModel.Categories = db.Category.ToList().OrderBy(o => o.Name);
 

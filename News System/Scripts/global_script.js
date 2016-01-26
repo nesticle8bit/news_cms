@@ -3,7 +3,8 @@
 
     //Activar los Tooltip
     $('[data-tooltip="true"]').tooltip();
-    $('[data-tooltip="true"]').tooltip();
+    $('[data-toggle="tooltip"]').tooltip();
+    $("[rel='tooltip']").tooltip();
 });
 
 $(function () {

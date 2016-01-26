@@ -303,5 +303,35 @@ namespace News_System.Controllers
 
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public ActionResult ChangeState(int? id, bool state)
+        {
+            Post post = db.Post.Find(id);
+            post.Deleted = state;
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Hightlight(int? id)
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            
+            Post post = db.Post.Find(id);
+
+            if (post == null)
+                return HttpNotFound();
+            
+            if(post.Highlight == true)
+                post.Highlight = false;
+            else
+                post.Highlight = true;
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

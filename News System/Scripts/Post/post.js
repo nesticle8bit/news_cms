@@ -239,4 +239,42 @@
             });
         }
     });
+
+    $('[data-toggle="checkbox"]').click(function () {
+        alert("Hola");
+        console.log("Click");
+    });
+
+    $('.checkbox').click(function (e) {
+        var id     = $(this).find('input[data-id]').data('id');
+        var state = $(this).attr('class');
+
+        console.log("ID del Registro " + id + " State = " + state);
+
+        if (id != undefined && state != undefined) {
+            if (state.indexOf("checkbox checked") > -1) {
+                state = false;
+            } else {
+                state = true;
+            }
+
+            $.ajax({
+                url: '/Post/ChangeState',
+                type: 'POST',
+                data: {
+                    id: id,
+                    state: state,
+                }
+            }).success(function (e) {
+                swal({
+                    title: 'Nothing wrong',
+                    text: 'The selected Post has been saved correctly',
+                    type: 'success',
+                    timer: 1800,
+                });
+            }).error(function (e) {
+                console.log('Error: ' + e.statusText);
+            });
+        }
+    });
 });
