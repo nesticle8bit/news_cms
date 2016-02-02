@@ -36,6 +36,30 @@ namespace News_System.Controllers
             return View(social);
         }
 
+        public JsonResult DetailsSocial(int? id)
+        {
+            var social = (from c in db.Social
+                            where c.Id == id
+                            select new
+                            {
+                                Id = c.Id,
+                                Status = c.Status,
+                                Name = c.Name,
+                                Link = c.Link,
+                                Id_Icon = c.Icon.Id,
+                                Icon = c.Icon.IconName,
+                            }).SingleOrDefault();
+
+            var icons = (from i in db.Icon
+                         select new
+                         {
+                             Id = i.Id,
+                             Icon = i.IconName,
+                         }).ToList();
+
+            return Json(new { data = social, icons = icons }, JsonRequestBehavior.AllowGet);
+        }
+
         // GET: Social/Create
         public ActionResult Create()
         {
@@ -120,6 +144,17 @@ namespace News_System.Controllers
             return RedirectToAction("Index");
         }
 
+        //For the Ajax Call
+        [HttpPost]
+        public ActionResult DeleteSocial(int? id)
+        {
+            Social social = db.Social.Find(id);
+            db.Social.Remove(social);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -127,6 +162,16 @@ namespace News_System.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        [HttpPost]
+        public ActionResult ChangeStatus(int? id, bool state)
+        {
+            Social social = db.Social.Find(id);
+            social.Status = state;
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }

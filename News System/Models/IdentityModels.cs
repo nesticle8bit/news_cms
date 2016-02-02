@@ -16,6 +16,8 @@ namespace News_System.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        public string UserName { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

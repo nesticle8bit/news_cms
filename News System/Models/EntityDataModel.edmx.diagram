@@ -19,6 +19,14 @@
         <AssociationConnector Association="newsSystem_dbModel.FK_Social_Icon" ManuallyRouted="false" />
         <AssociationConnector Association="newsSystem_dbModel.FK_Post_Tags_Post" ManuallyRouted="false" />
         <AssociationConnector Association="newsSystem_dbModel.FK_Post_Tags_Tags" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.C__MigrationHistory" Width="1.5" PointX="5.375" PointY="10.75" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.AspNetRoles" Width="1.5" PointX="10.375" PointY="6.5" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.AspNetUserClaims" Width="1.5" PointX="14.875" PointY="5" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.AspNetUserLogins" Width="1.5" PointX="14.875" PointY="7.75" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.AspNetUsers" Width="1.5" PointX="12.625" PointY="5.125" />
+        <AssociationConnector Association="newsSystem_dbModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="newsSystem_dbModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="newsSystem_dbModel.AspNetUserRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

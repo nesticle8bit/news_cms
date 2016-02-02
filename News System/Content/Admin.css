@@ -1,19 +1,4 @@
-﻿/*#sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 180px;
-    min-height: 100%;
-    background: #c25b7c;
-    color: #fff;
-}
-
-#content {
-    margin-left: 180px;
-}*/
-
-@media (min-width: 992px){
+﻿@media (min-width: 992px){
     .typo-line{
         padding-left: 140px;
         margin-bottom: 40px;

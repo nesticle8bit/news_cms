@@ -15,6 +15,7 @@ namespace News_System.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        ApplicationDbContext context;
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -139,6 +140,9 @@ namespace News_System.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            if(User.IsInRole("Administrator"))
+                ViewBag.Roles = new SelectList(context.Roles.ToList(), "Name", "Name");
+
             return View();
         }
 
@@ -151,7 +155,11 @@ namespace News_System.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { 
+                    UserName = model.UserName, 
+                    Email = model.Email
+                };
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

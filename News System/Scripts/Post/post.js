@@ -239,12 +239,7 @@
             });
         }
     });
-
-    $('[data-toggle="checkbox"]').click(function () {
-        alert("Hola");
-        console.log("Click");
-    });
-
+    
     $('.checkbox').click(function (e) {
         var id     = $(this).find('input[data-id]').data('id');
         var state = $(this).attr('class');
