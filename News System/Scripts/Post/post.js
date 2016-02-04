@@ -210,11 +210,12 @@
         });
     }
 
-    $('a#remove').click(function () {
-        var idCategory = $(this).data("id");
-        console.log(idCategory);
+    //Delete from Database
+    $('a#delete').click(function () {
+        var id = $(this).data("id");
+        console.log(id);
 
-        if (idCategory != undefined) {
+        if (id != undefined) {
             swal({
                 title: "Are you sure?",
                 text: "You will not be able to recover this post!",
@@ -227,11 +228,41 @@
             }, function (isConfirm) {
                 if (isConfirm) {
                     $.ajax({
-                        url: '/Post/DeletePost',
+                        url: '/Post/RemovePost',
                         type: 'POST',
-                        data: { id: idCategory }
+                        data: { id: id }
                     }).success(function (e) {
                         swal("Deleted!", "The Post has been deleted", "success");
+                    }).error(function (e) {
+                        console.log('Error: ' + e.statusText);
+                    });
+                }
+            });
+        }
+    });
+
+    //Return to Frontend
+    $('a#return').click(function () {
+        var id = $(this).data("id");
+
+        if (id != undefined) {
+            swal({
+                title: "Are you sure?",
+                text: "You will return this post to frontend",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Return Post",
+                cancelButtonText: "Cancel",
+                closeOnConfirm: false,
+            }, function (isConfirm) {
+                if (isConfirm) {
+                    $.ajax({
+                        url: '/Post/ReturnPost',
+                        type: 'POST',
+                        data: { id: id }
+                    }).success(function (e) {
+                        swal("Returned!", "This Post has been returned", "success");
                     }).error(function (e) {
                         console.log('Error: ' + e.statusText);
                     });

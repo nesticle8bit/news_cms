@@ -5,6 +5,7 @@
     $('[data-tooltip="true"]').tooltip();
     $('[data-toggle="tooltip"]').tooltip();
     $("[rel='tooltip']").tooltip();
+    $('[data-toggle="popover"]').popover();
 });
 
 $(function () {

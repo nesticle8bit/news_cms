@@ -16,9 +16,22 @@ namespace News_System.Controllers
         private newsSystem_dbEntities db = new newsSystem_dbEntities();
 
         // GET: Configuration
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    return View(db.Configuration.ToList());
+        //}
+
+        public ActionResult Index(int? id = 1)
         {
-            return View(db.Configuration.ToList());
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            
+            Configuration configuration = db.Configuration.Find(id);
+
+            if (configuration == null)
+                return HttpNotFound();
+            
+            return View(configuration);
         }
 
         // GET: Configuration/Details/5
@@ -60,7 +73,7 @@ namespace News_System.Controllers
         }
 
         // GET: Configuration/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id = 1)
         {
             if (id == null)
             {

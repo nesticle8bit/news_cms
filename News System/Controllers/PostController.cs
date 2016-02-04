@@ -47,7 +47,7 @@ namespace News_System.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Image,Time,Description,Tags,Id_Category,DisabledComments")] Post post, HttpPostedFileBase file)
+        public ActionResult Create([Bind(Include = "Id,Title,Image,Time,Description,Tags,Id_Category,DisabledComments,Visits")] Post post, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
@@ -68,6 +68,7 @@ namespace News_System.Controllers
                 }
 
                 post.DisabledComments = false;
+                post.Visits = 0;
                 post.Time = DateTime.Now;
 
                 db.Post.Add(post);
@@ -223,7 +224,6 @@ namespace News_System.Controllers
             return id;
         }
 
-        //
         public ActionResult ViewPost(int? id)
         {
             Post post = db.Post.Find(id);
@@ -292,17 +292,18 @@ namespace News_System.Controllers
             if (Posts.Count > 0)
                 ViewBag.RelatedArticles = Posts.Distinct().ToList();
         }
-
+        
         //For the Ajax Call
         [HttpPost]
-        public ActionResult DeletePost(int? id)
+        public ActionResult RemovePost(int? id)
         {
             Post post = db.Post.Find(id);
-            post.Deleted = true;
+            db.Post.Remove(post);
             db.SaveChanges();
 
             return RedirectToAction("Index");
         }
+
 
         [HttpPost]
         public ActionResult ChangeState(int? id, bool state)

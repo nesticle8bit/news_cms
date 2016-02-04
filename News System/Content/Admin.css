@@ -53,6 +53,10 @@
     text-overflow: ellipsis;
 }
 
+.text-medium {
+    width:185px;
+}
+
 .image-table {
     cursor: zoom-in;
 }

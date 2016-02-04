@@ -81,20 +81,22 @@
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Comment" Type="varchar(max)" Nullable="false" />
           <Property Name="Time" Type="datetime" Nullable="false" />
+          <Property Name="Approved" Type="bit" Nullable="false" />
           <Property Name="Id_Post" Type="int" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Configuration">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="WebsiteTitle" Type="varchar" MaxLength="100" />
-          <Property Name="Slogan" Type="varchar" MaxLength="150" />
-          <Property Name="Url" Type="varchar(max)" />
+          <Property Name="WebsiteTitle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Slogan" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Url" Type="varchar(max)" Nullable="false" />
           <Property Name="Ads_300" Type="varchar(max)" />
           <Property Name="Ads_728" Type="varchar(max)" />
           <Property Name="Ads_970" Type="varchar(max)" />
-          <Property Name="Email" Type="varchar(max)" />
+          <Property Name="Email" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Icon">
           <Key>
@@ -116,6 +118,7 @@
           <Property Name="Id_Category" Type="int" />
           <Property Name="DisabledComments" Type="bit" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="Visits" Type="int" />
         </EntityType>
         <EntityType Name="Post_Tags">
           <Key>
@@ -153,7 +156,9 @@
           <Property Name="Name" Type="varchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_Comment_Post">
-          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Post">
@@ -233,7 +238,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Post_Tags_Post">
-          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Post_Tags" Type="Self.Post_Tags" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Post">
@@ -343,19 +350,21 @@
           <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Id_Post" Type="Int32" />
           <NavigationProperty Name="Post" Relationship="Self.FK_Comment_Post" FromRole="Comment" ToRole="Post" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Approved" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Configuration">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="WebsiteTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Slogan" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="WebsiteTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Slogan" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Ads_300" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Ads_728" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Ads_970" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="Icon">
           <Key>
@@ -381,6 +390,7 @@
           <NavigationProperty Name="Category" Relationship="Self.FK_Post_Category" FromRole="Post" ToRole="Category" />
           <NavigationProperty Name="Comment" Relationship="Self.FK_Comment_Post" FromRole="Post" ToRole="Comment" />
           <NavigationProperty Name="Post_Tags" Relationship="Self.FK_Post_Tags_Post" FromRole="Post" ToRole="Post_Tags" />
+          <Property Name="Visits" Type="Int32" />
         </EntityType>
         <EntityType Name="Post_Tags">
           <Key>
@@ -637,6 +647,8 @@
           <EntitySetMapping Name="Comment">
             <EntityTypeMapping TypeName="newsSystem_dbModel.Comment">
               <MappingFragment StoreEntitySet="Comment">
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Comment1" ColumnName="Comment" />
@@ -670,6 +682,7 @@
           <EntitySetMapping Name="Post">
             <EntityTypeMapping TypeName="newsSystem_dbModel.Post">
               <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="Visits" ColumnName="Visits" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Image" ColumnName="Image" />

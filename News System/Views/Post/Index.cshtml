@@ -19,170 +19,259 @@
             <p class="category">Hightlighted Posts</p>
         </div>
 
-        <div class="content table-responsive table-full-width">
-            <table class="table table-hover table-striped table-responsive">
-                <thead>
-                    <tr>
-                        <th>
-                            Hidded
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Image)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Title)
-                        </th>
-                        <th>
-                            Category
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Time)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Description)
-                        </th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
+        <div class="content content-full-width">
+            <ul role="tablist" class="nav nav-tabs">
+                <li role="presentation" class="active">
+                    <a href="#list-posts" data-toggle="tab">
+                        <i class="fa fa-newspaper-o"></i> List of Posts
+                    </a>
+                </li>
+                <li>
+                    <a href="#deleted-posts" data-toggle="tab">
+                        <i class="fa fa-trash-o"></i> Deleted Posts
+                    </a>
+                </li>
+            </ul>
 
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        if (item.Highlight == true)
-                        {
-                            <tr>
-                                <td>
-                                    <label class="checkbox" data-toggle="tooltip" data-placement="top" title="Hide this Post">
-                                        @Html.CheckBoxFor(modelItem => item.Deleted, htmlAttributes: new { @data_toggle = "checkbox", @data_id = item.Id })
-                                    </label>
-                                </td>
-                                <td>
-                                    <img class="image-table" width="100" src="~/Files/@Html.DisplayFor(modelItem => item.Image)" data-action="zoom" />
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Title)
-                                </td>
-                                <td>
-                                    <a href="@Url.Action("Category", "Post", new { id = item.Category.Id })" target="_blank">
-                                        <i class="fa fa-external-link"></i> @Html.DisplayFor(modelItem => item.Category.Name)
-                                    </a>
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Time)
-                                </td>
-                                <td>
-                                    <span class="text-large">
-                                        @Html.DisplayFor(modelItem => item.Description)
-                                    </span>
-                                </td>
-                                <td>
-                                    <a id="edit" href="@Url.Action("Hightlight", "Post", new { id = item.Id })" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="Remove Hightlight in this Post" data-id="@item.Id">
-                                        <i class="fa fa-star-o"></i>
-                                    </a>
+            <div class="tab-content">
+                <div id="list-posts" class="tab-pane active">
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Remove
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Image)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Title)
+                                    </th>
+                                    <th>
+                                        Category
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Time)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Description)
+                                    </th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
 
-                                    <a id="edit" href="@Url.Action("Edit", "Post", new { id = item.Id })" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Edit this Post" data-id="@item.Id">
-                                        <i class="fa fa-pencil"></i>
-                                    </a>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    if (item.Highlight == true && item.Deleted == false)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <label class="checkbox" data-toggle="tooltip" data-placement="top" title="Remove this Post">
+                                                    @Html.CheckBoxFor(modelItem => item.Deleted, htmlAttributes: new { @data_toggle = "checkbox", @data_id = item.Id })
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <img class="image-table" width="100" src="~/Files/@Html.DisplayFor(modelItem => item.Image)" data-action="zoom" />
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Title)
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("Category", "Post", new { id = item.Category.Id })" target="_blank">
+                                                    <i class="fa fa-external-link"></i> @Html.DisplayFor(modelItem => item.Category.Name)
+                                                </a>
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Time)
+                                            </td>
+                                            <td>
+                                                <span class="text-large">
+                                                    @Html.DisplayFor(modelItem => item.Description)
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <a id="edit" href="@Url.Action("Hightlight", "Post", new { id = item.Id })" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="Remove Hightlight in this Post" data-id="@item.Id">
+                                                    <i class="fa fa-star-o"></i>
+                                                </a>
 
-                                    <a id="view" href="@Url.Action("ViewPost", "Post", new { id = item.Id })" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="View Post" data-id="@item.Id">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
+                                                <a id="edit" href="@Url.Action("Edit", "Post", new { id = item.Id })" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Edit this Post" data-id="@item.Id">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
 
-                                    <a id="remove" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Delete this Post" data-id="@item.Id">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        }
-                    }
-                </tbody>
-            </table>
+                                                <a id="view" target="_blank" href="@Url.Action("ViewPost", "Post", new { id = item.Id })" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="View Post" data-id="@item.Id">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
 
-            <hr />
+                        <hr />
 
-            <div class="header">
-                @*<h4 class="title">Posts</h4>*@
-                <p class="category">List of Posts</p>
+                        <div class="header">
+                            @*<h4 class="title">Posts</h4>*@
+                            <p class="category">List of Posts</p>
+                        </div>
+
+                        <table class="table table-hover table-striped table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Remove
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Image)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Title)
+                                    </th>
+                                    <th>
+                                        Category
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Time)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Description)
+                                    </th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    if (item.Highlight == false && item.Deleted == false)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <label class="checkbox" data-toggle="tooltip" data-placement="top" title="Remove this Post">
+                                                    @Html.CheckBoxFor(modelItem => item.Deleted, htmlAttributes: new { @data_toggle = "checkbox", @data_id = item.Id })
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <img width="100" class="image-table" src="~/Files/@Html.DisplayFor(modelItem => item.Image)" data-action="zoom" />
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Title)
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("Category", "Post", new { id = item.Category.Id })" target="_blank">
+                                                    <i class="fa fa-external-link"></i> @Html.DisplayFor(modelItem => item.Category.Name)
+                                                </a>
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Time)
+                                            </td>
+                                            <td>
+                                                <span class="text-large">
+                                                    @Html.DisplayFor(modelItem => item.Description)
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <a id="edit" href="@Url.Action("Hightlight", "Post", new { id = item.Id })" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="Hightlight this Post" data-id="@item.Id">
+                                                    <i class="fa fa-star"></i>
+                                                </a>
+
+                                                <a id="edit" href="@Url.Action("Edit", "Post", new { id = item.Id })" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Edit this Post" data-id="@item.Id">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
+
+                                                <a id="view" href="@Url.Action("ViewPost", "Post", new { id = item.Id })" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="View Post" data-id="@item.Id">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+                <div id="deleted-posts" class="tab-pane">
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Return
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Image)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Title)
+                                    </th>
+                                    <th>
+                                        Category
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Time)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Description)
+                                    </th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    if (item.Deleted == true)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <label class="checkbox" data-toggle="tooltip" data-placement="top" title="Return this Post">
+                                                    @Html.CheckBoxFor(modelItem => item.Deleted, htmlAttributes: new { @data_toggle = "checkbox", @data_id = item.Id })
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <img class="image-table" width="100" src="~/Files/@Html.DisplayFor(modelItem => item.Image)" data-action="zoom" />
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Title)
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("Category", "Post", new { id = item.Category.Id })" target="_blank">
+                                                    <i class="fa fa-external-link"></i> @Html.DisplayFor(modelItem => item.Category.Name)
+                                                </a>
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Time)
+                                            </td>
+                                            <td>
+                                                <span class="text-large">
+                                                    @Html.DisplayFor(modelItem => item.Description)
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <a id="edit" href="@Url.Action("Edit", "Post", new { id = item.Id })" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Edit this Post" data-id="@item.Id">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
+
+                                                <a id="view" target="_blank" href="@Url.Action("ViewPost", "Post", new { id = item.Id })" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="View Post" data-id="@item.Id">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+
+                                                <a id="delete" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Delete this Post" data-id="@item.Id">
+                                                    <i class="fa fa-trash-o"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-
-            <table class="table table-hover table-striped table-responsive">
-                <thead>
-                    <tr>
-                        <th>
-                            Hidded
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Image)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Title)
-                        </th>
-                        <th>
-                            Category
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Time)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Description)
-                        </th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        if (item.Highlight == false)
-                        {
-                            <tr>
-                                <td>
-                                    <label class="checkbox" data-toggle="tooltip" data-placement="top" title="Hide this Post">
-                                        @Html.CheckBoxFor(modelItem => item.Deleted, htmlAttributes: new { @data_toggle = "checkbox", @data_id = item.Id })
-                                    </label>
-                                </td>
-                                <td>
-                                    <img width="100" class="image-table" src="~/Files/@Html.DisplayFor(modelItem => item.Image)" data-action="zoom" />
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Title)
-                                </td>
-                                <td>
-                                    <a href="@Url.Action("Category", "Post", new { id = item.Category.Id })" target="_blank">
-                                        <i class="fa fa-external-link"></i> @Html.DisplayFor(modelItem => item.Category.Name)
-                                    </a>
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Time)
-                                </td>
-                                <td>
-                                    <span class="text-large">
-                                        @Html.DisplayFor(modelItem => item.Description)
-                                    </span>
-                                </td>
-                                <td>
-                                    <a id="edit" href="@Url.Action("Hightlight", "Post", new { id = item.Id })" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="Hightlight this Post" data-id="@item.Id">
-                                        <i class="fa fa-star"></i>
-                                    </a>
-
-                                    <a id="edit" href="@Url.Action("Edit", "Post", new { id = item.Id })" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Edit this Post" data-id="@item.Id">
-                                        <i class="fa fa-pencil"></i>
-                                    </a>
-
-                                    <a id="view" href="@Url.Action("ViewPost", "Post", new { id = item.Id })" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="View Post" data-id="@item.Id">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-
-                                    <a id="remove" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Delete this Post" data-id="@item.Id">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        }
-                    }
-                </tbody>
-            </table>
-
         </div>
     </div>
 </div>

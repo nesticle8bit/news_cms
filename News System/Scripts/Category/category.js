@@ -24,6 +24,8 @@
                     nameCategory.val(e.data.Name);
                     console.log("Datos Obtenidos = (" + e.data.Id + ") " + e.data.Name);
                 }
+            }).error(function (e) {
+                console.log("Error " + e);
             })
         }
     });

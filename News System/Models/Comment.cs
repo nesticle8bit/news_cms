@@ -19,6 +19,8 @@ namespace News_System.Models
         public string Comment1 { get; set; }
         public System.DateTime Time { get; set; }
         public Nullable<int> Id_Post { get; set; }
+        public bool Deleted { get; set; }
+        public bool Approved { get; set; }
     
         public virtual Post Post { get; set; }
     }
