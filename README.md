@@ -1,7 +1,12 @@
 # Content Management System for News
 Content Management System for News building in MVC Asp.net
 
-![new-safari-browser-psd](https://cloud.githubusercontent.com/assets/1715022/11637336/bd6f02b8-9cee-11e5-878a-78df1482ddc5.png)
+### Index
+![Index](https://cloud.githubusercontent.com/assets/1715022/12859582/12d85956-cc25-11e5-8e17-c0a3e0dfa44a.png)
+
+### Login
+![Login](https://cloud.githubusercontent.com/assets/1715022/12859673/cff02eba-cc25-11e5-955f-9fc5e1f87ac5.png)
+
 
 ## 👾 Frameworks
 - Bootstrap v3.3.6 - http://getbootstrap.com
@@ -19,15 +24,14 @@ Content Management System for News building in MVC Asp.net
 ## 🏁 TODO List
 
 ### Panel de administración
-- [ ] Organizar el sistema para parametrizar la aplicación.
+- [X] Organizar el sistema para parametrizar la aplicación.
 - [ ] Poder añadir Google Adsense y Analytics.
-- [ ] Nuevo Layout para Admin.
+- [X] Nuevo Layout para Admin.
 - [ ] Organizar los links permanentes de los Posts.
 - [X] Parametrizar las redes sociales tanto en el sidebar como navbar.
 - [X] Implementar WYSIWYG en la creación de Post
 - [ ] Custom Errors
 - [X] Implementar los buscadores del Navbar y del Sidebar.
-
 
 --
 > Im creating this just for the learning about this backend language (C# and SQL Server) nothing commercial feel free to contact to me  **juliopoveda@protonmail.com** ![687474703a2f2f692e696d6775722e636f6d2f6f584a6d64747a2e676966](https://cloud.githubusercontent.com/assets/1715022/12459893/0dff5eb4-bf7f-11e5-90c7-8df784008acc.gif)
