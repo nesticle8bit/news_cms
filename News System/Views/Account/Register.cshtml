@@ -12,33 +12,30 @@
             </div>
 
             <div class="content">
-                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
                 {
                     @Html.AntiForgeryToken()
                     @Html.ValidationSummary("", new { @class = "text-danger" })
     
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label>UserName</label>
                                 @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder="Username" })
                             </div>
                         </div>
 
-                        @*<div class="col-md-5">
-                            @if (User.IsInRole("Administrator"))
-                            {
-                                <div class="form-group">
-                                    @Html.Label("Role")
-                                    @Html.DropDownList("Roles", null, new { @class = "form-control" })
-                                </div>
-                            }
-                        </div>*@
-
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 @Html.LabelFor(m => m.Email)
                                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                @Html.Label("Role")
+                                @Html.DropDownList("Name", null, new { @class = "form-control" })
                             </div>
                         </div>
                     </div>
@@ -55,16 +52,6 @@
                             <div class="form-group">
                                 @Html.LabelFor(m => m.ConfirmPassword)
                                 @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirm Password" })
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>About Me</label>
-
-                                <textarea rows="5" class="form-control" placeholder="Here can be your description"></textarea>
                             </div>
                         </div>
                     </div>

@@ -21,6 +21,7 @@ namespace News_System.Controllers
 
         public AccountController()
         {
+            context = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -140,8 +141,8 @@ namespace News_System.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            if(User.IsInRole("Administrator"))
-                ViewBag.Roles = new SelectList(context.Roles.ToList(), "Name", "Name");
+            //if(User.IsInRole("Administrator"))
+            ViewBag.Name = new SelectList(context.Roles.ToList(), "Name", "Name");
 
             return View();
         }
@@ -156,15 +157,18 @@ namespace News_System.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { 
-                    UserName = model.UserName, 
-                    Email = model.Email
+                    UserName = model.Email, 
+                    Email = model.Email,
                 };
 
                 var result = await UserManager.CreateAsync(user, model.Password);
+
                 if (result.Succeeded)
                 {
+                    UserManager.AddClaim(user.Id, new Claim(ClaimTypes.GivenName, model.UserName));
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await this.UserManager.AddToRoleAsync(user.Id, model.Name);
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -175,6 +179,8 @@ namespace News_System.Controllers
                 }
                 AddErrors(result);
             }
+
+            ViewBag.Name = new SelectList(context.Roles.ToList(), "Name", "Name");
 
             // If we got this far, something failed, redisplay form
             return View(model);

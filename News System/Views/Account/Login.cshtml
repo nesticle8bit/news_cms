@@ -1,10 +1,79 @@
 ﻿@using News_System.Models
 @model LoginViewModel
 @{
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
     ViewBag.Title = "Log in";
 }
 
-<h2>@ViewBag.Title.</h2>
+    <div class="wrapper wrapper-full-page">
+        <div class="full-page login-page" data-color="grey" data-image="http://@HttpContext.Current.Request.Url.Authority/Content/Resources/Images/bg-admin_big.jpg">
+            <div class="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+                            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" })) {
+                            @Html.AntiForgeryToken()
+                                <div class="card">
+                                    <div class="header text-center">
+                                        <i class="fa fa-diamond fa-3x text-info"></i>
+                                    </div>
+                                    <div class="content">
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.Email)
+                                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email", @type="email" })
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.Password)
+                                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password", @type = "password" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="checkbox">
+                                                <span class="icons">
+                                                    <span class="first-icon fa fa-square-o"></span>
+                                                    <span class="second-icon fa fa-check-square-o"></span>
+                                                </span>@Html.CheckBoxFor(m => m.RememberMe, new { @data_toggle="checkbox" })
+                                                Remember
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="footer text-center">
+                                        <button type="submit" class="btn btn-fill btn-info btn-wd">Login</button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer footer-transparent">
+                <div class="container">
+                    <nav class="pull-left">
+                        <ul>
+                            <li><a href="@Url.Action("About", "Pages")">About</a></li>
+                            <li><a href="@Url.Action("Contact", "Pages")">Contact</a></li>
+                            <li><a href="@Url.Action("Advertise", "Pages")">Advertise</a></li>
+                            <li><a href="@Url.Action("WriteForUs", "Pages")">Write for us</a></li>
+                            <li><a href="@Url.Action("Privacy", "Pages")">Privacy</a></li>
+                            <li><a href="@Url.Action("Terms", "Pages")">Terms</a></li>
+                            <li><a href="@Url.Action("Subscribe", "Pages")">Subscribe</a></li>
+                        </ul>
+                    </nav>
+                    <p class="copyright pull-right">
+                        &copy; @DateTime.Now.Year @ViewBag.SiteName. All Rights Reserved. Create with <span style="color:#ed2626">♥</span> by nesticle8bit
+                    </p>
+                </div>
+            </footer>
+
+            <div class="full-page-background" style="background-image: url(http://@HttpContext.Current.Request.Url.Authority/Content/Resources/Images/bg-admin_big.jpg)"></div>
+        </div>
+
+    </div>
+
+
+    <div><div class="sweet-overlay" tabindex="-1"></div><div class="sweet-alert" tabindex="-1"><div class="icon error"><span class="x-mark"><span class="line left"></span><span class="line right"></span></span></div><div class="icon warning"> <span class="body"></span> <span class="dot"></span> </div> <div class="icon info"></div> <div class="icon success"> <span class="line tip"></span> <span class="line long"></span> <div class="placeholder"></div> <div class="fix"></div> </div> <div class="icon custom"></div> <h2>Title</h2><p>Text</p><hr><button class="confirm">OK</button><button class="cancel">Cancel</button></div></div>
+
+@*<h2>@ViewBag.Title.</h2>
 <div class="row">
     <div class="col-md-8">
         <section id="loginForm">
@@ -48,7 +117,7 @@
                     <p>
                         @Html.ActionLink("Forgot your password?", "ForgotPassword")
                     </p>*@
-            }
+            @*}
         </section>
     </div>
     <div class="col-md-4">
@@ -56,7 +125,7 @@
             @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
         </section>
     </div>
-</div>
+</div>*@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

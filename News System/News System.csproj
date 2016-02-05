@@ -273,6 +273,8 @@
     <Content Include="Content\Resources\Admin\sidebar-5.jpg" />
     <Content Include="Content\Resources\Admin\tim_80x80.png" />
     <Content Include="Content\Resources\Images\10.jpg" />
+    <Content Include="Content\Resources\Images\bg-admin.jpg" />
+    <Content Include="Content\Resources\Images\bg-admin_big.jpg" />
     <Content Include="Content\Resources\Images\bg-facebook.jpg" />
     <Content Include="Content\Resources\Images\bg-google.jpg" />
     <Content Include="Content\Resources\Images\bg-instagram.jpg" />
@@ -452,6 +454,7 @@
     <Content Include="Views\Comments\Details.cshtml" />
     <Content Include="Views\Comments\Edit.cshtml" />
     <Content Include="Views\Comments\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
