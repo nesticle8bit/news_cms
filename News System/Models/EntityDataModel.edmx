@@ -79,6 +79,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Website" Type="varchar" MaxLength="150" />
           <Property Name="Comment" Type="varchar(max)" Nullable="false" />
           <Property Name="Time" Type="datetime" Nullable="false" />
           <Property Name="Approved" Type="bit" Nullable="false" />
@@ -352,6 +353,7 @@
           <NavigationProperty Name="Post" Relationship="Self.FK_Comment_Post" FromRole="Comment" ToRole="Post" />
           <Property Name="Deleted" Type="Boolean" Nullable="false" />
           <Property Name="Approved" Type="Boolean" Nullable="false" />
+          <Property Name="Website" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Configuration">
           <Key>
@@ -647,6 +649,7 @@
           <EntitySetMapping Name="Comment">
             <EntityTypeMapping TypeName="newsSystem_dbModel.Comment">
               <MappingFragment StoreEntitySet="Comment">
+                <ScalarProperty Name="Website" ColumnName="Website" />
                 <ScalarProperty Name="Approved" ColumnName="Approved" />
                 <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

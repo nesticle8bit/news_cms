@@ -1,59 +1,99 @@
 ﻿@model IEnumerable<News_System.Models.Comment>
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Index";
 }
 
-<!DOCTYPE html>
+<div class="col-md-12">
+    <a href="@Url.Action("Create", "Comments")" class="btn btn-success">
+        <i class="fa fa-plus"></i> Create a Comment
+    </a>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Comment1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Time)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Post.Title)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Comment1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Time)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Post.Title)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-            </td>
-        </tr>
-    }
-    
-    </table>
-</body>
-</html>
+    <div class="clearfix"></div>
+    <br />
+
+    <div class="card">
+        <div class="header">
+            <h4 class="title">Comments</h4>
+            <p class="category">List of Comments</p>
+        </div>
+
+        <div class="content table-responsive table-full-width">
+            <table class="table table-hover table-striped table-responsive">
+                <thead>
+                    <tr>
+                        <th>
+                            Hide
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Website)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Comment1)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Time)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Post.Title)
+                        </th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <label class="checkbox" data-toggle="tooltip" data-placement="top" title="Remove this Comment">
+                                    @Html.CheckBoxFor(modelItem => item.Deleted, htmlAttributes: new { @data_toggle = "checkbox", @data_id = item.Id })
+                                </label>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Website)
+                            </td>
+                            <td>
+                                <span class="text-large">
+                                    @Html.DisplayFor(modelItem => item.Comment1)
+                                </span>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Time)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Post.Title)
+                            </td>
+                            <td>
+                                <a id="edit" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Edit Comment" data-id="@item.Id">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+
+                                @*<a id="view" class="btn btn-success btn-xs" href="@Url.Action("Details", "Category", new { id = item.Id })" data-toggle="tooltip" data-placement="top" title="View Details of this Category" data-id="@item.Id">
+                                    <i class="fa fa-eye"></i>
+                                </a>*@
+
+                                <a id="remove" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Delete Comment" data-id="@item.Id">
+                                    <i class="fa fa-remove"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Comments/comments.js"></script>
+}

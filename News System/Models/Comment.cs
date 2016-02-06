@@ -21,6 +21,7 @@ namespace News_System.Models
         public Nullable<int> Id_Post { get; set; }
         public bool Deleted { get; set; }
         public bool Approved { get; set; }
+        public string Website { get; set; }
     
         public virtual Post Post { get; set; }
     }
