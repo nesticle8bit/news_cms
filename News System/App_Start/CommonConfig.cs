@@ -15,9 +15,20 @@ namespace News_System.App_Start
         public override void OnResultExecuting(ResultExecutingContext filterContext)
         {
             //Configuration : Site name - Slogan - Url
-            filterContext.Controller.ViewBag.SiteName = db.Configuration.SingleOrDefault().WebsiteTitle;
-            filterContext.Controller.ViewBag.Slogan = db.Configuration.SingleOrDefault().Slogan;
-            filterContext.Controller.ViewBag.WebsiteLink = db.Configuration.SingleOrDefault().Url;
+            Configuration configuration = db.Configuration.SingleOrDefault();
+
+            filterContext.Controller.ViewBag.SiteName = configuration.WebsiteTitle;
+            filterContext.Controller.ViewBag.Slogan = configuration.Slogan;
+            filterContext.Controller.ViewBag.WebsiteLink = configuration.Url;
+            
+            //Configuration : Ads
+            filterContext.Controller.ViewBag.Ads_300 = configuration.Ads_300;
+            filterContext.Controller.ViewBag.Ads_728 = configuration.Ads_728;
+            filterContext.Controller.ViewBag.Ads_970 = configuration.Ads_970;
+
+            //Configuration : Disqus
+            if (configuration.Disqus != null || configuration.Disqus != "")
+                filterContext.Controller.ViewBag.Disqus = configuration.Disqus;
 
             //Sidebar
             filterContext.Controller.ViewBag.Categorias = db.Category.OrderBy(o => o.Name).ToList();
@@ -33,12 +44,6 @@ namespace News_System.App_Start
             filterContext.Controller.ViewBag.SocialNetwork = db.Social
                                                                .Where(w => w.Status == true)
                                                                .OrderBy(o => o.Name).ToList();
-
-            //Configuration : Ads
-            filterContext.Controller.ViewBag.Ads_300 = db.Configuration.SingleOrDefault().Ads_300;
-            filterContext.Controller.ViewBag.Ads_728 = db.Configuration.SingleOrDefault().Ads_728;
-            filterContext.Controller.ViewBag.Ads_970 = db.Configuration.SingleOrDefault().Ads_970;
-
         }
     }
 }

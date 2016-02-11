@@ -22,6 +22,7 @@ namespace News_System.Models
         public bool Deleted { get; set; }
         public bool Approved { get; set; }
         public string Website { get; set; }
+        public string Email { get; set; }
     
         public virtual Post Post { get; set; }
     }

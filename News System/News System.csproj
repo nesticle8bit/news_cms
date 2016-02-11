@@ -233,6 +233,7 @@
     <Compile Include="Models\Post.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PostViewModels.cs" />
     <Compile Include="Models\Post_Tags.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
@@ -280,6 +281,7 @@
     <Content Include="Content\Resources\Images\bg-instagram.jpg" />
     <Content Include="Content\Resources\Images\bg-tumblr.jpg" />
     <Content Include="Content\Resources\Images\bg-twitter.jpg" />
+    <Content Include="Content\Resources\Images\instagram-creative.jpg" />
     <Content Include="Content\Resources\Images\social-coins.png" />
     <Content Include="Content\selection-sharer.min.css" />
     <Content Include="Content\selectize.css" />

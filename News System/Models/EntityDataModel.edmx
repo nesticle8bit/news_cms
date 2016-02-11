@@ -79,6 +79,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Website" Type="varchar" MaxLength="150" />
           <Property Name="Comment" Type="varchar(max)" Nullable="false" />
           <Property Name="Time" Type="datetime" Nullable="false" />
@@ -94,10 +95,12 @@
           <Property Name="WebsiteTitle" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Slogan" Type="varchar" MaxLength="150" Nullable="false" />
           <Property Name="Url" Type="varchar(max)" Nullable="false" />
+          <Property Name="Email" Type="varchar(max)" Nullable="false" />
           <Property Name="Ads_300" Type="varchar(max)" />
           <Property Name="Ads_728" Type="varchar(max)" />
           <Property Name="Ads_970" Type="varchar(max)" />
-          <Property Name="Email" Type="varchar(max)" Nullable="false" />
+          <Property Name="Adsense" Type="varchar(max)" />
+          <Property Name="Disqus" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Icon">
           <Key>
@@ -354,6 +357,7 @@
           <Property Name="Deleted" Type="Boolean" Nullable="false" />
           <Property Name="Approved" Type="Boolean" Nullable="false" />
           <Property Name="Website" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Configuration">
           <Key>
@@ -367,6 +371,8 @@
           <Property Name="Ads_728" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Ads_970" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adsense" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Disqus" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Icon">
           <Key>
@@ -649,6 +655,7 @@
           <EntitySetMapping Name="Comment">
             <EntityTypeMapping TypeName="newsSystem_dbModel.Comment">
               <MappingFragment StoreEntitySet="Comment">
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Website" ColumnName="Website" />
                 <ScalarProperty Name="Approved" ColumnName="Approved" />
                 <ScalarProperty Name="Deleted" ColumnName="Deleted" />
@@ -663,6 +670,8 @@
           <EntitySetMapping Name="Configuration">
             <EntityTypeMapping TypeName="newsSystem_dbModel.Configuration">
               <MappingFragment StoreEntitySet="Configuration">
+                <ScalarProperty Name="Disqus" ColumnName="Disqus" />
+                <ScalarProperty Name="Adsense" ColumnName="Adsense" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="WebsiteTitle" ColumnName="WebsiteTitle" />
                 <ScalarProperty Name="Slogan" ColumnName="Slogan" />

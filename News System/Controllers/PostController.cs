@@ -226,29 +226,32 @@ namespace News_System.Controllers
 
         public ActionResult ViewPost(int? id)
         {
-            Post post = db.Post.Find(id);
+            PostViewModels postViewModel = new PostViewModels();
 
-            if (post == null)
+            postViewModel.Posts = db.Post.Find(id);
+            postViewModel.Comments = db.Comment.Where(c => c.Id_Post == postViewModel.Posts.Id);
+
+            if (postViewModel.Posts == null)
             {
                 return this.HttpNotFound();
             }
             else
             {
-                ViewBag.Title = post.Title;
-                
-                RelatedArticles(post.Id);
+                ViewBag.Title = postViewModel.Posts.Title;
+
+                RelatedArticles(postViewModel.Posts.Id);
 
                 ViewBag.Tags = db.Post_Tags
                     .Where(t => t.Id_Post == id).ToList();
 
-                ViewBag.Prev = db.Post.Where(p => p.Id < id)
+                ViewBag.Prev = db.Post.Where(p => p.Id < id && p.Deleted == false)
                     .OrderByDescending(o => o.Id).FirstOrDefault();
 
-                ViewBag.Next = db.Post.Where(p => p.Id > id)
+                ViewBag.Next = db.Post.Where(p => p.Id > id && p.Deleted == false)
                     .OrderBy(o => o.Id).FirstOrDefault();
             }
 
-            return View(post);
+            return View(postViewModel);
         }
 
         //Filter all the posts by this Category

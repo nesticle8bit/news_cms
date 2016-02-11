@@ -1,33 +1,33 @@
-﻿@model News_System.Models.Post
+﻿@model News_System.Models.PostViewModels
 @{
     Layout = "~/Views/Shared/_LayoutPost.cshtml";
 }
 
-<div class="article-info-wrapper" style="background-image:url(@(Model != null ? "/Files/" + Model.Image : ""));">
+<div class="article-info-wrapper" style="background-image:url(@(Model != null ? "/Files/" + Model.Posts.Image : ""));">
     <div class="inner">
         <h2>
-            <a href="@Url.Action("ViewPost", "Post", new { id = Model.Id })">
-                @Html.DisplayFor(model => model.Title)
+            <a href="@Url.Action("ViewPost", "Post", new { id = Model.Posts.Id })">
+                @Html.DisplayFor(model => model.Posts.Title)
             </a>
         </h2>
 
         <div class="article-meta">
             <ul>
                 <li>
-                    <a href="@Url.Action("ViewPost", "Post", new { id = Model.Id })">
-                        @Html.DisplayFor(model => model.Time)
+                    <a href="@Url.Action("ViewPost", "Post", new { id = Model.Posts.Id })">
+                        @Html.DisplayFor(model => model.Posts.Time)
                     </a>
                 </li>
                 <li class="divider">|</li>
                 <li>
-                    <a href="@Url.Action("Category", "Post", new { id = Model.Category.Id })">
-                        @Html.DisplayFor(model => model.Category.Name)
+                    <a href="@Url.Action("Category", "Post", new { id = Model.Posts.Category.Id })">
+                        @Html.DisplayFor(model => model.Posts.Category.Name)
                     </a>
                 </li>
                 <li class="divider">|</li>
                 <li>
-                    <a href="@Url.Action("ViewPost", "Post", new { id = Model.Id })#comments">
-                        @Html.DisplayFor(model => model.Comment.Count) @(Model.Comment.Count == 0 || Model.Comment.Count > 1 ? "Comments" : "Comment")
+                    <a href="@Url.Action("ViewPost", "Post", new { id = Model.Posts.Id })#comments">
+                        @Html.DisplayFor(model => model.Posts.Comment.Count) @(Model.Posts.Comment.Count == 0 || Model.Posts.Comment.Count > 1 ? "Comments" : "Comment")
                     </a>
                 </li>
             </ul>
@@ -36,6 +36,8 @@
 </div>
 
 <div class="content-container">
+    <input name="Post.Id" type="hidden" value="@Model.Posts.Id" />
+
     <div class="inner">
         <div class="content-wrap">
             <div class="inner">
@@ -48,7 +50,7 @@
                     }
                     
                     <p id="description">
-                        @Html.DisplayFor(model => model.Description, new { @id = "description" })
+                        @Html.DisplayFor(model => model.Posts.Description, new { @id = "description" })
                     </p>
                 </article>
 
@@ -60,13 +62,13 @@
                             <span class="share-count">0</span>
                         </a>
                         
-                        <a target="_blank" href="http://twitter.com/share?url=@Request.Url.AbsoluteUri&amp;text=@Html.DisplayFor(model => model.Title)" class="share-twitter">
+                        <a target="_blank" href="http://twitter.com/share?url=@Request.Url.AbsoluteUri&amp;text=@Html.DisplayFor(model => model.Posts.Title)" class="share-twitter">
                             <span class="icon icon-twitter" aria-hidden="true"></span>
                             <span class="share-title">Tweet</span>
                             <span class="share-count">0</span>
                         </a>
                         
-                        <a target="_blank" href="http://pinterest.com/pin/create/button/?url=@Request.Url.AbsoluteUri&amp;media=@(Model != null ? "/Files/" + Model.Image : "")&amp;description=@Model.Title" class="share-pinterest">
+                        <a target="_blank" href="http://pinterest.com/pin/create/button/?url=@Request.Url.AbsoluteUri&amp;media=@(Model.Posts != null ? "/Files/" + Model.Posts.Image : "")&amp;description=@Model.Posts.Title" class="share-pinterest">
                             <span class="icon icon-pinterest" aria-hidden="true"></span>
                             <span class="share-title">Pin it</span>
                             <span class="share-count">0</span>
@@ -78,12 +80,12 @@
                             <span class="share-count">+1</span>
                         </a>
                         
-                        <a target="_blank" href="http://www.reddit.com/submit?url=@Request.Url.AbsoluteUri&title=@Model.Title" class="share-reddit">
+                        <a target="_blank" href="http://www.reddit.com/submit?url=@Request.Url.AbsoluteUri&title=@Model.Posts.Title" class="share-reddit">
                             <span class="icon icon-reddit" aria-hidden="true"></span>
                             <span class="share-title">Reddit</span>
                         </a>
                         
-                        <a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=@Request.Url.AbsoluteUri&title=@Model.Title" class="share-linkedin">
+                        <a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=@Request.Url.AbsoluteUri&title=@Model.Posts.Title" class="share-linkedin">
                             <span class="icon icon-linkedin" aria-hidden="true"></span>
                             <span class="share-title">Share</span>
                             <span class="share-count">0</span>
@@ -153,9 +155,9 @@
                 <div class="article-short-navigator">
                     @if (ViewBag.Next != null)
                     {
-                        <a href="@Url.Action("ViewPost", "Post", new { id = ViewBag.Next.Id })" class="previous " style="background-image:url('/Files/@ViewBag.Next.Image');">
+                        <a href="@Url.Action("ViewPost", "Post", new { id = ViewBag.Next.Id })" class="previous @(ViewBag.Prev == null ? "single" : "")" style="background-image:url('/Files/@ViewBag.Next.Image');">
                             <span class="read-more">next article</span>
-                            <span class="title">
+                            <span class="title" title="@ViewBag.Next.Title">
                                 @ViewBag.Next.Title
                             </span>
                         </a>
@@ -163,9 +165,9 @@
                     
                     @if (ViewBag.Prev != null)
                     {
-                        <a href="@Url.Action("ViewPost", "Post", new { id = ViewBag.Prev.Id })" class="previous " style="background-image:url('/Files/@ViewBag.Prev.Image');">
+                        <a href="@Url.Action("ViewPost", "Post", new { id = ViewBag.Prev.Id })" class="previous @(ViewBag.Next == null ? "single" : "")" style="background-image:url('/Files/@ViewBag.Prev.Image');">
                             <span class="read-more">previous article</span>
-                            <span class="title">
+                            <span class="title" title="@ViewBag.Prev.Title">
                                 @ViewBag.Prev.Title
                             </span>
                         </a>
@@ -175,45 +177,86 @@
                 
                 <a name="comments"></a>
                 
-                <h4 class="section-title">Post a comment<span></span></h4>
-                <div class="post-comment">
-                    <div class="avatar">
-                        <img src="https://pbs.twimg.com/profile_images/671005168356331520/YCp_08J8_400x400.jpg">
-                    </div>
-                    <div class="comment-wrapper">
-                        <textarea name="content" placeholder="Leave a message..." rows="3" onfocus="expandCommentArea(this)" style="overflow: hidden; word-wrap: break-word; resize: none; height: 60px;"></textarea>
-                    </div>
-                    <div class="aditional-info-wrapper">
-                        <input type="text" name="author" placeholder="name" value="">
-                        <input type="text" name="email" placeholder="email address (hidden)" value="">
-                        <input type="text" name="url" placeholder="website(optional)" value="">
-                    </div>
-                    <input type="submit" class="submit-comment border-radius-2" value="POST COMMENT" onclick="post_comment(this, true);">
-                    <div class="clear"></div>
-                </div>
-
                 <h4 class="section-title">Comments<span></span></h4>
-                <ul class="comments">
-                    <li class="item-is-parent " data-id="4142">
-                        <div class="comment-item ">
-                            <div class="avatar"><img src="https://pbs.twimg.com/profile_images/671005168356331520/YCp_08J8_400x400.jpg"></div>
-                            <div class="data-container">
-                                <div class="name">
-                                    Julio Poveda
-                                </div>
-                                <div class="date">2015-11-03 07:50:17</div>
-                                <div class="clear"></div>
-                                <div class="message">Mensaje</div>
-                                <div class="info-container">
-                                    <a href="#" class="reply-anchor" onclick="toggle_reply(this, event)">REPLY</a>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </li>
 
-                    @*<li class="item-is-parent" data-id="4167"><div class="comment-item pending"><div class="avatar"><img src="http://icanbecreative.com/resources/files/profiles/placeholder-200x200.jpg"></div><div class="data-container"><div class="name floatleft">nesticle8bit</div><div class="date floatright">2015-12-04 21:43:49</div><div class="clear"></div><div class="message">Nice article guys!, thank you so much for sharing this</div><div class="pending-message">Your comment is awaiting moderation. Please be patient, comment moderation might take a bit longer than usual. Thank you!</div></div><div class="clear"></div></div></li>*@
-                </ul>
+                @if (ViewBag.Disqus == null || ViewBag.Disqus == "")
+                {
+                    <h4 class="section-title">Post a comment<span></span></h4>
+
+                    @Html.AntiForgeryToken()
+                    <div class="post-comment">
+                        <div class="avatar">
+                            <img src="https://pbs.twimg.com/profile_images/671005168356331520/YCp_08J8_400x400.jpg">
+                        </div>
+                        <div class="comment-wrapper">
+                            <textarea name="Comments.Comment1" placeholder="Leave a message..." rows="3" style="overflow: hidden; word-wrap: break-word; resize: none; height: 60px;" onfocus="expandCommentArea(this)"></textarea>
+                        </div>
+                        <div class="aditional-info-wrapper">
+                            <input name="Comments.Name" type="text" placeholder="name" />
+                            <input name="Comments.Email" type="email" placeholder="email address (hidden)" />
+                            <input name="Comments.Website" type="url" placeholder="website (optional)" />
+                        </div>
+
+                        <input type="submit" class="submit-comment border-radius-2" value="POST COMMENT" onclick="post_comment(this, true);">
+                        <div class="clear"></div>
+                    </div>
+
+                    <ul class="comments">
+                        @foreach (var item in Model.Comments)
+                        {
+                            <li class="item-is-parent " data-id="@Html.DisplayFor(modelItem => item.Id)">
+                                <div class="comment-item ">
+                                    <div class="avatar">
+                                        <img src="https://pbs.twimg.com/profile_images/671005168356331520/YCp_08J8_400x400.jpg">
+                                    </div>
+
+                                    <div class="data-container">
+                                        <div class="name">
+                                            @Html.DisplayFor(modelItem => item.Name)
+                                        </div>
+                                        <div class="date">
+                                            @Html.DisplayFor(modelItem => item.Time)
+                                        </div>
+
+                                        <div class="clear"></div>
+
+                                        <div class="message">
+                                            @Html.Raw(item.Comment1)
+                                        </div>
+                                        <div class="info-container">
+                                            <a href="#" class="reply-anchor" onclick="toggle_reply(this, event)">REPLY</a>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <div id="disqus_thread"></div>
+                    <script>
+                        /**
+                        * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                        * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+                        */
+                        /*
+                        var disqus_config = function () {
+                        this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+                        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                        };
+                        */
+                        (function () { // DON'T EDIT BELOW THIS LINE
+                            var d = document, s = d.createElement('script');
+                            s.src = '//cmsscriptv01.disqus.com/embed.js';
+
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+                }
             </div>
         </div>
 
@@ -238,8 +281,8 @@
             $("p#description").html(result.html);
 
             console.error("Errors", result.error);
-            console.dir(result.errorQueue);
-            console.log(result.html);
+            //console.dir(result.errorQueue);
+            //console.log(result.html);
         });
     </script>
 }

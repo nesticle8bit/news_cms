@@ -64,10 +64,12 @@ namespace News_System.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Comment1,Time,Id_Post")] Comment comment)
+        public ActionResult Create([Bind(Include = "Id,Name,Comment1,Email,Website,Time,Id_Post")] Comment comment)
         {
             if (ModelState.IsValid)
             {
+                comment.Time = DateTime.Now;
+
                 db.Comment.Add(comment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -98,7 +100,7 @@ namespace News_System.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Comment1,Time,Id_Post")] Comment comment)
+        public ActionResult Edit([Bind(Include = "Id,Name,Comment1,Email,Website,Time,Id_Post")] Comment comment)
         {
             if (ModelState.IsValid)
             {

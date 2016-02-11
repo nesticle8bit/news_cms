@@ -186,19 +186,6 @@ function toggle_reply(obj, e) {
     e.preventDefault();
 }
 
-function clear_comment_box(obj) {
-    obj.find('textarea[name="content"]').val('');
-
-    (obj.find('input[name="url"][readonly]').length == 1) ? '' : obj.find('input[name="email"]').val('');
-    (obj.find('input[name="url"][readonly]').length == 1) ? '' : obj.find('input[name="author"]').val('');
-    (obj.find('input[name="url"][readonly]').length == 1) ? '' : obj.find('input[name="url"]').val('');
-
-
-    if (obj.hasClass('active')) {
-        obj.removeClass('active');
-    }
-}
-
 function build_comment_html(obj, data) {
     var _comment_attributes = 'class="item-is-parent" data-id="' + data.id + '"';
     var _info_container = ((data.is_comment && data.status_code == "A") ? '<div class="info-container"><a href="#" class="reply-anchor" onclick="toggle_reply(this)">REPLY</a></div>' : '');
@@ -239,6 +226,62 @@ function build_comment_html(obj, data) {
     }
 }
 
+function post_comment(obj, is_comment) {
+    var container = $(obj).closest('.post-comment');
+
+    var comments = container.find('textarea[name="Comments.Comment1"]').val();
+    var name = container.find('input[name="Comments.Name"]').val();
+    var email = container.find('input[name="Comments.Email"]').val();
+    var url = container.find('input[name="Comments.Website"]').val();
+
+    var comment_obj = {
+        Comment1: comments,
+        Name: name,
+        Email: email,
+        Website: url,
+        Id_Post: $(document).find('input[name="Post.Id"]').val(),
+        IsComment: false,
+    }
+
+    if (!is_comment) {
+        comment_obj.comment_id = container.closest('li').prev().attr('data-id');
+    }
+
+    console.log(comments + name + email + url);
+
+    if (comments != undefined && comments != '' &&
+        name != undefined && name != '') {
+        $.ajax({
+            type: "POST",
+            url: "/Comments/Create/",
+            data: {
+                __RequestVerificationToken: get_token(),
+                comment: comment_obj
+            }
+        }) //statusText 
+        .done(function (data) {
+            //done
+            console.log('done');
+            pop_message(container, "sended! the comment has been saved and need to be approved by the moderators.", data.status, comment_obj.IsComment);
+        })
+        .fail(function (data) {
+            // fail
+            console.log('data failed to load for some reason');
+            console.log(data);
+        })
+        .always(function (data) {
+            // always
+            console.log('always');
+            console.log(data);
+        });
+    } else {
+        pop_message(container,
+            'error occured! to comment you need to fill the message, name and email fields',
+            '',
+            '');
+    }
+}
+
 function pop_message(obj, message, status, comment_data) {
     var time = ((status) ? 2000 : 4000);
     var error = ((status) ? "" : "error");
@@ -265,42 +308,18 @@ function pop_message(obj, message, status, comment_data) {
 
 }
 
-function post_comment(obj, is_comment) {
-    var container = $(obj).closest('.post-comment');
+function clear_comment_box(obj) {
+    obj.find('textarea[name="Comments.Comment1"]').val('');
 
-    var comment_obj = {
-        csrf_token: csrf_token(),
-        content: container.find('textarea[name="content"]').val(),
-        email: container.find('input[name="email"]').val(),
-        author: container.find('input[name="author"]').val(),
-        url: container.find('input[name="url"]').val(),
-        is_comment: is_comment,
-        article_id: $(document).find('input[name="article_id"]').val()
+    //(obj.find('input[name="url"][readonly]').length == 1) ? '' : obj.find('input[name="Comments.Email"]').val('');
+    //(obj.find('input[name="url"][readonly]').length == 1) ? '' : obj.find('input[name="Comments.Name"]').val('');
+    //(obj.find('input[name="url"][readonly]').length == 1) ? '' : obj.find('input[name="Comments.Website"]').val('');
+
+    if (obj.hasClass('active')) {
+        obj.removeClass('active');
     }
+}
 
-    if (!is_comment) {
-        comment_obj.comment_id = container.closest('li').prev().attr('data-id');
-    }
-
-    $.ajax({
-        type: "POST",
-        url: "/ajaxfrontend/post_comment/",
-        data: comment_obj,
-        dataType: "json"
-    })
-    .done(function (data) {
-        //done
-        console.log('done');
-        pop_message(container, data.message, data.status, data.comment_data);
-    })
-    .fail(function (data) {
-        // fail
-        console.log('data failed to load for some reason');
-        console.log(data);
-    })
-    .always(function (data) {
-        // always
-        console.log('always');
-        console.log(data);
-    });
+function get_token() {
+    return $('input[name="__RequestVerificationToken"]').val();
 }

@@ -22,5 +22,7 @@ namespace News_System.Models
         public string Ads_728 { get; set; }
         public string Ads_970 { get; set; }
         public string Email { get; set; }
+        public string Adsense { get; set; }
+        public string Disqus { get; set; }
     }
 }
