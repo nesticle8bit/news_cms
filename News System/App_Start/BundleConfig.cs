@@ -19,18 +19,26 @@ namespace News_System
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
+            //Scripts
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js",
-                      "~/Scripts/global_script.js",
                       "~/Scripts/bootstrap-filestyle.js",
-                      "~/Scripts/jquery.wysibb.js",
-                      "~/Scripts/xbbcode.js",
-                      "~/Scripts/social-buttons.js",
-                      "~/Scripts/jquery.autosize.min.js",
-                      "~/Scripts/selection-sharer.min.js",
-                      "~/Scripts/selectize.js"));
+                      "~/Scripts/jquery.autosize.min.js"));
 
+            //Scripts: Frontend
+            bundles.Add(new ScriptBundle("~/bundles/frontend").Include(
+                "~/Scripts/jquery.overlaps.js",
+                "~/Scripts/global_script.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/posts").Include(
+                "~/Scripts/jquery.wysibb.js",
+                "~/Scripts/xbbcode.js",
+                "~/Scripts/social-buttons.js",
+                "~/Scripts/selection-sharer.min.js",
+                "~/Scripts/selectize.js"));
+
+            //Css Styles
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/font-awesome.css",

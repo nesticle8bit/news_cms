@@ -1,6 +1,7 @@
 ﻿@model News_System.Models.HomeViewModel
 
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Home Page";
 }
 
@@ -18,8 +19,14 @@
                 <div class="article-info">
                     <div class="article-meta">
                         <ul>
-                            <li><a href="@Url.Action("ViewPost", "Post", new { id = item.Id })">@Html.DisplayFor(modelItem => item.Time)</a></li>
+                            <li>
+                                <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" title="@Html.DisplayFor(modelItem => item.Time)" data-tooltip="true" data-placement="top">
+                                    @Html.DisplayFor(modelItem => item.Time)
+                                </a>
+                            </li>
+
                             <li class="divider">/</li>
+                            
                             <li>
                                 <a href="@Url.Action("Category", "Post", new { id = item.Category.Id })" title="Category" data-tooltip="true" data-placement="top">
                                     @Html.DisplayFor(modelItem => item.Category.Name)
@@ -66,7 +73,7 @@
                 <div class="article-meta">
                     <ul>
                         <li>
-                            <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" title="@Html.DisplayFor(modelItem => item.Time)">
+                            <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" title="@Html.DisplayFor(modelItem => item.Time)" data-tooltip="true" data-placement="top">
                                 @Html.DisplayFor(modelItem => item.Time)
                             </a>
                         </li>
