@@ -25,7 +25,7 @@ Content Management System for News building in MVC Asp.net
 
 ### Panel de administración
 - [X] Organizar el sistema para parametrizar la aplicación.
-- [ ] Poder añadir Google Adsense y Analytics.
+- [X] Poder añadir Google Adsense y Analytics.
 - [X] Nuevo Layout para Admin.
 - [ ] Organizar los links permanentes de los Posts.
 - [X] Parametrizar las redes sociales tanto en el sidebar como navbar.
