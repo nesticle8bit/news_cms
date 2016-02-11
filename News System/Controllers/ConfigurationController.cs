@@ -60,7 +60,7 @@ namespace News_System.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,WebsiteTitle,Slogan,Url,Ads_300,Ads_970,Ads_728,Email,Adsense,Disqus")] Configuration configuration)
+        public ActionResult Create([Bind(Include = "Id,WebsiteTitle,Slogan,Url,Ads_300,Ads_970,Ads_728,Email,Analytics,Disqus")] Configuration configuration)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +92,7 @@ namespace News_System.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,WebsiteTitle,Slogan,Url,Ads_300,Ads_970,Ads_728,Email,Adsense,Disqus")] Configuration configuration)
+        public ActionResult Edit([Bind(Include = "Id,WebsiteTitle,Slogan,Url,Ads_300,Ads_970,Ads_728,Email,Analytics,Disqus")] Configuration configuration)
         {
             if (ModelState.IsValid)
             {

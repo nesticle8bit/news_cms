@@ -28,7 +28,9 @@ namespace News_System.Models
         public string Ads_728 { get; set; }
         [Required]
         public string Email { get; set; }
-        public string Adsense { get; set; }
+        [AllowHtml]
+        [Display(Name = "Google Analytics")]
+        public string Analytics { get; set; }
         [Display(Name = "Disqus Name")]
         public string Disqus { get; set; }
     }

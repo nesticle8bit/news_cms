@@ -99,7 +99,7 @@
           <Property Name="Ads_300" Type="varchar(max)" />
           <Property Name="Ads_728" Type="varchar(max)" />
           <Property Name="Ads_970" Type="varchar(max)" />
-          <Property Name="Adsense" Type="varchar(max)" />
+          <Property Name="Analytics" Type="varchar(max)" />
           <Property Name="Disqus" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Icon">
@@ -371,8 +371,8 @@
           <Property Name="Ads_728" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Ads_970" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Adsense" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Disqus" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Analytics" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Icon">
           <Key>
@@ -670,8 +670,8 @@
           <EntitySetMapping Name="Configuration">
             <EntityTypeMapping TypeName="newsSystem_dbModel.Configuration">
               <MappingFragment StoreEntitySet="Configuration">
+                <ScalarProperty Name="Analytics" ColumnName="Analytics" />
                 <ScalarProperty Name="Disqus" ColumnName="Disqus" />
-                <ScalarProperty Name="Adsense" ColumnName="Adsense" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="WebsiteTitle" ColumnName="WebsiteTitle" />
                 <ScalarProperty Name="Slogan" ColumnName="Slogan" />

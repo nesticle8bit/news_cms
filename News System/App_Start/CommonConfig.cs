@@ -30,6 +30,9 @@ namespace News_System.App_Start
             if (configuration.Disqus != null || configuration.Disqus != "")
                 filterContext.Controller.ViewBag.Disqus = configuration.Disqus;
 
+            //Configuration : Google Analytics
+            filterContext.Controller.ViewBag.GoogleAnalytics = configuration.Analytics;
+
             //Sidebar
             filterContext.Controller.ViewBag.Categorias = db.Category.OrderBy(o => o.Name).ToList();
 
