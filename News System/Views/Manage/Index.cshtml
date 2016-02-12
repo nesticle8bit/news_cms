@@ -1,11 +1,105 @@
 ﻿@model News_System.Models.IndexViewModel
+@using System.Security.Claims
+@using Microsoft.AspNet.Identity
+
 @{
+    Layout = "~/Views/Shared/_LayoutNoSidebar.cshtml";
     ViewBag.Title = "Manage";
 }
 
-<h2>@ViewBag.Title.</h2>
-
 <p class="text-success">@ViewBag.StatusMessage</p>
+
+<div class="center-block">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Panel title</h3>
+                </div>
+
+                <div class="panel-body">
+                    <ul role="tablist" class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#account" data-toggle="tab">
+                                <i class="fa fa-user"></i> Account
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#profile" data-toggle="tab">
+                                <i class="fa fa-tasks"></i> Profile
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#options" data-toggle="tab">
+                                <i class="fa fa-cog"></i> Options
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#password" data-toggle="tab">
+                                <i class="fa fa-key"></i> Change Password
+                            </a>
+                        </li>
+                    </ul>
+
+                    @{
+                        var identity = (ClaimsIdentity)User.Identity;
+                        var name = identity.FindFirstValue(ClaimTypes.GivenName) ?? identity.GetUserName();
+                    }
+
+                    <br/>
+
+                    <div class="tab-content">
+                        <div id="account" role="tabpanel" class="tab-pane active">
+                            <div class="form-group">
+                                <label for="exampleInputName2">Name</label>
+                                <input type="text" class="form-control" id="exampleInputName2" placeholder="@name">
+                            </div>
+                        </div>
+
+                        <div id="profile" role="tabpanel" class="tab-pane">
+                            Profile
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Avatar</h3>
+                </div>
+
+                <div class="panel-body">
+                    <div class="center-block">
+                        <div class="text-center">
+                            <img src="https://pbs.twimg.com/profile_images/671005168356331520/YCp_08J8_400x400.jpg" class="img-rounded" />
+                        </div>
+
+                        <br />
+
+                        Profile Completion Level
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                                <span class="sr-only">40% Complete (success)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
 <div>
     <h4>Change your account settings</h4>
     <hr />
@@ -30,13 +124,13 @@
         </dd>
         @*
             Phone Numbers can used as a second factor of verification in a two-factor authentication system.
-             
+
              See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
                 for details on setting up this ASP.NET application to support two-factor authentication using SMS.
-             
+
              Uncomment the following block after you have set up two-factor authentication
         *@
-        @*  
+        @*
             <dt>Phone Number:</dt>
             <dd>
                 @(Model.PhoneNumber ?? "None") [
