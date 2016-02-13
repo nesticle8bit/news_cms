@@ -27,6 +27,14 @@
         <AssociationConnector Association="newsSystem_dbModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="newsSystem_dbModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="newsSystem_dbModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.CivilStatus" Width="1.5" PointX="15.625" PointY="2" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.Messenger" Width="1.5" PointX="15.625" PointY="10.375" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.Profile" Width="1.5" PointX="17.875" PointY="4.125" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.Sector" Width="1.5" PointX="15.625" PointY="12.75" />
+        <AssociationConnector Association="newsSystem_dbModel.FK_Profile_AspNetUsers" />
+        <AssociationConnector Association="newsSystem_dbModel.FK_Profile_CivilStatus" />
+        <AssociationConnector Association="newsSystem_dbModel.FK_Profile_Messenger" />
+        <AssociationConnector Association="newsSystem_dbModel.FK_Profile_Sector" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

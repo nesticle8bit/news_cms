@@ -73,6 +73,13 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="CivilStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Comment">
           <Key>
             <PropertyRef Name="Id" />
@@ -109,6 +116,13 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IconName" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Messenger">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="Post">
           <Key>
             <PropertyRef Name="Id" />
@@ -131,6 +145,41 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Id_Post" Type="int" />
           <Property Name="Id_Tags" Type="int" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_User" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Gender" Type="int" />
+          <Property Name="Bio" Type="varchar(max)" />
+          <Property Name="Avatar" Type="varchar(max)" />
+          <Property Name="Website" Type="varchar" MaxLength="150" />
+          <Property Name="Id_CivilStatus" Type="int" Nullable="false" />
+          <Property Name="Id_Messenger" Type="int" Nullable="false" />
+          <Property Name="MessengerName" Type="varchar" MaxLength="150" />
+          <Property Name="Company" Type="varchar" MaxLength="100" />
+          <Property Name="Profession" Type="varchar" MaxLength="100" />
+          <Property Name="Id_Sector" Type="int" Nullable="false" />
+          <Property Name="ProfessionalInterests" Type="varchar(max)" />
+          <Property Name="ProfessionalSkills" Type="varchar(max)" />
+          <Property Name="Interests" Type="varchar(max)" />
+          <Property Name="Hobbies" Type="varchar(max)" />
+          <Property Name="FavoriteTVSerie" Type="varchar(max)" />
+          <Property Name="FavoriteMusic" Type="varchar(max)" />
+          <Property Name="FavoriteSport" Type="varchar(max)" />
+          <Property Name="FavoriteBooks" Type="varchar(max)" />
+          <Property Name="FavoriteMovies" Type="varchar(max)" />
+          <Property Name="FavoriteFood" Type="varchar(max)" />
+          <Property Name="Heroe" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Sector">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Social">
           <Key>
@@ -267,6 +316,54 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Profile_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="Id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Profile_CivilStatus">
+          <End Role="CivilStatus" Type="Self.CivilStatus" Multiplicity="1" />
+          <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CivilStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="Id_CivilStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Profile_Messenger">
+          <End Role="Messenger" Type="Self.Messenger" Multiplicity="1" />
+          <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Messenger">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="Id_Messenger" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Profile_Sector">
+          <End Role="Sector" Type="Self.Sector" Multiplicity="1" />
+          <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sector">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="Id_Sector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Social_Icon">
           <End Role="Icon" Type="Self.Icon" Multiplicity="0..1" />
           <End Role="Social" Type="Self.Social" Multiplicity="*" />
@@ -287,11 +384,15 @@
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CivilStatus" EntityType="Self.CivilStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Configuration" EntityType="Self.Configuration" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Icon" EntityType="Self.Icon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Messenger" EntityType="Self.Messenger" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Post_Tags" EntityType="Self.Post_Tags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profile" EntityType="Self.Profile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sector" EntityType="Self.Sector" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Social" EntityType="Self.Social" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tags" EntityType="Self.Tags" Schema="dbo" store:Type="Tables" />
@@ -326,6 +427,22 @@
           <AssociationSet Name="FK_Post_Tags_Tags" Association="Self.FK_Post_Tags_Tags">
             <End Role="Tags" EntitySet="Tags" />
             <End Role="Post_Tags" EntitySet="Post_Tags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Profile_AspNetUsers" Association="Self.FK_Profile_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Profile" EntitySet="Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Profile_CivilStatus" Association="Self.FK_Profile_CivilStatus">
+            <End Role="CivilStatus" EntitySet="CivilStatus" />
+            <End Role="Profile" EntitySet="Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Profile_Messenger" Association="Self.FK_Profile_Messenger">
+            <End Role="Messenger" EntitySet="Messenger" />
+            <End Role="Profile" EntitySet="Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Profile_Sector" Association="Self.FK_Profile_Sector">
+            <End Role="Sector" EntitySet="Sector" />
+            <End Role="Profile" EntitySet="Profile" />
           </AssociationSet>
           <AssociationSet Name="FK_Social_Icon" Association="Self.FK_Social_Icon">
             <End Role="Icon" EntitySet="Icon" />
@@ -546,6 +663,26 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <EntitySet Name="CivilStatus" EntityType="newsSystem_dbModel.CivilStatus" />
+          <EntitySet Name="Messenger" EntityType="newsSystem_dbModel.Messenger" />
+          <EntitySet Name="Profile" EntityType="newsSystem_dbModel.Profile" />
+          <EntitySet Name="Sector" EntityType="newsSystem_dbModel.Sector" />
+          <AssociationSet Name="FK_Profile_AspNetUsers" Association="newsSystem_dbModel.FK_Profile_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Profile" EntitySet="Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Profile_CivilStatus" Association="newsSystem_dbModel.FK_Profile_CivilStatus">
+            <End Role="CivilStatus" EntitySet="CivilStatus" />
+            <End Role="Profile" EntitySet="Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Profile_Messenger" Association="newsSystem_dbModel.FK_Profile_Messenger">
+            <End Role="Messenger" EntitySet="Messenger" />
+            <End Role="Profile" EntitySet="Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Profile_Sector" Association="newsSystem_dbModel.FK_Profile_Sector">
+            <End Role="Sector" EntitySet="Sector" />
+            <End Role="Profile" EntitySet="Profile" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="C__MigrationHistory">
           <Key>
@@ -605,6 +742,7 @@
           <NavigationProperty Name="AspNetUserClaims" Relationship="newsSystem_dbModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="newsSystem_dbModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
           <NavigationProperty Name="AspNetRoles" Relationship="newsSystem_dbModel.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <NavigationProperty Name="Profile" Relationship="newsSystem_dbModel.FK_Profile_AspNetUsers" FromRole="AspNetUsers" ToRole="Profile" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Type="newsSystem_dbModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
@@ -637,6 +775,110 @@
         <Association Name="AspNetUserRoles">
           <End Type="newsSystem_dbModel.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
           <End Type="newsSystem_dbModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityType Name="CivilStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Profile" Relationship="newsSystem_dbModel.FK_Profile_CivilStatus" FromRole="CivilStatus" ToRole="Profile" />
+        </EntityType>
+        <EntityType Name="Messenger">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Profile" Relationship="newsSystem_dbModel.FK_Profile_Messenger" FromRole="Messenger" ToRole="Profile" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_User" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="Int32" />
+          <Property Name="Bio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Website" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Id_CivilStatus" Type="Int32" Nullable="false" />
+          <Property Name="Id_Messenger" Type="Int32" Nullable="false" />
+          <Property Name="MessengerName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Company" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Profession" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Sector" Type="Int32" Nullable="false" />
+          <Property Name="ProfessionalInterests" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ProfessionalSkills" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Interests" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Hobbies" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FavoriteTVSerie" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FavoriteMusic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FavoriteSport" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FavoriteBooks" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FavoriteMovies" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FavoriteFood" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Heroe" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="newsSystem_dbModel.FK_Profile_AspNetUsers" FromRole="Profile" ToRole="AspNetUsers" />
+          <NavigationProperty Name="CivilStatus" Relationship="newsSystem_dbModel.FK_Profile_CivilStatus" FromRole="Profile" ToRole="CivilStatus" />
+          <NavigationProperty Name="Messenger" Relationship="newsSystem_dbModel.FK_Profile_Messenger" FromRole="Profile" ToRole="Messenger" />
+          <NavigationProperty Name="Sector" Relationship="newsSystem_dbModel.FK_Profile_Sector" FromRole="Profile" ToRole="Sector" />
+        </EntityType>
+        <EntityType Name="Sector">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Profile" Relationship="newsSystem_dbModel.FK_Profile_Sector" FromRole="Sector" ToRole="Profile" />
+        </EntityType>
+        <Association Name="FK_Profile_AspNetUsers">
+          <End Type="newsSystem_dbModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+          <End Type="newsSystem_dbModel.Profile" Role="Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="Id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Profile_CivilStatus">
+          <End Type="newsSystem_dbModel.CivilStatus" Role="CivilStatus" Multiplicity="1" />
+          <End Type="newsSystem_dbModel.Profile" Role="Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CivilStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="Id_CivilStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Profile_Messenger">
+          <End Type="newsSystem_dbModel.Messenger" Role="Messenger" Multiplicity="1" />
+          <End Type="newsSystem_dbModel.Profile" Role="Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Messenger">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="Id_Messenger" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Profile_Sector">
+          <End Type="newsSystem_dbModel.Sector" Role="Sector" Multiplicity="1" />
+          <End Type="newsSystem_dbModel.Profile" Role="Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sector">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="Id_Sector" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -809,6 +1051,59 @@
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="CivilStatus">
+            <EntityTypeMapping TypeName="newsSystem_dbModel.CivilStatus">
+              <MappingFragment StoreEntitySet="CivilStatus">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messenger">
+            <EntityTypeMapping TypeName="newsSystem_dbModel.Messenger">
+              <MappingFragment StoreEntitySet="Messenger">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profile">
+            <EntityTypeMapping TypeName="newsSystem_dbModel.Profile">
+              <MappingFragment StoreEntitySet="Profile">
+                <ScalarProperty Name="Heroe" ColumnName="Heroe" />
+                <ScalarProperty Name="FavoriteFood" ColumnName="FavoriteFood" />
+                <ScalarProperty Name="FavoriteMovies" ColumnName="FavoriteMovies" />
+                <ScalarProperty Name="FavoriteBooks" ColumnName="FavoriteBooks" />
+                <ScalarProperty Name="FavoriteSport" ColumnName="FavoriteSport" />
+                <ScalarProperty Name="FavoriteMusic" ColumnName="FavoriteMusic" />
+                <ScalarProperty Name="FavoriteTVSerie" ColumnName="FavoriteTVSerie" />
+                <ScalarProperty Name="Hobbies" ColumnName="Hobbies" />
+                <ScalarProperty Name="Interests" ColumnName="Interests" />
+                <ScalarProperty Name="ProfessionalSkills" ColumnName="ProfessionalSkills" />
+                <ScalarProperty Name="ProfessionalInterests" ColumnName="ProfessionalInterests" />
+                <ScalarProperty Name="Id_Sector" ColumnName="Id_Sector" />
+                <ScalarProperty Name="Profession" ColumnName="Profession" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="MessengerName" ColumnName="MessengerName" />
+                <ScalarProperty Name="Id_Messenger" ColumnName="Id_Messenger" />
+                <ScalarProperty Name="Id_CivilStatus" ColumnName="Id_CivilStatus" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="Bio" ColumnName="Bio" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sector">
+            <EntityTypeMapping TypeName="newsSystem_dbModel.Sector">
+              <MappingFragment StoreEntitySet="Sector">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -39,5 +39,9 @@ namespace News_System.Models
         public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+        public virtual DbSet<CivilStatus> CivilStatus { get; set; }
+        public virtual DbSet<Messenger> Messenger { get; set; }
+        public virtual DbSet<Profile> Profile { get; set; }
+        public virtual DbSet<Sector> Sector { get; set; }
     }
 }

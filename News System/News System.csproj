@@ -169,6 +169,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CivilStatusController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\ConfigurationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -198,6 +199,9 @@
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CivilStatus.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Comment.cs">
@@ -230,11 +234,20 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Messenger.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Post.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PostViewModels.cs" />
     <Compile Include="Models\Post_Tags.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Profile.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sector.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Social.cs">
@@ -341,6 +354,7 @@
     <Content Include="Scripts\Category\category.js" />
     <Content Include="Scripts\chartist.js" />
     <Content Include="Scripts\chartist.min.js" />
+    <Content Include="Scripts\CivilStatus\civilstatus.js" />
     <Content Include="Scripts\enhance.js" />
     <Content Include="Scripts\global_script.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -371,7 +385,9 @@
     <Content Include="Scripts\sweetalert.min.js" />
     <Content Include="Scripts\xbbcode.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -460,6 +476,13 @@
     <Content Include="Views\Comments\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutAccount.cshtml" />
     <Content Include="Views\Shared\_MainMenu.cshtml" />
+    <Content Include="Views\CivilStatus\Create.cshtml" />
+    <Content Include="Views\CivilStatus\Delete.cshtml" />
+    <Content Include="Views\CivilStatus\Details.cshtml" />
+    <Content Include="Views\CivilStatus\Edit.cshtml" />
+    <Content Include="Views\CivilStatus\Index.cshtml" />
+    <Content Include="Views\Shared\_MainMenuAdmin.cshtml" />
+    <Content Include="Views\Shared\_SidebarAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
