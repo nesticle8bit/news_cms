@@ -7,6 +7,8 @@ Content Management System for News building in MVC Asp.net
 ### Login
 ![Login](https://cloud.githubusercontent.com/assets/1715022/12859673/cff02eba-cc25-11e5-955f-9fc5e1f87ac5.png)
 
+### Admin
+![Admin](https://cloud.githubusercontent.com/assets/1715022/13030581/49b55942-d27e-11e5-8b8f-05d9ad62be60.png)
 
 ## 👾 Frameworks
 - Bootstrap v3.3.6 - http://getbootstrap.com
@@ -16,6 +18,7 @@ Content Management System for News building in MVC Asp.net
 - Selectize v0.12.1 - https://brianreavis.github.io/selectize.js/
 - SweetAlert (2014 - 2015) - https://t4t5.github.io/sweetalert/
 - Animate.css 3.4.0 - https://daneden.github.io/animate.css/
+- Chartist - Simple responsive charts - https://gionkunz.github.io/chartist-js/
 
 ## 🍪 Cover Image
 - Psd Safari Yosemite Browser Mockup - https://dribbble.com/shots/1586310-Psd-Safari-Yosemite-Browser-Mockup
