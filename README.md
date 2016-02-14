@@ -7,6 +7,8 @@ Content Management System for News building in MVC Asp.net
 ### Login
 ![Login](https://cloud.githubusercontent.com/assets/1715022/12859673/cff02eba-cc25-11e5-955f-9fc5e1f87ac5.png)
 
+### Admin
+![Admin](https://cloud.githubusercontent.com/assets/1715022/13030581/49b55942-d27e-11e5-8b8f-05d9ad62be60.png)
 
 ## 👾 Frameworks
 - Bootstrap v3.3.6 - http://getbootstrap.com
@@ -16,6 +18,9 @@ Content Management System for News building in MVC Asp.net
 - Selectize v0.12.1 - https://brianreavis.github.io/selectize.js/
 - SweetAlert (2014 - 2015) - https://t4t5.github.io/sweetalert/
 - Animate.css 3.4.0 - https://daneden.github.io/animate.css/
+- Chartist - Simple responsive charts - https://gionkunz.github.io/chartist-js/
+- Light Bootstrap Dashboard - http://www.creative-tim.com/product/light-bootstrap-dashboard
+- icon font pack - http://themes-pixeden.com/font-demos/7-stroke/
 
 ## 🍪 Cover Image
 - Psd Safari Yosemite Browser Mockup - https://dribbble.com/shots/1586310-Psd-Safari-Yosemite-Browser-Mockup
@@ -27,11 +32,11 @@ Content Management System for News building in MVC Asp.net
 - [X] Organizar el sistema para parametrizar la aplicación.
 - [X] Poder añadir Google Adsense y Analytics.
 - [X] Nuevo Layout para Admin.
-- [ ] Organizar los links permanentes de los Posts.
 - [X] Parametrizar las redes sociales tanto en el sidebar como navbar.
 - [X] Implementar WYSIWYG en la creación de Post
-- [ ] Custom Errors
 - [X] Implementar los buscadores del Navbar y del Sidebar.
+- [ ] Organizar los links permanentes de los Posts.
+- [ ] Custom Errors
 
 --
 > Im creating this just for the learning about this backend language (C# and SQL Server) nothing commercial feel free to contact to me  **juliopoveda@protonmail.com** ![687474703a2f2f692e696d6775722e636f6d2f6f584a6d64747a2e676966](https://cloud.githubusercontent.com/assets/1715022/12459893/0dff5eb4-bf7f-11e5-90c7-8df784008acc.gif)
