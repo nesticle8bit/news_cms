@@ -37,6 +37,9 @@ namespace News_System.Models
         public string FavoriteMovies { get; set; }
         public string FavoriteFood { get; set; }
         public string Heroe { get; set; }
+        public string Name { get; set; }
+        public string LastName { get; set; }
+        public Nullable<System.DateTime> Birthday { get; set; }
     
         public virtual AspNetUsers AspNetUsers { get; set; }
         public virtual CivilStatus CivilStatus { get; set; }

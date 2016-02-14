@@ -152,6 +152,8 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Id_User" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" />
           <Property Name="Gender" Type="int" />
           <Property Name="Bio" Type="varchar(max)" />
           <Property Name="Avatar" Type="varchar(max)" />
@@ -173,6 +175,7 @@
           <Property Name="FavoriteMovies" Type="varchar(max)" />
           <Property Name="FavoriteFood" Type="varchar(max)" />
           <Property Name="Heroe" Type="varchar(max)" />
+          <Property Name="Birthday" Type="datetime" />
         </EntityType>
         <EntityType Name="Sector">
           <Key>
@@ -823,6 +826,9 @@
           <NavigationProperty Name="CivilStatus" Relationship="newsSystem_dbModel.FK_Profile_CivilStatus" FromRole="Profile" ToRole="CivilStatus" />
           <NavigationProperty Name="Messenger" Relationship="newsSystem_dbModel.FK_Profile_Messenger" FromRole="Profile" ToRole="Messenger" />
           <NavigationProperty Name="Sector" Relationship="newsSystem_dbModel.FK_Profile_Sector" FromRole="Profile" ToRole="Sector" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Birthday" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Sector">
           <Key>
@@ -1070,6 +1076,9 @@
           <EntitySetMapping Name="Profile">
             <EntityTypeMapping TypeName="newsSystem_dbModel.Profile">
               <MappingFragment StoreEntitySet="Profile">
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Heroe" ColumnName="Heroe" />
                 <ScalarProperty Name="FavoriteFood" ColumnName="FavoriteFood" />
                 <ScalarProperty Name="FavoriteMovies" ColumnName="FavoriteMovies" />

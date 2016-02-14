@@ -1,6 +1,6 @@
 ﻿USE [master]
 GO
-/****** Object:  Database [newsSystem_db]    Script Date: 06/02/2016 9:53:59 a. m. ******/
+/****** Object:  Database [newsSystem_db]    Script Date: 14/02/2016 5:37:43 p. m. ******/
 CREATE DATABASE [newsSystem_db]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -75,7 +75,7 @@ ALTER DATABASE [newsSystem_db] SET TARGET_RECOVERY_TIME = 0 SECONDS
 GO
 USE [newsSystem_db]
 GO
-/****** Object:  Table [dbo].[__MigrationHistory]    Script Date: 06/02/2016 9:53:59 a. m. ******/
+/****** Object:  Table [dbo].[__MigrationHistory]    Script Date: 14/02/2016 5:37:43 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -97,7 +97,7 @@ CREATE TABLE [dbo].[__MigrationHistory](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[AspNetRoles]    Script Date: 06/02/2016 9:53:59 a. m. ******/
+/****** Object:  Table [dbo].[AspNetRoles]    Script Date: 14/02/2016 5:37:43 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -112,7 +112,7 @@ CREATE TABLE [dbo].[AspNetRoles](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 06/02/2016 9:53:59 a. m. ******/
+/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 14/02/2016 5:37:43 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -129,7 +129,7 @@ CREATE TABLE [dbo].[AspNetUserClaims](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 06/02/2016 9:53:59 a. m. ******/
+/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 14/02/2016 5:37:43 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -147,7 +147,7 @@ CREATE TABLE [dbo].[AspNetUserLogins](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 06/02/2016 9:53:59 a. m. ******/
+/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 14/02/2016 5:37:43 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -163,7 +163,7 @@ CREATE TABLE [dbo].[AspNetUserRoles](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 06/02/2016 9:53:59 a. m. ******/
+/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 14/02/2016 5:37:43 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -188,7 +188,7 @@ CREATE TABLE [dbo].[AspNetUsers](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Category]    Script Date: 06/02/2016 9:53:59 a. m. ******/
+/****** Object:  Table [dbo].[Category]    Script Date: 14/02/2016 5:37:43 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -207,7 +207,26 @@ CREATE TABLE [dbo].[Category](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Comment]    Script Date: 06/02/2016 9:53:59 a. m. ******/
+/****** Object:  Table [dbo].[CivilStatus]    Script Date: 14/02/2016 5:37:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[CivilStatus](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](50) NULL,
+ CONSTRAINT [PK_CivilStatus] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Comment]    Script Date: 14/02/2016 5:37:43 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -217,6 +236,7 @@ GO
 CREATE TABLE [dbo].[Comment](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Name] [varchar](50) NOT NULL,
+	[Email] [varchar](100) NOT NULL,
 	[Website] [varchar](150) NULL,
 	[Comment] [varchar](max) NOT NULL,
 	[Time] [datetime] NOT NULL,
@@ -232,7 +252,7 @@ CREATE TABLE [dbo].[Comment](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Configuration]    Script Date: 06/02/2016 9:53:59 a. m. ******/
+/****** Object:  Table [dbo].[Configuration]    Script Date: 14/02/2016 5:37:43 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -244,10 +264,12 @@ CREATE TABLE [dbo].[Configuration](
 	[WebsiteTitle] [varchar](100) NOT NULL,
 	[Slogan] [varchar](150) NOT NULL,
 	[Url] [varchar](max) NOT NULL,
+	[Email] [varchar](max) NOT NULL,
 	[Ads_300] [varchar](max) NULL,
 	[Ads_728] [varchar](max) NULL,
 	[Ads_970] [varchar](max) NULL,
-	[Email] [varchar](max) NOT NULL,
+	[Analytics] [varchar](max) NULL,
+	[Disqus] [varchar](100) NULL,
  CONSTRAINT [PK_Configuration] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -257,7 +279,7 @@ CREATE TABLE [dbo].[Configuration](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Icon]    Script Date: 06/02/2016 9:53:59 a. m. ******/
+/****** Object:  Table [dbo].[Icon]    Script Date: 14/02/2016 5:37:43 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -276,7 +298,26 @@ CREATE TABLE [dbo].[Icon](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Post]    Script Date: 06/02/2016 9:53:59 a. m. ******/
+/****** Object:  Table [dbo].[Messenger]    Script Date: 14/02/2016 5:37:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Messenger](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](100) NULL,
+ CONSTRAINT [PK_Messenger] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Post]    Script Date: 14/02/2016 5:37:43 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -303,7 +344,7 @@ CREATE TABLE [dbo].[Post](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Post_Tags]    Script Date: 06/02/2016 9:53:59 a. m. ******/
+/****** Object:  Table [dbo].[Post_Tags]    Script Date: 14/02/2016 5:37:43 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -319,7 +360,69 @@ CREATE TABLE [dbo].[Post_Tags](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Social]    Script Date: 06/02/2016 9:53:59 a. m. ******/
+/****** Object:  Table [dbo].[Profile]    Script Date: 14/02/2016 5:37:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Profile](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Id_User] [nvarchar](128) NOT NULL,
+	[Name] [varchar](100) NULL,
+	[LastName] [varchar](100) NULL,
+	[Gender] [int] NULL,
+	[Bio] [varchar](max) NULL,
+	[Avatar] [varchar](max) NULL,
+	[Website] [varchar](150) NULL,
+	[Id_CivilStatus] [int] NOT NULL,
+	[Id_Messenger] [int] NOT NULL,
+	[MessengerName] [varchar](150) NULL,
+	[Company] [varchar](100) NULL,
+	[Profession] [varchar](100) NULL,
+	[Id_Sector] [int] NOT NULL,
+	[ProfessionalInterests] [varchar](max) NULL,
+	[ProfessionalSkills] [varchar](max) NULL,
+	[Interests] [varchar](max) NULL,
+	[Hobbies] [varchar](max) NULL,
+	[FavoriteTVSerie] [varchar](max) NULL,
+	[FavoriteMusic] [varchar](max) NULL,
+	[FavoriteSport] [varchar](max) NULL,
+	[FavoriteBooks] [varchar](max) NULL,
+	[FavoriteMovies] [varchar](max) NULL,
+	[FavoriteFood] [varchar](max) NULL,
+	[Heroe] [varchar](max) NULL,
+	[Birthday] [datetime] NULL,
+ CONSTRAINT [PK_Profile] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Sector]    Script Date: 14/02/2016 5:37:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Sector](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](100) NULL,
+ CONSTRAINT [PK_Sector] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Social]    Script Date: 14/02/2016 5:37:43 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -341,7 +444,7 @@ CREATE TABLE [dbo].[Social](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Tags]    Script Date: 06/02/2016 9:53:59 a. m. ******/
+/****** Object:  Table [dbo].[Tags]    Script Date: 14/02/2016 5:37:43 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -392,21 +495,65 @@ INSERT [dbo].[Category] ([Id], [Name]) VALUES (3, N'Design Tutorials')
 GO
 INSERT [dbo].[Category] ([Id], [Name]) VALUES (4, N'Web Development')
 GO
+INSERT [dbo].[Category] ([Id], [Name]) VALUES (2004, N'News')
+GO
 SET IDENTITY_INSERT [dbo].[Category] OFF
+GO
+SET IDENTITY_INSERT [dbo].[CivilStatus] ON 
+
+GO
+INSERT [dbo].[CivilStatus] ([Id], [Name]) VALUES (1, N'Single')
+GO
+INSERT [dbo].[CivilStatus] ([Id], [Name]) VALUES (2, N'Relationship')
+GO
+INSERT [dbo].[CivilStatus] ([Id], [Name]) VALUES (3, N'Married')
+GO
+INSERT [dbo].[CivilStatus] ([Id], [Name]) VALUES (4, N'Divorced')
+GO
+INSERT [dbo].[CivilStatus] ([Id], [Name]) VALUES (5, N'Widower')
+GO
+INSERT [dbo].[CivilStatus] ([Id], [Name]) VALUES (6, N'In something...')
+GO
+INSERT [dbo].[CivilStatus] ([Id], [Name]) VALUES (7, N'New Row with the Modal (Edited)')
+GO
+SET IDENTITY_INSERT [dbo].[CivilStatus] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Comment] ON 
 
 GO
-INSERT [dbo].[Comment] ([Id], [Name], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted]) VALUES (1, N'Julio Poveda', NULL, N'Lollipop cheesecake gingerbread wafer. Macaroon topping candy cheesecake. Fruitcake chocolate bar tart gummies croissant. Tiramisu chocolate chocolate powder oat cake. Caramels jujubes lollipop. Gummi bears marshmallow chocolate cake sweet cotton candy jelly beans dragée danish halvah.', CAST(0x0000A5580088E097 AS DateTime), 1, 3, 0)
+INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted]) VALUES (1, N'Julio Poveda', N'julios.corrp@gmail.com', NULL, N'Lollipop cheesecake gingerbread wafer. Macaroon topping candy cheesecake. Fruitcake chocolate bar tart gummies croissant. Tiramisu chocolate chocolate powder oat cake. Caramels jujubes lollipop. Gummi bears marshmallow chocolate cake sweet cotton candy jelly beans dragée danish halvah.', CAST(0x0000A5580088E097 AS DateTime), 1, 3, 0)
 GO
-INSERT [dbo].[Comment] ([Id], [Name], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted]) VALUES (3, N'Julio Poveda', NULL, N'Fruitcake candy lollipop jelly dessert. Chocolate bar muffin liquorice candy biscuit lemon drops bonbon marzipan cheesecake. Tart macaroon dessert gummies carrot cake dragée. Sweet roll biscuit jelly-o jelly. Jelly beans carrot cake cake apple pie sugar plum liquorice. Marshmallow lollipop sweet roll candy canes. Gummies chocolate bar marzipan oat cake soufflé bear claw donut brownie.', CAST(0x0000A56500EA1B37 AS DateTime), 0, 2005, 1)
+INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted]) VALUES (3, N'Julio Poveda', N'julios.corrp@gmail.com', NULL, N'Fruitcake candy lollipop jelly dessert. Chocolate bar muffin liquorice candy biscuit lemon drops bonbon marzipan cheesecake. Tart macaroon dessert gummies carrot cake dragée. Sweet roll biscuit jelly-o jelly. Jelly beans carrot cake cake apple pie sugar plum liquorice. Marshmallow lollipop sweet roll candy canes. Gummies chocolate bar marzipan oat cake soufflé bear claw donut brownie.', CAST(0x0000A56500EA1B37 AS DateTime), 0, 2005, 1)
+GO
+INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted]) VALUES (6, N'nesticle8bit', N'julios.corrp@gmail.com', N'http://fb.com/nesticle8bit', N'Liquorice sweet brownie apple pie sweet roll pudding ice cream. Chupa chups lemon drops candy jelly topping. Jujubes chocolate cake caramels donut candy. Wafer brownie jelly beans sweet caramels. Ice cream carrot cake cookie donut tiramisu macaroon apple pie croissant. Tart marzipan tiramisu biscuit tart tiramisu apple pie. ', CAST(0x0000A5A501812FCB AS DateTime), 0, 2006, 0)
+GO
+INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted]) VALUES (7, N'juliopoveda', N'julios.corrp@gmail.com', NULL, N'Cupcake ipsum dolor. Sit amet macaroon sugar plum danish croissant chocolate candy canes. Powder oat cake sweet roll. Cheesecake chocolate I love brownie I love tart danish donut sweet roll. Pudding I love jujubes gingerbread. Candy canes caramels croissant apple pie cake.
+
+Icing danish I love marshmallow I love caramels jelly. Caramels oat cake pastry jujubes chocolate chupa chups chupa chups candy. Soufflé halvah macaroon lollipop apple pie. Muffin chocolate cake tootsie roll apple pie toffee I love cheesecake biscuit. Marshmallow topping jelly I love I love powder icing apple pie. Bear claw sugar plum chupa chups tootsie roll apple pie icing muffin cake cookie.', CAST(0x0000A5A600D989A2 AS DateTime), 0, 2006, 0)
+GO
+INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted]) VALUES (1007, N'nesticle8bit', N'julios.corrp@gmail.com', NULL, N'I love muffin powder halvah pastry croissant. Apple pie macaroon sugar plum gingerbread jelly-o fruitcake. Danish sesame snaps icing. ', CAST(0x0000A5A800ADA39F AS DateTime), 0, 3, 0)
+GO
+INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted]) VALUES (1008, N'nesticle8bit', N'julios.corrp@gmail.com', NULL, N'I love muffin powder halvah pastry croissant. Apple pie macaroon sugar plum gingerbread jelly-o fruitcake. Danish sesame snaps icing. ', CAST(0x0000A5A800B95D2A AS DateTime), 0, 3, 0)
+GO
+INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted]) VALUES (1009, N'nesticle8bit', N'julios.corrp@gmail.com', NULL, N'Jelly gummi bears sweet roll tart chocolate cake. Cake cupcake lemon drops cake biscuit cotton candy sesame snaps. Caramels macaroon oat cake sweet roll cookie bear claw cake liquorice cookie.', CAST(0x0000A5A800BA10AD AS DateTime), 0, 3, 0)
+GO
+INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted]) VALUES (1010, N'Julio Poveda', N'julios.corrp@gmail.com', NULL, N'Icing gummies sugar plum toffee gummi bears macaroon I love I love chocolate. I love brownie gummies pie powder I love. Tart caramels brownie soufflé gummi bears muffin pudding. Macaroon I love chocolate cake gummi bears. Toffee I love cotton candy cotton candy cotton candy I love dessert cookie. ', CAST(0x0000A5A800BB7991 AS DateTime), 0, 3, 0)
 GO
 SET IDENTITY_INSERT [dbo].[Comment] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Configuration] ON 
 
 GO
-INSERT [dbo].[Configuration] ([Id], [WebsiteTitle], [Slogan], [Url], [Ads_300], [Ads_728], [Ads_970], [Email]) VALUES (1, N'CMS Script', N'v0.1', N'http://localhost:7735/', N'<img class="text-center center-block" src="https://lh3.ggpht.com/SwKJItV_dUKyXgtyB7ycADMWTVGscOmyr5zWyw8GgLfd6O1K8AyOCH8y_3xQBoChJ4JFCOSKew=w300" />', N'<img src="https://lh6.ggpht.com/41LFWBytPnxKsfZf6mivs6ba7qdOBtfk9-7MzWSMqwC3IFOvaXd8rejFiyeXKfBOK16mMEopeA=w728" />', N'<img src="https://storage.googleapis.com/support-kms-prod/SNP_59D432450939ECC60A21BEDBEE985B1817B1_3094744_en_v2" />', N'juliopoveda@protonmail.com')
+INSERT [dbo].[Configuration] ([Id], [WebsiteTitle], [Slogan], [Url], [Email], [Ads_300], [Ads_728], [Ads_970], [Analytics], [Disqus]) VALUES (1, N'CMS Script', N'v0.1', N'http://localhost:7735/', N'juliopoveda@protonmail.com', N'<img class="text-center center-block" src="https://lh3.ggpht.com/SwKJItV_dUKyXgtyB7ycADMWTVGscOmyr5zWyw8GgLfd6O1K8AyOCH8y_3xQBoChJ4JFCOSKew=w300" />', N'<img src="https://lh6.ggpht.com/41LFWBytPnxKsfZf6mivs6ba7qdOBtfk9-7MzWSMqwC3IFOvaXd8rejFiyeXKfBOK16mMEopeA=w728" />', N'<img src="https://storage.googleapis.com/support-kms-prod/SNP_59D432450939ECC60A21BEDBEE985B1817B1_3094744_en_v2" />', N'<script>
+  (function(i,s,o,g,r,a,m){i[''GoogleAnalyticsObject'']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,''script'',''//www.google-analytics.com/analytics.js'',''ga'');
+
+  ga(''create'', ''UA-67618396-1'', ''auto'');
+  ga(''send'', ''pageview'');
+
+</script>', NULL)
 GO
 SET IDENTITY_INSERT [dbo].[Configuration] OFF
 GO
@@ -426,6 +573,21 @@ GO
 INSERT [dbo].[Icon] ([Id], [IconName]) VALUES (1004, N'fa fa-rss')
 GO
 SET IDENTITY_INSERT [dbo].[Icon] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Messenger] ON 
+
+GO
+INSERT [dbo].[Messenger] ([Id], [Name]) VALUES (1, N'MSN')
+GO
+INSERT [dbo].[Messenger] ([Id], [Name]) VALUES (2, N'GTalk')
+GO
+INSERT [dbo].[Messenger] ([Id], [Name]) VALUES (3, N'ICQ')
+GO
+INSERT [dbo].[Messenger] ([Id], [Name]) VALUES (4, N'AIM')
+GO
+INSERT [dbo].[Messenger] ([Id], [Name]) VALUES (5, N'Twitter')
+GO
+SET IDENTITY_INSERT [dbo].[Messenger] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Post] ON 
 
@@ -504,14 +666,14 @@ Mi convallis viverra aenean placerat dolor lacus vestibulum morbi donec ut himen
 
 A parturient suspendisse adipiscing blandit sem mattis parturient justo eros mi facilisi porta eu bibendum per penatibus at nulla platea elit per urna eu. Lacus a feugiat taciti consectetur et ullamcorper turpis aliquam a condimentum a eget scelerisque natoque ante velit a a condimentum vestibulum primis suspendisse mus. A scelerisque risus a quam praesent vestibulum semper a cras faucibus dapibus scelerisque ut quisque ad quisque.
 
-Luctus venenatis cras urna placerat parturient potenti nec nisl a elit eleifend venenatis curabitur a nec parturient scelerisque habitasse sit vestibulum. Vestibulum nam accumsan elementum suspendisse condimentum tristique fringilla mus in dui duis adipiscing ullamcorper conubia parturient varius placerat scelerisque accumsan parturient enim pretium condimentum parturient lacinia.', 0, 3, 0, 0, 1)
+Luctus venenatis cras urna placerat parturient potenti nec nisl a elit eleifend venenatis curabitur a nec parturient scelerisque habitasse sit vestibulum. Vestibulum nam accumsan elementum suspendisse condimentum tristique fringilla mus in dui duis adipiscing ullamcorper conubia parturient varius placerat scelerisque accumsan parturient enim pretium condimentum parturient lacinia.', 1, 3, 0, 0, 1)
 GO
 INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (2005, N'Instagrammer Daniel Cerejo Unveils The Secret Life Of Toys', N'2015-12-03-120309_secret-life-toys_featured_500.jpg', CAST(0x0000A56300C69FA8 AS DateTime), N'[size=100][center][img]http://k30.kn3.net/B/9/7/1/1/F/6A7.gif[/img]?[/center]
 
 [b]Himenaeos penatibus[/b] ultrices nisl iaculis suspendisse vestibulum sit vestibulum aenean ullamcorper a cubilia scelerisque vel parturient himenaeos fermentum ullamcorper ultricies adipiscing gravida sed faucibus. [i]Tortor scelerisque nullam vitae a nec in consectetur et a a parturient a condimentum elementum parturient nam dignissim per adipiscing id leo a sem. Ante dictum a in vivamus parturient in malesuada egestas praesent sociosqu nam magna nec porta vulputate condimentum sed condimentum vel sociis. Vestibulum scelerisque a duis eget tellus massa donec nisi curae condimentum pretium condimentum[/i] scelerisque phasellus a scelerisque porta sit. Taciti vel per mi platea urna dui eget vel etiam a egestas nisl per sem vestibulum vestibulum erat fusce augue inceptos. Sed a morbi luctus dignissim iaculis cum sapien nisl volutpat convallis lacus vestibulum morbi sed tempus convallis euismod himenaeos adipiscing diam dapibus sociosqu facilisi parturient parturient vestibulum adipiscing mi.
 
 Adipiscing conubia curabitur porttitor a nulla duis morbi vestibulum hac ullamcorper a scelerisque congue vestibulum montes vehicula torquent integer a porttitor vel a aenean. Id dignissim nibh morbi vivamus nascetur a gravida cubilia condimentum hac ac bibendum potenti nunc vivamus ad fringilla parturient per eu phasellus cum nam amet sodales parturient.
-[/size]', 0, 1, 0, 0, 2)
+[/size]', 1, 1, 0, 0, 2)
 GO
 INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (2006, N'Introduction to the CSS Grid Layout', N'2015-12-09-115606_tatooine_jobfair.gif', CAST(0x0000A56900C4AFCD AS DateTime), N'CSS is constantly evolving. Some of the features being talked about now may well become mainstream in the near future, while others will likely fade into obscurity. Either way, understanding which CSS selectors, layout modules and filters are being considered for the future will make you a stronger front-end developer.
 
@@ -549,7 +711,7 @@ In this course, Tuts+ instructor José Mota will show you how to use some of the
 [center][video]_e3p6M7xbig[/video][/center]
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam et scelerisque diam, quis sagittis nisl. Cras tempus magna nisi, vel hendrerit ligula convallis non. Vestibulum porta accumsan placerat. Nulla convallis vulputate ante eget gravida. Sed in nulla et justo venenatis molestie sed sit amet diam. Quisque venenatis, dolor in maximus maximus, tellus lacus pellentesque justo, ac facilisis eros dui consequat tellus. Nam mattis lacus eget lorem placerat aliquet. Quisque a blandit libero, eget volutpat erat. Donec accumsan scelerisque urna vel vulputate. Cras vehicula, erat eget hendrerit finibus, libero nisl tempor lacus, sit amet dapibus ipsum turpis aliquam erat. Proin nisl sapien, mattis at nisi non, aliquet eleifend est. Duis gravida, orci id tempor luctus, lacus velit aliquet mi, sed mattis risus libero vitae nisi. Vivamus at placerat justo.
-Morbi hendrerit gravida orci, ac scelerisque mauris tempus at. Etiam rutrum malesuada purus at sollicitudin. Nullam semper vestibulum lacus, in elementum sapien rhoncus sit amet. Pellentesque a sapien euismod, malesuada justo sed, sodales est. In feugiat vehicula enim at cursus. Vivamus mollis sit amet purus eu cursus. Aenean nec mi ipsum. Nullam sit amet mi quis dolor sagittis ultrices nec ut orci. Ut lacinia quam ac ante porttitor, nec convallis augue consequat. Nam rutrum augue in erat semper suscipit. Maecenas convallis sapien quis tristique dignissim. Vivamus vehicula suscipit tortor eget sollicitudin. Curabitur ac fringilla sapien. Mauris fermentum sagittis ligula, eu interdum arcu. Vivamus tempor odio eget ex pellentesque varius. Nulla consectetur, nulla a dapibus tristique, tortor dui fermentum ex, vel rhoncus mi ex quis metus.', 0, 1, 0, 0, 2)
+Morbi hendrerit gravida orci, ac scelerisque mauris tempus at. Etiam rutrum malesuada purus at sollicitudin. Nullam semper vestibulum lacus, in elementum sapien rhoncus sit amet. Pellentesque a sapien euismod, malesuada justo sed, sodales est. In feugiat vehicula enim at cursus. Vivamus mollis sit amet purus eu cursus. Aenean nec mi ipsum. Nullam sit amet mi quis dolor sagittis ultrices nec ut orci. Ut lacinia quam ac ante porttitor, nec convallis augue consequat. Nam rutrum augue in erat semper suscipit. Maecenas convallis sapien quis tristique dignissim. Vivamus vehicula suscipit tortor eget sollicitudin. Curabitur ac fringilla sapien. Mauris fermentum sagittis ligula, eu interdum arcu. Vivamus tempor odio eget ex pellentesque varius. Nulla consectetur, nulla a dapibus tristique, tortor dui fermentum ex, vel rhoncus mi ex quis metus.', 0, 1, 0, 1, 2)
 GO
 SET IDENTITY_INSERT [dbo].[Post] OFF
 GO
@@ -609,6 +771,27 @@ GO
 INSERT [dbo].[Post_Tags] ([Id], [Id_Post], [Id_Tags]) VALUES (4008, 2008, 1)
 GO
 SET IDENTITY_INSERT [dbo].[Post_Tags] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Sector] ON 
+
+GO
+INSERT [dbo].[Sector] ([Id], [Name]) VALUES (1, N'Call center')
+GO
+INSERT [dbo].[Sector] ([Id], [Name]) VALUES (2, N'Creativity')
+GO
+INSERT [dbo].[Sector] ([Id], [Name]) VALUES (3, N'Design')
+GO
+INSERT [dbo].[Sector] ([Id], [Name]) VALUES (4, N'E-commerce')
+GO
+INSERT [dbo].[Sector] ([Id], [Name]) VALUES (5, N'Production')
+GO
+INSERT [dbo].[Sector] ([Id], [Name]) VALUES (6, N'Technology')
+GO
+INSERT [dbo].[Sector] ([Id], [Name]) VALUES (7, N'Telemarketing')
+GO
+INSERT [dbo].[Sector] ([Id], [Name]) VALUES (8, N'Sales')
+GO
+SET IDENTITY_INSERT [dbo].[Sector] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Social] ON 
 
@@ -717,6 +900,26 @@ ALTER TABLE [dbo].[Post_Tags]  WITH CHECK ADD  CONSTRAINT [FK_Post_Tags_Tags] FO
 REFERENCES [dbo].[Tags] ([Id])
 GO
 ALTER TABLE [dbo].[Post_Tags] CHECK CONSTRAINT [FK_Post_Tags_Tags]
+GO
+ALTER TABLE [dbo].[Profile]  WITH CHECK ADD  CONSTRAINT [FK_Profile_AspNetUsers] FOREIGN KEY([Id_User])
+REFERENCES [dbo].[AspNetUsers] ([Id])
+GO
+ALTER TABLE [dbo].[Profile] CHECK CONSTRAINT [FK_Profile_AspNetUsers]
+GO
+ALTER TABLE [dbo].[Profile]  WITH CHECK ADD  CONSTRAINT [FK_Profile_CivilStatus] FOREIGN KEY([Id_CivilStatus])
+REFERENCES [dbo].[CivilStatus] ([Id])
+GO
+ALTER TABLE [dbo].[Profile] CHECK CONSTRAINT [FK_Profile_CivilStatus]
+GO
+ALTER TABLE [dbo].[Profile]  WITH CHECK ADD  CONSTRAINT [FK_Profile_Messenger] FOREIGN KEY([Id_Messenger])
+REFERENCES [dbo].[Messenger] ([Id])
+GO
+ALTER TABLE [dbo].[Profile] CHECK CONSTRAINT [FK_Profile_Messenger]
+GO
+ALTER TABLE [dbo].[Profile]  WITH CHECK ADD  CONSTRAINT [FK_Profile_Sector] FOREIGN KEY([Id_Sector])
+REFERENCES [dbo].[Sector] ([Id])
+GO
+ALTER TABLE [dbo].[Profile] CHECK CONSTRAINT [FK_Profile_Sector]
 GO
 ALTER TABLE [dbo].[Social]  WITH CHECK ADD  CONSTRAINT [FK_Social_Icon] FOREIGN KEY([Id_Icon])
 REFERENCES [dbo].[Icon] ([Id])
