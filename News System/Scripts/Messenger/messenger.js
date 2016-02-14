@@ -2,10 +2,11 @@
     //Create a Data
     $('a#create').click(function (e) {
         $('#modalDetails').appendTo("body").modal('show');
-        $('#titleOfModal').text('Create Civil Status');
+        $('#titleOfModal').text('Create Messenger');
 
         var name = $('#name');
         name.val('');
+
         name.focus();
     });
 
@@ -15,14 +16,14 @@
 
         if (data_id != undefined) {
             $.ajax({
-                url: "/CivilStatus/DetailsCivilStatus/",
+                url: "/Messenger/DetailsMessenger/",
                 type: "GET",
                 dataType: "json",
                 contentType: "application/json",
                 data: { id: data_id }
             }).success(function (e) {
                 $('#modalDetails').appendTo("body").modal('show');
-                $('#titleOfModal').text('Edit Civil Status');
+                $('#titleOfModal').text('Edit Messenger');
 
                 var name = $('#name');
 
@@ -44,9 +45,9 @@
         //Create
         if (id == undefined || id == null) {
             id = 0;
-            url = '/CivilStatus/Create';
+            url = '/Messenger/Create';
         } else {
-            url = '/CivilStatus/Edit';
+            url = '/Messenger/Edit';
         }
 
         var data = {
@@ -59,7 +60,7 @@
             type: 'POST',
             data: {
                 __RequestVerificationToken: get_token(),
-                civilStatus: data
+                messenger: data
             }
         }).success(function (e) {
             modal_saved('modalDetails');
@@ -76,7 +77,7 @@
         if (id != undefined) {
             swal({
                 title: "Are you sure?",
-                text: "You will not be able to recover this civil status!",
+                text: "You will not be able to recover this messenger!",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
@@ -86,14 +87,14 @@
             }, function (isConfirm) {
                 if (isConfirm) {
                     $.ajax({
-                        url: '/CivilStatus/DeleteConfirmed',
+                        url: '/Messenger/DeleteConfirmed',
                         type: 'POST',
                         data: {
                             __RequestVerificationToken: get_token(),
                             id: id
                         }
                     }).success(function (e) {
-                        swal("Deleted!", "The Civil Status has been deleted", "success");
+                        swal("Deleted!", "The messenger has been deleted", "success");
                     }).error(function (e) {
                         console.log('Error: ' + e.statusText);
                     });

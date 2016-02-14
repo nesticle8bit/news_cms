@@ -175,6 +175,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IconsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MessengerController.cs" />
     <Compile Include="Controllers\PagesController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
@@ -371,6 +372,7 @@
     <Content Include="Scripts\jquery.wysibb.js" />
     <Content Include="Scripts\jquery.wysibb.min.js" />
     <Content Include="Scripts\light-bootstrap-dashboard.js" />
+    <Content Include="Scripts\Messenger\messenger.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\Post\post.js" />
     <Content Include="Scripts\respond.js" />
@@ -490,6 +492,11 @@
     <Content Include="Views\Sector\Details.cshtml" />
     <Content Include="Views\Sector\Edit.cshtml" />
     <Content Include="Views\Sector\Index.cshtml" />
+    <Content Include="Views\Messenger\Create.cshtml" />
+    <Content Include="Views\Messenger\Delete.cshtml" />
+    <Content Include="Views\Messenger\Details.cshtml" />
+    <Content Include="Views\Messenger\Edit.cshtml" />
+    <Content Include="Views\Messenger\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
