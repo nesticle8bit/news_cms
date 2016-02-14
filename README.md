@@ -19,6 +19,7 @@ Content Management System for News building in MVC Asp.net
 - SweetAlert (2014 - 2015) - https://t4t5.github.io/sweetalert/
 - Animate.css 3.4.0 - https://daneden.github.io/animate.css/
 - Chartist - Simple responsive charts - https://gionkunz.github.io/chartist-js/
+- Light Bootstrap Dashboard - http://www.creative-tim.com/product/light-bootstrap-dashboard
 
 ## 🍪 Cover Image
 - Psd Safari Yosemite Browser Mockup - https://dribbble.com/shots/1586310-Psd-Safari-Yosemite-Browser-Mockup
