@@ -6,7 +6,7 @@
 }
 
 <div class="col-md-12">
-    <a href="@Url.Action("Create", "Category")" class="btn btn-success">
+    <a id="create" class="btn btn-success">
         <i class="fa fa-plus"></i> Create a Category
     </a>
 
@@ -68,13 +68,14 @@
                 </h4>
             </div>
 
-            <form id="formCategory">
+            <form id="form">
                 @Html.AntiForgeryToken()
                 <div class="modal-body">
                     <div class="form-group">
-                        <input id="idCategory" type="hidden" class="form-control" />
+                        <input id="id" type="hidden" class="form-control" />
+
                         <label for="name">Category</label>
-                        <input id="nameCategory" type="text" class="form-control" placeholder="Category" />
+                        <input id="name" type="text" class="form-control" placeholder="Category" autocomplete="off" />
                     </div>
                 </div>
 

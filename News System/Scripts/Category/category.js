@@ -1,8 +1,15 @@
-﻿$(document).ready(function () {
+﻿$(function() {
+    //Create a Data
+    $('a#create').click(function (e) {
+        $('#modalDetails').appendTo("body").modal('show');
+        $('#titleOfModal').text('Create a Category');
+
+        var name = $('#name').val();
+    });
+
     //Botones de Accion
     $("#edit[data-id]").click(function (e) {
         var data_id = $(this).attr("data-id");
-        console.log("ID = " + data_id);
 
         if (data_id != undefined) {
             $.ajax({
@@ -15,13 +22,13 @@
                 $('#modalDetails').appendTo("body").modal('show');
                 $('#titleOfModal').text('Edit Category');
 
-                var nameCategory = $('#nameCategory');
+                var name = $('#name');
 
                 if (e.data != undefined) {
                     //Add the Id for Edit/Details
-                    $('#idCategory').attr("data-id", e.data.Id);
+                    $('#id').attr("data-id", e.data.Id);
 
-                    nameCategory.val(e.data.Name);
+                    name.val(e.data.Name);
                     console.log("Datos Obtenidos = (" + e.data.Id + ") " + e.data.Name);
                 }
             }).error(function (e) {
@@ -30,28 +37,34 @@
         }
     });
 
-    $('#formCategory').submit(function (e) {
-        var idCategory = $('#idCategory').data("id");
-        var nameCategory = $('#nameCategory').val();
-        var token = $('input[name="__RequestVerificationToken"]').val();
+    $('#form').submit(function (e) {
+        var id = $('#id').data("id");
+        var name = $('#name').val();
 
-        var category = {
-            Id: parseInt(idCategory),
-            Name: nameCategory,
+        var url = "";
+
+        //Create
+        if (id == undefined || id == null) {
+            id = 0;
+            url = '/Category/Create';
+        } else {
+            url = '/Category/Edit';
+        }
+
+        var data = {
+            Id: parseInt(id),
+            Name: name,
         };
-
-        console.log(category);
-
+        
         $.ajax({
-            url: '/Category/Edit',
+            url: url,
             type: 'POST',
             data: {
-                __RequestVerificationToken: token,
-                category: category
+                __RequestVerificationToken: get_token(),
+                category: data
             }
         }).success(function (e) {
-            console.log("Se guardo el registro");
-            Saved('modalDetails');
+            modal_saved('modalDetails');
         }).error(function (e) {
             console.log("Error " + e.statusText);
         });
@@ -60,10 +73,9 @@
     });
 
     $('a#remove').click(function () {
-        var idCategory = $(this).data("id");
-        console.log(idCategory);
+        var id = $(this).data("id");
 
-        if (idCategory != undefined) {
+        if (id != undefined) {
             swal({
                 title: "Are you sure?",
                 text: "You will not be able to recover this category!",
@@ -76,9 +88,12 @@
             }, function (isConfirm) {
                 if (isConfirm) {
                     $.ajax({
-                        url: '/Category/DeleteCategory',
+                        url: '/Category/DeleteConfirmed',
                         type: 'POST',
-                        data: { id: idCategory }
+                        data: {
+                            __RequestVerificationToken: get_token(),
+                            id: id
+                        }
                     }).success(function (e) {
                         swal("Deleted!", "The category has been deleted", "success");
                     }).error(function (e) {
@@ -88,15 +103,19 @@
             });
         }
     });
-
-    function Saved(modalName) {
-        $('#' + modalName).modal('hide');
-
-        swal({
-            title: 'Saved',
-            text: 'The data has been saved correctly',
-            type: 'success',
-            timer: 1800,
-        });
-    }
 }); //End
+
+function get_token() {
+    return $('input[name="__RequestVerificationToken"]').val();
+}
+
+function modal_saved(modalName) {
+    $('#' + modalName).modal('hide');
+
+    swal({
+        title: 'Saved',
+        text: 'The data has been saved correctly',
+        type: 'success',
+        timer: 1800,
+    });
+}

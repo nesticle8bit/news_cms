@@ -118,7 +118,8 @@ namespace News_System.Controllers
         }
 
         // POST: Category/Delete/5
-        [HttpPost, ActionName("Delete")]
+        //[HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
@@ -127,18 +128,7 @@ namespace News_System.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        //For the Ajax Call
-        [HttpPost]
-        public ActionResult DeleteCategory(int? id)
-        {
-            Category category = db.Category.Find(id);
-            db.Category.Remove(category);
-            db.SaveChanges();
-
-            return RedirectToAction("Index");
-        }
-
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)
