@@ -21,16 +21,13 @@ namespace News_System.Controllers
         //    return View(db.Configuration.ToList());
         //}
 
-        public ActionResult Index(int? id = 1)
+        public ActionResult Index()
         {
-            if (id == null)
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            
-            Configuration configuration = db.Configuration.Find(id);
+            Configuration configuration = db.Configuration.ToList().FirstOrDefault();
 
             if (configuration == null)
                 return HttpNotFound();
-            
+
             return View(configuration);
         }
 
