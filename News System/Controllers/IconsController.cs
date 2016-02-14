@@ -105,7 +105,8 @@ namespace News_System.Controllers
         }
 
         // POST: Icons/Delete/5
-        [HttpPost, ActionName("Delete")]
+        //[HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
@@ -114,18 +115,7 @@ namespace News_System.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-         //For the Ajax Call
-        [HttpPost]
-        public ActionResult DeleteIcon(int? id)
-        {
-            Icon icon = db.Icon.Find(id);
-            db.Icon.Remove(icon);
-            db.SaveChanges();
-
-            return RedirectToAction("Index");
-        }
-
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)

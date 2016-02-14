@@ -40,7 +40,7 @@
     var wbbOpt = {
         buttons: "bold,italic,underline,strike,sup,sub,|,img,video,link,|,bullist,numlist,|,fontcolor,fontsize,|,justifyleft,justifycenter,justifyright,|,quote,code,table,removeFormat",
     }
-    $("#editor").wysibb(wbbOpt);
+    //$("#editor").wysibb(wbbOpt);
     
     //Delete from Database
     $('a#delete').click(function () {

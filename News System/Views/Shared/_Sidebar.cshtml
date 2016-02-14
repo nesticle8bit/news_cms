@@ -27,7 +27,9 @@
         </div>
         <div class="info-holder">
             <div class="subscribe-button-holder">
-                <a class="twitter-follow-button" href="https://twitter.com/nesticle8bit" data-show-count="false" data-size="large" data-lang="en" style="display: block;"><iframe style="width: 30px; height: 19px; border: 0px;"></iframe></a>
+                <a class="twitter-follow-button" href="https://twitter.com/nesticle8bit" data-show-count="false" data-size="large" data-lang="en" style="display: block;">
+                    <iframe style="width: 30px; height: 19px; border: 0px;"></iframe>
+                </a>
             </div>
             <div class="clear"></div>
         </div>
@@ -92,35 +94,41 @@
             </div>
         }
         
-        <div class="sidebar-promoted-holder animated fadeInUp">
-            <div class="item-title">Featured articles</div>
-            <div class="first">
-                <a href="@Url.Action("ViewPost", "Post", new { id = @ViewBag.RandomArticle.Id })" title="@ViewBag.RandomArticle.Title">
-                    <img src="~/Files/@ViewBag.RandomArticle.Image" alt="@ViewBag.RandomArticle.Title">
-                    <div class="info semi-gradient">
-                        <h3>@ViewBag.RandomArticle.Title</h3>
-                        <span class="date">@ViewBag.RandomArticle.Time</span>
-                    </div>
-                </a>
-            </div>
+        @if (ViewBag.RandomArticle != null)
+        {
+            <div class="sidebar-promoted-holder animated fadeInUp">
+                <div class="item-title">Featured articles</div>
+                <div class="first">
+                    <a href="@Url.Action("ViewPost", "Post", new { id = @ViewBag.RandomArticle.Id })" title="@ViewBag.RandomArticle.Title">
+                        <img src="~/Files/@ViewBag.RandomArticle.Image" alt="@ViewBag.RandomArticle.Title">
+                        <div class="info semi-gradient">
+                            <h3>@ViewBag.RandomArticle.Title</h3>
+                            <span class="date">@ViewBag.RandomArticle.Time</span>
+                        </div>
+                    </a>
+                </div>
 
-            <ul>
-                @for (int i = 0; i < ViewBag.FeaturedArticles.Count; i++)
+                @if (ViewBag.FeaturedArticles != null)
                 {
-                    <li>
-                        <a href="@Url.Action("ViewPost", "Post", new { id = @ViewBag.FeaturedArticles[i].Id })" title="@ViewBag.FeaturedArticles[i].Title">
-                            <span class="article-image-holder">
-                                <img src="~/Files/@ViewBag.FeaturedArticles[i].Image" alt="@ViewBag.FeaturedArticles[i].Title" />
-                            </span>
+                    <ul>
+                        @for (int i = 0; i < ViewBag.FeaturedArticles.Count; i++)
+                        {
+                            <li>
+                                <a href="@Url.Action("ViewPost", "Post", new { id = @ViewBag.FeaturedArticles[i].Id })" title="@ViewBag.FeaturedArticles[i].Title">
+                                    <span class="article-image-holder">
+                                        <img src="~/Files/@ViewBag.FeaturedArticles[i].Image" alt="@ViewBag.FeaturedArticles[i].Title" />
+                                    </span>
 
-                            <span class="article-info-holder">
-                                <h3>@ViewBag.FeaturedArticles[i].Title</h3>
-                                <span class="date">@ViewBag.FeaturedArticles[i].Time</span>
-                            </span>
-                        </a>
-                    </li>
+                                    <span class="article-info-holder">
+                                        <h3>@ViewBag.FeaturedArticles[i].Title</h3>
+                                        <span class="date">@ViewBag.FeaturedArticles[i].Time</span>
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
                 }
-            </ul>
-        </div>
+            </div>
+        }
     </div>
 </div>

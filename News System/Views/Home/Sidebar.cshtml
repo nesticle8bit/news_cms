@@ -13,20 +13,23 @@
                 <input type="text" value="" name="q" placeholder="search text" class="search-input">
             }
         </li>
-        <li>
-            <a href="#">
-                <span class="text">Categories</span>
-            </a>
-            <ul>
-                @for (int i = 0; i < ViewBag.Categorias.Count; i++)
-                {
-                    <li>
-                        <a href="@Url.Action("Category", "Post", new { id = @ViewBag.Categorias[i].Id })">
-                            @ViewBag.Categorias[i].Name
-                        </a>
-                    </li>
-                }
-            </ul>
-        </li>
+        @if (ViewBag.Categorias != null)
+        {
+            <li>
+                <a href="#">
+                    <span class="text">Categories</span>
+                </a>
+                <ul>
+                    @for (int i = 0; i < ViewBag.Categorias.Count; i++)
+                    {
+                        <li>
+                            <a href="@Url.Action("Category", "Post", new { id = @ViewBag.Categorias[i].Id })">
+                                @ViewBag.Categorias[i].Name
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </li>
+        }
     </ul>
 </div>
