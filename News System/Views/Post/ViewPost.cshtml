@@ -177,8 +177,6 @@
                 
                 <a name="comments"></a>
                 
-                <h4 class="section-title">Comments<span></span></h4>
-
                 @if (ViewBag.Disqus == null || ViewBag.Disqus == "")
                 {
                     <h4 class="section-title">Post a comment<span></span></h4>
@@ -200,6 +198,8 @@
                         <input type="submit" class="submit-comment border-radius-2" value="POST COMMENT" onclick="post_comment(this, true);">
                         <div class="clear"></div>
                     </div>
+
+                    <h4 class="section-title">Comments<span></span></h4>
 
                     <ul class="comments">
                         @foreach (var item in Model.Comments)
@@ -235,6 +235,8 @@
                 }
                 else
                 {
+                    <h4 class="section-title">Comments<span></span></h4>
+                    
                     <div id="disqus_thread"></div>
                     <script>
                         /**

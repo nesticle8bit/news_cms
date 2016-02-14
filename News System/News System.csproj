@@ -178,6 +178,7 @@
     <Compile Include="Controllers\PagesController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\SectorController.cs" />
     <Compile Include="Controllers\SocialController.cs" />
     <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -375,6 +376,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\Role\role.js" />
+    <Content Include="Scripts\Sector\sector.js" />
     <Content Include="Scripts\selection-sharer.js" />
     <Content Include="Scripts\selection-sharer.min.js" />
     <Content Include="Scripts\selectize.js" />
@@ -483,6 +485,11 @@
     <Content Include="Views\CivilStatus\Index.cshtml" />
     <Content Include="Views\Shared\_MainMenuAdmin.cshtml" />
     <Content Include="Views\Shared\_SidebarAdmin.cshtml" />
+    <Content Include="Views\Sector\Create.cshtml" />
+    <Content Include="Views\Sector\Delete.cshtml" />
+    <Content Include="Views\Sector\Details.cshtml" />
+    <Content Include="Views\Sector\Edit.cshtml" />
+    <Content Include="Views\Sector\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

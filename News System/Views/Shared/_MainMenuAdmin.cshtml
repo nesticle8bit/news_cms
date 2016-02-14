@@ -1,4 +1,7 @@
-﻿<nav class="navbar navbar-default navbar-fixed">
+﻿@using System.Security.Claims
+@using Microsoft.AspNet.Identity
+
+<nav class="navbar navbar-default navbar-fixed">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
@@ -41,7 +44,12 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="">
-                        Account
+                        @{
+                            var identity = (ClaimsIdentity)User.Identity;
+                            var name = identity.FindFirstValue(ClaimTypes.GivenName) ?? identity.GetUserName();
+                        }
+
+                        @name
                     </a>
                 </li>
                 <li class="dropdown">
