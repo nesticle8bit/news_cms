@@ -21,6 +21,7 @@ Content Management System for News building in MVC Asp.net
 - Chartist - Simple responsive charts - https://gionkunz.github.io/chartist-js/
 - Light Bootstrap Dashboard - http://www.creative-tim.com/product/light-bootstrap-dashboard
 - icon font pack - http://themes-pixeden.com/font-demos/7-stroke/
+- Reveal Animations When Scrolling — WOW.js - https://github.com/matthieua/WOW
 
 ## 🍪 Cover Image
 - Psd Safari Yosemite Browser Mockup - https://dribbble.com/shots/1586310-Psd-Safari-Yosemite-Browser-Mockup
