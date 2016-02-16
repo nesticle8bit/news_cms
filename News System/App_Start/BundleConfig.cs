@@ -29,6 +29,7 @@ namespace News_System
             //Scripts: Frontend
             bundles.Add(new ScriptBundle("~/bundles/frontend").Include(
                 "~/Scripts/jquery.overlaps.js",
+                "~/Scripts/wow.js",
                 "~/Scripts/global_script.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/posts").Include(

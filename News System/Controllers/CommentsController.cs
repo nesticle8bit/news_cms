@@ -64,19 +64,38 @@ namespace News_System.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Comment1,Email,Website,Time,Id_Post")] Comment comment)
+        public ActionResult Create([Bind(Include = "Id,Name,Comment1,Email,Website,Time,Id_Post,Id_Comment")] Comment comment)
         {
             if (ModelState.IsValid)
             {
+                var rol = "";
+                bool is_comment = true;
+
+                if (comment.Id_Comment == 0)
+                    is_comment = true;
+                else
+                    is_comment = false;
+
                 comment.Time = DateTime.Now;
 
                 db.Comment.Add(comment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                
+                if (this.User.Identity.IsAuthenticated)
+                    if (this.User.IsInRole("Administrator") || this.User.IsInRole("Moderator"))
+                        rol = "Administrator";
+                    else
+                        rol = "User";
+
+
+                return Json(new { data = comment, status = "saved", role = rol, is_comment = is_comment });
             }
 
             ViewBag.Id_Post = new SelectList(db.Post, "Id", "Title", comment.Id_Post);
-            return View(comment);
+
+            return Json(new { status = "error" });
+            //return View(comment);
         }
 
         // GET: Comments/Edit/5
@@ -100,7 +119,7 @@ namespace News_System.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Comment1,Email,Website,Time,Id_Post")] Comment comment)
+        public ActionResult Edit([Bind(Include = "Id,Name,Comment1,Email,Website,Time,Id_Post,Id_Comment")] Comment comment)
         {
             if (ModelState.IsValid)
             {

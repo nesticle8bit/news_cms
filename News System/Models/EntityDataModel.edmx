@@ -93,6 +93,7 @@
           <Property Name="Approved" Type="bit" Nullable="false" />
           <Property Name="Id_Post" Type="int" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="Id_Comment" Type="int" />
         </EntityType>
         <EntityType Name="Configuration">
           <Key>
@@ -478,6 +479,7 @@
           <Property Name="Approved" Type="Boolean" Nullable="false" />
           <Property Name="Website" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Comment" Type="Int32" />
         </EntityType>
         <EntityType Name="Configuration">
           <Key>
@@ -903,6 +905,7 @@
           <EntitySetMapping Name="Comment">
             <EntityTypeMapping TypeName="newsSystem_dbModel.Comment">
               <MappingFragment StoreEntitySet="Comment">
+                <ScalarProperty Name="Id_Comment" ColumnName="Id_Comment" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Website" ColumnName="Website" />
                 <ScalarProperty Name="Approved" ColumnName="Approved" />

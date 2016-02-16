@@ -202,34 +202,78 @@
                     <h4 class="section-title">Comments<span></span></h4>
 
                     <ul class="comments">
-                        @foreach (var item in Model.Comments)
+                        @if (Model.Comments.Count() > 0)
                         {
-                            <li class="item-is-parent " data-id="@Html.DisplayFor(modelItem => item.Id)">
-                                <div class="comment-item ">
-                                    <div class="avatar">
-                                        <img src="https://pbs.twimg.com/profile_images/671005168356331520/YCp_08J8_400x400.jpg">
-                                    </div>
+                            foreach (var item in Model.Comments)
+                            {
+                                if (item.Id_Comment == 0 || item.Id_Comment == null)
+                                {
+                                    <li class="item-is-parent wow fadeIn" data-id="@Html.DisplayFor(modelItem => item.Id)">
+                                        <div class="comment-item ">
+                                            <div class="avatar">
+                                                <img src="https://pbs.twimg.com/profile_images/671005168356331520/YCp_08J8_400x400.jpg">
+                                            </div>
 
-                                    <div class="data-container">
-                                        <div class="name">
-                                            @Html.DisplayFor(modelItem => item.Name)
-                                        </div>
-                                        <div class="date">
-                                            @Html.DisplayFor(modelItem => item.Time)
+                                            <div class="data-container">
+                                                <div class="name">
+                                                    @Html.DisplayFor(modelItem => item.Name)
+                                                </div>
+                                                <div class="date">
+                                                    @Html.DisplayFor(modelItem => item.Time)
+                                                </div>
+
+                                                <div class="clear"></div>
+
+                                                <div class="message">
+                                                    @Html.Raw(item.Comment1)
+                                                </div>
+                                                <div class="info-container">
+                                                    <a href="#" class="reply-anchor" onclick="toggle_reply(this, event)">REPLY</a>
+                                                </div>
+                                            </div>
+                                            <div class="clear"></div>
                                         </div>
 
-                                        <div class="clear"></div>
+                                        @foreach (var replies in Model.Comments)
+                                        {
+                                            if (replies.Id_Comment == item.Id)
+                                            {
+                                                <ul>
+                                                    <li>
+                                                        <div class="comment-item ">
+                                                            <div class="avatar">
+                                                                <img src="https://pbs.twimg.com/profile_images/671005168356331520/YCp_08J8_400x400.jpg">
+                                                            </div>
 
-                                        <div class="message">
-                                            @Html.Raw(item.Comment1)
-                                        </div>
-                                        <div class="info-container">
-                                            <a href="#" class="reply-anchor" onclick="toggle_reply(this, event)">REPLY</a>
-                                        </div>
-                                    </div>
-                                    <div class="clear"></div>
-                                </div>
-                            </li>
+                                                            <div class="data-container">
+                                                                <div class="name floatleft">
+                                                                    @replies.Name <span class="label blue border-radius-3">WEB DESIGNER</span>
+                                                                </div>
+
+                                                                <div class="date floatright">
+                                                                    @replies.Time
+                                                                </div>
+
+                                                                <div class="clear"></div>
+
+                                                                <div class="message">
+                                                                    @replies.Comment1
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="clear"></div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            }
+                                        }
+                                    </li>
+                                }
+                            }
+                        }
+                        else
+                        {
+                            <li class="no-comments"> There are no comments, be first to comment!</li>
                         }
                     </ul>
                 }

@@ -11,7 +11,6 @@ namespace News_System.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class Post
     {
@@ -25,7 +24,6 @@ namespace News_System.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string Image { get; set; }
-        [DisplayFormat(DataFormatString = "{0:MMMM dd, yyyy}")]
         public System.DateTime Time { get; set; }
         //Este es el contenedor de los Tags del View Create
         public string Tags { get; set; }

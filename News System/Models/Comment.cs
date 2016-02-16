@@ -23,6 +23,7 @@ namespace News_System.Models
         public bool Approved { get; set; }
         public string Website { get; set; }
         public string Email { get; set; }
+        public Nullable<int> Id_Comment { get; set; }
     
         public virtual Post Post { get; set; }
     }

@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {
+﻿$(function() {
     $(":file").filestyle({ buttonName: "btn-primary" });
 
     //Activar los Tooltip
@@ -6,6 +6,8 @@
     $('[data-toggle="tooltip"]').tooltip();
     $("[rel='tooltip']").tooltip();
     $('[data-toggle="popover"]').popover();
+
+    new WOW().init();
 });
 
 $(function () {

@@ -387,6 +387,8 @@
     <Content Include="Scripts\Social\social.js" />
     <Content Include="Scripts\sweetalert-dev.js" />
     <Content Include="Scripts\sweetalert.min.js" />
+    <Content Include="Scripts\wow.js" />
+    <Content Include="Scripts\wow.min.js" />
     <Content Include="Scripts\xbbcode.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
