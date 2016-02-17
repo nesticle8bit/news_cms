@@ -68,10 +68,10 @@ namespace News_System.Controllers
         {
             if (ModelState.IsValid)
             {
-                var rol = "";
+                string rol = "", message = "", status = "";
                 bool is_comment = true;
 
-                if (comment.Id_Comment == 0)
+                if (comment.Id_Comment == 0 || comment.Id_Comment == null)
                     is_comment = true;
                 else
                     is_comment = false;
@@ -83,13 +83,33 @@ namespace News_System.Controllers
 
                 
                 if (this.User.Identity.IsAuthenticated)
+                {
                     if (this.User.IsInRole("Administrator") || this.User.IsInRole("Moderator"))
-                        rol = "Administrator";
+                    {
+                        rol = "A";
+                        status = "A";
+                    }
                     else
-                        rol = "User";
+                        rol = "I";
+                        status = "P";
+                } else {
+                    rol = "I";
+                    status = "P";
+                }
 
+                if (is_comment)
+                    message = "the comment has been saved correctly";
+                else
+                    message = "the reply has been saved correctly";
 
-                return Json(new { data = comment, status = "saved", role = rol, is_comment = is_comment });
+                return Json(new { 
+                    data = comment,
+                    status_code = status, 
+                    role_code = rol,
+                    message = message,
+                    status = true,
+                    is_comment = is_comment,
+                });
             }
 
             ViewBag.Id_Post = new SelectList(db.Post, "Id", "Title", comment.Id_Post);

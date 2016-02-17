@@ -167,74 +167,75 @@ function toggle_reply(obj, e) {
 function post_comment(obj, is_comment) {
     var container = $(obj).closest('.post-comment');
 
-    var comments = container.find('textarea[name="Comments.Comment1"]').val();
-    var name     = container.find('input[name="Comments.Name"]').val();
-
-    var message = "";
-
     var comment_obj = {
-        Comment1: comments,
-        Name: name,
+        Comment1: container.find('textarea[name="Comments.Comment1"]').val(),
+        Name: container.find('input[name="Comments.Name"]').val(),
         Email: container.find('input[name="Comments.Email"]').val(),
         Website: container.find('input[name="Comments.Website"]').val(),
         Id_Post: $(document).find('input[name="Post.Id"]').val(),
     }
 
-    if (!is_comment)
+    if (!is_comment) {
         comment_obj.Id_Comment = container.closest('li').prev().attr('data-id');
-    
-    if (comments != undefined && comments != '' && name != undefined && name != '') {
-        $.ajax({
-            type: "POST",
-            url: "/Comments/Create/",
-            data: {
-                __RequestVerificationToken: get_token(),
-                comment: comment_obj
-            }
-        })
-        .done(function (data) {
-            if (comment_obj.Id_Comment != 0 || comment_obj.Id_Comment != undefined || comment_obj.Id_Comment != null)
-                message = "reply is sended :)";
-            else
-                message = "sended! the comment has been saved and need to be approved by the moderators.";
-
-            pop_message(container, message, data.status, data);
-        })
-        .fail(function (data) {
-            console.log(data);
-        })
-        .always(function (data) {
-            console.log(data);
-        });
-    } else {
-        pop_message(container,
-            'error occured! to comment you need to fill the message, name and email fields',
-            'error',
-            '');
     }
+
+    $.ajax({
+        type: "POST",
+        url: "/Comments/Create/",
+        data: {
+            __RequestVerificationToken: get_token(),
+            comment: comment_obj
+        },
+        dataType: "json"
+    })
+	.done(function (data) {
+	    console.log('done');
+
+	    data.data.is_comment = data.is_comment;
+	    data.data.status_code = data.status_code;
+	    data.data.role_code = data.role_code;
+	    data.data.status = data.status;
+
+	    data.data.Time = new Date(parseInt(data.data.Time.substr(6)));
+
+	    pop_message(container, data.message, data.status, data.data);
+	})
+	.fail(function (data) {
+	    console.log('data failed to load for some reason');
+	    console.log(data);
+	})
+	.always(function (data) {
+	    console.log('always');
+	    console.log(data);
+	});
 }
 
 function pop_message(obj, message, status, comment_data) {
-    var time = ((status) == 'error' ? 4000 : 2000);
-    var error = ((status) == 'error' ? "error" : "");
+    var time = ((status) ? 2000 : 4000);
+    var error = ((status) ? "" : "error");
     var html = '<div class="message-wrapper ' + error + '"><span>' + message + '</span></div>';
 
     $(obj).append(html);
     $(obj).find('.message-wrapper').fadeIn(200);
-    
+
     setTimeout(function () {
         $(obj).find('.message-wrapper').fadeOut(200, function () {
             $(this).remove();
 
-            console.log(status);
-
-            if (status == 'saved') {
+            if (status == true) {
                 clear_comment_box(obj);
                 build_comment_html(obj, comment_data);
 
-                if (!is_comment)
+                console.log("pop_message");
+                console.log(obj);
+                console.log(comment_data);
+                console.log("-------------------------");
+
+                if (!comment_data.is_comment) {
                     $(obj).parent().remove();
+                }
             }
+
         });
     }, time);
 
@@ -252,32 +253,38 @@ function clear_comment_box(obj) {
 
 function build_comment_html(obj, data) {
     var _comment_attributes = 'class="item-is-parent" data-id="' + data.Id + '"';
-    var _info_container = ((data.is_comment && data.role == "Administrator") ? '<div class="info-container"><a href="#" class="reply-anchor" onclick="toggle_reply(this)">REPLY</a></div>' : '');
+    var _info_container = ((data.is_comment && data.status_code == "A") ? '<div class="info-container"><a href="#" class="reply-anchor" onclick="toggle_reply(this)">REPLY</a></div>' : '');
     var _author_structure = ((data.Website == null) ? data.Name : '<a href="' + data.Website + '" target="_blank">' + data.Name + '</a>');
-    var _is_administrator = ((data.role == "Administrator" || data.role_code == "Moderator") ? '<span class="label blue border-radius-3">WEB DESIGNER</span>' : '');
-    var _pending_message = ((data.role == "User") ? '<div class="pending-message">Your comment is awaiting moderation. Please be patient, comment moderation might take a bit longer than usual. Thank you!</div>' : '');
-    var _is_pending_class = ((data.role == "User") ? 'pending' : '');
+    var _is_administrator = ((data.role_code == "A" || data.role_code == "U") ? '<span class="label blue border-radius-3">WEB DESIGNER</span>' : '');
+    var _pending_message = ((data.status_code == "P") ? '<div class="pending-message">Your comment is awaiting moderation. Please be patient, comment moderation might take a bit longer than usual. Thank you!</div>' : '');
+    var _is_pending_class = ((data.status_code == "P") ? 'pending' : '');
 
     var html = '<li ' + ((data.is_comment) ? _comment_attributes : '') + '>' +
-                    '<div class="comment-item ' + _is_pending_class + '">' +
-                        '<div class="avatar"><img src="https://pbs.twimg.com/profile_images/671005168356331520/YCp_08J8_400x400.jpg"></div>' +
-                        '<div class="data-container">' +
-                            '<div class="name floatleft">' + _author_structure + _is_administrator + '</div>' +
-                            '<div class="date floatright">' + data.insert_date + '</div>' +
-                            '<div class="clear"></div>' +
-                            '<div class="message">' + data.Comment1 + '</div>' +
-                            _pending_message +
-                            _info_container +
-                        '</div>' +
-                        '<div class="clear"></div>' +
-                    '</div>' +
-                '</li>';
+					'<div class="comment-item ' + _is_pending_class + '">' +
+						'<div class="avatar"><img src="https://pbs.twimg.com/profile_images/671005168356331520/YCp_08J8_400x400.jpg" /></div>' +
+						'<div class="data-container">' +
+							'<div class="name floatleft">' + _author_structure + _is_administrator + '</div>' +
+							'<div class="date floatright">' + data.Time + '</div>' +
+							'<div class="clear"></div>' +
+							'<div class="message">' + data.Comment1 + '</div>' +
+							_pending_message +
+							_info_container +
+						'</div>' +
+						'<div class="clear"></div>' +
+					'</div>' +
+				'</li>';
 
     if (data.is_comment) {
         $('.comments').append(html);
     }
     else {
-        var comment_container = $('.item-is-parent[data-id="' + 3 + '"]');
+        var comment_container = $('.item-is-parent[data-id="' + data.Id_Comment + '"]');
+
+        console.log("comment_container");
+        console.log(comment_container);
+        console.log(data.Id_Comment);
+
+        console.log(comment_container);
 
         if (comment_container.length == 1) {
             if (!comment_container.find('ul').length) {
@@ -286,10 +293,51 @@ function build_comment_html(obj, data) {
             comment_container.find('ul').append(html);
         }
         else {
-            console.log('error please refresh page!');
+            console.log('error please refresh page');
         }
     }
 }
+
+//function build_comment_html(obj, data) {
+//    var _comment_attributes = 'class="item-is-parent" data-id="' + data.Id + '"';
+//    var _info_container = ((data.is_comment && data.role == "Administrator") ? '<div class="info-container"><a href="#" class="reply-anchor" onclick="toggle_reply(this)">REPLY</a></div>' : '');
+//    var _author_structure = ((data.Website == null) ? data.Name : '<a href="' + data.Website + '" target="_blank">' + data.Name + '</a>');
+//    var _is_administrator = ((data.role == "Administrator" || data.role_code == "Moderator") ? '<span class="label blue border-radius-3">WEB DESIGNER</span>' : '');
+//    var _pending_message = ((data.role == "User") ? '<div class="pending-message">Your comment is awaiting moderation. Please be patient, comment moderation might take a bit longer than usual. Thank you!</div>' : '');
+//    var _is_pending_class = ((data.role == "User") ? 'pending' : '');
+
+//    var html = '<li ' + ((data.is_comment) ? _comment_attributes : '') + '>' +
+//                    '<div class="comment-item ' + _is_pending_class + '">' +
+//                        '<div class="avatar"><img src="https://pbs.twimg.com/profile_images/671005168356331520/YCp_08J8_400x400.jpg"></div>' +
+//                        '<div class="data-container">' +
+//                            '<div class="name floatleft">' + _author_structure + _is_administrator + '</div>' +
+//                            '<div class="date floatright">' + data.insert_date + '</div>' +
+//                            '<div class="clear"></div>' +
+//                            '<div class="message">' + data.Comment1 + '</div>' +
+//                            _pending_message +
+//                            _info_container +
+//                        '</div>' +
+//                        '<div class="clear"></div>' +
+//                    '</div>' +
+//                '</li>';
+
+//    if (data.is_comment) {
+//        $('.comments').append(html);
+//    }
+//    else {
+//        var comment_container = $('.item-is-parent[data-id="' + 3 + '"]');
+
+//        if (comment_container.length == 1) {
+//            if (!comment_container.find('ul').length) {
+//                comment_container.append('<ul></ul>');
+//            }
+//            comment_container.find('ul').append(html);
+//        }
+//        else {
+//            console.log('error please refresh page!');
+//        }
+//    }
+//}
 
 function get_token() {
     return $('input[name="__RequestVerificationToken"]').val();

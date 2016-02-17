@@ -10,5 +10,7 @@ namespace News_System.Models
     {
         [Display(Name="Comment")]
         public string Comment1 { get; set; }
+        [DisplayFormat(DataFormatString = "{0:MMMM dd, yyyy}")]
+        public System.DateTime Time { get; set; }
     }
 }

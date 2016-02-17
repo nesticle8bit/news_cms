@@ -234,11 +234,11 @@
                                             <div class="clear"></div>
                                         </div>
 
-                                        @foreach (var replies in Model.Comments)
-                                        {
-                                            if (replies.Id_Comment == item.Id)
+                                        <ul>
+                                            @foreach (var replies in Model.Comments)
                                             {
-                                                <ul>
+                                                if (replies.Id_Comment == item.Id)
+                                                {
                                                     <li>
                                                         <div class="comment-item ">
                                                             <div class="avatar">
@@ -264,9 +264,9 @@
                                                             <div class="clear"></div>
                                                         </div>
                                                     </li>
-                                                </ul>
+                                                }
                                             }
-                                        }
+                                        </ul>
                                     </li>
                                 }
                             }
