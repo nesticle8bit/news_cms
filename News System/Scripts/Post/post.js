@@ -196,6 +196,7 @@ function post_comment(obj, is_comment) {
 	    data.data.role_code = data.role_code;
 	    data.data.status = data.status;
 
+        //
 	    data.data.Time = new Date(parseInt(data.data.Time.substr(6)));
 
 	    pop_message(container, data.message, data.status, data.data);

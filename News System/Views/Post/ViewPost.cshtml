@@ -202,11 +202,11 @@
                     <h4 class="section-title">Comments<span></span></h4>
 
                     <ul class="comments">
-                        @if (Model.Comments.Count() > 0)
+                        @if (Model.Comments.Where(x=>x.Approved == true).Count() > 0)
                         {
                             foreach (var item in Model.Comments)
                             {
-                                if (item.Id_Comment == 0 || item.Id_Comment == null)
+                                if ((item.Id_Comment == 0 || item.Id_Comment == null) && (item.Approved))
                                 {
                                     <li class="item-is-parent wow fadeIn" data-id="@Html.DisplayFor(modelItem => item.Id)">
                                         <div class="comment-item ">
@@ -237,7 +237,7 @@
                                         <ul>
                                             @foreach (var replies in Model.Comments)
                                             {
-                                                if (replies.Id_Comment == item.Id)
+                                                if (replies.Id_Comment == item.Id && replies.Approved)
                                                 {
                                                     <li>
                                                         <div class="comment-item ">

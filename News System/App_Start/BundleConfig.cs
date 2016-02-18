@@ -24,13 +24,21 @@ namespace News_System
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js",
                       "~/Scripts/bootstrap-filestyle.js",
-                      "~/Scripts/jquery.autosize.min.js"));
-
+                      "~/Scripts/jquery.autosize.min.js",
+                      "~/Scripts/sweetalert-dev.js"));
+            
             //Scripts: Frontend
             bundles.Add(new ScriptBundle("~/bundles/frontend").Include(
                 "~/Scripts/jquery.overlaps.js",
                 "~/Scripts/wow.js",
                 "~/Scripts/global_script.js"));
+
+            //Scripts: Admin
+            bundles.Add(new ScriptBundle("~/bundles/admin").Include(
+                "~/Scripts/bootstrap-notify.js",
+                "~/Scripts/bootstrap-checkbox-radio-switch.js",
+                "~/Scripts/bootstrap-select.js",
+                "~/Scripts/light-bootstrap-dashboard.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/posts").Include(
                 "~/Scripts/jquery.wysibb.js",
@@ -48,7 +56,18 @@ namespace News_System
                       "~/Content/selection-sharer.min.css",
                       "~/Content/social-buttons.css",
                       "~/Content/animate.css",
+                      "~/Content/sweetalert.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/cssAdmin").Include(
+                      "~/Content/bootstrap.css",
+                      "~/Content/font-awesome.css",
+                      "~/Content/animate.css",
+                      "~/Content/sweetalert.css",
+                      "~/Content/Admin.css",
+                      "~/Content/light-bootstrap-dashboard.css",
+                      "~/Content/pe-icon-7-stroke.css",
+                      "~/Content/chartist.min.css"));
         }
     }
 }

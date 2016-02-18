@@ -4,38 +4,21 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Administration | @ViewBag.SiteName - @ViewBag.Slogan</title>
-        @Scripts.Render("~/bundles/modernizr")
 
-        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,200,100,500,600,700,800,900' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Cabin:400,500,600,700,400italic,500italic,600italic,700italic' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,500italic,500,400italic,300,100italic,100,300italic' rel='stylesheet' type='text/css'>
+        @Scripts.Render("~/bundles/modernizr")
+        @Styles.Render("~/Content/cssAdmin")
+
+        @RenderPage("_Fonts.cshtml")
         
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/frontend")
+
+        @Scripts.Render("~/bundles/admin")
+
         @RenderSection("scripts", required: false)
 
-        <link href="~/Content/sweetalert.css" rel="stylesheet" />
-        <script src="~/Scripts/sweetalert-dev.js"></script>
-
-        <script src="~/Scripts/global_script.js"></script>
-
-        <link href="~/Content/font-awesome.css" rel="stylesheet" />
-        <link href="~/Content/bootstrap.css" rel="stylesheet" />
-        <link href="~/Content/animate.css" rel="stylesheet" />
-        <link href="~/Content/light-bootstrap-dashboard.css" rel="stylesheet" />
-        <link href="~/Content/pe-icon-7-stroke.css" rel="stylesheet" />
-        <link href="~/Content/Admin.css" rel="stylesheet" />
-        <link href="~/Content/chartist.min.css" rel="stylesheet" />
-        
-        <script src="~/Scripts/bootstrap-select.js"></script>
-        <script src="~/Scripts/bootstrap-notify.js"></script>
-        <script src="~/Scripts/bootstrap-checkbox-radio-switch.js"></script>
-        <script src="~/Scripts/light-bootstrap-dashboard.js"></script>
-
-        <script type="text/javascript">
+        @*<script type="text/javascript">
             $(document).ready(function () {
                 $.notify({
                     icon: 'pe-7s-gift',
@@ -46,7 +29,7 @@
                     timer: 2000
                 });
             });
-        </script>
+        </script>*@
     </head>
 
     <body class="fadeIn animated">

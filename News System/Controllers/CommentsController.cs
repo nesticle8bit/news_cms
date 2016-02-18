@@ -78,6 +78,10 @@ namespace News_System.Controllers
 
                 comment.Time = DateTime.Now;
 
+                if (User.Identity.IsAuthenticated)
+                    if (User.IsInRole("Administrator"))
+                        comment.Approved = true;
+
                 db.Comment.Add(comment);
                 db.SaveChanges();
 
