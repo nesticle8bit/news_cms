@@ -10,6 +10,9 @@ Content Management System for News building in MVC Asp.net
 ### Admin
 ![Admin](https://cloud.githubusercontent.com/assets/1715022/13030581/49b55942-d27e-11e5-8b8f-05d9ad62be60.png)
 
+### User Profile
+![profile](https://cloud.githubusercontent.com/assets/1715022/13233835/a92872b8-d983-11e5-988b-f5b746126964.png)
+
 ## 👾 Frameworks
 - Bootstrap v3.3.6 - http://getbootstrap.com
 - Font awesome 4.5.0 - http://fontawesome.io
