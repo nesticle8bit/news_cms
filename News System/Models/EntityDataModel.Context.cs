@@ -43,5 +43,6 @@ namespace News_System.Models
         public virtual DbSet<Messenger> Messenger { get; set; }
         public virtual DbSet<Profile> Profile { get; set; }
         public virtual DbSet<Sector> Sector { get; set; }
+        public virtual DbSet<Gender> Gender { get; set; }
     }
 }

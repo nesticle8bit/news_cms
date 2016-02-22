@@ -35,6 +35,8 @@
         <AssociationConnector Association="newsSystem_dbModel.FK_Profile_CivilStatus" />
         <AssociationConnector Association="newsSystem_dbModel.FK_Profile_Messenger" />
         <AssociationConnector Association="newsSystem_dbModel.FK_Profile_Sector" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.Gender" Width="1.5" PointX="7.375" PointY="10.875" />
+        <AssociationConnector Association="newsSystem_dbModel.FK_Profile_Gender" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

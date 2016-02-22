@@ -1,4 +1,5 @@
-﻿@model News_System.Models.IndexViewModel
+﻿@model News_System.Models.UserProfileViewModels
+
 @using System.Security.Claims
 @using Microsoft.AspNet.Identity
 
@@ -44,23 +45,191 @@
                         </li>
                     </ul>
 
-                    @{
-                        var identity = (ClaimsIdentity)User.Identity;
-                        var name = identity.FindFirstValue(ClaimTypes.GivenName) ?? identity.GetUserName();
-                    }
-
                     <br/>
 
                     <div class="tab-content">
                         <div id="account" role="tabpanel" class="tab-pane active">
                             <div class="form-group">
-                                <label for="exampleInputName2">Name</label>
-                                <input type="text" class="form-control" id="exampleInputName2" placeholder="@name">
+                                @Html.LabelFor(model => model.Profile.Name)
+                                @Html.EditorFor(model => model.Profile.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Name" } })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Profile.LastName)
+                                @Html.EditorFor(model => model.Profile.LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Last Name" } })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Profile.Birthday)
+                                @Html.EditorFor(model => model.Profile.Birthday, new { htmlAttributes = new { @class = "form-control", @type="date" } })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Profile.Gender.Name)
+                                
                             </div>
                         </div>
 
                         <div id="profile" role="tabpanel" class="tab-pane">
-                            Profile
+                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingOne">
+                                        <h4 class="panel-title">
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                More about me! :)
+                                            </a>
+                                        </h4>
+                                    </div>
+
+                                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Profile.Bio)
+                                                @Html.TextAreaFor(model => model.Profile.Bio, new { @class = "form-control", @placeholder = "Tell us whatever you want!", @rows = "4" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Profile.Website)
+                                                @Html.EditorFor(model => model.Profile.Website, new { htmlAttributes = new { @class = "form-control", @placeholder = "Web site" } })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Profile.Messenger.Name)
+
+                                                <div class="row">
+                                                    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+                                                        <select class="form-control"></select>
+                                                    </div>
+
+                                                    <div class="col-md-9 col-lg-9 col-sm-9 col-xs-9">
+                                                        @Html.EditorFor(model => model.Profile.MessengerName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Name" } })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Profile.CivilStatus.Name)
+                                                <select class="form-control"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingTwo">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                Information about work
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Profile.Profession)
+                                                @Html.EditorFor(model => model.Profile.Profession, new { htmlAttributes = new { @class = "form-control", @placeholder = "Profession" } })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Profile.Company)
+                                                @Html.EditorFor(model => model.Profile.Company, new { htmlAttributes = new { @class = "form-control", @placeholder = "Company" } })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Profile.Sector.Name)
+                                                <select class="form-control"></select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Profile.ProfessionalInterests)
+                                                @Html.TextAreaFor(model => model.Profile.ProfessionalInterests, new { @class = "form-control", @placeholder = "Tell us whatever you want!", @rows = "3" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Profile.ProfessionalSkills)
+                                                @Html.TextAreaFor(model => model.Profile.ProfessionalSkills, new { @class = "form-control", @placeholder = "Tell us whatever you want!", @rows = "3" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingThree">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                Interests and preferences
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Profile.Interests)
+                                                @Html.TextAreaFor(model => model.Profile.Interests, new { @class = "form-control", @placeholder = "Interests", @rows = "3" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Profile.Hobbies)
+                                                @Html.TextAreaFor(model => model.Profile.Hobbies, new { @class = "form-control", @placeholder = "Hobbies", @rows = "3" })
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.Profile.FavoriteTVSerie)
+                                                        @Html.TextAreaFor(model => model.Profile.FavoriteTVSerie, new { @class = "form-control", @placeholder = "FavoriteTVSerie", @rows = "3" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.Profile.FavoriteMusic)
+                                                        @Html.TextAreaFor(model => model.Profile.FavoriteMusic, new { @class = "form-control", @placeholder = "FavoriteMusic", @rows = "3" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.Profile.FavoriteSport)
+                                                        @Html.TextAreaFor(model => model.Profile.FavoriteSport, new { @class = "form-control", @placeholder = "FavoriteSport", @rows = "3" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.Profile.FavoriteBooks)
+                                                        @Html.TextAreaFor(model => model.Profile.FavoriteBooks, new { @class = "form-control", @placeholder = "FavoriteBooks", @rows = "3" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.Profile.FavoriteMovies)
+                                                        @Html.TextAreaFor(model => model.Profile.FavoriteMovies, new { @class = "form-control", @placeholder = "FavoriteMovies", @rows = "3" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.Profile.FavoriteFood)
+                                                        @Html.TextAreaFor(model => model.Profile.FavoriteFood, new { @class = "form-control", @placeholder = "FavoriteFood", @rows = "3" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Profile.Heroe)
+                                                @Html.TextAreaFor(model => model.Profile.Heroe, new { @class = "form-control", @placeholder = "Heroe", @rows = "3" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -107,7 +276,7 @@
         <dt>Password:</dt>
         <dd>
             [
-            @if (Model.HasPassword)
+            @if (Model.IndexViewModel.HasPassword)
             {
                 @Html.ActionLink("Change your password", "ChangePassword")
             }
@@ -119,7 +288,7 @@
         </dd>
         <dt>External Logins:</dt>
         <dd>
-            @Model.Logins.Count [
+            @Model.IndexViewModel.Logins.Count [
             @Html.ActionLink("Manage", "ManageLogins") ]
         </dd>
         @*

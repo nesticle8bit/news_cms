@@ -6,7 +6,7 @@
 }
 
 <div class="row">
-    <div class="col-md-4">
+    @*<div class="col-md-4">
         <div class="card">
             <div class="header">
                 <h4 class="title">Email Statistics</h4>
@@ -28,9 +28,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
 
-    <div class="col-md-8">
+    @*<div class="col-md-8">
         <div class="card">
             <div class="header">
                 <h4 class="title">Users Behavior</h4>
@@ -51,11 +51,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
 </div>
 
 <div class="row">
-    <div class="col-md-6">
+    @*<div class="col-md-6">
         <div class="card ">
             <div class="header">
                 <h4 class="title">2014 Sales</h4>
@@ -78,13 +78,13 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
 
     <div class="col-md-6">
         <div class="card ">
             <div class="header">
                 <h4 class="title">Comments</h4>
-                <p class="category">Last Comments in the Community</p>
+                <p class="category">Last Comments in @(ViewBag.SiteName != null ? @ViewBag.SiteName : "the Community")</p>
             </div>
             <div class="content">
                 <div class="table-responsive table-full-width">
@@ -102,7 +102,7 @@
                             {
                                 <tr>
                                     <td>
-                                        <label id="approve_comments" class="checkbox" data-toggle="tooltip" data-placement="top" title="@(item.Deleted == false ? "Hide this Comment?" : "Approve this Comment?")">
+                                        <label id="approve_comments" class="checkbox" data-toggle="tooltip" data-placement="top" title="@(item.Approved == true ? "Disapprove this Comment" : "Approve this Comment")">
                                             @Html.CheckBoxFor(modelItem => item.Approved, htmlAttributes: new { @data_toggle = "checkbox", @data_id = item.Id })
                                         </label>
                                     </td>
@@ -180,7 +180,7 @@
                     </button>
 
                     <button type="submit" class="btn btn-success">
-                        <i class="fa fa-check"></i> Save
+                        <i class="fa fa-check"></i> Save & Approve
                     </button>
                 </div>
             </form>

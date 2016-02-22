@@ -64,6 +64,9 @@ namespace News_System.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
+
+            
+
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
@@ -72,7 +75,11 @@ namespace News_System.Controllers
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
-            return View(model);
+
+            UserProfileViewModels viewModel = new UserProfileViewModels();
+            viewModel.IndexViewModel = model;
+
+            return View(viewModel);
         }
 
         //

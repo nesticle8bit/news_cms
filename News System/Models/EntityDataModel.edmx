@@ -110,6 +110,13 @@
           <Property Name="Analytics" Type="varchar(max)" />
           <Property Name="Disqus" Type="varchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="80" Nullable="false" />
+        </EntityType>
         <EntityType Name="Icon">
           <Key>
             <PropertyRef Name="Id" />
@@ -155,7 +162,7 @@
           <Property Name="Id_User" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="100" />
           <Property Name="LastName" Type="varchar" MaxLength="100" />
-          <Property Name="Gender" Type="int" />
+          <Property Name="Id_Gender" Type="int" Nullable="false" />
           <Property Name="Bio" Type="varchar(max)" />
           <Property Name="Avatar" Type="varchar(max)" />
           <Property Name="Website" Type="varchar" MaxLength="150" />
@@ -344,6 +351,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Profile_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="Id_Gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Profile_Messenger">
           <End Role="Messenger" Type="Self.Messenger" Multiplicity="1" />
           <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
@@ -391,6 +410,7 @@
           <EntitySet Name="CivilStatus" EntityType="Self.CivilStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Configuration" EntityType="Self.Configuration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Icon" EntityType="Self.Icon" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Messenger" EntityType="Self.Messenger" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
@@ -438,6 +458,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Profile_CivilStatus" Association="Self.FK_Profile_CivilStatus">
             <End Role="CivilStatus" EntitySet="CivilStatus" />
+            <End Role="Profile" EntitySet="Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Profile_Gender" Association="Self.FK_Profile_Gender">
+            <End Role="Gender" EntitySet="Gender" />
             <End Role="Profile" EntitySet="Profile" />
           </AssociationSet>
           <AssociationSet Name="FK_Profile_Messenger" Association="Self.FK_Profile_Messenger">
@@ -688,6 +712,11 @@
             <End Role="Sector" EntitySet="Sector" />
             <End Role="Profile" EntitySet="Profile" />
           </AssociationSet>
+          <EntitySet Name="Gender" EntityType="newsSystem_dbModel.Gender" />
+          <AssociationSet Name="FK_Profile_Gender" Association="newsSystem_dbModel.FK_Profile_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Profile" EntitySet="Profile" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="C__MigrationHistory">
           <Key>
@@ -803,7 +832,6 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Id_User" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="Gender" Type="Int32" />
           <Property Name="Bio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Website" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
@@ -831,6 +859,8 @@
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Birthday" Type="DateTime" Precision="3" />
+          <Property Name="Id_Gender" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Gender" Relationship="newsSystem_dbModel.FK_Profile_Gender" FromRole="Profile" ToRole="Gender" />
         </EntityType>
         <EntityType Name="Sector">
           <Key>
@@ -885,6 +915,26 @@
             </Principal>
             <Dependent Role="Profile">
               <PropertyRef Name="Id_Sector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Profile" Relationship="newsSystem_dbModel.FK_Profile_Gender" FromRole="Gender" ToRole="Profile" />
+        </EntityType>
+        <Association Name="FK_Profile_Gender">
+          <End Type="newsSystem_dbModel.Gender" Role="Gender" Multiplicity="1" />
+          <End Type="newsSystem_dbModel.Profile" Role="Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="Id_Gender" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1079,6 +1129,7 @@
           <EntitySetMapping Name="Profile">
             <EntityTypeMapping TypeName="newsSystem_dbModel.Profile">
               <MappingFragment StoreEntitySet="Profile">
+                <ScalarProperty Name="Id_Gender" ColumnName="Id_Gender" />
                 <ScalarProperty Name="Birthday" ColumnName="Birthday" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1102,7 +1153,6 @@
                 <ScalarProperty Name="Website" ColumnName="Website" />
                 <ScalarProperty Name="Avatar" ColumnName="Avatar" />
                 <ScalarProperty Name="Bio" ColumnName="Bio" />
-                <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="Id_User" ColumnName="Id_User" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
@@ -1111,6 +1161,14 @@
           <EntitySetMapping Name="Sector">
             <EntityTypeMapping TypeName="newsSystem_dbModel.Sector">
               <MappingFragment StoreEntitySet="Sector">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gender">
+            <EntityTypeMapping TypeName="newsSystem_dbModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

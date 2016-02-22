@@ -16,7 +16,6 @@ namespace News_System.Models
     {
         public int Id { get; set; }
         public string Id_User { get; set; }
-        public Nullable<int> Gender { get; set; }
         public string Bio { get; set; }
         public string Avatar { get; set; }
         public string Website { get; set; }
@@ -40,10 +39,12 @@ namespace News_System.Models
         public string Name { get; set; }
         public string LastName { get; set; }
         public Nullable<System.DateTime> Birthday { get; set; }
+        public int Id_Gender { get; set; }
     
         public virtual AspNetUsers AspNetUsers { get; set; }
         public virtual CivilStatus CivilStatus { get; set; }
         public virtual Messenger Messenger { get; set; }
         public virtual Sector Sector { get; set; }
+        public virtual Gender Gender { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace News_System.Controllers
         
         public ActionResult Index()
         {
-            adminViewModel.Comment = db.Comment.Where(w => w.Deleted == false).OrderByDescending(o => o.Id).Take(6);
+            adminViewModel.Comment = db.Comment.Where(w => w.Deleted == false && w.Approved == false).OrderByDescending(o => o.Id).Take(6);
             return View(adminViewModel);
         }
 

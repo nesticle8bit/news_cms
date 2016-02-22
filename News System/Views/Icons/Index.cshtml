@@ -6,7 +6,7 @@
 }
 
 <div class="col-md-12">
-    <a href="@Url.Action("Create", "Icons")" class="btn btn-success">
+    <a id="create" class="btn btn-success">
         <i class="fa fa-plus"></i> Create an Icon
     </a>
 
@@ -70,13 +70,13 @@
                     <span id="titleOfModal"></span>
                 </h4>
             </div>
-            <form id="formIcon">
+            <form id="form">
                 @Html.AntiForgeryToken()
                 <div class="modal-body">
                     <div class="form-group">
-                        <input id="idIcon" type="hidden" class="form-control" />
-                        <label for="name">Icon Name</label>
-                        <input id="nameIcon" type="text" class="form-control" placeholder="Icon" />
+                        <input id="id" type="hidden" class="form-control" />
+                        <label for="name">Fontawesome Icon Name</label>
+                        <input id="name" type="text" class="form-control" placeholder="Icon" />
                     </div>
                 </div>
 

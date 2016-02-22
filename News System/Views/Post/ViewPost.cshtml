@@ -202,7 +202,7 @@
                     <h4 class="section-title">Comments<span></span></h4>
 
                     <ul class="comments">
-                        @if (Model.Comments.Where(x=>x.Approved == true).Count() > 0)
+                        @if (Model.Comments.Where(x=>x.Approved == true && x.Deleted == false).Count() > 0)
                         {
                             foreach (var item in Model.Comments)
                             {
@@ -237,7 +237,7 @@
                                         <ul>
                                             @foreach (var replies in Model.Comments)
                                             {
-                                                if (replies.Id_Comment == item.Id && replies.Approved)
+                                                if (replies.Id_Comment == item.Id && replies.Approved && replies.Deleted == false)
                                                 {
                                                     <li>
                                                         <div class="comment-item ">
@@ -247,17 +247,17 @@
 
                                                             <div class="data-container">
                                                                 <div class="name floatleft">
-                                                                    @replies.Name <span class="label blue border-radius-3">WEB DESIGNER</span>
+                                                                    @Html.DisplayFor(modelItem => replies.Name) <span class="label blue border-radius-3">WEB DESIGNER</span>
                                                                 </div>
 
                                                                 <div class="date floatright">
-                                                                    @replies.Time
+                                                                    @Html.DisplayFor(modelItem => replies.Time)
                                                                 </div>
 
                                                                 <div class="clear"></div>
 
                                                                 <div class="message">
-                                                                    @replies.Comment1
+                                                                    @Html.Raw(replies.Comment1)
                                                                 </div>
                                                             </div>
 

@@ -191,6 +191,7 @@
     <Compile Include="Controllers\SectorController.cs" />
     <Compile Include="Controllers\SocialController.cs" />
     <Compile Include="Controllers\TagsController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -239,6 +240,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EntityDataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Gender.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\Icon.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
@@ -270,9 +274,15 @@
     <Compile Include="Models\Tags.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserProfileViewModels.cs" />
+    <Compile Include="Models\Validations\CivilStatus_Validation.cs" />
     <Compile Include="Models\Validations\Comment_Validation.cs" />
     <Compile Include="Models\Validations\Configuration_Validation.cs" />
+    <Compile Include="Models\Validations\Gender_Validation.cs" />
+    <Compile Include="Models\Validations\Messenger_Validation.cs" />
     <Compile Include="Models\Validations\Post_Validation.cs" />
+    <Compile Include="Models\Validations\Profile_Validation.cs" />
+    <Compile Include="Models\Validations\Sector_Validation.cs" />
     <Compile Include="Models\Validations\Social_Validation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -509,6 +519,7 @@
     <Content Include="Views\Messenger\Edit.cshtml" />
     <Content Include="Views\Messenger\Index.cshtml" />
     <Content Include="Views\Shared\_Fonts.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

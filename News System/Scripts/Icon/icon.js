@@ -1,4 +1,12 @@
-﻿$(document).ready(function () {
+﻿$(function () {
+    //Create a Data
+    $('a#create').click(function (e) {
+        $('#modalDetails').appendTo("body").modal('show');
+        $('#titleOfModal').text('Create a Category');
+
+        var name = $('#name').val('');
+    });
+
     //Botones de Accion
     $("#edit[data-id]").click(function (e) {
         var data_id = $(this).attr("data-id");
@@ -19,7 +27,7 @@
 
                 if (e.data != undefined) {
                     //Add the Id for Edit/Details
-                    $('#idIcon').attr("data-id", e.data.Id);
+                    $('#id').attr("data-id", e.data.Id);
 
                     name.val(e.data.Name);
                     console.log("Datos Obtenidos = (" + e.data.Id + ") " + e.data.Name);
@@ -28,29 +36,33 @@
         }
     });
 
-    $('#formIcon').submit(function (e) {
-        var id = $('#idIcon').data("id");
-        var name = $('#nameIcon').val();
-        var token = $('input[name="__RequestVerificationToken"]').val();
+    $('#form').submit(function (e) {
+        var id = $('#id').data("id");
+        var name = $('#name').val();
+        var url = "";
+
+        //Create
+        if (id == undefined || id == null) {
+            id = 0;
+            url = '/Icons/Create';
+        } else {
+            url = '/Icons/Edit';
+        }
         
         var icon = {
             Id: parseInt(id),
             IconName: name,
         };
-
-        console.log(icon);
-        console.log("Token: " + token);
-
+        
         $.ajax({
-            url: '/Icons/Edit',
+            url: url,
             type: 'POST',
             data: {
-                __RequestVerificationToken: token,
+                __RequestVerificationToken: get_token(),
                 icon: icon
             }
         }).success(function (e) {
-            console.log("Se guardo el registro");
-            Saved('modalDetails');
+            modal_saved('modalDetails');
         }).error(function (xhr, ajaxOptions, thrownError) {
             console.log(xhr.status);
         });
@@ -87,15 +99,19 @@
             });
         }
     });
-
-    function Saved(modalName) {
-        $('#' + modalName).modal('hide');
-
-        swal({
-            title: 'Saved',
-            text: 'The data has been saved correctly',
-            type: 'success',
-            timer: 1800,
-        });
-    }
 }); //End
+
+function get_token() {
+    return $('input[name="__RequestVerificationToken"]').val();
+}
+
+function modal_saved(modalName) {
+    $('#' + modalName).modal('hide');
+
+    swal({
+        title: 'Saved',
+        text: 'The data has been saved correctly',
+        type: 'success',
+        timer: 1800,
+    });
+}

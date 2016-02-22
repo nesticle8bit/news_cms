@@ -4,7 +4,7 @@
         $('#modalDetails').appendTo("body").modal('show');
         $('#titleOfModal').text('Create a Category');
 
-        var name = $('#name').val();
+        var name = $('#name').val('');
     });
 
     //Botones de Accion
