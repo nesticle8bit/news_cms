@@ -181,6 +181,7 @@
     <Compile Include="Controllers\CivilStatusController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\ConfigurationController.cs" />
+    <Compile Include="Controllers\GenderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IconsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -376,7 +377,10 @@
     <Content Include="Scripts\chartist.js" />
     <Content Include="Scripts\chartist.min.js" />
     <Content Include="Scripts\CivilStatus\civilstatus.js" />
+    <Content Include="Scripts\croppie.js" />
+    <Content Include="Scripts\croppie.min.js" />
     <Content Include="Scripts\enhance.js" />
+    <Content Include="Scripts\Gender\gender.js" />
     <Content Include="Scripts\global_script.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\Icon\icon.js" />
@@ -520,6 +524,11 @@
     <Content Include="Views\Messenger\Index.cshtml" />
     <Content Include="Views\Shared\_Fonts.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Gender\Create.cshtml" />
+    <Content Include="Views\Gender\Delete.cshtml" />
+    <Content Include="Views\Gender\Details.cshtml" />
+    <Content Include="Views\Gender\Edit.cshtml" />
+    <Content Include="Views\Gender\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using News_System.Models;
+using System.Data.Entity;
 
 namespace News_System.Controllers
 {
@@ -15,6 +16,7 @@ namespace News_System.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private newsSystem_dbEntities db = new newsSystem_dbEntities();
 
         public ManageController()
         {
@@ -65,7 +67,10 @@ namespace News_System.Controllers
 
             var userId = User.Identity.GetUserId();
 
-            
+            ViewBag.Gender = new SelectList(db.Gender, "Id", "Name");
+            ViewBag.Messenger = new SelectList(db.Messenger, "Id", "Name");
+            ViewBag.CivilStatus = new SelectList(db.CivilStatus, "Id", "Name");
+            ViewBag.Sector = new SelectList(db.Sector, "Id", "Name");
 
             var model = new IndexViewModel
             {
@@ -78,6 +83,7 @@ namespace News_System.Controllers
 
             UserProfileViewModels viewModel = new UserProfileViewModels();
             viewModel.IndexViewModel = model;
+            viewModel.Profile = db.Profile.Where(p => p.Id_User == userId).SingleOrDefault();
 
             return View(viewModel);
         }
@@ -336,6 +342,37 @@ namespace News_System.Controllers
             }
 
             base.Dispose(disposing);
+        }
+
+        public ActionResult UserProfile(UserProfileViewModels userProfile)
+        {
+            if (this.User.Identity.IsAuthenticated)
+            {
+                if (userProfile.Profile != null)
+                {
+                    string userId = this.User.Identity.GetUserId();
+
+                    if (db.Profile.Where(x => x.Id_User == userId).Count() > 0) {
+                        userProfile.Profile.Id_User = userId;
+
+                        db.Profile.Attach(userProfile.Profile);
+                        db.Entry(userProfile.Profile).State = EntityState.Modified;
+                        db.SaveChanges();
+                    } else {
+                        userProfile.Profile.Id_User = userId;
+
+                        db.Profile.Add(userProfile.Profile);
+                        db.SaveChanges();
+                    }
+                }
+            }
+
+            ViewBag.Gender = new SelectList(db.Gender, "Id", "Name");
+            ViewBag.Messenger = new SelectList(db.Messenger, "Id", "Name");
+            ViewBag.CivilStatus = new SelectList(db.CivilStatus, "Id", "Name");
+            ViewBag.Sector = new SelectList(db.Sector, "Id", "Name");
+
+            return View("Index");
         }
 
 #region Helpers
