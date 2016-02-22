@@ -1,81 +1,6 @@
-﻿USE [master]
+﻿USE [newsSystem_db]
 GO
-/****** Object:  Database [newsSystem_db]    Script Date: 14/02/2016 5:37:43 p. m. ******/
-CREATE DATABASE [newsSystem_db]
- CONTAINMENT = NONE
- ON  PRIMARY 
-( NAME = N'newsSystem_db', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL11.SQLEXPRESS\MSSQL\DATA\newsSystem_db.mdf' , SIZE = 5120KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
- LOG ON 
-( NAME = N'newsSystem_db_log', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL11.SQLEXPRESS\MSSQL\DATA\newsSystem_db_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
-GO
-ALTER DATABASE [newsSystem_db] SET COMPATIBILITY_LEVEL = 110
-GO
-IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
-begin
-EXEC [newsSystem_db].[dbo].[sp_fulltext_database] @action = 'enable'
-end
-GO
-ALTER DATABASE [newsSystem_db] SET ANSI_NULL_DEFAULT OFF 
-GO
-ALTER DATABASE [newsSystem_db] SET ANSI_NULLS OFF 
-GO
-ALTER DATABASE [newsSystem_db] SET ANSI_PADDING OFF 
-GO
-ALTER DATABASE [newsSystem_db] SET ANSI_WARNINGS OFF 
-GO
-ALTER DATABASE [newsSystem_db] SET ARITHABORT OFF 
-GO
-ALTER DATABASE [newsSystem_db] SET AUTO_CLOSE OFF 
-GO
-ALTER DATABASE [newsSystem_db] SET AUTO_CREATE_STATISTICS ON 
-GO
-ALTER DATABASE [newsSystem_db] SET AUTO_SHRINK OFF 
-GO
-ALTER DATABASE [newsSystem_db] SET AUTO_UPDATE_STATISTICS ON 
-GO
-ALTER DATABASE [newsSystem_db] SET CURSOR_CLOSE_ON_COMMIT OFF 
-GO
-ALTER DATABASE [newsSystem_db] SET CURSOR_DEFAULT  GLOBAL 
-GO
-ALTER DATABASE [newsSystem_db] SET CONCAT_NULL_YIELDS_NULL OFF 
-GO
-ALTER DATABASE [newsSystem_db] SET NUMERIC_ROUNDABORT OFF 
-GO
-ALTER DATABASE [newsSystem_db] SET QUOTED_IDENTIFIER OFF 
-GO
-ALTER DATABASE [newsSystem_db] SET RECURSIVE_TRIGGERS OFF 
-GO
-ALTER DATABASE [newsSystem_db] SET  DISABLE_BROKER 
-GO
-ALTER DATABASE [newsSystem_db] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
-GO
-ALTER DATABASE [newsSystem_db] SET DATE_CORRELATION_OPTIMIZATION OFF 
-GO
-ALTER DATABASE [newsSystem_db] SET TRUSTWORTHY OFF 
-GO
-ALTER DATABASE [newsSystem_db] SET ALLOW_SNAPSHOT_ISOLATION OFF 
-GO
-ALTER DATABASE [newsSystem_db] SET PARAMETERIZATION SIMPLE 
-GO
-ALTER DATABASE [newsSystem_db] SET READ_COMMITTED_SNAPSHOT OFF 
-GO
-ALTER DATABASE [newsSystem_db] SET HONOR_BROKER_PRIORITY OFF 
-GO
-ALTER DATABASE [newsSystem_db] SET RECOVERY SIMPLE 
-GO
-ALTER DATABASE [newsSystem_db] SET  MULTI_USER 
-GO
-ALTER DATABASE [newsSystem_db] SET PAGE_VERIFY CHECKSUM  
-GO
-ALTER DATABASE [newsSystem_db] SET DB_CHAINING OFF 
-GO
-ALTER DATABASE [newsSystem_db] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
-GO
-ALTER DATABASE [newsSystem_db] SET TARGET_RECOVERY_TIME = 0 SECONDS 
-GO
-USE [newsSystem_db]
-GO
-/****** Object:  Table [dbo].[__MigrationHistory]    Script Date: 14/02/2016 5:37:43 p. m. ******/
+/****** Object:  Table [dbo].[__MigrationHistory]    Script Date: 22/02/2016 4:42:08 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -97,7 +22,7 @@ CREATE TABLE [dbo].[__MigrationHistory](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[AspNetRoles]    Script Date: 14/02/2016 5:37:43 p. m. ******/
+/****** Object:  Table [dbo].[AspNetRoles]    Script Date: 22/02/2016 4:42:08 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -112,7 +37,7 @@ CREATE TABLE [dbo].[AspNetRoles](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 14/02/2016 5:37:43 p. m. ******/
+/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 22/02/2016 4:42:08 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -129,7 +54,7 @@ CREATE TABLE [dbo].[AspNetUserClaims](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 14/02/2016 5:37:43 p. m. ******/
+/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 22/02/2016 4:42:08 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -147,7 +72,7 @@ CREATE TABLE [dbo].[AspNetUserLogins](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 14/02/2016 5:37:43 p. m. ******/
+/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 22/02/2016 4:42:08 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -163,7 +88,7 @@ CREATE TABLE [dbo].[AspNetUserRoles](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 14/02/2016 5:37:43 p. m. ******/
+/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 22/02/2016 4:42:08 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -188,7 +113,7 @@ CREATE TABLE [dbo].[AspNetUsers](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Category]    Script Date: 14/02/2016 5:37:43 p. m. ******/
+/****** Object:  Table [dbo].[Category]    Script Date: 22/02/2016 4:42:08 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -207,7 +132,7 @@ CREATE TABLE [dbo].[Category](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[CivilStatus]    Script Date: 14/02/2016 5:37:43 p. m. ******/
+/****** Object:  Table [dbo].[CivilStatus]    Script Date: 22/02/2016 4:42:08 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -226,7 +151,7 @@ CREATE TABLE [dbo].[CivilStatus](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Comment]    Script Date: 14/02/2016 5:37:43 p. m. ******/
+/****** Object:  Table [dbo].[Comment]    Script Date: 22/02/2016 4:42:08 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -243,6 +168,7 @@ CREATE TABLE [dbo].[Comment](
 	[Approved] [bit] NOT NULL,
 	[Id_Post] [int] NULL,
 	[Deleted] [bit] NOT NULL,
+	[Id_Comment] [int] NULL,
  CONSTRAINT [PK_Comment] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -252,7 +178,7 @@ CREATE TABLE [dbo].[Comment](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Configuration]    Script Date: 14/02/2016 5:37:43 p. m. ******/
+/****** Object:  Table [dbo].[Configuration]    Script Date: 22/02/2016 4:42:08 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -279,7 +205,26 @@ CREATE TABLE [dbo].[Configuration](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Icon]    Script Date: 14/02/2016 5:37:43 p. m. ******/
+/****** Object:  Table [dbo].[Gender]    Script Date: 22/02/2016 4:42:08 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Gender](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](80) NOT NULL,
+ CONSTRAINT [PK_Gender] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Icon]    Script Date: 22/02/2016 4:42:08 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -298,7 +243,7 @@ CREATE TABLE [dbo].[Icon](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Messenger]    Script Date: 14/02/2016 5:37:43 p. m. ******/
+/****** Object:  Table [dbo].[Messenger]    Script Date: 22/02/2016 4:42:08 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -317,7 +262,7 @@ CREATE TABLE [dbo].[Messenger](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Post]    Script Date: 14/02/2016 5:37:43 p. m. ******/
+/****** Object:  Table [dbo].[Post]    Script Date: 22/02/2016 4:42:08 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -344,7 +289,7 @@ CREATE TABLE [dbo].[Post](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Post_Tags]    Script Date: 14/02/2016 5:37:43 p. m. ******/
+/****** Object:  Table [dbo].[Post_Tags]    Script Date: 22/02/2016 4:42:08 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -360,7 +305,7 @@ CREATE TABLE [dbo].[Post_Tags](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Profile]    Script Date: 14/02/2016 5:37:43 p. m. ******/
+/****** Object:  Table [dbo].[Profile]    Script Date: 22/02/2016 4:42:08 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -372,7 +317,7 @@ CREATE TABLE [dbo].[Profile](
 	[Id_User] [nvarchar](128) NOT NULL,
 	[Name] [varchar](100) NULL,
 	[LastName] [varchar](100) NULL,
-	[Gender] [int] NULL,
+	[Id_Gender] [int] NOT NULL,
 	[Bio] [varchar](max) NULL,
 	[Avatar] [varchar](max) NULL,
 	[Website] [varchar](150) NULL,
@@ -403,7 +348,7 @@ CREATE TABLE [dbo].[Profile](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Sector]    Script Date: 14/02/2016 5:37:43 p. m. ******/
+/****** Object:  Table [dbo].[Sector]    Script Date: 22/02/2016 4:42:08 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -422,7 +367,7 @@ CREATE TABLE [dbo].[Sector](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Social]    Script Date: 14/02/2016 5:37:43 p. m. ******/
+/****** Object:  Table [dbo].[Social]    Script Date: 22/02/2016 4:42:08 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -444,7 +389,7 @@ CREATE TABLE [dbo].[Social](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Tags]    Script Date: 14/02/2016 5:37:43 p. m. ******/
+/****** Object:  Table [dbo].[Tags]    Script Date: 22/02/2016 4:42:08 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -521,23 +466,11 @@ GO
 SET IDENTITY_INSERT [dbo].[Comment] ON 
 
 GO
-INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted]) VALUES (1, N'Julio Poveda', N'julios.corrp@gmail.com', NULL, N'Lollipop cheesecake gingerbread wafer. Macaroon topping candy cheesecake. Fruitcake chocolate bar tart gummies croissant. Tiramisu chocolate chocolate powder oat cake. Caramels jujubes lollipop. Gummi bears marshmallow chocolate cake sweet cotton candy jelly beans dragée danish halvah.', CAST(0x0000A5580088E097 AS DateTime), 1, 3, 0)
+INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted], [Id_Comment]) VALUES (3013, N'nesticle8bit', N'mail@mail.com', NULL, N'Gingerbread jujubes cake lollipop tiramisu. Donut pie cake pudding jelly donut marzipan. Dragée apple pie ice cream cookie. Topping tart gummi bears. Biscuit tiramisu pastry bonbon dessert cupcake.', CAST(0x0000A5AF00AE0B93 AS DateTime), 1, 2005, 0, NULL)
 GO
-INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted]) VALUES (3, N'Julio Poveda', N'julios.corrp@gmail.com', NULL, N'Fruitcake candy lollipop jelly dessert. Chocolate bar muffin liquorice candy biscuit lemon drops bonbon marzipan cheesecake. Tart macaroon dessert gummies carrot cake dragée. Sweet roll biscuit jelly-o jelly. Jelly beans carrot cake cake apple pie sugar plum liquorice. Marshmallow lollipop sweet roll candy canes. Gummies chocolate bar marzipan oat cake soufflé bear claw donut brownie.', CAST(0x0000A56500EA1B37 AS DateTime), 0, 2005, 1)
+INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted], [Id_Comment]) VALUES (4025, N'asdad', N'asdasd', N'asdasdas', N'asdasd', CAST(0x0000A5AF01240316 AS DateTime), 0, 2005, 0, 3013)
 GO
-INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted]) VALUES (6, N'nesticle8bit', N'julios.corrp@gmail.com', N'http://fb.com/nesticle8bit', N'Liquorice sweet brownie apple pie sweet roll pudding ice cream. Chupa chups lemon drops candy jelly topping. Jujubes chocolate cake caramels donut candy. Wafer brownie jelly beans sweet caramels. Ice cream carrot cake cookie donut tiramisu macaroon apple pie croissant. Tart marzipan tiramisu biscuit tart tiramisu apple pie. ', CAST(0x0000A5A501812FCB AS DateTime), 0, 2006, 0)
-GO
-INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted]) VALUES (7, N'juliopoveda', N'julios.corrp@gmail.com', NULL, N'Cupcake ipsum dolor. Sit amet macaroon sugar plum danish croissant chocolate candy canes. Powder oat cake sweet roll. Cheesecake chocolate I love brownie I love tart danish donut sweet roll. Pudding I love jujubes gingerbread. Candy canes caramels croissant apple pie cake.
-
-Icing danish I love marshmallow I love caramels jelly. Caramels oat cake pastry jujubes chocolate chupa chups chupa chups candy. Soufflé halvah macaroon lollipop apple pie. Muffin chocolate cake tootsie roll apple pie toffee I love cheesecake biscuit. Marshmallow topping jelly I love I love powder icing apple pie. Bear claw sugar plum chupa chups tootsie roll apple pie icing muffin cake cookie.', CAST(0x0000A5A600D989A2 AS DateTime), 0, 2006, 0)
-GO
-INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted]) VALUES (1007, N'nesticle8bit', N'julios.corrp@gmail.com', NULL, N'I love muffin powder halvah pastry croissant. Apple pie macaroon sugar plum gingerbread jelly-o fruitcake. Danish sesame snaps icing. ', CAST(0x0000A5A800ADA39F AS DateTime), 0, 3, 0)
-GO
-INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted]) VALUES (1008, N'nesticle8bit', N'julios.corrp@gmail.com', NULL, N'I love muffin powder halvah pastry croissant. Apple pie macaroon sugar plum gingerbread jelly-o fruitcake. Danish sesame snaps icing. ', CAST(0x0000A5A800B95D2A AS DateTime), 0, 3, 0)
-GO
-INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted]) VALUES (1009, N'nesticle8bit', N'julios.corrp@gmail.com', NULL, N'Jelly gummi bears sweet roll tart chocolate cake. Cake cupcake lemon drops cake biscuit cotton candy sesame snaps. Caramels macaroon oat cake sweet roll cookie bear claw cake liquorice cookie.', CAST(0x0000A5A800BA10AD AS DateTime), 0, 3, 0)
-GO
-INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted]) VALUES (1010, N'Julio Poveda', N'julios.corrp@gmail.com', NULL, N'Icing gummies sugar plum toffee gummi bears macaroon I love I love chocolate. I love brownie gummies pie powder I love. Tart caramels brownie soufflé gummi bears muffin pudding. Macaroon I love chocolate cake gummi bears. Toffee I love cotton candy cotton candy cotton candy I love dessert cookie. ', CAST(0x0000A5A800BB7991 AS DateTime), 0, 3, 0)
+INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted], [Id_Comment]) VALUES (4026, N'asdad', N'asdasd', N'asdasdas', N'asdasd', CAST(0x0000A5AF01240BE1 AS DateTime), 1, 2005, 0, 3013)
 GO
 SET IDENTITY_INSERT [dbo].[Comment] OFF
 GO
@@ -556,6 +489,15 @@ INSERT [dbo].[Configuration] ([Id], [WebsiteTitle], [Slogan], [Url], [Email], [A
 </script>', NULL)
 GO
 SET IDENTITY_INSERT [dbo].[Configuration] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Gender] ON 
+
+GO
+INSERT [dbo].[Gender] ([Id], [Name]) VALUES (1, N'Male')
+GO
+INSERT [dbo].[Gender] ([Id], [Name]) VALUES (2, N'Female')
+GO
+SET IDENTITY_INSERT [dbo].[Gender] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Icon] ON 
 
@@ -772,6 +714,13 @@ INSERT [dbo].[Post_Tags] ([Id], [Id_Post], [Id_Tags]) VALUES (4008, 2008, 1)
 GO
 SET IDENTITY_INSERT [dbo].[Post_Tags] OFF
 GO
+SET IDENTITY_INSERT [dbo].[Profile] ON 
+
+GO
+INSERT [dbo].[Profile] ([Id], [Id_User], [Name], [LastName], [Id_Gender], [Bio], [Avatar], [Website], [Id_CivilStatus], [Id_Messenger], [MessengerName], [Company], [Profession], [Id_Sector], [ProfessionalInterests], [ProfessionalSkills], [Interests], [Hobbies], [FavoriteTVSerie], [FavoriteMusic], [FavoriteSport], [FavoriteBooks], [FavoriteMovies], [FavoriteFood], [Heroe], [Birthday]) VALUES (2, N'48b2e11c-2bdf-4fe1-98c8-4de0dd1fa40d', N'Julio', N'Poveda', 1, N'asdasd', NULL, N'http://juliopoveda.com/', 1, 5, N'nesticle8bit', N'sdasd', N'asda', 6, N'asda', N'sdasd', N'asdasd', N'asda', N'sdasd', N'asd', N'asd', N'asda', N'sda', N'asd', N'asd', NULL)
+GO
+SET IDENTITY_INSERT [dbo].[Profile] OFF
+GO
 SET IDENTITY_INSERT [dbo].[Sector] ON 
 
 GO
@@ -911,6 +860,11 @@ REFERENCES [dbo].[CivilStatus] ([Id])
 GO
 ALTER TABLE [dbo].[Profile] CHECK CONSTRAINT [FK_Profile_CivilStatus]
 GO
+ALTER TABLE [dbo].[Profile]  WITH CHECK ADD  CONSTRAINT [FK_Profile_Gender] FOREIGN KEY([Id_Gender])
+REFERENCES [dbo].[Gender] ([Id])
+GO
+ALTER TABLE [dbo].[Profile] CHECK CONSTRAINT [FK_Profile_Gender]
+GO
 ALTER TABLE [dbo].[Profile]  WITH CHECK ADD  CONSTRAINT [FK_Profile_Messenger] FOREIGN KEY([Id_Messenger])
 REFERENCES [dbo].[Messenger] ([Id])
 GO
@@ -925,8 +879,4 @@ ALTER TABLE [dbo].[Social]  WITH CHECK ADD  CONSTRAINT [FK_Social_Icon] FOREIGN 
 REFERENCES [dbo].[Icon] ([Id])
 GO
 ALTER TABLE [dbo].[Social] CHECK CONSTRAINT [FK_Social_Icon]
-GO
-USE [master]
-GO
-ALTER DATABASE [newsSystem_db] SET  READ_WRITE 
 GO
