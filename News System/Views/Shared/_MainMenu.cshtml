@@ -113,7 +113,7 @@
 
                     <a href="#">
                         <i class="fa fa-user"></i>
-                        <span class="text">Welcome @name</span>
+                        <span class="text">@name</span>
                     </a>
                 </li>
             }
@@ -131,9 +131,10 @@
         </ul>
         <div class="clear"></div>
     </div>
+
     <div class="search-holder">
-        <form method="get" action="/search/">
-            <input type="text" name="q" placeholder="search text" class="search-input">
+        <form method="get" action="@Url.Action("Search", "Post")">
+            <input type="text" name="q" placeholder="search text" class="search-input" autocomplete="off">
             <span class="fa fa-times close" onclick="searchToggle($('.search-button')); return false;"></span>
         </form>
     </div>
