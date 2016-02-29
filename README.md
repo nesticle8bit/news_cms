@@ -43,4 +43,4 @@ Content Management System for News building in MVC Asp.net
 - [ ] Custom Errors
 
 --
-> Im creating this just for the learning about this backend language (C# and SQL Server) nothing commercial feel free to contact to me  **juliopoveda@protonmail.com** ![687474703a2f2f692e696d6775722e636f6d2f6f584a6d64747a2e676966](https://cloud.githubusercontent.com/assets/1715022/12459893/0dff5eb4-bf7f-11e5-90c7-8df784008acc.gif)
+> Im creating this just for the learning about this backend language (C# and SQL Server) nothing commercial feel free to contact to me  **contacto@juliopoveda.com** ![687474703a2f2f692e696d6775722e636f6d2f6f584a6d64747a2e676966](https://cloud.githubusercontent.com/assets/1715022/12459893/0dff5eb4-bf7f-11e5-90c7-8df784008acc.gif)
