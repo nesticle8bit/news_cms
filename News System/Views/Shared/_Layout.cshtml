@@ -1,0 +1,77 @@
+﻿@using System.Security.Claims
+@using Microsoft.AspNet.Identity
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.SiteName - @ViewBag.Slogan</title>
+    
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,200,100,500,600,700,800,900' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Cabin:400,500,600,700,400italic,500italic,600italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,500italic,500,400italic,300,100italic,100,300italic' rel='stylesheet' type='text/css'>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/frontend")
+
+    @RenderSection("scripts", required: false)
+</head>
+
+<body class="fadeIn animated">
+    <div id="page-holder">
+        <span class="side-menu-button icon-menu gradient" onclick="sidemenuToggle(this)" style="top: -100px; display: block;">
+            <i class="fa fa-bars"></i>
+        </span>
+
+        @RenderPage("../Home/Sidebar.cshtml")
+
+        <div id="content-holder">
+            <div class="head-logo">
+                <a href="@Url.Action("Index", "Home")" class="logo">
+                    <i style="font-size: 85px;" class="fa fa-diamond"></i>
+                </a>
+            </div>
+
+            @RenderPage("_MainMenu.cshtml")
+
+            <div class="content-container">
+                <div class="inner">
+                    <div class="content-wrap">
+                        <div class="inner">
+                            @RenderBody()
+                        </div>
+                    </div>
+                    @RenderPage("_Sidebar.cshtml")
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @RenderPage("_Footer.cshtml")
+
+    <div id="fb-root"></div>
+    <script type="text/javascript">
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5&appId=107545726022674";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script src="https://apis.google.com/js/platform.js" async defer>
+        { lang: 'es' }
+    </script>
+
+    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+</body>
+</html>

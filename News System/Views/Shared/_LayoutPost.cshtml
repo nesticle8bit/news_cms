@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title | @ViewBag.SiteName</title>
+
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    
+        @RenderPage("_Fonts.cshtml")
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/frontend")
+        @Scripts.Render("~/bundles/posts")
+
+        @RenderSection("scripts", required: false)
+    </head>
+
+<body class="fadeIn animated">
+    <div id="page-holder">
+        <span class="side-menu-button icon-menu gradient" onclick="sidemenuToggle(this)" style="top: -100px; display: block;">
+            <i class="fa fa-bars"></i>
+        </span>
+
+        @RenderPage("../Home/Sidebar.cshtml")
+
+        <div id="content-holder">
+            <div class="head-logo">
+                <a href="@Url.Action("Index", "Home")" class="logo">
+                    <i style="font-size: 85px;" class="fa fa-diamond"></i>
+                </a>
+            </div>
+
+            @RenderPage("_MainMenu.cshtml")
+
+            @RenderBody()
+        </div>
+    </div>
+
+    @Html.Raw(ViewBag.GoogleAnalytics)
+
+    @RenderPage("_Footer.cshtml")
+
+    <div id="fb-root"></div>
+    <script type="text/javascript">
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5&appId=107545726022674";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script src="https://apis.google.com/js/platform.js" async defer>
+        { lang: 'es' }
+    </script>
+
+    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+    <script type="text/javascript">
+        $('p').selectionSharer();
+    </script>
+</body>
+
+</html>

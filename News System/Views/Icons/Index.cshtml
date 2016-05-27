@@ -1,0 +1,100 @@
+﻿@model IEnumerable<News_System.Models.Icon>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="col-md-12">
+    <a id="create" class="btn btn-success">
+        <i class="fa fa-plus"></i> Create an Icon
+    </a>
+
+    <div class="clearfix"></div>
+    <br />
+
+    <div class="card">
+        <div class="header">
+            <h4 class="title">Icons</h4>
+            <p class="category">List of Icons</p>
+        </div>
+
+        <div class="content table-responsive table-full-width">
+            <table class="table table-hover table-striped table-responsive">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Id)</th>
+                        <th>Image</th>
+                        <th>@Html.DisplayNameFor(model => model.IconName)</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model) {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                            <td>
+                                <i class="@Html.DisplayFor(modelItem => item.IconName) fa-2x"></i>
+                            </td>
+                            <td>@Html.DisplayFor(modelItem => item.IconName)</td>
+                            <td>
+                                <a id="edit" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Edit Category" data-id="@item.Id">
+                                    <!--href="Url.Action("Edit", "Category", new { id = item.Id })"-->
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+
+                                @*<a id="view" class="btn btn-success btn-xs" href="@Url.Action("Details", "Category", new { id = item.Id })" data-toggle="tooltip" data-placement="top" title="View Details of this Category" data-id="@item.Id">
+                                        <i class="fa fa-eye"></i>
+                                    </a>*@
+
+                                <a id="remove" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Delete Category" data-id="@item.Id">
+                                    <i class="fa fa-remove"></i>
+                                </a>
+                            </td>
+                        </tr>
+        }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<div id="modalDetails" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">
+                    <span id="titleOfModal"></span>
+                </h4>
+            </div>
+            <form id="form">
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input id="id" type="hidden" class="form-control" />
+                        <label for="name">Fontawesome Icon Name</label>
+                        <input id="name" type="text" class="form-control" placeholder="Icon" />
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        <i class="fa fa-times"></i> Cancel
+                    </button>
+
+                    <button type="submit" class="btn btn-success">
+                        <i class="fa fa-check"></i> Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Icon/icon.js"></script>
+}

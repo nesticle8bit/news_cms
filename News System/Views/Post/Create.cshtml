@@ -1,0 +1,83 @@
+﻿@model News_System.Models.Post
+
+@{
+    Layout = "~/Views/Shared/_LayoutNoSidebar.cshtml";
+    ViewBag.Title = "Create a Post";
+}
+
+@using (Html.BeginForm("Create", "Post", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>@ViewBag.Title for @ViewBag.SiteName</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Category, "Category", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Id_Category, (SelectList)ViewBag.Category, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Description, htmlAttributes: new { @class = "form-control", @rows = "18", @id = "editor" })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                <input type="file" name="file" id="file" class="filestyle" data-buttonname="btn-primary" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tags</label>
+
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Tags, new { @id = "input-tags" })
+                @*@Html.TextBoxFor(model => model.Tags, new { @class = "form-control", @data_role = "tagsinput", @id="tags" })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Highlight, new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Highlight, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Highlight, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-save"></i> Create
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script src="~/Scripts/Post/post.js"></script>
+    }

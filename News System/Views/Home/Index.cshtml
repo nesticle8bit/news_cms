@@ -1,0 +1,127 @@
+﻿@using News_System.Models
+@using PagedList.Mvc
+@model PagedList.IPagedList<News_System.Models.Post>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home Page";
+}
+
+@if (ViewBag.PostsDestacados != null)
+{
+    <h4 class="section-title">
+        Highlighted articles <span></span>
+    </h4>
+}
+ 
+<div class="top-articles-list">
+    @foreach (var item in (List<MinimalPostViewModel>)ViewBag.PostsDestacados)
+    {
+        <article class="vertical">
+            <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" class="article-thumbnail">
+                <img src="~/Files/@item.Image" alt="@item.Title" />
+            </a>
+            <div class="article-info">
+                <div class="article-meta">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" title="@item.Time" data-tooltip="true" data-placement="top">
+                                @item.Time
+                            </a>
+                        </li>
+
+                        <li class="divider">/</li>
+
+                        <li>
+                            <a href="@Url.Action("Category", "Post", new { id = item.Id_Category })" title="Categoría" data-tooltip="true" data-placement="top">
+                                @item.Category
+                            </a>
+                        </li>
+                        <li class="divider">/</li>
+                        <li>
+                            <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })#comments" title="Comentarios" data-tooltip="true" data-placement="top">
+                                @Html.DisplayFor(modelItem => item.Comments) @(item.Comments == 0 || item.Comments > 1 ? "Comentarios" : "Comentario")
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <h2 class="article-title">
+                    <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" title="@item.Title" data-tooltip="true" data-placement="top">
+                        @item.Title
+                    </a>
+                </h2>
+            </div>
+            <div class="clear"></div>
+        </article>
+    }
+
+    <div class="clear"></div>
+</div>
+
+<h4 class="section-title">
+    Latest articles <span></span>
+</h4>
+
+@foreach (var item in Model)
+{
+    <article class="horizontal wow fadeIn">
+        <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" class="article-thumbnail">
+            <img src="~/Files/@Html.DisplayFor(modelItem => item.Image)" alt="@Html.DisplayFor(modelItem => item.Title)" />
+        </a>
+        <div class="article-info">
+            <div class="article-meta">
+                <ul>
+                    <li>
+                        <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" title="@Html.DisplayFor(modelItem => item.Time)" data-tooltip="true" data-placement="top">
+                            @Html.DisplayFor(modelItem => item.Time)
+                        </a>
+                    </li>
+                    <li class="divider">/</li>
+                    <li>
+                        <a href="@Url.Action("Category", "Post", new { id = item.Category.Id })" title="Categoría" data-tooltip="true" data-placement="top">
+                            @Html.DisplayFor(modelItem => item.Category.Name)
+                        </a>
+                    </li>
+                    <li class="divider">/</li>
+                    <li>
+                        <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })#comments" title="Comentarios" data-tooltip="true" data-placement="top">
+                            @Html.DisplayFor(modelItem => item.Comment.Count) @(item.Comment.Count == 0 || item.Comment.Count > 1 ? "Comentarios" : "Comentario")
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <h2 class="article-title">
+                <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" title="@Html.DisplayFor(modelItem => item.Title)" data-tooltip="true" data-placement="top">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </a>
+            </h2>
+
+            <p>
+                @Html.DisplayFor(modelItem => item.Description).ToString().Substring(0, 25)...
+            </p>
+        </div>
+        <div class="clear"></div>
+    </article>
+}
+
+@*Pagina @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount*@
+
+<div class="clear"></div>
+
+<div class="paginator-holder">
+    @*@Html.PagedListPager(Model, page => Url.Action("Index"), new PagedListRenderOptions { FunctionToTransformEachPageLink = (liTag, aTag) => { aTag.Attributes.Add("data-page-no", aTag.InnerHtml); liTag.InnerHtml = aTag.ToString(); return liTag; } })*@
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+
+
+    @*@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@
+</div>
+
+@if (Model.Where(x => x.Deleted == false && x.Highlight == false).Count() <= 0)
+{
+    <article class="horizontal wow fadeIn">
+        <div class="alert alert-warning" role="alert">
+            <b>Vaya!</b> No hay ningún evento publicado <i class="fa fa-frown-o"></i>
+        </div>
+    </article>
+}

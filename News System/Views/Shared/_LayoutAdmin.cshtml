@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Administration | @ViewBag.SiteName - @ViewBag.Slogan</title>
+
+        @Scripts.Render("~/bundles/modernizr")
+        @Styles.Render("~/Content/cssAdmin")
+
+        @RenderPage("_Fonts.cshtml")
+        
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/frontend")
+
+        @Scripts.Render("~/bundles/admin")
+
+        @RenderSection("scripts", required: false)
+
+        @*<script type="text/javascript">
+            $(document).ready(function () {
+                $.notify({
+                    icon: 'pe-7s-gift',
+                    message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
+
+                }, {
+                    type: 'info',
+                    timer: 2000
+                });
+            });
+        </script>*@
+    </head>
+
+    <body class="fadeIn animated">
+        <div class="wrapper">
+            <div class="sidebar" data-color="grey" data-image="http://@HttpContext.Current.Request.Url.Authority/Content/Resources/Images/bg-admin.jpg">
+                @RenderPage("_SidebarAdmin.cshtml")
+            </div>
+
+            <div class="main-panel">
+                @RenderPage("_MainMenuAdmin.cshtml")
+
+                <div class="content">
+                    <div class="container-fluid">
+                        @RenderBody()
+                    </div>
+                </div>
+
+                @Html.Raw(ViewBag.GoogleAnalytics)
+                
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <nav class="pull-left">
+                            <ul>
+                                <li><a href="@Url.Action("About", "Pages")">About</a></li>
+                                <li><a href="@Url.Action("Chat", "Pages")">Chat</a></li>
+                                <li><a href="@Url.Action("Contact", "Pages")">Contact</a></li>
+                                <li><a href="@Url.Action("Advertise", "Pages")">Advertise</a></li>
+                                <li><a href="@Url.Action("WriteForUs", "Pages")">Write for us</a></li>
+                                <li><a href="@Url.Action("Search", "Post")">Search</a></li>
+                                <li><a href="@Url.Action("Privacy", "Pages")">Privacy</a></li>
+                                <li><a href="@Url.Action("Terms", "Pages")">Terms</a></li>
+                                <li><a href="@Url.Action("Subscribe", "Pages")">Subscribe</a></li>
+                            </ul>
+                        </nav>
+                        <p class="copyright pull-right">
+                            &copy; @DateTime.Now.Year @ViewBag.SiteName. All Rights Reserved. Create with <span style="color:#ed2626">♥</span> by nesticle8bit
+                        </p>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        @*<script type="text/javascript">
+            $(window).bind("load", function () {
+                alert(window.location.pathname.toString());
+
+                switch (window.location.pathname.toString()) {
+                    case '/Icons':
+                        $('_icons').addClass('active');
+                        break;
+                    case '/Category':
+                        $('_categories').addClass('active');
+                        break;
+                    case '/Category':
+                        $('_categories').addClass('active');
+                        break;
+                }
+            });
+        </script>*@
+
+        <script id="dsq-count-scr" src="//cmsscriptv01.disqus.com/count.js" async></script>
+    </body>
+</html>

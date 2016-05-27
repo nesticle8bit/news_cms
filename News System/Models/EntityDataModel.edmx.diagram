@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="65cf270d588c44608ed6fd17b8b9a630" Name="Diagram1">
+        <EntityTypeShape EntityType="newsSystem_dbModel.Category" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.Comment" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.Configuration" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.Icon" Width="1.5" PointX="5.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.Post" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.Post_Tags" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.Social" Width="1.5" PointX="8" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.Tags" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <AssociationConnector Association="newsSystem_dbModel.FK_Post_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="newsSystem_dbModel.FK_Comment_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="newsSystem_dbModel.FK_Social_Icon" ManuallyRouted="false" />
+        <AssociationConnector Association="newsSystem_dbModel.FK_Post_Tags_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="newsSystem_dbModel.FK_Post_Tags_Tags" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.C__MigrationHistory" Width="1.5" PointX="5.375" PointY="10.75" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.AspNetRoles" Width="1.5" PointX="10.375" PointY="6.5" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.AspNetUserClaims" Width="1.5" PointX="14.875" PointY="5" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.AspNetUserLogins" Width="1.5" PointX="14.875" PointY="7.75" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.AspNetUsers" Width="1.5" PointX="12.625" PointY="5.125" />
+        <AssociationConnector Association="newsSystem_dbModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="newsSystem_dbModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="newsSystem_dbModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.CivilStatus" Width="1.5" PointX="15.625" PointY="2" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.Messenger" Width="1.5" PointX="15.625" PointY="10.375" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.Profile" Width="1.5" PointX="17.875" PointY="4.125" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.Sector" Width="1.5" PointX="15.625" PointY="12.75" />
+        <AssociationConnector Association="newsSystem_dbModel.FK_Profile_AspNetUsers" />
+        <AssociationConnector Association="newsSystem_dbModel.FK_Profile_CivilStatus" />
+        <AssociationConnector Association="newsSystem_dbModel.FK_Profile_Messenger" />
+        <AssociationConnector Association="newsSystem_dbModel.FK_Profile_Sector" />
+        <EntityTypeShape EntityType="newsSystem_dbModel.Gender" Width="1.5" PointX="7.375" PointY="10.875" />
+        <AssociationConnector Association="newsSystem_dbModel.FK_Profile_Gender" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

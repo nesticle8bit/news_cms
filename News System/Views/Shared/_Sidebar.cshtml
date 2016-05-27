@@ -1,0 +1,134 @@
+﻿<div class="sidebar">
+    @if (ViewBag.Ads_300 != null)
+    {
+        <div class="sidebar-ad-holder">
+            @Html.Raw(ViewBag.Ads_300)
+        </div>
+    }
+    
+    <div class="sidebar-social-holder facebook">
+        <div class="asset-holder">
+            <div class="title">Like us on facebook</div>
+            <a href="https://www.facebook.com/FACEBOOK" target="_blank" class="coin"></a>
+        </div>
+        <div class="info-holder">
+            <div class="fb-wiget-holder">
+                <div class="fb-like" data-href="http://localhost/" data-width="320px" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div class="sidebar-social-holder twitter">
+        <div class="asset-holder">
+            <div class="super-title">Follow us on </div>
+            <div class="title">twitter</div>
+            <a href="https://twitter.com/TWITTER" target="_blank" class="coin"></a>
+        </div>
+        <div class="info-holder">
+            <div class="subscribe-button-holder">
+                <a class="twitter-follow-button" href="https://twitter.com/nesticle8bit" data-show-count="false" data-size="large" data-lang="en" style="display: block;">
+                    <iframe style="width: 30px; height: 19px; border: 0px;"></iframe>
+                </a>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div class="sidebar-social-carousel">
+        <div class="instagram sidebar-social-holder carousel-item" style="display: none;">
+            <div class="asset-holder">
+                <div class="super-title">Follow us on </div>
+                <div class="title">instagram</div>
+                <a href="http://instagram.com/INSTAGRAM" target="_blank" class="coin"></a>
+            </div>
+            <div class="info-holder">
+                <div class="subscribe-button-holder">
+                    <a href="https://instagram.com/INSTAGRAM/" target="_blank">
+                        <img src="~/Content/Resources/Images/instagram-creative.jpg" style="margin-top: -6px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="tumblr sidebar-social-holder carousel-item" style="display: none;">
+            <div class="asset-holder">
+                <div class="super-title">Follow us on </div>
+                <div class="title">tumblr</div>
+                <a href="http://TUMBLR.tumblr.com/" target="_blank" class="coin"></a>
+            </div>
+            <div class="info-holder">
+                <div class="subscribe-button-holder">
+                    <iframe class="btn" frameborder="0" border="0" scrolling="no" allowtransparency="true" height="25" width="190" src="http://platform.tumblr.com/v1/follow_button.html?button_type=1&amp;tumblelog=TUMBLR&amp;color_scheme=light"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="google-plus sidebar-social-holder carousel-item" style="display: block;">
+            <div class="asset-holder">
+                <div class="super-title">Follow us on </div>
+                <div class="title">google plus</div>
+                <a href="https://plus.google.com/GOOGLE_PLUS/" target="_blank" class="coin"></a>
+            </div>
+            <div class="info-holder">
+                <div class="subscribe-button-holder">
+                    <div class="g-follow" data-annotation="bubble" data-height="20" data-href="//plus.google.com/u/0/112989591546496355290" data-rel="author"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigator-holder">
+            <div class="item instagram" onclick="social_nav(this)"></div>
+            <div class="item tumblr" onclick="social_nav(this)"></div>
+            <div class="item google active" onclick="social_nav(this)"></div>
+        </div>
+    </div>
+
+
+
+    <div data-sidebar-sticky="" class="" style="">
+        @if (ViewBag.Ads_300 != null)
+        {
+            <div class="sidebar-ad-holder">
+                @Html.Raw(ViewBag.Ads_300)
+            </div>
+        }
+        
+        @if (ViewBag.RandomArticle != null)
+        {
+            <div class="sidebar-promoted-holder animated fadeInUp">
+                <div class="item-title">Featured articles</div>
+                <div class="first">
+                    <a href="@Url.Action("ViewPost", "Post", new { id = @ViewBag.RandomArticle.Id })" title="@ViewBag.RandomArticle.Title">
+                        <img src="~/Files/@ViewBag.RandomArticle.Image" alt="@ViewBag.RandomArticle.Title">
+                        <div class="info semi-gradient">
+                            <h3>@ViewBag.RandomArticle.Title</h3>
+                            <span class="date">@ViewBag.RandomArticle.Time</span>
+                        </div>
+                    </a>
+                </div>
+
+                @if (ViewBag.FeaturedArticles != null)
+                {
+                    <ul>
+                        @for (int i = 0; i < ViewBag.FeaturedArticles.Count; i++)
+                        {
+                            <li>
+                                <a href="@Url.Action("ViewPost", "Post", new { id = @ViewBag.FeaturedArticles[i].Id })" title="@ViewBag.FeaturedArticles[i].Title">
+                                    <span class="article-image-holder">
+                                        <img src="~/Files/@ViewBag.FeaturedArticles[i].Image" alt="@ViewBag.FeaturedArticles[i].Title" />
+                                    </span>
+
+                                    <span class="article-info-holder">
+                                        <h3>@ViewBag.FeaturedArticles[i].Title</h3>
+                                        <span class="date">@ViewBag.FeaturedArticles[i].Time</span>
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                }
+            </div>
+        }
+    </div>
+</div>

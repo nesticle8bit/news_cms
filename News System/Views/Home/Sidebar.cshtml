@@ -1,0 +1,35 @@
+﻿@*@model News_System.Models.HomeViewModel*@
+
+@{
+    Layout = null;
+}
+
+<div id="side-holder">
+    <div class="logo-holder gradient"><a href="#" class="icon-logo"></a></div>
+    <ul>
+        <li>
+            @using (Html.BeginForm("Search", "Post", FormMethod.Get, new { @class = "search-form" }))
+            {
+                <input type="text" value="" name="q" placeholder="search text" class="search-input">
+            }
+        </li>
+        @if (ViewBag.Categorias != null)
+        {
+            <li>
+                <a href="#">
+                    <span class="text">Categories</span>
+                </a>
+                <ul>
+                    @for (int i = 0; i < ViewBag.Categorias.Count; i++)
+                    {
+                        <li>
+                            <a href="@Url.Action("Category", "Post", new { id = @ViewBag.Categorias[i].Id })">
+                                @ViewBag.Categorias[i].Name
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+</div>
