@@ -20,7 +20,10 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+<<<<<<< HEAD
     <UseGlobalApplicationHostFile />
+=======
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -57,6 +60,7 @@
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+<<<<<<< HEAD
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
       <Private>True</Private>
@@ -65,6 +69,8 @@
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+=======
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -184,8 +190,11 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+<<<<<<< HEAD
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+=======
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -264,7 +273,10 @@
     <Compile Include="Models\Messenger.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Models\MinimalPostViewModel.cs" />
+=======
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
     <Compile Include="Models\Post.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
@@ -309,7 +321,10 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\light-bootstrap-dashboard.css" />
+<<<<<<< HEAD
     <Content Include="Content\PagedList.css" />
+=======
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
     <Content Include="Content\pe-icon-7-stroke.css" />
     <Content Include="Content\Resources\Admin\default-avatar.png" />
     <Content Include="Content\Resources\Admin\loading-bubbles.svg" />
@@ -383,7 +398,10 @@
       <DependentUpon>EntityDataModel.edmx</DependentUpon>
       <LastGenOutput>EntityDataModel.cs</LastGenOutput>
     </Content>
+<<<<<<< HEAD
     <Content Include="Areas\Admin\Views\web.config" />
+=======
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -546,9 +564,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+<<<<<<< HEAD
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Category\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
+=======
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

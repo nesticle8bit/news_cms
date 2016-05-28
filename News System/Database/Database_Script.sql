@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿USE [master]
 ALTER DATABASE [newsSystem_db] SET COMPATIBILITY_LEVEL = 110
 GO
@@ -67,6 +68,11 @@ GO
 USE [newsSystem_db]
 GO
 /****** Object:  Table [dbo].[__MigrationHistory]    Script Date: 18/05/2016 11:26:53 a. m. ******/
+=======
+﻿USE [newsSystem_db]
+GO
+/****** Object:  Table [dbo].[__MigrationHistory]    Script Date: 22/02/2016 4:42:08 p. m. ******/
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -88,7 +94,11 @@ CREATE TABLE [dbo].[__MigrationHistory](
 GO
 SET ANSI_PADDING OFF
 GO
+<<<<<<< HEAD
 /****** Object:  Table [dbo].[AspNetRoles]    Script Date: 18/05/2016 11:26:53 a. m. ******/
+=======
+/****** Object:  Table [dbo].[AspNetRoles]    Script Date: 22/02/2016 4:42:08 p. m. ******/
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -103,7 +113,11 @@ CREATE TABLE [dbo].[AspNetRoles](
 ) ON [PRIMARY]
 
 GO
+<<<<<<< HEAD
 /****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 18/05/2016 11:26:53 a. m. ******/
+=======
+/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 22/02/2016 4:42:08 p. m. ******/
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -120,7 +134,11 @@ CREATE TABLE [dbo].[AspNetUserClaims](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
+<<<<<<< HEAD
 /****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 18/05/2016 11:26:53 a. m. ******/
+=======
+/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 22/02/2016 4:42:08 p. m. ******/
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -138,7 +156,11 @@ CREATE TABLE [dbo].[AspNetUserLogins](
 ) ON [PRIMARY]
 
 GO
+<<<<<<< HEAD
 /****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 18/05/2016 11:26:53 a. m. ******/
+=======
+/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 22/02/2016 4:42:08 p. m. ******/
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -154,7 +176,11 @@ CREATE TABLE [dbo].[AspNetUserRoles](
 ) ON [PRIMARY]
 
 GO
+<<<<<<< HEAD
 /****** Object:  Table [dbo].[AspNetUsers]    Script Date: 18/05/2016 11:26:53 a. m. ******/
+=======
+/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 22/02/2016 4:42:08 p. m. ******/
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -179,7 +205,11 @@ CREATE TABLE [dbo].[AspNetUsers](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
+<<<<<<< HEAD
 /****** Object:  Table [dbo].[Category]    Script Date: 18/05/2016 11:26:53 a. m. ******/
+=======
+/****** Object:  Table [dbo].[Category]    Script Date: 22/02/2016 4:42:08 p. m. ******/
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -198,7 +228,11 @@ CREATE TABLE [dbo].[Category](
 GO
 SET ANSI_PADDING OFF
 GO
+<<<<<<< HEAD
 /****** Object:  Table [dbo].[CivilStatus]    Script Date: 18/05/2016 11:26:53 a. m. ******/
+=======
+/****** Object:  Table [dbo].[CivilStatus]    Script Date: 22/02/2016 4:42:08 p. m. ******/
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -217,7 +251,11 @@ CREATE TABLE [dbo].[CivilStatus](
 GO
 SET ANSI_PADDING OFF
 GO
+<<<<<<< HEAD
 /****** Object:  Table [dbo].[Comment]    Script Date: 18/05/2016 11:26:53 a. m. ******/
+=======
+/****** Object:  Table [dbo].[Comment]    Script Date: 22/02/2016 4:42:08 p. m. ******/
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -244,7 +282,11 @@ CREATE TABLE [dbo].[Comment](
 GO
 SET ANSI_PADDING OFF
 GO
+<<<<<<< HEAD
 /****** Object:  Table [dbo].[Configuration]    Script Date: 18/05/2016 11:26:53 a. m. ******/
+=======
+/****** Object:  Table [dbo].[Configuration]    Script Date: 22/02/2016 4:42:08 p. m. ******/
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -271,7 +313,11 @@ CREATE TABLE [dbo].[Configuration](
 GO
 SET ANSI_PADDING OFF
 GO
+<<<<<<< HEAD
 /****** Object:  Table [dbo].[Gender]    Script Date: 18/05/2016 11:26:53 a. m. ******/
+=======
+/****** Object:  Table [dbo].[Gender]    Script Date: 22/02/2016 4:42:08 p. m. ******/
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -290,7 +336,11 @@ CREATE TABLE [dbo].[Gender](
 GO
 SET ANSI_PADDING OFF
 GO
+<<<<<<< HEAD
 /****** Object:  Table [dbo].[Icon]    Script Date: 18/05/2016 11:26:53 a. m. ******/
+=======
+/****** Object:  Table [dbo].[Icon]    Script Date: 22/02/2016 4:42:08 p. m. ******/
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -309,7 +359,11 @@ CREATE TABLE [dbo].[Icon](
 GO
 SET ANSI_PADDING OFF
 GO
+<<<<<<< HEAD
 /****** Object:  Table [dbo].[Messenger]    Script Date: 18/05/2016 11:26:53 a. m. ******/
+=======
+/****** Object:  Table [dbo].[Messenger]    Script Date: 22/02/2016 4:42:08 p. m. ******/
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -328,7 +382,11 @@ CREATE TABLE [dbo].[Messenger](
 GO
 SET ANSI_PADDING OFF
 GO
+<<<<<<< HEAD
 /****** Object:  Table [dbo].[Post]    Script Date: 18/05/2016 11:26:53 a. m. ******/
+=======
+/****** Object:  Table [dbo].[Post]    Script Date: 22/02/2016 4:42:08 p. m. ******/
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -355,7 +413,11 @@ CREATE TABLE [dbo].[Post](
 GO
 SET ANSI_PADDING OFF
 GO
+<<<<<<< HEAD
 /****** Object:  Table [dbo].[Post_Tags]    Script Date: 18/05/2016 11:26:53 a. m. ******/
+=======
+/****** Object:  Table [dbo].[Post_Tags]    Script Date: 22/02/2016 4:42:08 p. m. ******/
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -371,7 +433,11 @@ CREATE TABLE [dbo].[Post_Tags](
 ) ON [PRIMARY]
 
 GO
+<<<<<<< HEAD
 /****** Object:  Table [dbo].[Profile]    Script Date: 18/05/2016 11:26:53 a. m. ******/
+=======
+/****** Object:  Table [dbo].[Profile]    Script Date: 22/02/2016 4:42:08 p. m. ******/
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -414,7 +480,11 @@ CREATE TABLE [dbo].[Profile](
 GO
 SET ANSI_PADDING OFF
 GO
+<<<<<<< HEAD
 /****** Object:  Table [dbo].[Sector]    Script Date: 18/05/2016 11:26:53 a. m. ******/
+=======
+/****** Object:  Table [dbo].[Sector]    Script Date: 22/02/2016 4:42:08 p. m. ******/
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -433,7 +503,11 @@ CREATE TABLE [dbo].[Sector](
 GO
 SET ANSI_PADDING OFF
 GO
+<<<<<<< HEAD
 /****** Object:  Table [dbo].[Social]    Script Date: 18/05/2016 11:26:53 a. m. ******/
+=======
+/****** Object:  Table [dbo].[Social]    Script Date: 22/02/2016 4:42:08 p. m. ******/
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -455,7 +529,11 @@ CREATE TABLE [dbo].[Social](
 GO
 SET ANSI_PADDING OFF
 GO
+<<<<<<< HEAD
 /****** Object:  Table [dbo].[Tags]    Script Date: 18/05/2016 11:26:53 a. m. ******/
+=======
+/****** Object:  Table [dbo].[Tags]    Script Date: 22/02/2016 4:42:08 p. m. ******/
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -508,8 +586,11 @@ INSERT [dbo].[Category] ([Id], [Name]) VALUES (4, N'Web Development')
 GO
 INSERT [dbo].[Category] ([Id], [Name]) VALUES (2004, N'News')
 GO
+<<<<<<< HEAD
 INSERT [dbo].[Category] ([Id], [Name]) VALUES (2005, N'Testing')
 GO
+=======
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 SET IDENTITY_INSERT [dbo].[Category] OFF
 GO
 SET IDENTITY_INSERT [dbo].[CivilStatus] ON 
@@ -534,6 +615,7 @@ GO
 SET IDENTITY_INSERT [dbo].[Comment] ON 
 
 GO
+<<<<<<< HEAD
 INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted], [Id_Comment]) VALUES (3013, N'nesticle8bit', N'mail@mail.com', NULL, N'Gingerbread jujubes cake lollipop tiramisu. Donut pie cake pudding jelly donut marzipan. Dragée apple pie ice cream cookie. Topping tart gummi bears. Biscuit tiramisu pastry bonbon dessert cupcake.', CAST(N'2016-02-17 10:33:40.757' AS DateTime), 1, 2005, 0, NULL)
 GO
 INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted], [Id_Comment]) VALUES (4025, N'asdad', N'asdasd', N'asdasdas', N'asdasd', CAST(N'2016-02-17 17:43:11.007' AS DateTime), 0, 2005, 0, 3013)
@@ -541,13 +623,33 @@ GO
 INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted], [Id_Comment]) VALUES (4026, N'asdad', N'asdasd', N'asdasdas', N'asdasd', CAST(N'2016-02-17 17:43:18.510' AS DateTime), 1, 2005, 0, 3013)
 GO
 INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted], [Id_Comment]) VALUES (4027, N'sdfsd', N'sdfsdf@asda.as', NULL, N'sdfsdf', CAST(N'2016-05-17 15:20:31.713' AS DateTime), 1, 2006, 0, NULL)
+=======
+INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted], [Id_Comment]) VALUES (3013, N'nesticle8bit', N'mail@mail.com', NULL, N'Gingerbread jujubes cake lollipop tiramisu. Donut pie cake pudding jelly donut marzipan. Dragée apple pie ice cream cookie. Topping tart gummi bears. Biscuit tiramisu pastry bonbon dessert cupcake.', CAST(0x0000A5AF00AE0B93 AS DateTime), 1, 2005, 0, NULL)
+GO
+INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted], [Id_Comment]) VALUES (4025, N'asdad', N'asdasd', N'asdasdas', N'asdasd', CAST(0x0000A5AF01240316 AS DateTime), 0, 2005, 0, 3013)
+GO
+INSERT [dbo].[Comment] ([Id], [Name], [Email], [Website], [Comment], [Time], [Approved], [Id_Post], [Deleted], [Id_Comment]) VALUES (4026, N'asdad', N'asdasd', N'asdasdas', N'asdasd', CAST(0x0000A5AF01240BE1 AS DateTime), 1, 2005, 0, 3013)
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 GO
 SET IDENTITY_INSERT [dbo].[Comment] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Configuration] ON 
 
 GO
+<<<<<<< HEAD
 INSERT [dbo].[Configuration] ([Id], [WebsiteTitle], [Slogan], [Url], [Email], [Ads_300], [Ads_728], [Ads_970], [Analytics], [Disqus]) VALUES (1, N'CMS Script', N'v0.1', N'http://localhost:7735/', N'contacto@juliopoveda.com', NULL, NULL, NULL, NULL, NULL)
+=======
+INSERT [dbo].[Configuration] ([Id], [WebsiteTitle], [Slogan], [Url], [Email], [Ads_300], [Ads_728], [Ads_970], [Analytics], [Disqus]) VALUES (1, N'CMS Script', N'v0.1', N'http://localhost:7735/', N'juliopoveda@protonmail.com', N'<img class="text-center center-block" src="https://lh3.ggpht.com/SwKJItV_dUKyXgtyB7ycADMWTVGscOmyr5zWyw8GgLfd6O1K8AyOCH8y_3xQBoChJ4JFCOSKew=w300" />', N'<img src="https://lh6.ggpht.com/41LFWBytPnxKsfZf6mivs6ba7qdOBtfk9-7MzWSMqwC3IFOvaXd8rejFiyeXKfBOK16mMEopeA=w728" />', N'<img src="https://storage.googleapis.com/support-kms-prod/SNP_59D432450939ECC60A21BEDBEE985B1817B1_3094744_en_v2" />', N'<script>
+  (function(i,s,o,g,r,a,m){i[''GoogleAnalyticsObject'']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,''script'',''//www.google-analytics.com/analytics.js'',''ga'');
+
+  ga(''create'', ''UA-67618396-1'', ''auto'');
+  ga(''send'', ''pageview'');
+
+</script>', NULL)
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 GO
 SET IDENTITY_INSERT [dbo].[Configuration] OFF
 GO
@@ -595,6 +697,7 @@ GO
 SET IDENTITY_INSERT [dbo].[Post] ON 
 
 GO
+<<<<<<< HEAD
 INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (1, N'Titulo de la Noticia', N'2015-11-22-081813_keyboard-338502_1920.jpg', CAST(N'2015-11-22 08:18:21.303' AS DateTime), N'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce turpis mi, pulvinar quis est vel, ultricies cursus neque. Nunc vitae erat tincidunt urna aliquet aliquet. Morbi hendrerit felis felis, sit amet tincidunt eros bibendum a. Donec placerat facilisis metus at dapibus. Sed eu urna in mi congue facilisis. Ut leo mi, sollicitudin sed viverra sit amet, viverra at massa. Maecenas imperdiet vulputate odio, sit amet venenatis tortor eleifend sit amet.
 
 Maecenas vestibulum at dui sed accumsan. Curabitur tristique dui vitae nulla blandit, in dictum dolor dictum. Sed quam mi, imperdiet sit amet porttitor a, malesuada vitae diam. Curabitur tincidunt libero aliquet rutrum gravida. Praesent vel diam neque. Ut imperdiet nisl eu porttitor finibus. Aliquam pharetra convallis ullamcorper. Pellentesque lobortis faucibus convallis. Nunc vehicula nec ligula sit amet feugiat. Etiam sed nibh iaculis, hendrerit nulla a, fermentum mauris. Aliquam nisl ex, hendrerit et elementum sit amet, posuere nec nisl. Praesent iaculis eros a magna pellentesque, a consectetur eros consequat. Ut elementum semper urna, ut pellentesque nisl bibendum at.', 0, 1, 0, 0, 0)
@@ -602,6 +705,15 @@ GO
 INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (2, N'Otra Noticia', N'2015-11-22-083009_14785092485_789919758b_k.jpg', CAST(N'2015-11-22 08:30:39.150' AS DateTime), N'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce turpis mi, pulvinar quis est vel, ultricies cursus neque. Nunc vitae erat tincidunt urna aliquet aliquet. Morbi hendrerit felis felis, sit amet tincidunt eros bibendum a. Donec placerat facilisis metus at dapibus. Sed eu urna in mi congue facilisis. Ut leo mi, sollicitudin sed viverra sit amet, viverra at massa. Maecenas imperdiet vulputate odio, sit amet venenatis tortor eleifend sit amet.', 0, 2, 0, 1, 1)
 GO
 INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (3, N'How to Develop a Membership Site With WordPress', N'2015-11-28-130951_free-psd-flyer-templates-autumn-party_featured_500.jpg', CAST(N'2015-11-28 13:09:51.687' AS DateTime), N'In the first part of this series, we covered customizing the registration and login forms. Today we’ll be covering how to add custom fields to the registration form. We’ll be adding a text input for a Twitter handle and a checkbox where users will need to agree to terms before registering. The work required can be divided into three parts:
+=======
+INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (1, N'Titulo de la Noticia', N'2015-11-22-081813_keyboard-338502_1920.jpg', CAST(0x0000A5580088E097 AS DateTime), N'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce turpis mi, pulvinar quis est vel, ultricies cursus neque. Nunc vitae erat tincidunt urna aliquet aliquet. Morbi hendrerit felis felis, sit amet tincidunt eros bibendum a. Donec placerat facilisis metus at dapibus. Sed eu urna in mi congue facilisis. Ut leo mi, sollicitudin sed viverra sit amet, viverra at massa. Maecenas imperdiet vulputate odio, sit amet venenatis tortor eleifend sit amet.
+
+Maecenas vestibulum at dui sed accumsan. Curabitur tristique dui vitae nulla blandit, in dictum dolor dictum. Sed quam mi, imperdiet sit amet porttitor a, malesuada vitae diam. Curabitur tincidunt libero aliquet rutrum gravida. Praesent vel diam neque. Ut imperdiet nisl eu porttitor finibus. Aliquam pharetra convallis ullamcorper. Pellentesque lobortis faucibus convallis. Nunc vehicula nec ligula sit amet feugiat. Etiam sed nibh iaculis, hendrerit nulla a, fermentum mauris. Aliquam nisl ex, hendrerit et elementum sit amet, posuere nec nisl. Praesent iaculis eros a magna pellentesque, a consectetur eros consequat. Ut elementum semper urna, ut pellentesque nisl bibendum at.', 0, 1, 0, 0, 0)
+GO
+INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (2, N'Otra Noticia', N'2015-11-22-083009_14785092485_789919758b_k.jpg', CAST(0x0000A558008C4141 AS DateTime), N'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce turpis mi, pulvinar quis est vel, ultricies cursus neque. Nunc vitae erat tincidunt urna aliquet aliquet. Morbi hendrerit felis felis, sit amet tincidunt eros bibendum a. Donec placerat facilisis metus at dapibus. Sed eu urna in mi congue facilisis. Ut leo mi, sollicitudin sed viverra sit amet, viverra at massa. Maecenas imperdiet vulputate odio, sit amet venenatis tortor eleifend sit amet.', 0, 2, 0, 1, 1)
+GO
+INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (3, N'How to Develop a Membership Site With WordPress', N'2015-11-28-130951_free-psd-flyer-templates-autumn-party_featured_500.jpg', CAST(0x0000A55E00D8F122 AS DateTime), N'In the first part of this series, we covered customizing the registration and login forms. Today we’ll be covering how to add custom fields to the registration form. We’ll be adding a text input for a Twitter handle and a checkbox where users will need to agree to terms before registering. The work required can be divided into three parts:
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 
 Adding the fields themselves
 Validation on the fields
@@ -610,11 +722,19 @@ We will also very briefly discuss the best ways to style your outgoing emails. T
 
 Quickly before we start, make sure Anyone can register is ticked in your WordPress settings (Settings > General). ', 1, 3, 0, 0, 4)
 GO
+<<<<<<< HEAD
 INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (4, N'Free Halloween Vector Stamps Pack', N'2015-11-28-131549_free-halloween-vector-stamps-pack_featured_500.jpg', CAST(N'2015-11-28 13:15:49.633' AS DateTime), N'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris luctus nulla vitae nibh iaculis, nec feugiat magna interdum. Integer sit amet sapien fringilla, venenatis dui vitae, rhoncus odio. Quisque at dictum mi. Nunc in sodales nisi. Vestibulum interdum molestie libero, in bibendum odio. Quisque eget risus mattis, fermentum metus quis, pharetra odio. Aenean varius arcu sit amet metus pellentesque, quis tristique lectus vulputate. Pellentesque eget arcu sit amet nibh facilisis sodales in quis risus. Pellentesque lacinia nibh sed interdum interdum. Morbi lobortis lacus dolor, nec fringilla ex cursus quis. Phasellus sed aliquam massa. In diam nunc, posuere at tincidunt quis, consequat nec urna.
 
 Aenean vel faucibus odio. Maecenas accumsan mi sapien, ac cursus velit semper nec. Etiam maximus, eros vel lacinia tincidunt, ante risus facilisis nulla, a semper orci ante ut metus. Sed varius elementum eros. Sed non dui volutpat, iaculis elit nec, sollicitudin tellus. Cras dapibus sodales aliquet. In sed fringilla elit. Nunc volutpat placerat lacus. Sed venenatis velit nec nulla consequat, at interdum mauris euismod. Maecenas aliquam rutrum faucibus. Fusce gravida tempor quam, ac commodo justo semper a. Ut sagittis porttitor sapien in consectetur.', 0, 4, 0, 0, 3)
 GO
 INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (5, N'Startuprr HTML ToolBox: Take Control of Your Next Big Project', N'2015-11-28-154527_multipurpose-html-template-startuprr_featured_500.jpg', CAST(N'2015-11-28 15:45:27.010' AS DateTime), N'Suspendisse pharetra a lacus malesuada potenti cubilia enim sed sociis aptent risus felis vestibulum venenatis parturient venenatis adipiscing elementum feugiat a nunc elementum risus pharetra accumsan in cum. Urna magnis hendrerit a a elit malesuada enim hac nisl a ullamcorper a vestibulum in a est a class adipiscing mi pretium malesuada ultrices suscipit aliquam consectetur interdum ligula. Iaculis iaculis vehicula ullamcorper vivamus accumsan a augue at hendrerit sem proin conubia vestibulum ultrices orci vestibulum vitae ullamcorper parturient est ad adipiscing. Nec elementum laoreet platea morbi venenatis consectetur ullamcorper eu blandit potenti vestibulum a mi id accumsan nisl adipiscing suspendisse massa scelerisque est risus venenatis. Curae id ridiculus mauris vestibulum vehicula vestibulum potenti ullamcorper ipsum eleifend suspendisse viverra a facilisi torquent ullamcorper ullamcorper sapien parturient tristique nisl dapibus.
+=======
+INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (4, N'Free Halloween Vector Stamps Pack', N'2015-11-28-131549_free-halloween-vector-stamps-pack_featured_500.jpg', CAST(0x0000A55E00DA949A AS DateTime), N'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris luctus nulla vitae nibh iaculis, nec feugiat magna interdum. Integer sit amet sapien fringilla, venenatis dui vitae, rhoncus odio. Quisque at dictum mi. Nunc in sodales nisi. Vestibulum interdum molestie libero, in bibendum odio. Quisque eget risus mattis, fermentum metus quis, pharetra odio. Aenean varius arcu sit amet metus pellentesque, quis tristique lectus vulputate. Pellentesque eget arcu sit amet nibh facilisis sodales in quis risus. Pellentesque lacinia nibh sed interdum interdum. Morbi lobortis lacus dolor, nec fringilla ex cursus quis. Phasellus sed aliquam massa. In diam nunc, posuere at tincidunt quis, consequat nec urna.
+
+Aenean vel faucibus odio. Maecenas accumsan mi sapien, ac cursus velit semper nec. Etiam maximus, eros vel lacinia tincidunt, ante risus facilisis nulla, a semper orci ante ut metus. Sed varius elementum eros. Sed non dui volutpat, iaculis elit nec, sollicitudin tellus. Cras dapibus sodales aliquet. In sed fringilla elit. Nunc volutpat placerat lacus. Sed venenatis velit nec nulla consequat, at interdum mauris euismod. Maecenas aliquam rutrum faucibus. Fusce gravida tempor quam, ac commodo justo semper a. Ut sagittis porttitor sapien in consectetur.', 0, 4, 0, 0, 3)
+GO
+INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (5, N'Startuprr HTML ToolBox: Take Control of Your Next Big Project', N'2015-11-28-154527_multipurpose-html-template-startuprr_featured_500.jpg', CAST(0x0000A55E0103ACF7 AS DateTime), N'Suspendisse pharetra a lacus malesuada potenti cubilia enim sed sociis aptent risus felis vestibulum venenatis parturient venenatis adipiscing elementum feugiat a nunc elementum risus pharetra accumsan in cum. Urna magnis hendrerit a a elit malesuada enim hac nisl a ullamcorper a vestibulum in a est a class adipiscing mi pretium malesuada ultrices suscipit aliquam consectetur interdum ligula. Iaculis iaculis vehicula ullamcorper vivamus accumsan a augue at hendrerit sem proin conubia vestibulum ultrices orci vestibulum vitae ullamcorper parturient est ad adipiscing. Nec elementum laoreet platea morbi venenatis consectetur ullamcorper eu blandit potenti vestibulum a mi id accumsan nisl adipiscing suspendisse massa scelerisque est risus venenatis. Curae id ridiculus mauris vestibulum vehicula vestibulum potenti ullamcorper ipsum eleifend suspendisse viverra a facilisi torquent ullamcorper ullamcorper sapien parturient tristique nisl dapibus.
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 
 Dolor habitasse hendrerit euismod mi in parturient lobortis per a eget ad placerat dolor cum quam odio a a felis maecenas ut nibh. Sit parturient ipsum fringilla nisl adipiscing nisl mi diam ad suscipit auctor mollis a adipiscing auctor suscipit lacinia elit sagittis a praesent est torquent libero a ipsum. Himenaeos cursus hendrerit mi non ut vel diam a imperdiet himenaeos aenean adipiscing congue aliquam urna risus sem adipiscing cras ullamcorper hac ac. Cubilia integer suspendisse pretium vulputate consequat a viverra venenatis pharetra viverra eros rutrum suspendisse faucibus est cursus mi parturient morbi donec a.
 
@@ -624,7 +744,11 @@ Vestibulum litora fusce laoreet a volutpat curae potenti at nunc justo eu ullamc
 
 Dolor a in scelerisque adipiscing pulvinar ad at a suspendisse ullamcorper pulvinar suspendisse torquent facilisis.', 0, 2, 0, 0, 5)
 GO
+<<<<<<< HEAD
 INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (6, N'Create CSS3 Animated Search Box', N'2015-11-28-154835_css3-animated-search-box_featured_500.jpg', CAST(N'2015-11-28 15:48:35.113' AS DateTime), N'Etiam nisi a sagittis a ornare adipiscing neque adipiscing malesuada lectus vestibulum praesent et at natoque praesent adipiscing a platea lectus. Nisl condimentum vestibulum turpis libero a metus hac a consectetur quisque ut torquent quisque sodales vestibulum a parturient curae metus vitae cursus. At cras morbi suspendisse odio fames in consectetur taciti arcu a ornare orci a a eu amet massa luctus eu sem vel faucibus ullamcorper in habitasse consectetur ipsum. Dictumst mollis netus volutpat pretium laoreet vestibulum adipiscing ad vitae malesuada condimentum ullamcorper vestibulum condimentum ipsum fermentum leo mattis ullamcorper a ut. 
+=======
+INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (6, N'Create CSS3 Animated Search Box', N'2015-11-28-154835_css3-animated-search-box_featured_500.jpg', CAST(0x0000A55E01048966 AS DateTime), N'Etiam nisi a sagittis a ornare adipiscing neque adipiscing malesuada lectus vestibulum praesent et at natoque praesent adipiscing a platea lectus. Nisl condimentum vestibulum turpis libero a metus hac a consectetur quisque ut torquent quisque sodales vestibulum a parturient curae metus vitae cursus. At cras morbi suspendisse odio fames in consectetur taciti arcu a ornare orci a a eu amet massa luctus eu sem vel faucibus ullamcorper in habitasse consectetur ipsum. Dictumst mollis netus volutpat pretium laoreet vestibulum adipiscing ad vitae malesuada condimentum ullamcorper vestibulum condimentum ipsum fermentum leo mattis ullamcorper a ut. 
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 
 In a primis scelerisque ut mattis magnis a ante ac eget a ullamcorper rutrum pharetra lobortis lacus adipiscing parturient mi id a parturient suscipit ut dolor. Pharetra accumsan a sociis ridiculus vel libero parturient fringilla adipiscing dis ut vitae a elementum condimentum urna quisque vestibulum torquent ac bibendum. Mi ligula consequat a elit turpis a adipiscing nam duis dictum tristique vestibulum elementum sed. 
 
@@ -634,7 +758,11 @@ Faucibus malesuada ante aliquet nibh in sociosqu scelerisque luctus malesuada ul
 
 Vestibulum varius conubia at ad ad ante eros ullamcorper suspendisse id orci ullamcorper curabitur interdum. Iaculis erat luctus penatibus vestibulum adipiscing pulvinar ultricies consectetur erat ad a ultrices id parturient elementum. At purus dolor nulla habitasse fusce volutpat consequat posuere parturient ad ante facilisis scelerisque id a risus et tristique neque nibh taciti non cras parturient condimentum at ornare. Ut a viverra parturient pulvinar convallis vel parturient consequat adipiscing lobortis placerat placerat consectetur sagittis vel duis eu placerat habitasse mus a nascetur congue adipiscing cubilia ac. Quis penatibus adipiscing nullam aliquam cras fermentum iaculis viverra euismod himenaeos bibendum platea diam nibh magna leo eget pulvinar tristique mus scelerisque est orci ad dolor. Consectetur senectus parturient sagittis ullamcorper non a conubia cum nam vestibulum sociosqu enim at ultricies consectetur curabitur a adipiscing parturient vestibulum parturient.', 0, 3, 0, 0, 8)
 GO
+<<<<<<< HEAD
 INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (7, N'Incredible Fantasy Creatures Brought To Life by Ellen Jewett', N'2015-11-28-191028_fantasy-creatures-brought-to-life_featured_500.jpg', CAST(N'2015-10-28 19:10:28.127' AS DateTime), N'Non lorem dignissim volutpat elit a eu curabitur fermentum adipiscing ultricies donec parturient vitae potenti a arcu adipiscing mus condimentum ullamcorper rutrum. Est habitasse tempus convallis consectetur suscipit ullamcorper id habitant magna adipiscing senectus pulvinar eu parturient. Proin vestibulum a volutpat vestibulum turpis feugiat eros placerat tempus rutrum mus a parturient placerat a arcu maecenas parturient mauris imperdiet elementum suspendisse eu torquent. Dolor facilisis consectetur adipiscing odio facilisis sem faucibus cras diam bibendum feugiat ullamcorper duis a massa suspendisse.
+=======
+INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (7, N'Incredible Fantasy Creatures Brought To Life by Ellen Jewett', N'2015-11-28-191028_fantasy-creatures-brought-to-life_featured_500.jpg', CAST(0x0000A53F013BFC56 AS DateTime), N'Non lorem dignissim volutpat elit a eu curabitur fermentum adipiscing ultricies donec parturient vitae potenti a arcu adipiscing mus condimentum ullamcorper rutrum. Est habitasse tempus convallis consectetur suscipit ullamcorper id habitant magna adipiscing senectus pulvinar eu parturient. Proin vestibulum a volutpat vestibulum turpis feugiat eros placerat tempus rutrum mus a parturient placerat a arcu maecenas parturient mauris imperdiet elementum suspendisse eu torquent. Dolor facilisis consectetur adipiscing odio facilisis sem faucibus cras diam bibendum feugiat ullamcorper duis a massa suspendisse.
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 
 A ac a phasellus adipiscing sagittis ultrices nec duis pulvinar vestibulum scelerisque tristique gravida vestibulum fringilla a condimentum. Faucibus nam donec sem cursus vestibulum condimentum aliquet id parturient pretium mi vulputate pulvinar libero duis mattis neque netus hac massa dolor. Vestibulum nisl est faucibus adipiscing et augue dictumst at malesuada donec luctus orci vestibulum nam odio mus mattis eu ridiculus feugiat mi. Aliquet dignissim dignissim himenaeos metus facilisi ad vestibulum a a ullamcorper in odio vehicula parturient eu justo metus primis viverra.
 
@@ -646,7 +774,11 @@ Convallis ultricies sem quam adipiscing venenatis ac suspendisse a nibh elit rid
 
 Tempor sem suspendisse a aenean lectus laoreet enim a leo himenaeos curae facilisi aliquam ridiculus ullamcorper tellus adipiscing eu quam a elit condimentum ut curabitur diam vehicula vestibulum. Dignissim mi ac a a lacus risus ut vestibulum posuere a tincidunt curae a elit parturient porta neque habitasse eu vestibulum venenatis conubia posuere enim placerat in id. Penatibus a adipiscing suspendisse a a magna elit et parturient parturient tincidunt vestibulum a vestibulum nulla. Parturient at a dolor vivamus est ut vitae posuere a euismod a vestibulum enim suspendisse ullamcorper elit vestibulum nisl a per nunc in aliquam adipiscing a blandit ad. A curabitur condimentum parturient primis parturient gravida proin mi montes porttitor gravida nibh ullamcorper eleifend facilisi condimentum turpis ornare mauris.', 0, 2, 0, 0, 6)
 GO
+<<<<<<< HEAD
 INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (1005, N'Improved Ajax Techniques for WordPress: Object-Oriented Programming', N'2015-11-29-081048_why-good-web-design-starts-and-ends-with-names_featured_500.jpg', CAST(N'2015-11-29 08:10:48.410' AS DateTime), N'In the previous post in this series, we revisited the topic of working with Ajax in WordPress. Ultimately, the goal is to improve upon a previous series that was run on the site a few years ago.
+=======
+INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (1005, N'Improved Ajax Techniques for WordPress: Object-Oriented Programming', N'2015-11-29-081048_why-good-web-design-starts-and-ends-with-names_featured_500.jpg', CAST(0x0000A55F0086CDDB AS DateTime), N'In the previous post in this series, we revisited the topic of working with Ajax in WordPress. Ultimately, the goal is to improve upon a previous series that was run on the site a few years ago.
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 
 To reiterate, it''s not that the techniques taught in the original series were wrong, but it''s that software changes over time so it''s always good to revisit concepts that were covered years ago and try to update them to something that''s a bit more current and more resilient for our development efforts.
 
@@ -657,7 +789,11 @@ And in that post, we reviewed some advanced ways to incorporate the WordPress Aj
 
 Ultimately, the goal is not to make a case why one paradigm should be used over the other; instead, it is to show how we can achieve the same functionality regardless of the approach that you choose when building your plugins.', 0, 1, 0, 0, 0)
 GO
+<<<<<<< HEAD
 INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (1006, N'How to Create Animated Latvian Patterns in Adobe Illustrator and After Effects', N'2015-11-29-081848_latvian-signs.jpg', CAST(N'2015-11-29 08:18:48.680' AS DateTime), N'Etiam nisl facilisis a a at ipsum orci sodales dui tincidunt vestibulum ac id varius a justo a parturient a suspendisse eleifend conubia. Vel feugiat risus quis imperdiet non eleifend est ullamcorper vel taciti gravida conubia posuere suspendisse ad enim elit adipiscing ullamcorper. Quis parturient nec nam ut mi fusce habitant curabitur ullamcorper id a placerat integer leo suscipit vivamus fermentum a gravida tortor adipiscing consectetur. Vestibulum vestibulum id eleifend facilisi suspendisse nec potenti ullamcorper a convallis dignissim a suspendisse arcu arcu sodales cras ligula scelerisque. Quisque ridiculus condimentum lacinia accumsan mattis id donec feugiat sociosqu mus sed scelerisque condimentum a ultrices vehicula lobortis adipiscing consequat parturient sit a accumsan commodo. Fusce ante condimentum non eu euismod vestibulum nostra cubilia parturient a venenatis fusce imperdiet dictumst a potenti nec parturient ornare himenaeos porta cursus hac consectetur rutrum condimentum morbi condimentum. Vestibulum lacus quis a leo mi a eu tincidunt risus nunc ac curabitur hac dis a lectus parturient cum a ligula.
+=======
+INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (1006, N'How to Create Animated Latvian Patterns in Adobe Illustrator and After Effects', N'2015-11-29-081848_latvian-signs.jpg', CAST(0x0000A55F008900AC AS DateTime), N'Etiam nisl facilisis a a at ipsum orci sodales dui tincidunt vestibulum ac id varius a justo a parturient a suspendisse eleifend conubia. Vel feugiat risus quis imperdiet non eleifend est ullamcorper vel taciti gravida conubia posuere suspendisse ad enim elit adipiscing ullamcorper. Quis parturient nec nam ut mi fusce habitant curabitur ullamcorper id a placerat integer leo suscipit vivamus fermentum a gravida tortor adipiscing consectetur. Vestibulum vestibulum id eleifend facilisi suspendisse nec potenti ullamcorper a convallis dignissim a suspendisse arcu arcu sodales cras ligula scelerisque. Quisque ridiculus condimentum lacinia accumsan mattis id donec feugiat sociosqu mus sed scelerisque condimentum a ultrices vehicula lobortis adipiscing consequat parturient sit a accumsan commodo. Fusce ante condimentum non eu euismod vestibulum nostra cubilia parturient a venenatis fusce imperdiet dictumst a potenti nec parturient ornare himenaeos porta cursus hac consectetur rutrum condimentum morbi condimentum. Vestibulum lacus quis a leo mi a eu tincidunt risus nunc ac curabitur hac dis a lectus parturient cum a ligula.
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 
 Hendrerit adipiscing dictum dis in facilisi adipiscing est quisque purus suspendisse justo suspendisse mi a dignissim eros. Id suspendisse diam scelerisque orci habitasse egestas commodo in felis semper quis pharetra nec arcu cum volutpat ipsum a dui consequat eu nibh. Suspendisse ut nam cubilia fermentum pharetra malesuada platea pretium dignissim senectus habitasse mus aliquet a cursus quis a condimentum orci a tempus luctus id ligula morbi.
 
@@ -671,14 +807,22 @@ A parturient suspendisse adipiscing blandit sem mattis parturient justo eros mi 
 
 Luctus venenatis cras urna placerat parturient potenti nec nisl a elit eleifend venenatis curabitur a nec parturient scelerisque habitasse sit vestibulum. Vestibulum nam accumsan elementum suspendisse condimentum tristique fringilla mus in dui duis adipiscing ullamcorper conubia parturient varius placerat scelerisque accumsan parturient enim pretium condimentum parturient lacinia.', 1, 3, 0, 0, 1)
 GO
+<<<<<<< HEAD
 INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (2005, N'Instagrammer Daniel Cerejo Unveils The Secret Life Of Toys', N'2015-12-03-120309_secret-life-toys_featured_500.jpg', CAST(N'2015-12-03 12:03:10.000' AS DateTime), N'[size=100][center][img]http://k30.kn3.net/B/9/7/1/1/F/6A7.gif[/img]?[/center]
+=======
+INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (2005, N'Instagrammer Daniel Cerejo Unveils The Secret Life Of Toys', N'2015-12-03-120309_secret-life-toys_featured_500.jpg', CAST(0x0000A56300C69FA8 AS DateTime), N'[size=100][center][img]http://k30.kn3.net/B/9/7/1/1/F/6A7.gif[/img]?[/center]
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 
 [b]Himenaeos penatibus[/b] ultrices nisl iaculis suspendisse vestibulum sit vestibulum aenean ullamcorper a cubilia scelerisque vel parturient himenaeos fermentum ullamcorper ultricies adipiscing gravida sed faucibus. [i]Tortor scelerisque nullam vitae a nec in consectetur et a a parturient a condimentum elementum parturient nam dignissim per adipiscing id leo a sem. Ante dictum a in vivamus parturient in malesuada egestas praesent sociosqu nam magna nec porta vulputate condimentum sed condimentum vel sociis. Vestibulum scelerisque a duis eget tellus massa donec nisi curae condimentum pretium condimentum[/i] scelerisque phasellus a scelerisque porta sit. Taciti vel per mi platea urna dui eget vel etiam a egestas nisl per sem vestibulum vestibulum erat fusce augue inceptos. Sed a morbi luctus dignissim iaculis cum sapien nisl volutpat convallis lacus vestibulum morbi sed tempus convallis euismod himenaeos adipiscing diam dapibus sociosqu facilisi parturient parturient vestibulum adipiscing mi.
 
 Adipiscing conubia curabitur porttitor a nulla duis morbi vestibulum hac ullamcorper a scelerisque congue vestibulum montes vehicula torquent integer a porttitor vel a aenean. Id dignissim nibh morbi vivamus nascetur a gravida cubilia condimentum hac ac bibendum potenti nunc vivamus ad fringilla parturient per eu phasellus cum nam amet sodales parturient.
 [/size]', 1, 1, 0, 0, 2)
 GO
+<<<<<<< HEAD
 INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (2006, N'Introduction to the CSS Grid Layout', N'2015-12-09-115606_tatooine_jobfair.gif', CAST(N'2015-12-09 11:56:06.870' AS DateTime), N'CSS is constantly evolving. Some of the features being talked about now may well become mainstream in the near future, while others will likely fade into obscurity. Either way, understanding which CSS selectors, layout modules and filters are being considered for the future will make you a stronger front-end developer.
+=======
+INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (2006, N'Introduction to the CSS Grid Layout', N'2015-12-09-115606_tatooine_jobfair.gif', CAST(0x0000A56900C4AFCD AS DateTime), N'CSS is constantly evolving. Some of the features being talked about now may well become mainstream in the near future, while others will likely fade into obscurity. Either way, understanding which CSS selectors, layout modules and filters are being considered for the future will make you a stronger front-end developer.
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 
 [center][video]DPWrk19940g[/video][/center]
 
@@ -692,7 +836,11 @@ Some of the features covered may well become mainstream in the near future, whil
 
 ', 1, 1, 0, 0, 4)
 GO
+<<<<<<< HEAD
 INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (2007, N'How to Design a Stylish Kids'' Magazine in Adobe InDesign', N'2015-12-10-114438_starwars.png', CAST(N'2015-12-10 11:44:38.060' AS DateTime), N'[center][img]https://cms-assets.tutsplus.com/uploads/users/114/posts/25331/final_image/Cover-Mock-up.png[/img]?
+=======
+INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (2007, N'How to Design a Stylish Kids'' Magazine in Adobe InDesign', N'2015-12-10-114438_starwars.png', CAST(0x0000A56A00C1889A AS DateTime), N'[center][img]https://cms-assets.tutsplus.com/uploads/users/114/posts/25331/final_image/Cover-Mock-up.png[/img]?
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 
 
 [/center]Magazines aimed at children and families are enjoying a resurgence, with titles like[i]Milk[/i] in France and [i]Junior[/i] in the UK presenting super-stylish designs.
@@ -708,7 +856,11 @@ The example brand and template that you can recreate in this tutorial is suited 
 Ready? Great! Let’s get started... Nah, just kidding.
 ', 0, 1, 0, 0, 6)
 GO
+<<<<<<< HEAD
 INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (2008, N'Essential Rails Gems', N'2015-12-10-140554_ruby.jpg', CAST(N'2015-12-10 14:05:54.953' AS DateTime), N'Ruby on Rails is a great framework for quickly and easily building applications for the web. It''s a framework designed with developer productivity and happiness in mind. However, there are lots of commonly required features that Rails doesn''t support out of the box. You can always roll your own solutions, but the best case is to use a community-created gem.
+=======
+INSERT [dbo].[Post] ([Id], [Title], [Image], [Time], [Description], [Highlight], [Id_Category], [DisabledComments], [Deleted], [Visits]) VALUES (2008, N'Essential Rails Gems', N'2015-12-10-140554_ruby.jpg', CAST(0x0000A56A00E85676 AS DateTime), N'Ruby on Rails is a great framework for quickly and easily building applications for the web. It''s a framework designed with developer productivity and happiness in mind. However, there are lots of commonly required features that Rails doesn''t support out of the box. You can always roll your own solutions, but the best case is to use a community-created gem.
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 In this course, Tuts+ instructor José Mota will show you how to use some of the most commonly needed gems for Rails apps. You''ll learn about gems that improve the debugging experience, that help with user authorization and authentication, that run tasks, perform search, protect data and more! You''ll also learn about some really crucial testing gems along the way.
 
 [center][video]_e3p6M7xbig[/video][/center]
@@ -941,7 +1093,10 @@ REFERENCES [dbo].[Icon] ([Id])
 GO
 ALTER TABLE [dbo].[Social] CHECK CONSTRAINT [FK_Social_Icon]
 GO
+<<<<<<< HEAD
 USE [master]
 GO
 ALTER DATABASE [newsSystem_db] SET  READ_WRITE 
 GO
+=======
+>>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
