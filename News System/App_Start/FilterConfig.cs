@@ -8,7 +8,6 @@ namespace News_System
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
-<<<<<<< HEAD
             filters.Add(new CustomAuthorizeAttribute());
         }
 
@@ -30,8 +29,6 @@ namespace News_System
 
                 return true;
             }
-=======
->>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
         }
     }
 }

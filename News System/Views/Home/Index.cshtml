@@ -7,7 +7,6 @@
     ViewBag.Title = "Home Page";
 }
 
-<<<<<<< HEAD
 @if (ViewBag.PostsDestacados != null)
 {
     <h4 class="section-title">
@@ -21,76 +20,11 @@
         <article class="vertical">
             <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" class="article-thumbnail">
                 <img src="~/Files/@item.Image" alt="@item.Title" />
-=======
-<h4 class="section-title">Highlight articles<span></span></h4>
-
-<div class="top-articles-list">
-    @foreach (var item in Model.Posts)
-    {
-        if (item.Highlight == true)
-        {
-            <article class="vertical">
-                <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" class="article-thumbnail">
-                    <img src="~/Files/@Html.DisplayFor(modelItem => item.Image)" />
-                </a>
-                <div class="article-info">
-                    <div class="article-meta">
-                        <ul>
-                            <li>
-                                <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" title="@Html.DisplayFor(modelItem => item.Time)" data-tooltip="true" data-placement="top">
-                                    @Html.DisplayFor(modelItem => item.Time)
-                                </a>
-                            </li>
-
-                            <li class="divider">/</li>
-
-                            <li>
-                                <a href="@Url.Action("Category", "Post", new { id = item.Category.Id })" title="Category" data-tooltip="true" data-placement="top">
-                                    @Html.DisplayFor(modelItem => item.Category.Name)
-                                </a>
-                            </li>
-                            <li class="divider">/</li>
-                            <li>
-                                <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })#comments" title="Comments" data-tooltip="true" data-placement="top">
-                                    @Html.DisplayFor(modelItem => item.Comment.Count) @(item.Comment.Count == 0 || item.Comment.Count > 1 ? "Comments" : "Comment")
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <h2 class="article-title">
-                        <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" title="@Html.DisplayFor(modelItem => item.Title)" data-tooltip="true" data-placement="top">
-                            @Html.DisplayFor(modelItem => item.Title)
-                        </a>
-                    </h2>
-                </div>
-                <div class="clear"></div>
-            </article>
-        }
-    }
-    <div class="clear"></div>
-</div>
-
-@*<div class="ad-page-responsive">
-    <center>
-        @Html.Raw(ViewBag.Ads_728)
-    </center>
-</div>*@
-
-<h4 class="section-title">Latest articles<span></span></h4>
-
-@foreach (var item in Model.Posts)
-{
-    if (item.Highlight == false)
-    {
-        <article class="horizontal wow fadeIn">
-            <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" class="article-thumbnail">
-                <img src="~/Files/@Html.DisplayFor(modelItem => item.Image)" />
             </a>
             <div class="article-info">
                 <div class="article-meta">
                     <ul>
                         <li>
-<<<<<<< HEAD
                             <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" title="@item.Time" data-tooltip="true" data-placement="top">
                                 @item.Time
                             </a>
@@ -101,26 +35,12 @@
                         <li>
                             <a href="@Url.Action("Category", "Post", new { id = item.Id_Category })" title="Categoría" data-tooltip="true" data-placement="top">
                                 @item.Category
-=======
-                            <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" title="@Html.DisplayFor(modelItem => item.Time)" data-tooltip="true" data-placement="top">
-                                @Html.DisplayFor(modelItem => item.Time)
                             </a>
                         </li>
                         <li class="divider">/</li>
                         <li>
-                            <a href="@Url.Action("Category", "Post", new { id = item.Category.Id })" title="Category" data-tooltip="true" data-placement="top">
-                                @Html.DisplayFor(modelItem => item.Category.Name)
->>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
-                            </a>
-                        </li>
-                        <li class="divider">/</li>
-                        <li>
-<<<<<<< HEAD
                             <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })#comments" title="Comentarios" data-tooltip="true" data-placement="top">
-                                @Html.DisplayFor(modelItem => item.Comments) @(item.Comments == 0 || item.Comments > 1 ? "Comentarios" : "Comentario")
-=======
-                            <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })#comments" title="Comments" data-tooltip="true" data-placement="top">
-                                @Html.DisplayFor(modelItem => item.Comment.Count) @(item.Comment.Count == 0 || item.Comment.Count > 1 ? "Comments" : "Comment")
+                                @Html.DisplayFor(modelItem => item.Comments) @(item.Comments == 0 || item.Comments > 1 ? "Comments" : "Comment")
                             </a>
                         </li>
                     </ul>
@@ -130,14 +50,6 @@
                         @item.Title
                     </a>
                 </h2>
-                    <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })" title="@Html.DisplayFor(modelItem => item.Title)" data-tooltip="true" data-placement="top">
-                        @Html.DisplayFor(modelItem => item.Title)
-                    </a>
-                </h2>
-
-                <p>
-                    @Html.DisplayFor(modelItem => item.Description).ToString().Substring(0, 25)...
-                </p>
             </div>
             <div class="clear"></div>
         </article>
@@ -147,7 +59,7 @@
 </div>
 
 <h4 class="section-title">
-    Latest articles <span></span>
+    Lastest articles <span></span>
 </h4>
 
 @foreach (var item in Model)
@@ -173,7 +85,7 @@
                     <li class="divider">/</li>
                     <li>
                         <a href="@Url.Action("ViewPost", "Post", new { id = item.Id })#comments" title="Comentarios" data-tooltip="true" data-placement="top">
-                            @Html.DisplayFor(modelItem => item.Comment.Count) @(item.Comment.Count == 0 || item.Comment.Count > 1 ? "Comentarios" : "Comentario")
+                            @Html.DisplayFor(modelItem => item.Comment.Count) @(item.Comment.Count == 0 || item.Comment.Count > 1 ? "Comments" : "Comment")
                         </a>
                     </li>
                 </ul>
@@ -205,7 +117,7 @@
     @*@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@
 </div>
 
-@if (Model.Where(x => x.Deleted == false && x.Highlight == false).Count() <= 0)
+@if (Model.Where(x => x.Highlight == false).Count() <= 0)
 {
     <article class="horizontal wow fadeIn">
         <div class="alert alert-warning" role="alert">

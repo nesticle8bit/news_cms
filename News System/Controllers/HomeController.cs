@@ -1,10 +1,7 @@
 ﻿using News_System.Models;
 using System.Linq;
 using System.Web.Mvc;
-<<<<<<< HEAD
 using PagedList;
-=======
->>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
 
 namespace News_System.Controllers
 {
@@ -12,8 +9,7 @@ namespace News_System.Controllers
     {
         private newsSystem_dbEntities db = new newsSystem_dbEntities();
         HomeViewModel homeViewModel = new HomeViewModel();
-
-<<<<<<< HEAD
+        
         public ActionResult Index(int? page)
         {
             int pageSize = 8;
@@ -38,19 +34,6 @@ namespace News_System.Controllers
                          select q);
 
             return View(posts.ToPagedList(pageNumber, pageSize));
-=======
-        public ActionResult Index()
-        {
-            homeViewModel.Posts = db.Post
-                                    .Where(p => p.Deleted == false)
-                                    .ToList()
-                                    .OrderByDescending(o => o.Time);
-
-            //Categorias del Sidebar, no hay necesidad de crear un ActionResult para ese View
-            //homeViewModel.Categories = db.Category.ToList().OrderBy(o => o.Name);
-
-            return View(homeViewModel);
->>>>>>> 3ae2c16b001ed52d90e746547ce80f711f4b496f
         }
 
         //public ActionResult Sidebar()
